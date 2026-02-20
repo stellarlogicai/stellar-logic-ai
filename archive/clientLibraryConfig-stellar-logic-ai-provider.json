@@ -1,0 +1,13 @@
+{
+  "universe_domain": "googleapis.com",
+  "type": "external_account",
+  "audience": "//iam.googleapis.com/projects/71350385120/locations/global/workloadIdentityPools/stellar-logic-ai-assistant/providers/stellar-logic-ai-provider",
+  "subject_token_type": "urn:ietf:params:oauth:token-type:jwt",
+  "token_url": "https://sts.googleapis.com/v1/token",
+  "credential_source": {
+    "file": "/.well-known/openid-configuration",
+    "format": {
+      "type": "text"
+    }
+  }
+}

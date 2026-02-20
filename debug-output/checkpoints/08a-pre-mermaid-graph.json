@@ -1,0 +1,865 @@
+{
+  "timestamp": "2026-02-20T02:48:41.791Z",
+  "summary": {
+    "nodeCount": 11,
+    "edgeCount": 90,
+    "nodeTypes": {
+      "symbol": 11
+    },
+    "edgeTypes": {
+      "calls": 90
+    },
+    "errorNodes": 0,
+    "suspectNodes": 0
+  },
+  "sampleNodes": [
+    {
+      "id": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_AgentRole",
+      "label": "AgentRole",
+      "kind": "symbol",
+      "file": "c:\\Users\\merce\\Documents\\helm-ai\\src\\ai\\core\\multi-agent-systems.py",
+      "line": 1,
+      "badges": [
+        "spine"
+      ]
+    },
+    {
+      "id": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_AgentState",
+      "label": "AgentState",
+      "kind": "symbol",
+      "file": "c:\\Users\\merce\\Documents\\helm-ai\\src\\ai\\core\\multi-agent-systems.py",
+      "line": 1,
+      "badges": [
+        "spine"
+      ]
+    },
+    {
+      "id": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_AgentCapability",
+      "label": "AgentCapability",
+      "kind": "symbol",
+      "file": "c:\\Users\\merce\\Documents\\helm-ai\\src\\ai\\core\\multi-agent-systems.py",
+      "line": 1,
+      "badges": [
+        "spine"
+      ]
+    },
+    {
+      "id": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_AgentMessage",
+      "label": "AgentMessage",
+      "kind": "symbol",
+      "file": "c:\\Users\\merce\\Documents\\helm-ai\\src\\ai\\core\\multi-agent-systems.py",
+      "line": 1,
+      "badges": [
+        "spine"
+      ]
+    },
+    {
+      "id": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_Task",
+      "label": "Task",
+      "kind": "symbol",
+      "file": "c:\\Users\\merce\\Documents\\helm-ai\\src\\ai\\core\\multi-agent-systems.py",
+      "line": 1,
+      "badges": [
+        "spine"
+      ]
+    },
+    {
+      "id": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_AIAgent",
+      "label": "AIAgent",
+      "kind": "symbol",
+      "file": "c:\\Users\\merce\\Documents\\helm-ai\\src\\ai\\core\\multi-agent-systems.py",
+      "line": 1,
+      "badges": [
+        "spine"
+      ]
+    },
+    {
+      "id": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_SpecialistAgent",
+      "label": "SpecialistAgent",
+      "kind": "symbol",
+      "file": "c:\\Users\\merce\\Documents\\helm-ai\\src\\ai\\core\\multi-agent-systems.py",
+      "line": 1,
+      "badges": [
+        "spine"
+      ]
+    },
+    {
+      "id": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_CoordinatorAgent",
+      "label": "CoordinatorAgent",
+      "kind": "symbol",
+      "file": "c:\\Users\\merce\\Documents\\helm-ai\\src\\ai\\core\\multi-agent-systems.py",
+      "line": 1,
+      "badges": [
+        "spine"
+      ]
+    },
+    {
+      "id": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_MultiAgentSystem",
+      "label": "MultiAgentSystem",
+      "kind": "symbol",
+      "file": "c:\\Users\\merce\\Documents\\helm-ai\\src\\ai\\core\\multi-agent-systems.py",
+      "line": 1,
+      "badges": [
+        "spine"
+      ]
+    },
+    {
+      "id": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_MessageBroker",
+      "label": "MessageBroker",
+      "kind": "symbol",
+      "file": "c:\\Users\\merce\\Documents\\helm-ai\\src\\ai\\core\\multi-agent-systems.py",
+      "line": 1,
+      "badges": [
+        "spine"
+      ]
+    }
+  ],
+  "sampleEdges": [
+    {
+      "from": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_AgentRole",
+      "to": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_AgentMessage",
+      "kind": "calls",
+      "confidence": 0.4
+    },
+    {
+      "from": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_AgentRole",
+      "to": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_AgentCapability",
+      "kind": "calls",
+      "confidence": 0.4
+    },
+    {
+      "from": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_AgentRole",
+      "to": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_MessageBroker",
+      "kind": "calls",
+      "confidence": 0.4
+    },
+    {
+      "from": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_AgentRole",
+      "to": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_CoordinatorAgent",
+      "kind": "calls",
+      "confidence": 0.4
+    },
+    {
+      "from": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_AgentRole",
+      "to": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_SpecialistAgent",
+      "kind": "calls",
+      "confidence": 0.4
+    },
+    {
+      "from": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_AgentRole",
+      "to": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_MultiAgentSystem",
+      "kind": "calls",
+      "confidence": 0.4
+    },
+    {
+      "from": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_AgentRole",
+      "to": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_Task",
+      "kind": "calls",
+      "confidence": 0.4
+    },
+    {
+      "from": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_AgentRole",
+      "to": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_MultiAgentAIIntegration",
+      "kind": "calls",
+      "confidence": 0.4
+    },
+    {
+      "from": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_AgentState",
+      "to": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_AgentMessage",
+      "kind": "calls",
+      "confidence": 0.4
+    },
+    {
+      "from": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_AgentState",
+      "to": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_AgentCapability",
+      "kind": "calls",
+      "confidence": 0.4
+    }
+  ],
+  "fullGraph": {
+    "nodes": [
+      {
+        "id": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_AgentRole",
+        "label": "AgentRole",
+        "file": "c:\\Users\\merce\\Documents\\helm-ai\\src\\ai\\core\\multi-agent-systems.py",
+        "kind": "symbol",
+        "line": 1,
+        "badges": [
+          "spine"
+        ]
+      },
+      {
+        "id": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_AgentState",
+        "label": "AgentState",
+        "file": "c:\\Users\\merce\\Documents\\helm-ai\\src\\ai\\core\\multi-agent-systems.py",
+        "kind": "symbol",
+        "line": 1,
+        "badges": [
+          "spine"
+        ]
+      },
+      {
+        "id": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_AgentCapability",
+        "label": "AgentCapability",
+        "file": "c:\\Users\\merce\\Documents\\helm-ai\\src\\ai\\core\\multi-agent-systems.py",
+        "kind": "symbol",
+        "line": 1,
+        "badges": [
+          "spine"
+        ]
+      },
+      {
+        "id": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_AgentMessage",
+        "label": "AgentMessage",
+        "file": "c:\\Users\\merce\\Documents\\helm-ai\\src\\ai\\core\\multi-agent-systems.py",
+        "kind": "symbol",
+        "line": 1,
+        "badges": [
+          "spine"
+        ]
+      },
+      {
+        "id": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_Task",
+        "label": "Task",
+        "file": "c:\\Users\\merce\\Documents\\helm-ai\\src\\ai\\core\\multi-agent-systems.py",
+        "kind": "symbol",
+        "line": 1,
+        "badges": [
+          "spine"
+        ]
+      },
+      {
+        "id": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_AIAgent",
+        "label": "AIAgent",
+        "file": "c:\\Users\\merce\\Documents\\helm-ai\\src\\ai\\core\\multi-agent-systems.py",
+        "kind": "symbol",
+        "line": 1,
+        "badges": [
+          "spine"
+        ]
+      },
+      {
+        "id": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_SpecialistAgent",
+        "label": "SpecialistAgent",
+        "file": "c:\\Users\\merce\\Documents\\helm-ai\\src\\ai\\core\\multi-agent-systems.py",
+        "kind": "symbol",
+        "line": 1,
+        "badges": [
+          "spine"
+        ]
+      },
+      {
+        "id": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_CoordinatorAgent",
+        "label": "CoordinatorAgent",
+        "file": "c:\\Users\\merce\\Documents\\helm-ai\\src\\ai\\core\\multi-agent-systems.py",
+        "kind": "symbol",
+        "line": 1,
+        "badges": [
+          "spine"
+        ]
+      },
+      {
+        "id": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_MultiAgentSystem",
+        "label": "MultiAgentSystem",
+        "file": "c:\\Users\\merce\\Documents\\helm-ai\\src\\ai\\core\\multi-agent-systems.py",
+        "kind": "symbol",
+        "line": 1,
+        "badges": [
+          "spine"
+        ]
+      },
+      {
+        "id": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_MessageBroker",
+        "label": "MessageBroker",
+        "file": "c:\\Users\\merce\\Documents\\helm-ai\\src\\ai\\core\\multi-agent-systems.py",
+        "kind": "symbol",
+        "line": 1,
+        "badges": [
+          "spine"
+        ]
+      },
+      {
+        "id": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_MultiAgentAIIntegration",
+        "label": "MultiAgentAIIntegration",
+        "file": "c:\\Users\\merce\\Documents\\helm-ai\\src\\ai\\core\\multi-agent-systems.py",
+        "kind": "symbol",
+        "line": 1,
+        "badges": [
+          "spine"
+        ]
+      }
+    ],
+    "edges": [
+      {
+        "from": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_AgentRole",
+        "to": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_AgentMessage",
+        "kind": "calls",
+        "confidence": 0.4
+      },
+      {
+        "from": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_AgentRole",
+        "to": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_AgentCapability",
+        "kind": "calls",
+        "confidence": 0.4
+      },
+      {
+        "from": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_AgentRole",
+        "to": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_MessageBroker",
+        "kind": "calls",
+        "confidence": 0.4
+      },
+      {
+        "from": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_AgentRole",
+        "to": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_CoordinatorAgent",
+        "kind": "calls",
+        "confidence": 0.4
+      },
+      {
+        "from": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_AgentRole",
+        "to": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_SpecialistAgent",
+        "kind": "calls",
+        "confidence": 0.4
+      },
+      {
+        "from": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_AgentRole",
+        "to": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_MultiAgentSystem",
+        "kind": "calls",
+        "confidence": 0.4
+      },
+      {
+        "from": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_AgentRole",
+        "to": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_Task",
+        "kind": "calls",
+        "confidence": 0.4
+      },
+      {
+        "from": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_AgentRole",
+        "to": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_MultiAgentAIIntegration",
+        "kind": "calls",
+        "confidence": 0.4
+      },
+      {
+        "from": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_AgentState",
+        "to": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_AgentMessage",
+        "kind": "calls",
+        "confidence": 0.4
+      },
+      {
+        "from": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_AgentState",
+        "to": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_AgentCapability",
+        "kind": "calls",
+        "confidence": 0.4
+      },
+      {
+        "from": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_AgentState",
+        "to": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_MessageBroker",
+        "kind": "calls",
+        "confidence": 0.4
+      },
+      {
+        "from": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_AgentState",
+        "to": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_CoordinatorAgent",
+        "kind": "calls",
+        "confidence": 0.4
+      },
+      {
+        "from": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_AgentState",
+        "to": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_SpecialistAgent",
+        "kind": "calls",
+        "confidence": 0.4
+      },
+      {
+        "from": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_AgentState",
+        "to": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_MultiAgentSystem",
+        "kind": "calls",
+        "confidence": 0.4
+      },
+      {
+        "from": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_AgentState",
+        "to": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_Task",
+        "kind": "calls",
+        "confidence": 0.4
+      },
+      {
+        "from": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_AgentState",
+        "to": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_MultiAgentAIIntegration",
+        "kind": "calls",
+        "confidence": 0.4
+      },
+      {
+        "from": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_AgentCapability",
+        "to": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_AgentMessage",
+        "kind": "calls",
+        "confidence": 0.4
+      },
+      {
+        "from": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_AgentCapability",
+        "to": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_MessageBroker",
+        "kind": "calls",
+        "confidence": 0.4
+      },
+      {
+        "from": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_AgentCapability",
+        "to": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_CoordinatorAgent",
+        "kind": "calls",
+        "confidence": 0.4
+      },
+      {
+        "from": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_AgentCapability",
+        "to": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_SpecialistAgent",
+        "kind": "calls",
+        "confidence": 0.4
+      },
+      {
+        "from": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_AgentCapability",
+        "to": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_MultiAgentSystem",
+        "kind": "calls",
+        "confidence": 0.4
+      },
+      {
+        "from": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_AgentCapability",
+        "to": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_Task",
+        "kind": "calls",
+        "confidence": 0.4
+      },
+      {
+        "from": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_AgentCapability",
+        "to": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_MultiAgentAIIntegration",
+        "kind": "calls",
+        "confidence": 0.4
+      },
+      {
+        "from": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_AgentMessage",
+        "to": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_AgentCapability",
+        "kind": "calls",
+        "confidence": 0.4
+      },
+      {
+        "from": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_AgentMessage",
+        "to": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_MessageBroker",
+        "kind": "calls",
+        "confidence": 0.4
+      },
+      {
+        "from": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_AgentMessage",
+        "to": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_CoordinatorAgent",
+        "kind": "calls",
+        "confidence": 0.4
+      },
+      {
+        "from": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_AgentMessage",
+        "to": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_SpecialistAgent",
+        "kind": "calls",
+        "confidence": 0.4
+      },
+      {
+        "from": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_AgentMessage",
+        "to": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_MultiAgentSystem",
+        "kind": "calls",
+        "confidence": 0.4
+      },
+      {
+        "from": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_AgentMessage",
+        "to": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_Task",
+        "kind": "calls",
+        "confidence": 0.4
+      },
+      {
+        "from": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_AgentMessage",
+        "to": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_MultiAgentAIIntegration",
+        "kind": "calls",
+        "confidence": 0.4
+      },
+      {
+        "from": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_Task",
+        "to": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_AgentMessage",
+        "kind": "calls",
+        "confidence": 0.4
+      },
+      {
+        "from": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_Task",
+        "to": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_AgentCapability",
+        "kind": "calls",
+        "confidence": 0.4
+      },
+      {
+        "from": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_Task",
+        "to": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_MessageBroker",
+        "kind": "calls",
+        "confidence": 0.4
+      },
+      {
+        "from": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_Task",
+        "to": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_CoordinatorAgent",
+        "kind": "calls",
+        "confidence": 0.4
+      },
+      {
+        "from": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_Task",
+        "to": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_SpecialistAgent",
+        "kind": "calls",
+        "confidence": 0.4
+      },
+      {
+        "from": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_Task",
+        "to": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_MultiAgentSystem",
+        "kind": "calls",
+        "confidence": 0.4
+      },
+      {
+        "from": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_Task",
+        "to": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_MultiAgentAIIntegration",
+        "kind": "calls",
+        "confidence": 0.4
+      },
+      {
+        "from": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_AIAgent",
+        "to": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_AgentMessage",
+        "kind": "calls",
+        "confidence": 0.4
+      },
+      {
+        "from": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_AIAgent",
+        "to": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_AgentCapability",
+        "kind": "calls",
+        "confidence": 0.4
+      },
+      {
+        "from": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_AIAgent",
+        "to": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_MessageBroker",
+        "kind": "calls",
+        "confidence": 0.4
+      },
+      {
+        "from": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_AIAgent",
+        "to": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_CoordinatorAgent",
+        "kind": "calls",
+        "confidence": 0.4
+      },
+      {
+        "from": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_AIAgent",
+        "to": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_SpecialistAgent",
+        "kind": "calls",
+        "confidence": 0.4
+      },
+      {
+        "from": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_AIAgent",
+        "to": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_MultiAgentSystem",
+        "kind": "calls",
+        "confidence": 0.4
+      },
+      {
+        "from": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_AIAgent",
+        "to": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_Task",
+        "kind": "calls",
+        "confidence": 0.4
+      },
+      {
+        "from": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_AIAgent",
+        "to": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_MultiAgentAIIntegration",
+        "kind": "calls",
+        "confidence": 0.4
+      },
+      {
+        "from": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_SpecialistAgent",
+        "to": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_AgentMessage",
+        "kind": "calls",
+        "confidence": 0.4
+      },
+      {
+        "from": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_SpecialistAgent",
+        "to": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_AgentCapability",
+        "kind": "calls",
+        "confidence": 0.4
+      },
+      {
+        "from": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_SpecialistAgent",
+        "to": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_MessageBroker",
+        "kind": "calls",
+        "confidence": 0.4
+      },
+      {
+        "from": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_SpecialistAgent",
+        "to": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_CoordinatorAgent",
+        "kind": "calls",
+        "confidence": 0.4
+      },
+      {
+        "from": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_SpecialistAgent",
+        "to": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_MultiAgentSystem",
+        "kind": "calls",
+        "confidence": 0.4
+      },
+      {
+        "from": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_SpecialistAgent",
+        "to": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_Task",
+        "kind": "calls",
+        "confidence": 0.4
+      },
+      {
+        "from": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_SpecialistAgent",
+        "to": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_MultiAgentAIIntegration",
+        "kind": "calls",
+        "confidence": 0.4
+      },
+      {
+        "from": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_CoordinatorAgent",
+        "to": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_AgentMessage",
+        "kind": "calls",
+        "confidence": 0.4
+      },
+      {
+        "from": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_CoordinatorAgent",
+        "to": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_AgentCapability",
+        "kind": "calls",
+        "confidence": 0.4
+      },
+      {
+        "from": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_CoordinatorAgent",
+        "to": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_MessageBroker",
+        "kind": "calls",
+        "confidence": 0.4
+      },
+      {
+        "from": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_CoordinatorAgent",
+        "to": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_SpecialistAgent",
+        "kind": "calls",
+        "confidence": 0.4
+      },
+      {
+        "from": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_CoordinatorAgent",
+        "to": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_MultiAgentSystem",
+        "kind": "calls",
+        "confidence": 0.4
+      },
+      {
+        "from": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_CoordinatorAgent",
+        "to": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_Task",
+        "kind": "calls",
+        "confidence": 0.4
+      },
+      {
+        "from": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_CoordinatorAgent",
+        "to": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_MultiAgentAIIntegration",
+        "kind": "calls",
+        "confidence": 0.4
+      },
+      {
+        "from": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_MultiAgentSystem",
+        "to": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_AgentMessage",
+        "kind": "calls",
+        "confidence": 0.4
+      },
+      {
+        "from": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_MultiAgentSystem",
+        "to": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_AgentCapability",
+        "kind": "calls",
+        "confidence": 0.4
+      },
+      {
+        "from": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_MultiAgentSystem",
+        "to": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_MessageBroker",
+        "kind": "calls",
+        "confidence": 0.4
+      },
+      {
+        "from": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_MultiAgentSystem",
+        "to": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_CoordinatorAgent",
+        "kind": "calls",
+        "confidence": 0.4
+      },
+      {
+        "from": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_MultiAgentSystem",
+        "to": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_SpecialistAgent",
+        "kind": "calls",
+        "confidence": 0.4
+      },
+      {
+        "from": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_MultiAgentSystem",
+        "to": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_Task",
+        "kind": "calls",
+        "confidence": 0.4
+      },
+      {
+        "from": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_MultiAgentSystem",
+        "to": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_MultiAgentAIIntegration",
+        "kind": "calls",
+        "confidence": 0.4
+      },
+      {
+        "from": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_MessageBroker",
+        "to": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_AgentMessage",
+        "kind": "calls",
+        "confidence": 0.4
+      },
+      {
+        "from": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_MessageBroker",
+        "to": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_AgentCapability",
+        "kind": "calls",
+        "confidence": 0.4
+      },
+      {
+        "from": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_MessageBroker",
+        "to": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_CoordinatorAgent",
+        "kind": "calls",
+        "confidence": 0.4
+      },
+      {
+        "from": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_MessageBroker",
+        "to": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_SpecialistAgent",
+        "kind": "calls",
+        "confidence": 0.4
+      },
+      {
+        "from": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_MessageBroker",
+        "to": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_MultiAgentSystem",
+        "kind": "calls",
+        "confidence": 0.4
+      },
+      {
+        "from": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_MessageBroker",
+        "to": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_Task",
+        "kind": "calls",
+        "confidence": 0.4
+      },
+      {
+        "from": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_MessageBroker",
+        "to": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_MultiAgentAIIntegration",
+        "kind": "calls",
+        "confidence": 0.4
+      },
+      {
+        "from": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_MultiAgentAIIntegration",
+        "to": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_AgentMessage",
+        "kind": "calls",
+        "confidence": 0.4
+      },
+      {
+        "from": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_MultiAgentAIIntegration",
+        "to": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_AgentCapability",
+        "kind": "calls",
+        "confidence": 0.4
+      },
+      {
+        "from": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_MultiAgentAIIntegration",
+        "to": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_MessageBroker",
+        "kind": "calls",
+        "confidence": 0.4
+      },
+      {
+        "from": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_MultiAgentAIIntegration",
+        "to": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_CoordinatorAgent",
+        "kind": "calls",
+        "confidence": 0.4
+      },
+      {
+        "from": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_MultiAgentAIIntegration",
+        "to": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_SpecialistAgent",
+        "kind": "calls",
+        "confidence": 0.4
+      },
+      {
+        "from": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_MultiAgentAIIntegration",
+        "to": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_MultiAgentSystem",
+        "kind": "calls",
+        "confidence": 0.4
+      },
+      {
+        "from": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_MultiAgentAIIntegration",
+        "to": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_Task",
+        "kind": "calls",
+        "confidence": 0.4
+      },
+      {
+        "from": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_AgentRole",
+        "to": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_AgentState",
+        "kind": "calls",
+        "confidence": 0.55,
+        "evidence": [
+          "structural-spine"
+        ]
+      },
+      {
+        "from": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_Task",
+        "to": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_AIAgent",
+        "kind": "calls",
+        "confidence": 0.55,
+        "evidence": [
+          "structural-spine"
+        ]
+      },
+      {
+        "from": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_AgentCapability",
+        "to": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_AgentCapability",
+        "kind": "calls",
+        "confidence": 0.4,
+        "evidence": [
+          "ast-forward"
+        ]
+      },
+      {
+        "from": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_AgentMessage",
+        "to": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_AgentMessage",
+        "kind": "calls",
+        "confidence": 0.4,
+        "evidence": [
+          "ast-forward"
+        ]
+      },
+      {
+        "from": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_Task",
+        "to": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_Task",
+        "kind": "calls",
+        "confidence": 0.4,
+        "evidence": [
+          "ast-forward"
+        ]
+      },
+      {
+        "from": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_SpecialistAgent",
+        "to": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_SpecialistAgent",
+        "kind": "calls",
+        "confidence": 0.4,
+        "evidence": [
+          "ast-forward"
+        ]
+      },
+      {
+        "from": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_CoordinatorAgent",
+        "to": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_CoordinatorAgent",
+        "kind": "calls",
+        "confidence": 0.4,
+        "evidence": [
+          "ast-forward"
+        ]
+      },
+      {
+        "from": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_MultiAgentSystem",
+        "to": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_MultiAgentSystem",
+        "kind": "calls",
+        "confidence": 0.4,
+        "evidence": [
+          "ast-forward"
+        ]
+      },
+      {
+        "from": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_MessageBroker",
+        "to": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_MessageBroker",
+        "kind": "calls",
+        "confidence": 0.4,
+        "evidence": [
+          "ast-forward"
+        ]
+      },
+      {
+        "from": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_MultiAgentAIIntegration",
+        "to": "method_c__Users_merce_Documents_helm_ai_src_ai_core_multi_agent_systems_py_MultiAgentAIIntegration",
+        "kind": "calls",
+        "confidence": 0.4,
+        "evidence": [
+          "ast-forward"
+        ]
+      }
+    ]
+  }
+}

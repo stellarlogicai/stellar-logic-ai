@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Stellar Logic AI Dashboard
+Comment=Launch Stellar Logic AI Executive Dashboard & Assistant
+Exec=python "%~dp0dashboard_server.py"
+Icon=%~dp0Stellar_Logic_AI_Logo.png
+Terminal=false
+Categories=Office;Development;
+StartupNotify=true

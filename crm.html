@@ -1,0 +1,1817 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stellar Logic AI - CRM & Prospect Tracking</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            background: white;
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .header h1 {
+            color: #2d3748;
+            font-size: 2.5rem;
+        }
+        
+        .header-stats {
+            display: flex;
+            gap: 24px;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #667eea;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            color: #718096;
+        }
+        
+        .nav-tabs {
+            display: flex;
+            background: white;
+            border-radius: 16px;
+            padding: 8px;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        
+        .nav-tab {
+            flex: 1;
+            padding: 12px 20px;
+            border: none;
+            background: transparent;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 500;
+            color: #718096;
+            transition: all 0.2s;
+        }
+        
+        .nav-tab.active {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+        }
+        
+        .nav-tab:hover {
+            background: #f7fafc;
+        }
+        
+        .nav-tab.active:hover {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+        }
+        
+        .content-section {
+            display: none;
+            background: white;
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        
+        .content-section.active {
+            display: block;
+        }
+        
+        .prospect-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            gap: 20px;
+        }
+        
+        .prospect-card {
+            background: #f7fafc;
+            border-radius: 12px;
+            padding: 20px;
+            border-left: 4px solid #667eea;
+            transition: all 0.2s;
+        }
+        
+        .prospect-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .prospect-card.high-priority {
+            border-left-color: #f56565;
+        }
+        
+        .prospect-card.medium-priority {
+            border-left-color: #ed8936;
+        }
+        
+        .prospect-card.low-priority {
+            border-left-color: #48bb78;
+        }
+        
+        .prospect-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 16px;
+        }
+        
+        .prospect-name {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #2d3748;
+        }
+        
+        .prospect-company {
+            color: #718096;
+            font-size: 0.9rem;
+        }
+        
+        .prospect-title {
+            color: #4a5568;
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+        }
+        
+        .prospect-status {
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        
+        .status-new {
+            background: #e2e8f0;
+            color: #4a5568;
+        }
+        
+        .status-contacted {
+            background: #fefcbf;
+            color: #975a16;
+        }
+        
+        .status-responded {
+            background: #c6f6d5;
+            color: #276749;
+        }
+        
+        .status-meeting_scheduled {
+            background: #bee3f8;
+            color: #2c5282;
+        }
+        
+        .status-closed_won {
+            background: #c6f6d5;
+            color: #276749;
+        }
+        
+        .status-closed_lost {
+            background: #fed7d7;
+            color: #c53030;
+        }
+        
+        .contact-info {
+            margin: 16px 0;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+        }
+        
+        .contact-item a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        
+        .contact-item a:hover {
+            text-decoration: underline;
+        }
+        
+        .prospect-actions {
+            display: flex;
+            gap: 8px;
+            margin-top: 16px;
+        }
+        
+        .btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+        }
+        
+        .btn-secondary {
+            background: #e2e8f0;
+            color: #4a5568;
+        }
+        
+        .btn:hover {
+            transform: translateY(-1px);
+        }
+        
+        .btn-primary:hover {
+            box-shadow: 0 2px 8px rgba(102, 126, 234, 0.4);
+        }
+        
+        .value-prop {
+            background: white;
+            padding: 12px;
+            border-radius: 8px;
+            margin: 12px 0;
+            font-size: 0.9rem;
+            color: #2d3748;
+        }
+        
+        .pain-points {
+            margin: 12px 0;
+        }
+        
+        .pain-points h4 {
+            font-size: 0.9rem;
+            color: #4a5568;
+            margin-bottom: 8px;
+        }
+        
+        .pain-point {
+            background: #fed7d7;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            color: #c53030;
+            margin-right: 4px;
+            display: inline-block;
+            margin-bottom: 4px;
+        }
+        
+        .activities {
+            margin-top: 16px;
+            border-top: 1px solid #e2e8f0;
+            padding-top: 16px;
+        }
+        
+        .activity-item {
+            background: white;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 8px;
+            font-size: 0.8rem;
+        }
+        
+        .activity-date {
+            color: #718096;
+            font-size: 0.7rem;
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+        }
+        
+        .modal-content {
+            background-color: white;
+            margin: 5% auto;
+            padding: 24px;
+            border-radius: 16px;
+            width: 90%;
+            max-width: 600px;
+        }
+        
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .close {
+            color: #aaa;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        
+        .close:hover {
+            color: #000;
+        }
+        
+        .form-group {
+            margin-bottom: 16px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #2d3748;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+        
+        .form-group textarea {
+            height: 100px;
+            resize: vertical;
+        }
+        
+        .how-we-can-help {
+            background: #f0fff4;
+            border: 1px solid #9ae6b4;
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 16px;
+        }
+        
+        .company-research {
+            background: #ebf8ff;
+            border: 1px solid #90cdf4;
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 16px;
+        }
+        
+        .deal-value {
+            background: #fff5f5;
+            border: 1px solid #feb2b2;
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 16px;
+            font-weight: bold;
+            color: #c53030;
+        }
+        
+        .deal-value strong {
+            color: #c53030;
+        }
+        
+        .quick-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+        
+        .quick-link {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 12px;
+            text-align: center;
+            text-decoration: none;
+            color: #4a5568;
+            transition: all 0.2s;
+        }
+        
+        .quick-link:hover {
+            background: #f7fafc;
+            border-color: #667eea;
+            color: #667eea;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div style="display: flex; align-items: center; gap: 16px;">
+                <img src="Stellar_Logic_AI_Logo.png" alt="Stellar Logic AI" style="width: 48px; height: 48px; border-radius: 12px; object-fit: contain;">
+                <div>
+                    <h1>🌟 Stellar Logic AI - CRM</h1>
+                    <p>Prospect Tracking & Outreach Management</p>
+                </div>
+            </div>
+            <div class="header-stats">
+                <div class="stat-item">
+                    <div class="stat-value" id="total-prospects">27</div>
+                    <div class="stat-label">Total Prospects</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value" id="pipeline-value">$143.5M</div>
+                    <div class="stat-label">Pipeline Value</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value" id="contacted-count">0</div>
+                    <div class="stat-label">Contacted</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="quick-links">
+            <a href="/dashboard.html" class="quick-link">📊 Executive Dashboard</a>
+            <a href="/templates.html" class="quick-link">📋 Email Templates</a>
+            <a href="#" class="quick-link" onclick="exportData()">📤 Export Data</a>
+            <a href="#" class="quick-link" onclick="showAddActivityModal()">➕ Add Activity</a>
+        </div>
+        
+        <div class="nav-tabs">
+            <button class="nav-tab active" onclick="showTab('all-prospects')">All Prospects</button>
+            <button class="nav-tab" onclick="showTab('enterprise-clients')">Enterprise Clients</button>
+            <button class="nav-tab" onclick="showTab('gaming-partners')">Gaming Partners</button>
+            <button class="nav-tab" onclick="showTab('vc-investors')">VC Investors</button>
+            <button class="nav-tab" onclick="showTab('strategic-partners')">Strategic Partners</button>
+            <button class="nav-tab" onclick="showTab('activities')">Recent Activities</button>
+        </div>
+        
+        <!-- All Prospects Section -->
+        <div id="all-prospects" class="content-section active">
+            <div class="prospect-grid" id="all-prospects-grid">
+                <!-- Prospects will be loaded here -->
+            </div>
+        </div>
+        
+        <!-- Enterprise Clients Section -->
+        <div id="enterprise-clients" class="content-section">
+            <div class="prospect-grid" id="enterprise-clients-grid">
+                <!-- Enterprise prospects will be loaded here -->
+            </div>
+        </div>
+        
+        <!-- Gaming Partners Section -->
+        <div id="gaming-partners" class="content-section">
+            <div class="prospect-grid" id="gaming-partners-grid">
+                <!-- Gaming prospects will be loaded here -->
+            </div>
+        </div>
+        
+        <!-- VC Investors Section -->
+        <div id="vc-investors" class="content-section">
+            <div class="prospect-grid" id="vc-investors-grid">
+                <!-- VC prospects will be loaded here -->
+            </div>
+        </div>
+        
+        <!-- Strategic Partners Section -->
+        <div id="strategic-partners" class="content-section">
+            <div class="prospect-grid" id="strategic-partners-grid">
+                <!-- Strategic prospects will be loaded here -->
+            </div>
+        </div>
+        
+        <!-- Activities Section -->
+        <div id="activities" class="content-section">
+            <div id="activities-list">
+                <!-- Activities will be loaded here -->
+            </div>
+        </div>
+    </div>
+    
+    <!-- Add Activity Modal -->
+    <div id="activityModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Add Outreach Activity</h2>
+                <span class="close" onclick="closeModal()">&times;</span>
+            </div>
+            <form id="activityForm">
+                <div class="form-group">
+                    <label for="prospectSelect">Prospect:</label>
+                    <select id="prospectSelect" required>
+                        <option value="">Select a prospect...</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="methodSelect">Method:</label>
+                    <select id="methodSelect" required>
+                        <option value="email">Email</option>
+                        <option value="linkedin">LinkedIn</option>
+                        <option value="phone">Phone</option>
+                        <option value="referral">Referral</option>
+                        <option value="event">Event</option>
+                        <option value="cold_call">Cold Call</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="subjectInput">Subject:</label>
+                    <input type="text" id="subjectInput" required>
+                </div>
+                <div class="form-group">
+                    <label for="contentInput">Content:</label>
+                    <textarea id="contentInput" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="notesInput">Notes:</label>
+                    <textarea id="notesInput"></textarea>
+                </div>
+                <div class="form-group">
+                    <button type="button" class="btn btn-secondary" onclick="prefillTemplate('intro')">📧 Pre-fill Intro Email</button>
+                    <button type="button" class="btn btn-secondary" onclick="prefillTemplate('followup')">🔄 Pre-fill Follow-up</button>
+                    <button type="button" class="btn btn-secondary" onclick="prefillTemplate('demo')">🎯 Pre-fill Demo Request</button>
+                    <button type="button" class="btn btn-secondary" onclick="showCompanyResearch()">📊 Show Company Research</button>
+                </div>
+                <button type="submit" class="btn btn-primary">Add Activity</button>
+            </form>
+        </div>
+    </div>
+    
+    <script>
+        // Sample prospect data (in production, this would come from the backend)
+        const prospects = [
+            {
+                id: "1",
+                name: "Sarah Chen",
+                title: "Director of AI Strategy",
+                company: "Microsoft",
+                industry: "Technology",
+                prospect_type: "enterprise_client",
+                status: "new",
+                priority: "high",
+                contact_info: {
+                    email: "sarah.chen@microsoft.com",
+                    phone: "425-882-8080",
+                    linkedin_url: "https://www.linkedin.com/in/sarahchenmicrosoft/",
+                    linkedin_id: "sarahchenmicrosoft",
+                    twitter_url: "https://twitter.com/sarahchenmsft",
+                    company_website: "https://microsoft.com"
+                },
+                company_research: {
+                    description: "Microsoft is a $2.8T technology giant leading in cloud computing (Azure), enterprise software, and AI innovation.",
+                    recent_news: "Launched Microsoft Copilot, investing $10B in OpenAI, expanding Azure AI services",
+                    key_challenges: ["Integrating AI across product suite", "Competing with Google/Amazon in cloud", "Enterprise AI adoption barriers"],
+                    annual_revenue: "$211.9B",
+                    employee_count: "220,000+",
+                    headquarters: "Redmond, WA"
+                },
+                pain_points: ["Data silos", "Compliance issues", "Scalability", "AI integration"],
+                value_proposition: "Complete enterprise AI platform with 32 modules for seamless integration",
+                how_we_can_help: "Stellar Logic AI can enhance Microsoft's enterprise AI offerings with our 99.2% accuracy anti-cheat technology for gaming security, advanced threat detection for Azure security, and Zero Trust architecture for enterprise clients. Our 32 production modules can integrate with existing Microsoft stack.",
+                estimated_value: 2500000,
+                next_action: "Send initial outreach email",
+                activities: []
+            },
+            {
+                id: "2",
+                name: "Michael Rodriguez",
+                title: "Head of Enterprise AI",
+                company: "JPMorgan Chase",
+                industry: "Finance",
+                prospect_type: "enterprise_client",
+                status: "new",
+                priority: "high",
+                contact_info: {
+                    email: "michael.rodriguez@jpmorgan.com",
+                    phone: "212-270-6000",
+                    linkedin_url: "https://www.linkedin.com/in/michaelrodriguezjpmc/",
+                    linkedin_id: "michaelrodriguezjpmc",
+                    twitter_url: "https://twitter.com/mrodriguezjpmc",
+                    company_website: "https://jpmorgan.com"
+                },
+                company_research: {
+                    description: "JPMorgan Chase is the largest bank in the US with $3.9T in assets, leading in financial services innovation and AI adoption.",
+                    recent_news: "Investing $15B in technology annually, launched AI-powered trading algorithms, expanding digital banking services",
+                    key_challenges: ["Regulatory compliance", "Fraud detection", "Risk management", "Digital transformation"],
+                    annual_revenue: "$128.3B",
+                    employee_count: "293,000+",
+                    headquarters: "New York, NY"
+                },
+                pain_points: ["Risk management", "Fraud detection", "Regulatory compliance", "Data security"],
+                value_proposition: "AI-powered risk management and fraud detection with enterprise security",
+                how_we_can_help: "Stellar Logic AI's 99.2% accuracy technology can revolutionize JPMorgan's fraud detection systems, provide advanced risk management analytics, ensure regulatory compliance through automated monitoring, and enhance cybersecurity with our Zero Trust architecture. Our platform can process millions of transactions in real-time.",
+                estimated_value: 5000000,
+                next_action: "Send initial outreach email",
+                activities: []
+            },
+            {
+                id: "3",
+                name: "Alex Thompson",
+                title: "Head of Anti-Cheat",
+                company: "Epic Games",
+                industry: "Gaming",
+                prospect_type: "gaming_partner",
+                status: "new",
+                priority: "high",
+                contact_info: {
+                    email: "alex.thompson@epicgames.com",
+                    phone: "919-854-0070",
+                    linkedin_url: "https://www.linkedin.com/in/alexthompsonepic/",
+                    linkedin_id: "alexthompsonepic",
+                    twitter_url: "https://twitter.com/alexthompsonepic",
+                    company_website: "https://epicgames.com"
+                },
+                company_research: {
+                    description: "Epic Games is a $28.7B gaming company, creator of Fortnite and Unreal Engine, leading the gaming industry with 500M+ registered users.",
+                    recent_news: "Fortnite generates $6B annually, expanding Unreal Engine 5, launching new anti-cheat initiatives, growing esports ecosystem",
+                    key_challenges: ["Sophisticated cheating rings", "Tournament integrity", "Player experience", "Cross-platform security"],
+                    annual_revenue: "$6B+ (estimated)",
+                    employee_count: "4,000+",
+                    headquarters: "Cary, NC"
+                },
+                pain_points: ["Fortnite cheating", "False positives", "Player experience", "Tournament integrity"],
+                value_proposition: "99.2% accuracy anti-cheat system with real-time detection",
+                how_we_can_help: "Stellar Logic AI can protect Epic's $6B Fortnite revenue with our 99.2% accuracy anti-cheat system, reduce false positives by 85%, enhance tournament integrity for esports, provide real-time threat detection across all platforms, and integrate seamlessly with Unreal Engine 5. Our technology can save Epic an estimated $500M+ annually from cheating losses.",
+                estimated_value: 1500000,
+                next_action: "Send initial outreach email",
+                activities: []
+            },
+            {
+                id: "4",
+                name: "John Smith",
+                title: "Partner",
+                company: "Sequoia Capital",
+                industry: "Venture Capital",
+                prospect_type: "vc_investor",
+                status: "new",
+                priority: "high",
+                contact_info: {
+                    email: "john.smith@sequoiacap.com",
+                    phone: "650-854-0720",
+                    linkedin_url: "https://www.linkedin.com/in/johnsmithsequoia/",
+                    linkedin_id: "johnsmithsequoia",
+                    twitter_url: "https://twitter.com/johnsmithsequoia",
+                    company_website: "https://sequoiacap.com"
+                },
+                company_research: {
+                    description: "Sequoia Capital is one of the world's most prestigious VC firms with $85B+ AUM, known for backing Apple, Google, WhatsApp, and other tech giants.",
+                    recent_news: "Raised new $7.5B fund, focusing on AI and enterprise SaaS, recent investments in AI security companies",
+                    key_challenges: ["Finding AI unicorns", "Market timing", "Technical due diligence", "Competitive advantage"],
+                    annual_revenue: "$2B+ (management fees)",
+                    employee_count: "300+",
+                    headquarters: "Menlo Park, CA"
+                },
+                pain_points: ["Finding AI unicorns", "Market timing", "Technical due diligence", "Competitive advantage"],
+                value_proposition: "$8B+ TAM enterprise AI platform with 32 production modules",
+                how_we_can_help: "Stellar Logic AI represents Sequoia's ideal investment: 99.2% accuracy technology in $8B+ enterprise AI market, 32 production modules showing execution capability, $100M+ Year 5 revenue projection, and strong technical team. We offer exposure to high-growth AI security market with enterprise-grade technology and clear ROI.",
+                estimated_value: 10000000,
+                next_action: "Send initial outreach email",
+                activities: []
+            },
+            {
+                id: "5",
+                name: "Emily Watson",
+                title: "CTO",
+                company: "Riot Games",
+                industry: "Gaming",
+                prospect_type: "gaming_partner",
+                status: "new",
+                priority: "high",
+                contact_info: {
+                    email: "emily.watson@riotgames.com",
+                    phone: "310-381-3987",
+                    linkedin_url: "https://www.linkedin.com/in/emilywatsonriot/",
+                    linkedin_id: "emilywatsonriot",
+                    twitter_url: "https://twitter.com/emilywatsonriot",
+                    company_website: "https://riotgames.com"
+                },
+                company_research: {
+                    description: "Riot Games is a $21B gaming company, creator of League of Legends and Valorant, with 180M+ monthly active players.",
+                    recent_news: "Valorant esports growing rapidly, League of Worlds championship draws 100M+ viewers, expanding into new gaming markets",
+                    key_challenges: ["Match integrity", "Player toxicity", "Esports fairness", "Multi-platform cheating"],
+                    annual_revenue: "$2B+ (estimated)",
+                    employee_count: "4,500+",
+                    headquarters: "Los Angeles, CA"
+                },
+                pain_points: ["Match fixing", "Toxic behavior detection", "Esports integrity", "Real-time moderation"],
+                value_proposition: "AI-powered integrity system for competitive gaming",
+                how_we_can_help: "Stellar Logic AI can protect Riot's $2B revenue with 99.2% accuracy anti-cheat for Valorant, advanced toxicity detection for League of Legends, real-time esports integrity monitoring, and player behavior analysis. Our technology can enhance competitive integrity and save an estimated $200M+ annually from cheating and toxicity issues.",
+                estimated_value: 2000000,
+                next_action: "Send initial outreach email",
+                activities: []
+            },
+            {
+                id: "6",
+                name: "David Kim",
+                title: "VP of Security",
+                company: "Amazon Web Services",
+                industry: "Technology",
+                prospect_type: "enterprise_client",
+                status: "new",
+                priority: "high",
+                contact_info: {
+                    email: "david.kim@aws.amazon.com",
+                    phone: "206-266-4064",
+                    linkedin_url: "https://www.linkedin.com/in/davidkimaws/",
+                    linkedin_id: "davidkimaws",
+                    twitter_url: "https://twitter.com/davidkimaws",
+                    company_website: "https://aws.amazon.com"
+                },
+                company_research: {
+                    description: "AWS is the world's leading cloud platform with $85B annual revenue, hosting millions of customers including enterprises, startups, and government agencies.",
+                    recent_news: "AWS growing 17% YoY, expanding AI/ML services, launching new security offerings, dominating enterprise cloud market",
+                    key_challenges: ["Enterprise security", "AI service integration", "Compliance requirements", "Multi-cloud management"],
+                    annual_revenue: "$85B",
+                    employee_count: "1.6M+ (Amazon total)",
+                    headquarters: "Seattle, WA"
+                },
+                pain_points: ["Cloud security threats", "AI model protection", "Enterprise compliance", "Multi-cloud security"],
+                value_proposition: "Advanced AI security for cloud infrastructure",
+                how_we_can_help: "Stellar Logic AI can enhance AWS security offerings with our 99.2% accuracy threat detection, Zero Trust architecture for enterprise clients, AI model protection services, and advanced compliance monitoring. Our 32 production modules can integrate with AWS services to provide comprehensive security solutions for enterprise customers.",
+                estimated_value: 3000000,
+                next_action: "Send initial outreach email",
+                activities: []
+            },
+            {
+                id: "7",
+                name: "Lisa Chang",
+                title: "Managing Director",
+                company: "Goldman Sachs",
+                industry: "Finance",
+                prospect_type: "enterprise_client",
+                status: "new",
+                priority: "medium",
+                contact_info: {
+                    email: "lisa.chang@gs.com",
+                    phone: "212-902-1000",
+                    linkedin_url: "https://www.linkedin.com/in/lisachanggs/",
+                    linkedin_id: "lisachanggs",
+                    twitter_url: "https://twitter.com/lisachanggs",
+                    company_website: "https://goldmansachs.com"
+                },
+                company_research: {
+                    description: "Goldman Sachs is a leading global investment bank with $2.8T in assets, known for technology innovation in financial services.",
+                    recent_news: "Investing heavily in AI and blockchain, launching digital asset platform, expanding Marcus consumer banking",
+                    key_challenges: ["Algorithmic trading security", "Regulatory compliance", "Digital transformation", "Risk management"],
+                    annual_revenue: "$45.6B",
+                    employee_count: "43,000+",
+                    headquarters: "New York, NY"
+                },
+                pain_points: ["Trading algorithm security", "Market manipulation detection", "Regulatory reporting", "Digital asset security"],
+                value_proposition: "AI-powered financial security and compliance",
+                how_we_can_help: "Stellar Logic AI can protect Goldman's trading algorithms with 99.2% accuracy threat detection, automate regulatory compliance monitoring, enhance digital asset security, and provide advanced risk management analytics. Our technology can safeguard billions in daily trading volume.",
+                estimated_value: 4000000,
+                next_action: "Send initial outreach email",
+                activities: []
+            },
+            // VC Investors - High Priority
+            {
+                id: "8",
+                name: "Sarah Chen",
+                title: "Partner",
+                company: "Andreessen Horowitz",
+                industry: "Venture Capital",
+                prospect_type: "vc_investor",
+                status: "new",
+                priority: "high",
+                contact_info: {
+                    email: "sarah@a16z.com",
+                    phone: "555-1001",
+                    linkedin_url: "https://www.linkedin.com/in/sarahchen/",
+                    linkedin_id: "sarahchen",
+                    company_website: "https://a16z.com"
+                },
+                company_research: {
+                    description: "Andreessen Horowitz (a16z) is a $35B venture capital firm known for investing in transformative technology companies like Facebook, Airbnb, and Stripe.",
+                    recent_news: "Raised $7.2B for new funds, investing heavily in AI and gaming startups, launched AI accelerator program",
+                    key_challenges: ["Finding AI unicorns", "Market timing", "Technical due diligence", "Competitive deal flow"],
+                    annual_revenue: "$2B+ (management fees)",
+                    employee_count: "150+",
+                    headquarters: "Menlo Park, CA"
+                },
+                pain_points: ["Finding AI unicorns", "Market timing", "Technical due diligence", "Competitive deal flow"],
+                value_proposition: "$8B+ TAM enterprise AI platform with 99.2% accuracy and 32 production modules",
+                how_we_can_help: "Stellar Logic AI represents a perfect a16z investment with our 99.2% accuracy technology, $8B+ TAM addressable market, proven 32-module production platform, experienced technical team, and clear path to $100M+ revenue. Our gaming security focus aligns with a16z's successful gaming investments.",
+                estimated_value: 10000000,
+                next_action: "Send initial outreach email",
+                activities: []
+            },
+            {
+                id: "9",
+                name: "Mike Johnson",
+                title: "Partner",
+                company: "Sequoia Capital",
+                industry: "Venture Capital",
+                prospect_type: "vc_investor",
+                status: "new",
+                priority: "high",
+                contact_info: {
+                    email: "mike@sequoia.com",
+                    phone: "555-1002",
+                    linkedin_url: "https://www.linkedin.com/in/mikejohnson/",
+                    linkedin_id: "mikejohnson",
+                    company_website: "https://sequoia.com"
+                },
+                company_research: {
+                    description: "Sequoia Capital is one of the world's most prestigious venture capital firms with $85B in assets under management, known for investing in Apple, Google, and WhatsApp.",
+                    recent_news: "Raised $7.95B for new funds, expanding AI and enterprise SaaS focus, investing in next-generation enterprise platforms",
+                    key_challenges: ["Enterprise SaaS scaling", "Market penetration", "Technical differentiation", "Late-stage competition"],
+                    annual_revenue: "$3B+ (management fees)",
+                    employee_count: "200+",
+                    headquarters: "Menlo Park, CA"
+                },
+                pain_points: ["Enterprise SaaS scaling", "Market penetration", "Technical differentiation", "Late-stage competition"],
+                value_proposition: "Enterprise-grade AI security platform with proven SaaS business model",
+                how_we_can_help: "Stellar Logic AI offers Sequoia the perfect enterprise SaaS investment with our proven business model, 99.2% accuracy technology, enterprise-grade security platform, clear scaling path to $100M+ ARR, and strong technical differentiation in the AI security market.",
+                estimated_value: 10000000,
+                next_action: "Send initial outreach email",
+                activities: []
+            },
+            {
+                id: "10",
+                name: "Emily Davis",
+                title: "Partner",
+                company: "Accel",
+                industry: "Venture Capital",
+                prospect_type: "vc_investor",
+                status: "new",
+                priority: "high",
+                contact_info: {
+                    email: "emily@accel.com",
+                    phone: "555-1003",
+                    linkedin_url: "https://www.linkedin.com/in/emilydavis/",
+                    linkedin_id: "emilydavis",
+                    company_website: "https://accel.com"
+                },
+                company_research: {
+                    description: "Accel is a $20B venture capital firm known for early investments in Facebook, Slack, and Spotify, with strong focus on gaming and enterprise software.",
+                    recent_news: "Raised $4.75B for new funds, expanding gaming investments, launched dedicated gaming vertical",
+                    key_challenges: ["Gaming market opportunities", "Technology differentiation", "Team evaluation", "Market timing"],
+                    annual_revenue: "$1.5B+ (management fees)",
+                    employee_count: "100+",
+                    headquarters: "Palo Alto, CA"
+                },
+                pain_points: ["Gaming market opportunities", "Technology differentiation", "Team evaluation", "Market timing"],
+                value_proposition: "Revolutionary gaming security with 99.2% accuracy vs industry 85%",
+                how_we_can_help: "Stellar Logic AI is perfect for Accel's gaming focus with our 99.2% accuracy vs industry 85%, proven gaming security technology, $15B gaming security market opportunity, experienced gaming team, and clear path to market leadership in anti-cheat technology.",
+                estimated_value: 8000000,
+                next_action: "Send initial outreach email",
+                activities: []
+            },
+            {
+                id: "11",
+                name: "Lisa Brown",
+                title: "Partner",
+                company: "Kleiner Perkins",
+                industry: "Venture Capital",
+                prospect_type: "vc_investor",
+                status: "new",
+                priority: "high",
+                contact_info: {
+                    email: "lisa@kp.com",
+                    phone: "555-1005",
+                    linkedin_url: "https://www.linkedin.com/in/lisabrown/",
+                    linkedin_id: "lisabrown",
+                    company_website: "https://kp.com"
+                },
+                company_research: {
+                    description: "Kleiner Perkins is a legendary $10B venture capital firm that invested in Google, Amazon, and Twitter, now focusing on AI and deep tech.",
+                    recent_news: "Raised $1.8B for new fund, doubling down on AI investments, launched AI fellowship program",
+                    key_challenges: ["AI investment opportunities", "Technical validation", "Market size", "Team expertise"],
+                    annual_revenue: "$800M+ (management fees)",
+                    employee_count: "80+",
+                    headquarters: "Menlo Park, CA"
+                },
+                pain_points: ["AI investment opportunities", "Technical validation", "Market size", "Team expertise"],
+                value_proposition: "AI-powered security platform with $8B+ TAM and proven technology",
+                how_we_can_help: "Stellar Logic AI offers Kleiner Perkins the ideal AI investment with our proven 99.2% accuracy technology, $8B+ addressable market, experienced AI engineering team, enterprise-grade security platform, and clear technical differentiation in the AI security space.",
+                estimated_value: 7500000,
+                next_action: "Send initial outreach email",
+                activities: []
+            },
+            {
+                id: "12",
+                name: "Jessica Taylor",
+                title: "Partner",
+                company: "Union Square Ventures",
+                industry: "Venture Capital",
+                prospect_type: "vc_investor",
+                status: "new",
+                priority: "high",
+                contact_info: {
+                    email: "jessica@usv.com",
+                    phone: "555-1007",
+                    linkedin_url: "https://www.linkedin.com/in/jessicataylor/",
+                    linkedin_id: "jessicataylor",
+                    company_website: "https://usv.com"
+                },
+                company_research: {
+                    description: "Union Square Ventures is a $3B venture capital firm known for early investments in Twitter, Tumblr, and Coinbase, with strong focus on AI and network effects.",
+                    recent_news: "Raised new funds for AI investments, focusing on AI infrastructure and security, expanding AI thesis",
+                    key_challenges: ["AI thesis alignment", "Technical innovation", "Network effects", "Market timing"],
+                    annual_revenue: "$200M+ (management fees)",
+                    employee_count: "30+",
+                    headquarters: "New York, NY"
+                },
+                pain_points: ["AI thesis alignment", "Technical innovation", "Network effects", "Market timing"],
+                value_proposition: "Innovative AI security with strong network effects in gaming",
+                how_we_can_help: "Stellar Logic AI aligns perfectly with USV's AI thesis through our innovative 99.2% accuracy technology, strong network effects in gaming security, AI infrastructure focus, proven market traction, and clear path to becoming essential AI security infrastructure.",
+                estimated_value: 6000000,
+                next_action: "Send initial outreach email",
+                activities: []
+            },
+            {
+                id: "13",
+                name: "Amanda White",
+                title: "Partner",
+                company: "Y Combinator",
+                industry: "Venture Capital",
+                prospect_type: "vc_investor",
+                status: "new",
+                priority: "high",
+                contact_info: {
+                    email: "amanda@yc.com",
+                    phone: "555-1009",
+                    linkedin_url: "https://www.linkedin.com/in/amandawhite/",
+                    linkedin_id: "amandawhite",
+                    company_website: "https://yc.com"
+                },
+                company_research: {
+                    description: "Y Combinator is the world's most successful startup accelerator with $5B+ in assets, having funded Airbnb, Dropbox, and Stripe.",
+                    recent_news: "Launched new AI-focused batch, investing $500K in each startup, expanding AI accelerator programs",
+                    key_challenges: ["Startup scalability", "Growth potential", "Team strength", "Market validation"],
+                    annual_revenue: "$500M+ (fees and investments)",
+                    employee_count: "200+",
+                    headquarters: "Mountain View, CA"
+                },
+                pain_points: ["Startup scalability", "Growth potential", "Team strength", "Market validation"],
+                value_proposition: "High-growth AI startup with proven technology and $100M+ revenue potential",
+                how_we_can_help: "Stellar Logic AI is perfect for YC with our high-growth AI startup model, proven 99.2% accuracy technology, clear path to $100M+ revenue, experienced technical team, and strong market validation in gaming security.",
+                estimated_value: 5000000,
+                next_action: "Send initial outreach email",
+                activities: []
+            },
+            {
+                id: "14",
+                name: "Sophie Turner",
+                title: "Partner",
+                company: "Techstars",
+                industry: "Venture Capital",
+                prospect_type: "vc_investor",
+                status: "new",
+                priority: "high",
+                contact_info: {
+                    email: "sophie@techstars.com",
+                    phone: "555-1011",
+                    linkedin_url: "https://www.linkedin.com/in/sophieturner/",
+                    linkedin_id: "sophieturner",
+                    company_website: "https://techstars.com"
+                },
+                company_research: {
+                    description: "Techstars is a global accelerator network with $2B+ in assets, having funded over 3,000 companies including ClassPass and DigitalOcean.",
+                    recent_news: "Launched dedicated AI accelerator programs, investing in 50+ AI startups annually, expanding global reach",
+                    key_challenges: ["AI accelerator programs", "Technical validation", "Market fit", "Global scaling"],
+                    annual_revenue: "$300M+ (fees and investments)",
+                    employee_count: "500+",
+                    headquarters: "Boulder, CO"
+                },
+                pain_points: ["AI accelerator programs", "Technical validation", "Market fit", "Global scaling"],
+                value_proposition: "Perfect fit for AI accelerator with proven technology and market need",
+                how_we_can_help: "Stellar Logic AI is ideal for Techstars AI accelerator with our proven 99.2% accuracy technology, clear market need in gaming security, experienced technical team, global scaling potential, and perfect fit for AI accelerator program requirements.",
+                estimated_value: 3000000,
+                next_action: "Send initial outreach email",
+                activities: []
+            },
+            {
+                id: "15",
+                name: "Rachel Green",
+                title: "Partner",
+                company: "Matrix Partners",
+                industry: "Venture Capital",
+                prospect_type: "vc_investor",
+                status: "new",
+                priority: "high",
+                contact_info: {
+                    email: "rachel@matrix.com",
+                    phone: "555-1015",
+                    linkedin_url: "https://www.linkedin.com/in/rachelgreen/",
+                    linkedin_id: "rachelgreen",
+                    company_website: "https://matrix.com"
+                },
+                company_research: {
+                    description: "Matrix Partners is a $4B venture capital firm known for early investments in Apple, Google, and HubSpot, with strong focus on enterprise software.",
+                    recent_news: "Raised new funds for AI investments, focusing on enterprise AI and security, expanding portfolio",
+                    key_challenges: ["AI investment thesis", "Technical due diligence", "Market timing", "Team evaluation"],
+                    annual_revenue: "$400M+ (management fees)",
+                    employee_count: "50+",
+                    headquarters: "Menlo Park, CA"
+                },
+                pain_points: ["AI investment thesis", "Technical due diligence", "Market timing", "Team evaluation"],
+                value_proposition: "AI security platform with strong technical team and market timing",
+                how_we_can_help: "Stellar Logic AI fits Matrix's AI thesis with our strong technical team, perfect market timing for AI security, proven 99.2% accuracy technology, enterprise AI focus, and clear technical differentiation in the security market.",
+                estimated_value: 7000000,
+                next_action: "Send initial outreach email",
+                activities: []
+            },
+            {
+                id: "16",
+                name: "Amy Chen",
+                title: "Partner",
+                company: "Canaan Partners",
+                industry: "Venture Capital",
+                prospect_type: "vc_investor",
+                status: "new",
+                priority: "high",
+                contact_info: {
+                    email: "amy@canaan.com",
+                    phone: "555-1019",
+                    linkedin_url: "https://www.linkedin.com/in/amychen/",
+                    linkedin_id: "amychen",
+                    company_website: "https://canaan.com"
+                },
+                company_research: {
+                    description: "Canaan Partners is a $4.5B venture capital firm known for investments in Twilio, CrowdStrike, and Ring, with strong gaming portfolio.",
+                    recent_news: "Raised new funds for gaming and AI investments, expanding gaming portfolio, investing in gaming infrastructure",
+                    key_challenges: ["Gaming portfolio expansion", "Technology differentiation", "ROI potential", "Market validation"],
+                    annual_revenue: "$450M+ (management fees)",
+                    employee_count: "40+",
+                    headquarters: "Menlo Park, CA"
+                },
+                pain_points: ["Gaming portfolio expansion", "Technology differentiation", "ROI potential", "Market validation"],
+                value_proposition: "Gaming security with proven ROI and large market opportunity",
+                how_we_can_help: "Stellar Logic AI is perfect for Canaan's gaming portfolio with our proven ROI in gaming security, 99.2% accuracy technology, large $15B gaming market opportunity, clear differentiation from competitors, and strong market validation with early customers.",
+                estimated_value: 6000000,
+                next_action: "Send initial outreach email",
+                activities: []
+            },
+            // VC Investors - Medium Priority
+            {
+                id: "17",
+                name: "Alex Wilson",
+                title: "Partner",
+                company: "Benchmark Capital",
+                industry: "Venture Capital",
+                prospect_type: "vc_investor",
+                status: "new",
+                priority: "medium",
+                contact_info: {
+                    email: "alex@benchmark.com",
+                    phone: "555-1004",
+                    linkedin_url: "https://www.linkedin.com/in/alexwilson/",
+                    linkedin_id: "alexwilson",
+                    company_website: "https://benchmark.com"
+                },
+                company_research: {
+                    description: "Benchmark Capital is a $8B venture capital firm known for investments in eBay, Uber, and Twitter, with strong technology focus.",
+                    recent_news: "Raised new funds for tech investments, focusing on enterprise and deep tech, expanding portfolio",
+                    key_challenges: ["Technology focus", "Market leadership", "Team evaluation", "Competitive landscape"],
+                    annual_revenue: "$800M+ (management fees)",
+                    employee_count: "30+",
+                    headquarters: "San Francisco, CA"
+                },
+                pain_points: ["Technology focus", "Market leadership", "Team evaluation", "Competitive landscape"],
+                value_proposition: "Technology-leading AI security with strong team",
+                how_we_can_help: "Stellar Logic AI offers Benchmark technology leadership with our 99.2% accuracy AI security, strong technical team, clear market leadership potential, competitive differentiation in security, and enterprise-grade technology platform.",
+                estimated_value: 5000000,
+                next_action: "Send initial outreach email",
+                activities: []
+            },
+            {
+                id: "18",
+                name: "Tom Lee",
+                title: "Partner",
+                company: "Index Ventures",
+                industry: "Venture Capital",
+                prospect_type: "vc_investor",
+                status: "new",
+                priority: "medium",
+                contact_info: {
+                    email: "tom@index.com",
+                    phone: "555-1006",
+                    linkedin_url: "https://www.linkedin.com/in/tomlee/",
+                    linkedin_id: "tomlee",
+                    company_website: "https://index.vc"
+                },
+                company_research: {
+                    description: "Index Ventures is a $10B venture capital firm with offices in San Francisco, London, and Geneva, known for investments in Dropbox and Slack.",
+                    recent_news: "Raised new funds for gaming and AI investments, expanding gaming portfolio, focusing on Series A opportunities",
+                    key_challenges: ["Gaming experience", "Series A opportunities", "Market validation", "Global scaling"],
+                    annual_revenue: "$1B+ (management fees)",
+                    employee_count: "60+",
+                    headquarters: "San Francisco, CA"
+                },
+                pain_points: ["Gaming experience", "Series A opportunities", "Market validation", "Global scaling"],
+                value_proposition: "Gaming security with Series A potential and market validation",
+                how_we_can_help: "Stellar Logic AI fits Index's gaming focus with our Series A potential, strong market validation in gaming security, global scaling opportunities, proven gaming technology, and perfect timing for gaming market expansion.",
+                estimated_value: 4000000,
+                next_action: "Send initial outreach email",
+                activities: []
+            },
+            {
+                id: "19",
+                name: "Chris Martin",
+                title: "Partner",
+                company: "Founders Fund",
+                industry: "Venture Capital",
+                prospect_type: "vc_investor",
+                status: "new",
+                priority: "medium",
+                contact_info: {
+                    email: "chris@foundersfund.com",
+                    phone: "555-1008",
+                    linkedin_url: "https://www.linkedin.com/in/chrismartin/",
+                    linkedin_id: "chrismartin",
+                    company_website: "https://foundersfund.com"
+                },
+                company_research: {
+                    description: "Founders Fund is a $6B venture capital firm founded by Peter Thiel, known for investments in Facebook, SpaceX, and Airbnb.",
+                    recent_news: "Raised new funds for deep tech investments, focusing on AI and space technology, expanding deep tech portfolio",
+                    key_challenges: ["Deep tech investments", "Technical innovation", "Founder alignment", "Long-term vision"],
+                    annual_revenue: "$600M+ (management fees)",
+                    employee_count: "40+",
+                    headquarters: "San Francisco, CA"
+                },
+                pain_points: ["Deep tech investments", "Technical innovation", "Founder alignment", "Long-term vision"],
+                value_proposition: "Deep tech AI security with strong founder alignment",
+                how_we_can_help: "Stellar Logic AI aligns with Founders Fund's deep tech focus through our innovative AI security technology, strong founder alignment with technical vision, long-term market potential in AI security, and deep technical innovation in threat detection.",
+                estimated_value: 4500000,
+                next_action: "Send initial outreach email",
+                activities: []
+            },
+            {
+                id: "20",
+                name: "Ryan Garcia",
+                title: "Partner",
+                company: "500 Startups",
+                industry: "Venture Capital",
+                prospect_type: "vc_investor",
+                status: "new",
+                priority: "medium",
+                contact_info: {
+                    email: "ryan@500.co",
+                    phone: "555-1010",
+                    linkedin_url: "https://www.linkedin.com/in/ryangarcia/",
+                    linkedin_id: "ryangarcia",
+                    company_website: "https://500.co"
+                },
+                company_research: {
+                    description: "500 Startups is a global venture capital firm and accelerator with $2.5B in assets, having funded over 2,500 companies.",
+                    recent_news: "Launched gaming-focused accelerator, investing in early stage gaming startups, expanding global reach",
+                    key_challenges: ["Gaming portfolio", "Early stage investments", "Growth potential", "Global scaling"],
+                    annual_revenue: "$250M+ (fees and investments)",
+                    employee_count: "200+",
+                    headquarters: "San Francisco, CA"
+                },
+                pain_points: ["Gaming portfolio", "Early stage investments", "Growth potential", "Global scaling"],
+                value_proposition: "Early stage gaming security with high growth potential",
+                how_we_can_help: "Stellar Logic AI fits 500 Startups' gaming focus with our early stage opportunity, high growth potential in gaming security, global scaling potential, proven gaming technology, and perfect fit for gaming accelerator program.",
+                estimated_value: 2500000,
+                next_action: "Send initial outreach email",
+                activities: []
+            },
+            {
+                id: "21",
+                name: "David Kim",
+                title: "Partner",
+                company: "Greylock",
+                industry: "Venture Capital",
+                prospect_type: "vc_investor",
+                status: "new",
+                priority: "medium",
+                contact_info: {
+                    email: "david@greylock.com",
+                    phone: "555-1012",
+                    linkedin_url: "https://www.linkedin.com/in/davidkim/",
+                    linkedin_id: "davidkim",
+                    company_website: "https://greylock.com"
+                },
+                company_research: {
+                    description: "Greylock is a $4B venture capital firm known for investments in LinkedIn, Airbnb, and Dropbox, with strong enterprise focus.",
+                    recent_news: "Raised new funds for enterprise investments, focusing on AI and SaaS, expanding enterprise portfolio",
+                    key_challenges: ["Enterprise focus", "Series A opportunities", "Market validation", "Scaling challenges"],
+                    annual_revenue: "$400M+ (management fees)",
+                    employee_count: "50+",
+                    headquarters: "Menlo Park, CA"
+                },
+                pain_points: ["Enterprise focus", "Series A opportunities", "Market validation", "Scaling challenges"],
+                value_proposition: "Enterprise AI security with Series A potential",
+                how_we_can_help: "Stellar Logic AI fits Greylock's enterprise focus with our Series A potential, enterprise AI security platform, strong market validation in enterprise, proven scaling technology, and perfect fit for enterprise investment thesis.",
+                estimated_value: 3500000,
+                next_action: "Send initial outreach email",
+                activities: []
+            },
+            {
+                id: "22",
+                name: "Jennifer Lopez",
+                title: "Partner",
+                company: "CRV",
+                industry: "Venture Capital",
+                prospect_type: "vc_investor",
+                status: "new",
+                priority: "medium",
+                contact_info: {
+                    email: "jennifer@crv.com",
+                    phone: "555-1013",
+                    linkedin_url: "https://www.linkedin.com/in/jenniferlopez/",
+                    linkedin_id: "jenniferlopez",
+                    company_website: "https://crv.com"
+                },
+                company_research: {
+                    description: "CRV (Charles River Ventures) is a $3.5B venture capital firm known for investments in Twitter, HubSpot, and Zendesk.",
+                    recent_news: "Raised new funds for gaming investments, expanding gaming portfolio, focusing on early stage gaming",
+                    key_challenges: ["Gaming investments", "Market timing", "Technical validation", "Portfolio fit"],
+                    annual_revenue: "$350M+ (management fees)",
+                    employee_count: "40+",
+                    headquarters: "Cambridge, MA"
+                },
+                pain_points: ["Gaming investments", "Market timing", "Technical validation", "Portfolio fit"],
+                value_proposition: "Gaming security with perfect market timing and validation",
+                how_we_can_help: "Stellar Logic AI fits CRV's gaming focus with our perfect market timing, strong technical validation in gaming security, ideal portfolio fit for gaming investments, proven gaming technology, and clear market opportunity in gaming security.",
+                estimated_value: 4000000,
+                next_action: "Send initial outreach email",
+                activities: []
+            },
+            {
+                id: "23",
+                name: "Michael Brown",
+                title: "Partner",
+                company: "Redpoint",
+                industry: "Venture Capital",
+                prospect_type: "vc_investor",
+                status: "new",
+                priority: "medium",
+                contact_info: {
+                    email: "michael@redpoint.com",
+                    phone: "555-1014",
+                    linkedin_url: "https://www.linkedin.com/in/michaelbrown/",
+                    linkedin_id: "michaelbrown",
+                    company_website: "https://redpoint.com"
+                },
+                company_research: {
+                    description: "Redpoint is a $4B venture capital firm known for investments in Netflix, Stripe, and Snowflake, with strong SaaS focus.",
+                    recent_news: "Raised new funds for SaaS investments, expanding SaaS portfolio, focusing on enterprise SaaS",
+                    key_challenges: ["SaaS expertise", "Scaling challenges", "Market penetration", "Competitive landscape"],
+                    annual_revenue: "$400M+ (management fees)",
+                    employee_count: "50+",
+                    headquarters: "Menlo Park, CA"
+                },
+                pain_points: ["SaaS expertise", "Scaling challenges", "Market penetration", "Competitive landscape"],
+                value_proposition: "SaaS AI security with proven scaling model",
+                how_we_can_help: "Stellar Logic AI fits Redpoint's SaaS focus with our proven SaaS business model, enterprise AI security platform, strong scaling technology, clear market penetration strategy, and competitive differentiation in SaaS security.",
+                estimated_value: 3000000,
+                next_action: "Send initial outreach email",
+                activities: []
+            },
+            {
+                id: "24",
+                name: "Kevin Zhang",
+                title: "Partner",
+                company: "DCM",
+                industry: "Venture Capital",
+                prospect_type: "vc_investor",
+                status: "new",
+                priority: "medium",
+                contact_info: {
+                    email: "kevin@dcm.com",
+                    phone: "555-1016",
+                    linkedin_url: "https://www.linkedin.com/in/kevinzhang/",
+                    linkedin_id: "kevinzhang",
+                    company_website: "https://dcm.com"
+                },
+                company_research: {
+                    description: "DCM is a $4B venture capital firm with strong presence in Asia and Silicon Valley, known for investments in Alibaba and Tesla.",
+                    recent_news: "Raised new funds for gaming investments, expanding Asia gaming portfolio, focusing on global gaming",
+                    key_challenges: ["Gaming focus", "Asia market", "Global expansion", "Cross-border opportunities"],
+                    annual_revenue: "$400M+ (management fees)",
+                    employee_count: "60+",
+                    headquarters: "Menlo Park, CA"
+                },
+                pain_points: ["Gaming focus", "Asia market", "Global expansion", "Cross-border opportunities"],
+                value_proposition: "Gaming security with global expansion potential",
+                how_we_can_help: "Stellar Logic AI fits DCM's gaming focus with our global expansion potential, strong gaming security technology, Asia market opportunities, cross-border scaling capabilities, and perfect fit for global gaming investment thesis.",
+                estimated_value: 3500000,
+                next_action: "Send initial outreach email",
+                activities: []
+            },
+            {
+                id: "25",
+                name: "Laura Wilson",
+                title: "Partner",
+                company: "Bessemer",
+                industry: "Venture Capital",
+                prospect_type: "vc_investor",
+                status: "new",
+                priority: "medium",
+                contact_info: {
+                    email: "laura@bessemer.com",
+                    phone: "555-1017",
+                    linkedin_url: "https://www.linkedin.com/in/laurawilson/",
+                    linkedin_id: "laurawilson",
+                    company_website: "https://bessemer.com"
+                },
+                company_research: {
+                    description: "Bessemer Venture Partners is a $18B venture capital firm known for investments in LinkedIn, Pinterest, and Shopify.",
+                    recent_news: "Raised new funds for enterprise SaaS investments, expanding enterprise portfolio, focusing on cloud infrastructure",
+                    key_challenges: ["Enterprise SaaS", "Market validation", "Growth metrics", "Scaling challenges"],
+                    annual_revenue: "$1.8B+ (management fees)",
+                    employee_count: "100+",
+                    headquarters: "Menlo Park, CA"
+                },
+                pain_points: ["Enterprise SaaS", "Market validation", "Growth metrics", "Scaling challenges"],
+                value_proposition: "Enterprise SaaS AI security with strong growth metrics",
+                how_we_can_help: "Stellar Logic AI fits Bessemer's enterprise SaaS focus with our strong growth metrics, enterprise AI security platform, proven market validation, scalable SaaS technology, and perfect fit for enterprise cloud infrastructure investments.",
+                estimated_value: 3000000,
+                next_action: "Send initial outreach email",
+                activities: []
+            },
+            {
+                id: "26",
+                name: "James Taylor",
+                title: "Partner",
+                company: "ScaleVP",
+                industry: "Venture Capital",
+                prospect_type: "vc_investor",
+                status: "new",
+                priority: "medium",
+                contact_info: {
+                    email: "james@scalevp.com",
+                    phone: "555-1018",
+                    linkedin_url: "https://www.linkedin.com/in/jamestaylor/",
+                    linkedin_id: "jamestaylor",
+                    company_website: "https://scalevp.com"
+                },
+                company_research: {
+                    description: "ScaleVP is a $1B venture capital firm focused on early-stage technology investments, known for investments in HubSpot and Warby Parker.",
+                    recent_news: "Raised new funds for tech investments, expanding tech portfolio, focusing on AI and deep tech",
+                    key_challenges: ["Tech focus", "Scaling potential", "Technical innovation", "Market timing"],
+                    annual_revenue: "$100M+ (management fees)",
+                    employee_count: "20+",
+                    headquarters: "Palo Alto, CA"
+                },
+                pain_points: ["Tech focus", "Scaling potential", "Technical innovation", "Market timing"],
+                value_proposition: "Innovative AI security with high scaling potential",
+                how_we_can_help: "Stellar Logic AI fits ScaleVP's tech focus with our innovative AI security technology, high scaling potential, strong technical innovation, perfect market timing for AI security, and clear differentiation in tech market.",
+                estimated_value: 2500000,
+                next_action: "Send initial outreach email",
+                activities: []
+            },
+            {
+                id: "27",
+                name: "Brian Lee",
+                title: "Partner",
+                company: "Shasta Ventures",
+                industry: "Venture Capital",
+                prospect_type: "vc_investor",
+                status: "new",
+                priority: "medium",
+                contact_info: {
+                    email: "brian@shasta.com",
+                    phone: "555-1020",
+                    linkedin_url: "https://www.linkedin.com/in/brianlee/",
+                    linkedin_id: "brianlee",
+                    company_website: "https://shasta.com"
+                },
+                company_research: {
+                    description: "Shasta Ventures is a $1B venture capital firm focused on early-stage enterprise and mobile investments, known for investments in Nest and Fitbit.",
+                    recent_news: "Raised new funds for AI investments, expanding AI portfolio, focusing on early stage AI startups",
+                    key_challenges: ["AI investments", "Technical validation", "Market timing", "Early stage risks"],
+                    annual_revenue: "$100M+ (management fees)",
+                    employee_count: "20+",
+                    headquarters: "Menlo Park, CA"
+                },
+                pain_points: ["AI investments", "Technical validation", "Market timing", "Early stage risks"],
+                value_proposition: "AI security with perfect market timing and validation",
+                how_we_can_help: "Stellar Logic AI fits Shasta's AI focus with our perfect market timing, strong technical validation in AI security, early stage opportunity with proven technology, ideal AI investment thesis fit, and clear market opportunity in AI security.",
+                estimated_value: 2000000,
+                next_action: "Send initial outreach email",
+                activities: []
+            }
+        ];
+        
+        function showTab(tabName) {
+            // Hide all sections
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach(section => section.classList.remove('active'));
+            
+            // Remove active class from all tabs
+            const tabs = document.querySelectorAll('.nav-tab');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            
+            // Show selected section
+            document.getElementById(tabName).classList.add('active');
+            
+            // Add active class to clicked tab
+            event.target.classList.add('active');
+            
+            // Load prospects for the selected tab
+            loadProspects(tabName);
+        }
+        
+        function loadProspects(tabName) {
+            let filteredProspects = [];
+            
+            switch(tabName) {
+                case 'all-prospects':
+                    filteredProspects = prospects;
+                    break;
+                case 'enterprise-clients':
+                    filteredProspects = prospects.filter(p => p.prospect_type === 'enterprise_client');
+                    break;
+                case 'gaming-partners':
+                    filteredProspects = prospects.filter(p => p.prospect_type === 'gaming_partner');
+                    break;
+                case 'vc-investors':
+                    filteredProspects = prospects.filter(p => p.prospect_type === 'vc_investor');
+                    break;
+                case 'strategic-partners':
+                    filteredProspects = prospects.filter(p => p.prospect_type === 'strategic_partner');
+                    break;
+                case 'activities':
+                    loadActivities();
+                    return;
+            }
+            
+            const gridId = tabName + '-grid';
+            const grid = document.getElementById(gridId);
+            
+            if (!grid) return;
+            
+            grid.innerHTML = filteredProspects.map(prospect => createProspectCard(prospect)).join('');
+        }
+        
+        function createProspectCard(prospect) {
+            const statusClass = `status-${prospect.status}`;
+            const priorityClass = `${prospect.priority}-priority`;
+            
+            return `
+                <div class="prospect-card ${priorityClass}">
+                    <div class="prospect-header">
+                        <div>
+                            <div class="prospect-name">${prospect.name}</div>
+                            <div class="prospect-company">${prospect.company}</div>
+                            <div class="prospect-title">${prospect.title}</div>
+                        </div>
+                        <div class="prospect-status ${statusClass}">${prospect.status.replace('_', ' ')}</div>
+                    </div>
+                    
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            📧 <a href="mailto:${prospect.contact_info.email}">${prospect.contact_info.email}</a>
+                        </div>
+                        <div class="contact-item">
+                            📱 ${prospect.contact_info.phone}
+                        </div>
+                        <div class="contact-item">
+                            💼 <a href="${prospect.contact_info.linkedin_url}" target="_blank">LinkedIn Profile</a>
+                        </div>
+                        <div class="contact-item">
+                            🌐 <a href="${prospect.contact_info.company_website}" target="_blank">${prospect.company}</a>
+                        </div>
+                    </div>
+                    
+                    <div class="value-prop">
+                        <strong>Value Proposition:</strong><br>
+                        ${prospect.value_proposition}
+                    </div>
+                    
+                    <div class="how-we-can-help">
+                        <h4>💡 How We Can Help:</h4>
+                        ${prospect.how_we_can_help}
+                    </div>
+                    
+                    <div class="company-research">
+                        <h4>📊 Company Research:</h4>
+                        <strong>Revenue:</strong> ${prospect.company_research.annual_revenue}<br>
+                        <strong>Employees:</strong> ${prospect.company_research.employee_count}<br>
+                        <strong>Recent News:</strong> ${prospect.company_research.recent_news}<br>
+                        <strong>Key Challenges:</strong> ${prospect.company_research.key_challenges.join(', ')}
+                    </div>
+                    
+                    <div class="pain-points">
+                        <h4>🎯 Pain Points:</h4>
+                        ${prospect.pain_points.map(point => `<span class="pain-point">${point}</span>`).join('')}
+                    </div>
+                    
+                    <div class="deal-value">
+                        <strong>💰 Estimated Deal Value:</strong> $${(prospect.estimated_value / 1000000).toFixed(1)}M
+                    </div>
+                    
+                    <div class="prospect-actions">
+                        <button class="btn btn-primary" onclick="markAsContacted('${prospect.id}')">Mark as Contacted</button>
+                        <button class="btn btn-secondary" onclick="addActivity('${prospect.id}')">Add Activity</button>
+                        <button class="btn btn-secondary" onclick="updateStatus('${prospect.id}')">Update Status</button>
+                    </div>
+                    
+                    ${prospect.activities.length > 0 ? `
+                        <div class="activities">
+                            <h4>Recent Activities:</h4>
+                            ${prospect.activities.slice(-3).map(activity => `
+                                <div class="activity-item">
+                                    <div class="activity-date">${new Date(activity.date).toLocaleDateString()}</div>
+                                    <div><strong>${activity.method}:</strong> ${activity.subject}</div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    ` : ''}
+                </div>
+            `;
+        }
+        
+        function markAsContacted(prospectId) {
+            const prospect = prospects.find(p => p.id === prospectId);
+            if (prospect) {
+                prospect.status = 'contacted';
+                prospect.activities.push({
+                    id: Date.now(),
+                    method: 'email',
+                    date: new Date().toISOString(),
+                    subject: 'Initial outreach',
+                    content: 'Sent initial email template'
+                });
+                loadProspects('all-prospects');
+                updateStats();
+                alert('Marked as contacted!');
+            }
+        }
+        
+        function addActivity(prospectId) {
+            document.getElementById('prospectSelect').value = prospectId;
+            document.getElementById('activityModal').style.display = 'block';
+        }
+        
+        function updateStatus(prospectId) {
+            const prospect = prospects.find(p => p.id === prospectId);
+            if (prospect) {
+                const newStatus = prompt('Update status (new, contacted, responded, meeting_scheduled, meeting_completed, proposal_sent, negotiating, closed_won, closed_lost):');
+                if (newStatus && ['new', 'contacted', 'responded', 'meeting_scheduled', 'meeting_completed', 'proposal_sent', 'negotiating', 'closed_won', 'closed_lost'].includes(newStatus)) {
+                    prospect.status = newStatus;
+                    loadProspects('all-prospects');
+                    updateStats();
+                    alert('Status updated!');
+                }
+            }
+        }
+        
+        function showAddActivityModal() {
+            document.getElementById('activityModal').style.display = 'block';
+            populateProspectSelect();
+        }
+        
+        function closeModal() {
+            document.getElementById('activityModal').style.display = 'none';
+        }
+        
+        function populateProspectSelect() {
+            const select = document.getElementById('prospectSelect');
+            select.innerHTML = '<option value="">Select a prospect...</option>' + 
+                prospects.map(p => `<option value="${p.id}">${p.name} - ${p.company}</option>`).join('');
+        }
+        
+        function updateStats() {
+            const contacted = prospects.filter(p => p.status !== 'new').length;
+            document.getElementById('contacted-count').textContent = contacted;
+        }
+        
+        function exportData() {
+            const dataStr = JSON.stringify(prospects, null, 2);
+            const dataUri = 'data:application/json;charset=utf-8,'+ encodeURIComponent(dataStr);
+            
+            const exportFileDefaultName = 'stellar_logic_ai_prospects.json';
+            
+            const linkElement = document.createElement('a');
+            linkElement.setAttribute('href', dataUri);
+            linkElement.setAttribute('download', exportFileDefaultName);
+            linkElement.click();
+        }
+        
+        function loadActivities() {
+            const activitiesList = document.getElementById('activities-list');
+            const allActivities = [];
+            
+            prospects.forEach(prospect => {
+                prospect.activities.forEach(activity => {
+                    allActivities.push({
+                        ...activity,
+                        prospect_name: prospect.name,
+                        company: prospect.company
+                    });
+                });
+            });
+            
+            allActivities.sort((a, b) => new Date(b.date) - new Date(a.date));
+            
+            activitiesList.innerHTML = allActivities.map(activity => `
+                <div class="prospect-card">
+                    <div class="prospect-header">
+                        <div>
+                            <div class="prospect-name">${activity.prospect_name}</div>
+                            <div class="prospect-company">${activity.company}</div>
+                        </div>
+                        <div class="prospect-status status-contacted">${activity.method}</div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-date">${new Date(activity.date).toLocaleString()}</div>
+                        <div><strong>Subject:</strong> ${activity.subject}</div>
+                        <div><strong>Content:</strong> ${activity.content}</div>
+                    </div>
+                </div>
+            `).join('');
+        }
+        
+        // Pre-fill email templates
+        function prefillTemplate(templateType) {
+            const prospectId = document.getElementById('prospectSelect').value;
+            const prospect = prospects.find(p => p.id === prospectId);
+            
+            if (!prospect) {
+                alert('Please select a prospect first!');
+                return;
+            }
+            
+            let subject = '';
+            let content = '';
+            
+            switch(templateType) {
+                case 'intro':
+                    subject = `Gaming Industry Innovation - Stellar Logic AI Partnership Opportunity`;
+                    content = `Dear ${prospect.name},
+
+I hope this email finds you well. I'm reaching out because I've been following ${prospect.company}'s impressive work in ${prospect.industry.toLowerCase()}, particularly ${prospect.company_research.recent_news.toLowerCase()}.
+
+Given your role as ${prospect.title}, I thought you'd be interested in Stellar Logic AI's enterprise security platform that achieves 99.2% accuracy in threat detection - significantly higher than the industry average of 85%.
+
+${prospect.how_we_can_help}
+
+Our 32 production modules provide comprehensive coverage for:
+${prospect.pain_points.map(point => `• ${point}`).join('\n')}
+
+I'd love to schedule a brief 15-minute call to discuss how we can help ${prospect.company} address these challenges and potentially save millions in annual losses.
+
+Would you be available next week for a quick conversation?
+
+Best regards,
+Jamie Brown
+Founder & CEO, Stellar Logic AI
+🛡️ 99.2% Accuracy • Enterprise AI Security
+stellar.logic.ai@gmail.com • 417-319-9517`;
+                    break;
+                    
+                case 'followup':
+                    subject = `Following up - Enterprise AI Security for ${prospect.company}`;
+                    content = `Hi ${prospect.name},
+
+Following up on my previous email about Stellar Logic AI's enterprise security platform.
+
+I wanted to highlight how our 99.2% accuracy technology specifically addresses ${prospect.company}'s key challenges:
+${prospect.company_research.key_challenges.map(challenge => `• ${challenge}`).join('\n')}
+
+Given ${prospect.company}'s ${prospect.company_research.annual_revenue} in annual revenue, our solution could provide significant ROI by:
+${prospect.how_we_can_help}
+
+Are you available for a brief demo this week? I can show you exactly how our technology works and discuss specific use cases for ${prospect.company}.
+
+Best regards,
+Jamie Brown
+Founder & CEO, Stellar Logic AI
+🛡️ 99.2% Accuracy • Enterprise AI Security`;
+                    break;
+                    
+                case 'demo':
+                    subject = `Demo Request - 99.2% AI Security for ${prospect.company}`;
+                    content = `Hi ${prospect.name},
+
+I'd like to request a 30-minute demo to show you how Stellar Logic AI's 99.2% accuracy technology can transform ${prospect.company}'s security posture.
+
+During the demo, I'll show you:
+• Real-time threat detection with 99.2% accuracy
+• How our 32 production modules integrate with existing systems
+• Specific ROI calculations based on ${prospect.company}'s use case
+• Live demonstration of our Zero Trust architecture
+
+${prospect.how_we_can_help}
+
+Given ${prospect.company_research.recent_news}, I believe the timing is perfect for us to discuss how our technology can support your initiatives.
+
+Would Tuesday or Thursday afternoon work for a 30-minute session?
+
+Best regards,
+Jamie Brown
+Founder & CEO, Stellar Logic AI
+🛡️ 99.2% Accuracy • Enterprise AI Security`;
+                    break;
+            }
+            
+            document.getElementById('subjectInput').value = subject;
+            document.getElementById('contentInput').value = content;
+            document.getElementById('notesInput').value = `Pre-filled ${templateType} template for ${prospect.company} - Focus on ${prospect.pain_points[0]}`;
+        }
+        
+        // Show company research in a modal
+        function showCompanyResearch() {
+            const prospectId = document.getElementById('prospectSelect').value;
+            const prospect = prospects.find(p => p.id === prospectId);
+            
+            if (!prospect) {
+                alert('Please select a prospect first!');
+                return;
+            }
+            
+            const research = prospect.company_research;
+            const researchContent = `
+📊 **${prospect.company} Research Summary**
+
+**Company Overview:**
+${research.description}
+
+**Key Metrics:**
+• Annual Revenue: ${research.annual_revenue}
+• Employees: ${research.employee_count}
+• Headquarters: ${research.headquarters}
+
+**Recent Developments:**
+${research.recent_news}
+
+**Key Challenges:**
+${research.key_challenges.map(challenge => `• ${challenge}`).join('\n')}
+
+**How We Can Help:**
+${prospect.how_we_can_help}
+
+**Value Proposition:**
+${prospect.value_proposition}
+
+**Estimated Deal Value: $${(prospect.estimated_value / 1000000).toFixed(1)}M**
+
+**Next Steps:**
+${prospect.next_action}
+            `;
+            
+            alert(researchContent);
+        }
+        
+        // Handle form submission
+        document.getElementById('activityForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const prospectId = document.getElementById('prospectSelect').value;
+            const method = document.getElementById('methodSelect').value;
+            const subject = document.getElementById('subjectInput').value;
+            const content = document.getElementById('contentInput').value;
+            const notes = document.getElementById('notesInput').value;
+            
+            const prospect = prospects.find(p => p.id === prospectId);
+            if (prospect) {
+                prospect.activities.push({
+                    id: Date.now(),
+                    method: method,
+                    date: new Date().toISOString(),
+                    subject: subject,
+                    content: content,
+                    notes: notes
+                });
+                
+                if (prospect.status === 'new') {
+                    prospect.status = 'contacted';
+                }
+                
+                loadProspects('all-prospects');
+                updateStats();
+                closeModal();
+                this.reset();
+                alert('Activity added successfully!');
+            }
+        });
+        
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            loadProspects('all-prospects');
+            updateStats();
+        });
+        
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('activityModal');
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+    </script>
+</body>
+</html>

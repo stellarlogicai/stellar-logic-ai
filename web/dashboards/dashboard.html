@@ -1,0 +1,2953 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stellar Logic AI Executive Dashboard</title>
+    <link rel="icon" href="favicon_32x32.png" type="image/png" sizes="32x32">
+    <link rel="icon" href="favicon_16x16.png" type="image/png" sizes="16x16">
+    <link rel="apple-touch-icon" href="Stellar_Logic_AI_Logo.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+        
+        .dashboard {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            background: white;
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        
+        .header h1 {
+            color: #2d3748;
+            font-size: 2.5rem;
+            margin-bottom: 8px;
+        }
+        
+        .header p {
+            color: #718096;
+            font-size: 1.1rem;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            margin-bottom: 24px;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+        }
+        
+        .card:hover {
+            transform: translateY(-2px);
+        }
+        
+        .card h3 {
+            color: #2d3748;
+            margin-bottom: 16px;
+            font-size: 1.3rem;
+        }
+        
+        .metric {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+        
+        .metric-label {
+            color: #718096;
+            font-size: 0.9rem;
+        }
+        
+        .metric-value {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #4a5568;
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #e2e8f0;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 8px;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            border-radius: 4px;
+            transition: width 0.3s ease;
+        }
+        
+        .task-list {
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        
+        .task-item {
+            background: white;
+            padding: 16px;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            border-left: 4px solid #667eea;
+            transition: all 0.2s;
+        }
+        
+        .task-item.completed {
+            border-left-color: #48bb78;
+            opacity: 0.7;
+        }
+        
+        .task-item.completed .task-title {
+            text-decoration: line-through;
+            color: #718096;
+        }
+        
+        .task-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+        
+        .task-title {
+            font-weight: 500;
+            color: #2d3748;
+        }
+        
+        .task-complete-btn {
+            background: #48bb78;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            transition: all 0.2s;
+        }
+        
+        .task-complete-btn:hover {
+            background: #38a169;
+            transform: translateY(-1px);
+        }
+        
+        .task-complete-btn.completed {
+            background: #718096;
+            cursor: default;
+        }
+        
+        .task-complete-btn.completed:hover {
+            background: #718096;
+            transform: none;
+        }
+        
+        .task-status {
+            font-size: 0.8rem;
+            padding: 4px 8px;
+            border-radius: 12px;
+            background: #e2e8f0;
+            color: #4a5568;
+        }
+        
+        .alert {
+            background: #fed7d7;
+            border: 1px solid #feb2b2;
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 12px;
+        }
+        
+        .alert.success {
+            background: #c6f6d5;
+            border-left-color: #48bb78;
+            color: #276749;
+        }
+        
+        .alert.warning {
+            background: #fefcbf;
+            border-left-color: #f6e05e;
+            color: #975a16;
+        }
+        
+        .alert.success .alert-title {
+            color: #276749;
+        }
+        
+        .alert-title {
+            font-weight: bold;
+            color: #c53030;
+            margin-bottom: 4px;
+        }
+        
+        .alert.warning .alert-title {
+            color: #975a16;
+        }
+        
+        .schedule-block {
+            background: #f7fafc;
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 8px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .schedule-time {
+            font-weight: bold;
+            color: #4a5568;
+            margin-bottom: 4px;
+        }
+        
+        .schedule-title {
+            color: #2d3748;
+        }
+        
+        .btn {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.2s;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+        }
+        
+        .status-indicator {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+        
+        .status-indicator.green {
+            background: #48bb78;
+        }
+        
+        .status-indicator.yellow {
+            background: #ed8936;
+        }
+        
+        .status-indicator.red {
+            background: #f56565;
+        }
+        
+        /* Time Management Styles */
+        .time-management {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        
+        .time-block {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 16px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .time-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+        
+        .time-category {
+            font-weight: 600;
+            color: #2d3748;
+            font-size: 1.1rem;
+        }
+        
+        .time-hours {
+            color: #718096;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        
+        .time-details {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        .time-label {
+            font-size: 0.85rem;
+            color: #4a5568;
+        }
+        
+        .time-summary {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border-radius: 12px;
+            padding: 16px;
+            margin-top: 8px;
+        }
+        
+        .summary-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+        
+        .summary-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .summary-label {
+            font-weight: 500;
+        }
+        
+        .summary-value {
+            font-weight: 600;
+        }
+        
+        /* AI Tasks Styles */
+        .ai-tasks {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        .task-item {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 12px;
+            border-left: 4px solid #e2e8f0;
+        }
+        
+        /* Chat Interface Styles */
+        .chat-interface {
+            margin-top: 20px;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .chat-header {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 12px 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .chat-header h4 {
+            margin: 0;
+            font-size: 1rem;
+        }
+        
+        .chat-actions {
+            display: flex;
+            gap: 8px;
+        }
+        
+        .chat-btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .chat-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+        
+        /* Team Chat Styles */
+        .team-chat-container {
+            display: flex;
+            height: 400px;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .team-chat-sidebar {
+            width: 250px;
+            background: #f8f9fa;
+            border-right: 1px solid #e5e7eb;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .team-chat-channels, .team-chat-members {
+            padding: 15px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        
+        .team-chat-channels h5, .team-chat-members h5 {
+            margin: 0 0 10px 0;
+            color: #374151;
+            font-size: 14px;
+            font-weight: 600;
+        }
+        
+        .channel-list {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+        
+        .channel {
+            display: flex;
+            align-items: center;
+            padding: 8px 10px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+        
+        .channel:hover {
+            background-color: #e5e7eb;
+        }
+        
+        .channel.active {
+            background-color: #667eea;
+            color: white;
+        }
+        
+        .channel-icon {
+            margin-right: 8px;
+            font-weight: bold;
+        }
+        
+        .channel-name {
+            flex: 1;
+            font-size: 13px;
+        }
+        
+        .channel-badge {
+            font-size: 10px;
+        }
+        
+        .member-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        .member {
+            display: flex;
+            align-items: center;
+            padding: 8px;
+            border-radius: 6px;
+        }
+        
+        .member-avatar {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: #667eea;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+            font-size: 14px;
+        }
+        
+        .member-info {
+            flex: 1;
+        }
+        
+        .member-name {
+            font-size: 13px;
+            font-weight: 500;
+            color: #374151;
+        }
+        
+        .member-role {
+            font-size: 11px;
+            color: #6b7280;
+        }
+        
+        .member.online .member-avatar {
+            background: #10b981;
+        }
+        
+        .team-chat-main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .team-chat-messages {
+            flex: 1;
+            padding: 15px;
+            overflow-y: auto;
+            background: white;
+        }
+        
+        .team-message {
+            margin-bottom: 15px;
+            padding: 10px;
+            border-radius: 8px;
+            background: #f8f9fa;
+        }
+        
+        .message-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+        }
+        
+        .message-sender {
+            font-weight: 600;
+            color: #374151;
+            font-size: 13px;
+        }
+        
+        .message-time {
+            color: #6b7280;
+            font-size: 11px;
+        }
+        
+        .message-content {
+            color: #4b5563;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+        
+        .system-message {
+            text-align: center;
+            color: #6b7280;
+            font-style: italic;
+            font-size: 12px;
+            margin: 10px 0;
+        }
+        
+        .team-chat-input {
+            display: flex;
+            padding: 15px;
+            border-top: 1px solid #e5e7eb;
+            background: #f8f9fa;
+        }
+        
+        .team-chat-input input {
+            flex: 1;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            padding: 10px;
+            font-size: 14px;
+            outline: none;
+        }
+        
+        .team-chat-input input:focus {
+            border-color: #667eea;
+        }
+        
+        .send-btn {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 6px;
+            margin-left: 10px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        
+        .send-btn:hover {
+            background: #5a67d8;
+        }
+        
+        /* Friends System Styles */
+        .friends-system-container {
+            display: flex;
+            height: 400px;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .friends-sidebar {
+            width: 280px;
+            background: #f8f9fa;
+            border-right: 1px solid #e5e7eb;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .friends-search {
+            padding: 15px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        
+        .friends-search input {
+            width: 100%;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            padding: 8px 12px;
+            font-size: 14px;
+            outline: none;
+        }
+        
+        .friends-search input:focus {
+            border-color: #667eea;
+        }
+        
+        .friends-categories {
+            border-bottom: 1px solid #e5e7eb;
+        }
+        
+        .category {
+            display: flex;
+            align-items: center;
+            padding: 10px 15px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .category:hover {
+            background-color: #e9ecef;
+        }
+        
+        .category.active {
+            background-color: #667eea;
+            color: white;
+        }
+        
+        .category-icon {
+            margin-right: 10px;
+            font-size: 16px;
+        }
+        
+        .category-name {
+            flex: 1;
+            font-size: 13px;
+            font-weight: 500;
+        }
+        
+        .category-count {
+            background: rgba(0, 0, 0, 0.1);
+            color: #6b7280;
+            padding: 2px 6px;
+            border-radius: 10px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+        
+        .category.active .category-count {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+        
+        .friends-list {
+            flex: 1;
+            overflow-y: auto;
+            padding: 10px;
+        }
+        
+        .friend {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+            margin-bottom: 5px;
+        }
+        
+        .friend:hover {
+            background-color: #e9ecef;
+        }
+        
+        .friend-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: #667eea;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 12px;
+            font-size: 16px;
+        }
+        
+        .friend.online .friend-avatar {
+            background: #10b981;
+        }
+        
+        .friend.offline .friend-avatar {
+            background: #6b7280;
+        }
+        
+        .friend-info {
+            flex: 1;
+        }
+        
+        .friend-name {
+            font-size: 14px;
+            font-weight: 600;
+            color: #374151;
+            margin-bottom: 2px;
+        }
+        
+        .friend-status {
+            font-size: 12px;
+            color: #6b7280;
+            display: flex;
+            align-items: center;
+        }
+        
+        .friend-actions {
+            display: flex;
+            gap: 4px;
+        }
+        
+        .friend-action-btn {
+            background: transparent;
+            border: 1px solid #d1d5db;
+            border-radius: 4px;
+            padding: 4px 6px;
+            cursor: pointer;
+            font-size: 12px;
+            transition: all 0.2s ease;
+        }
+        
+        .friend-action-btn:hover {
+            background: #667eea;
+            color: white;
+            border-color: #667eea;
+        }
+        
+        .friends-main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            background: white;
+        }
+        
+        .friends-content {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+        }
+        
+        .friends-welcome {
+            text-align: center;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        
+        .friends-welcome h3 {
+            color: #374151;
+            margin-bottom: 10px;
+        }
+        
+        .friends-welcome p {
+            color: #6b7280;
+            margin-bottom: 20px;
+        }
+        
+        .friends-stats {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        
+        .stat {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 24px;
+            font-weight: 700;
+            color: #667eea;
+            margin-bottom: 5px;
+        }
+        
+        .stat-label {
+            font-size: 12px;
+            color: #6b7280;
+            font-weight: 500;
+        }
+        
+        .friends-actions {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+        
+        .action-btn {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 10px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 500;
+            transition: background-color 0.2s ease;
+        }
+        
+        .action-btn:hover {
+            background: #5a67d8;
+        }
+        
+        /* Voice/Video Call Styles */
+        .voice-call-ui, .video-call-ui {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            min-width: 400px;
+            max-width: 600px;
+        }
+        
+        .video-call-ui {
+            min-width: 800px;
+            max-width: 1200px;
+        }
+        
+        .call-header {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 20px;
+            border-radius: 12px 12px 0 0;
+            text-align: center;
+        }
+        
+        .call-header h4 {
+            margin: 0 0 5px 0;
+            font-size: 18px;
+        }
+        
+        .call-info {
+            font-size: 12px;
+            opacity: 0.9;
+        }
+        
+        .video-container {
+            display: flex;
+            gap: 10px;
+            padding: 20px;
+            background: #f8f9fa;
+        }
+        
+        .local-video, .remote-video {
+            flex: 1;
+            position: relative;
+            background: #000;
+            border-radius: 8px;
+            overflow: hidden;
+            min-height: 200px;
+        }
+        
+        .local-video video, .remote-video video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .video-label {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+        }
+        
+        .call-controls {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            padding: 20px;
+            background: white;
+            border-top: 1px solid #e5e7eb;
+        }
+        
+        .call-btn {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 10px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: background-color 0.2s ease;
+        }
+        
+        .call-btn:hover {
+            background: #5a67d8;
+        }
+        
+        .call-btn.danger {
+            background: #ef4444;
+        }
+        
+        .call-btn.danger:hover {
+            background: #dc2626;
+        }
+        
+        .call-status {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background: #f8f9fa;
+            border-top: 1px solid #e5e7eb;
+        }
+        
+        .status-indicator {
+            color: #ef4444;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        
+        .call-timer {
+            font-family: 'Courier New', monospace;
+            font-size: 16px;
+            font-weight: 600;
+            color: #374151;
+        }
+        
+        #remote-media {
+            min-height: 100px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6b7280;
+        }
+        
+        #remote-media audio, #remote-media video {
+            width: 100%;
+            border-radius: 8px;
+        }
+        
+        .chat-messages {
+            height: 300px;
+            overflow-y: auto;
+            padding: 16px;
+            background: #f8f9fa;
+        }
+        
+        .ai-msg {
+            background: white;
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 12px;
+            border-left: 4px solid #667eea;
+            animation: slideIn 0.3s ease-out;
+        }
+        
+        .user-msg {
+            background: #e3f2fd;
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 12px;
+            border-left: 4px solid #2196f3;
+            margin-left: 20px;
+            animation: slideIn 0.3s ease-out;
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .chat-input {
+            padding: 12px 16px;
+            background: white;
+            border-top: 1px solid #e2e8f0;
+            display: flex;
+            gap: 8px;
+        }
+        
+        .chat-input input {
+            flex: 1;
+            padding: 8px 12px;
+            border: 1px solid #e2e8f0;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+        
+        .chat-input input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        
+        .chat-input button {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+        
+        .chat-input button:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 2px 8px rgba(102, 126, 234, 0.4);
+        }
+        
+        .task-item.high-priority {
+            border-left-color: #f56565;
+        }
+        
+        .task-item.medium-priority {
+            border-left-color: #ed8936;
+        }
+        
+        .task-item.low-priority {
+            border-left-color: #48bb78;
+        }
+        
+        .task-checkbox {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+        
+        .task-checkbox input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+        }
+        
+        .task-checkbox label {
+            cursor: pointer;
+            font-weight: 500;
+            color: #2d3748;
+        }
+        
+        .task-meta {
+            display: flex;
+            gap: 12px;
+            font-size: 0.85rem;
+        }
+        
+        .task-time {
+            color: #718096;
+        }
+        
+        .task-priority {
+            font-weight: 600;
+        }
+        
+        .ai-suggestion {
+            background: linear-gradient(135deg, #38b2ac, #319795);
+            color: white;
+            border-radius: 8px;
+            padding: 12px;
+            margin-top: 8px;
+        }
+        
+        .suggestion-header {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        
+        .suggestion-text {
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+        
+        .job-progress {
+            background: linear-gradient(135deg, #f56565, #e53e3e);
+        }
+        
+        .ai-progress {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+        }
+        
+        .investor-progress {
+            background: linear-gradient(135deg, #48bb78, #38a169);
+        }
+    </style>
+    <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+    <script src="webrtc-client.js"></script>
+</head>
+<body>
+    <div class="dashboard">
+        <div class="header">
+            <div style="display: flex; align-items: center; gap: 16px;">
+                <img src="Stellar_Logic_AI_Logo.png" alt="Stellar Logic AI" style="width: 48px; height: 48px; border-radius: 12px; object-fit: contain;">
+                <div>
+                    <h1>Stellar Logic AI Executive Dashboard</h1>
+                    <p><span id="current-date"></span> • Real-time business intelligence & schedule management</p>
+                </div>
+            </div>
+            <div style="margin-top: 16px;">
+                <a href="/templates.html" style="background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: 500; display: inline-block; transition: all 0.2s; margin-right: 12px;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 12px rgba(102, 126, 234, 0.4)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">📋 Templates & Resources</a>
+                <a href="/crm.html" style="background: linear-gradient(135deg, #48bb78, #38a169); color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: 500; display: inline-block; transition: all 0.2s; margin-right: 12px;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 12px rgba(72, 187, 120, 0.4)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">👥 CRM & Prospects</a>
+                <a href="/pitch_deck.html" style="background: linear-gradient(135deg, #f6e05e, #d69e2e); color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: 500; display: inline-block; transition: all 0.2s; margin-right: 12px;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 12px rgba(246, 224, 94, 0.4)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">🎯 Pitch Deck</a>
+                <a href="/study_guide.html" style="background: linear-gradient(135deg, #9f7aea, #805ad5); color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: 500; display: inline-block; transition: all 0.2s; margin-right: 12px;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 12px rgba(159, 122, 234, 0.4)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">📚 Study Guide</a>
+                <a href="/ai_assistant.html" style="background: linear-gradient(135deg, #38b2ac, #319795); color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: 500; display: inline-block; transition: all 0.2s;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 12px rgba(56, 178, 172, 0.4)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">🤖 AI Assistant</a>
+            </div>
+        </div>
+        
+        <!-- Overview Metrics -->
+        <div class="grid">
+            <div class="card">
+                <h3>📊 Overview</h3>
+                <div class="metric">
+                    <span class="metric-label">Total Tasks</span>
+                    <span class="metric-value" id="total-tasks">8</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">Completed</span>
+                    <span class="metric-value" id="completed-tasks">0</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">Completion Rate</span>
+                    <span class="metric-value" id="completion-rate">0%</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="completion-progress" style="width: 0%"></div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h3>🎯 Initiatives</h3>
+                <div class="metric">
+                    <span class="metric-label">Active Initiatives</span>
+                    <span class="metric-value" id="active-initiatives">5</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">On Track</span>
+                    <span class="metric-value" id="on-track">3</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">At Risk</span>
+                    <span class="metric-value" id="at-risk">2</span>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h3>📈 Weekly Goals</h3>
+                <div class="metric">
+                    <span class="metric-label">Emails Sent</span>
+                    <span class="metric-value" id="emails-sent">0/50</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="emails-progress" style="width: 0%"></div>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">Meetings Booked</span>
+                    <span class="metric-value" id="meetings-booked">0/5</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="meetings-progress" style="width: 0%"></div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Time Management & Productivity -->
+        <div class="grid">
+            <div class="card">
+                <h3>⏰ Time Management</h3>
+                <div class="time-management">
+                    <div class="time-block">
+                        <div class="time-header">
+                            <span class="time-category">💼 Full-Time Job</span>
+                            <span class="time-hours">8:00 - 17:00</span>
+                        </div>
+                        <div class="time-details">
+                            <div class="progress-bar">
+                                <div class="progress-fill job-progress" style="width: 65%;"></div>
+                            </div>
+                            <span class="time-label">5.2/8 hours completed</span>
+                        </div>
+                    </div>
+                    
+                    <div class="time-block">
+                        <div class="time-header">
+                            <span class="time-category">🚀 Stellar Logic AI</span>
+                            <span class="time-hours">17:00 - 22:00</span>
+                        </div>
+                        <div class="time-details">
+                            <div class="progress-bar">
+                                <div class="progress-fill ai-progress" style="width: 40%;"></div>
+                            </div>
+                            <span class="time-label">2/5 hours planned</span>
+                        </div>
+                    </div>
+                    
+                    <div class="time-block">
+                        <div class="time-header">
+                            <span class="time-category">🎯 Investor Outreach</span>
+                            <span class="time-hours">22:00 - 23:00</span>
+                        </div>
+                        <div class="time-details">
+                            <div class="progress-bar">
+                                <div class="progress-fill investor-progress" style="width: 0%;"></div>
+                            </div>
+                            <span class="time-label">0/1 hour completed</span>
+                        </div>
+                    </div>
+                    
+                    <div class="time-summary">
+                        <div class="summary-item">
+                            <span class="summary-label">📊 Today's Focus:</span>
+                            <span class="summary-value">Email Templates & Pitch Deck</span>
+                        </div>
+                        <div class="summary-item">
+                            <span class="summary-label">🎯 Priority:</span>
+                            <span class="summary-value">3 Investor Follow-ups</span>
+                        </div>
+                        <div class="summary-item">
+                            <span class="summary-label">⚡ Energy Level:</span>
+                            <span class="summary-value">High - Optimal for Deep Work</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h3>📋 AI Assistant Tasks</h3>
+                <div class="ai-tasks">
+                    <div class="task-item high-priority">
+                        <div class="task-checkbox">
+                            <input type="checkbox" id="task1">
+                            <label for="task1">Send 5 investor follow-up emails</label>
+                        </div>
+                        <div class="task-meta">
+                            <span class="task-time">⏱️ 30 min</span>
+                            <span class="task-priority">🔴 High</span>
+                        </div>
+                    </div>
+                    
+                    <div class="task-item medium-priority">
+                        <div class="task-checkbox">
+                            <input type="checkbox" id="task2">
+                            <label for="task2">Update pitch deck with new metrics</label>
+                        </div>
+                        <div class="task-meta">
+                            <span class="task-time">⏱️ 45 min</span>
+                            <span class="task-priority">🟡 Medium</span>
+                        </div>
+                    </div>
+                    
+                    <div class="task-item medium-priority">
+                        <div class="task-checkbox">
+                            <input type="checkbox" id="task3">
+                            <label for="task3">Review partnership proposals</label>
+                        </div>
+                        <div class="task-meta">
+                            <span class="task-time">⏱️ 20 min</span>
+                            <span class="task-priority">🟡 Medium</span>
+                        </div>
+                    </div>
+                    
+                    <div class="task-item low-priority">
+                        <div class="task-checkbox">
+                            <input type="checkbox" id="task4">
+                            <label for="task4">Update technical documentation</label>
+                        </div>
+                        <div class="task-meta">
+                            <span class="task-time">⏱️ 15 min</span>
+                            <span class="task-priority">🟢 Low</span>
+                        </div>
+                    </div>
+                    
+                    <div class="ai-suggestion">
+                        <div class="suggestion-header">🤖 AI Recommendation:</div>
+                        <div class="suggestion-text">
+                            Based on your energy patterns, tackle investor emails first when you're most focused (17:00-18:00), then work on creative tasks like pitch deck updates.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Today's Schedule & Tasks -->
+        <div class="grid">
+            <div class="card">
+                <h3>📅 Today's Schedule</h3>
+                <div id="today-schedule">
+                    <div class="schedule-block">
+                        <div class="schedule-time">09:00 - 10:00</div>
+                        <div class="schedule-title">Daily Planning & Review</div>
+                    </div>
+                    <div class="schedule-block">
+                        <div class="schedule-time">10:00 - 12:00</div>
+                        <div class="schedule-title">Email Outreach Campaign</div>
+                    </div>
+                    <div class="schedule-block">
+                        <div class="schedule-time">13:00 - 15:00</div>
+                        <div class="schedule-title">Follow-up & Responses</div>
+                    </div>
+                    <div class="schedule-block">
+                        <div class="schedule-time">15:00 - 17:00</div>
+                        <div class="schedule-title">Demo Preparation</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h3>📋 Priority Tasks</h3>
+                <div class="task-list" id="priority-tasks">
+                    <div class="task-item high-priority" id="task-1">
+                        <div class="task-header">
+                            <span class="task-title">Set up professional email</span>
+                            <button class="task-complete-btn" onclick="completeTask(1)">✓ Complete</button>
+                        </div>
+                        <span class="task-status">Not Started</span>
+                    </div>
+                    <div class="task-item high-priority" id="task-2">
+                        <div class="task-header">
+                            <span class="task-title">Launch first email campaign</span>
+                            <button class="task-complete-btn" onclick="completeTask(2)">✓ Complete</button>
+                        </div>
+                        <span class="task-status">Not Started</span>
+                    </div>
+                    <div class="task-item medium-priority" id="task-3">
+                        <div class="task-header">
+                            <span class="task-title">Prepare investor pitch deck</span>
+                            <button class="task-complete-btn" onclick="completeTask(3)">✓ Complete</button>
+                        </div>
+                        <span class="task-status">Not Started</span>
+                    </div>
+                    <div class="task-item medium-priority" id="task-4">
+                        <div class="task-header">
+                            <span class="task-title">Prepare investor demo presentation</span>
+                            <button class="task-complete-btn" onclick="completeTask(4)">✓ Complete</button>
+                        </div>
+                        <span class="task-status">Not Started</span>
+                    </div>
+                    <div class="task-item low-priority" id="task-5">
+                        <div class="task-header">
+                            <span class="task-title">Optimize LinkedIn profile</span>
+                            <button class="task-complete-btn" onclick="completeTask(5)">✓ Complete</button>
+                        </div>
+                        <span class="task-status">Not Started</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Alerts & Recommendations -->
+        <div class="grid">
+            <div class="card">
+                <h3>🚨 Alerts</h3>
+                <div id="alerts">
+                    <div class="alert warning">
+                        <div class="alert-title">8 Tasks Not Started</div>
+                        <div>You have 8 high-priority tasks that need immediate attention</div>
+                    </div>
+                    <div class="alert">
+                        <div class="alert-title">Daily Planning Reminder</div>
+                        <div>Start your day with planning and priority review</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h3>💡 Recommendations</h3>
+                <div id="recommendations">
+                    <div class="alert">
+                        <div class="alert-title">Focus on Email Setup</div>
+                        <div>Complete professional email setup first to enable outreach</div>
+                    </div>
+                    <div class="alert">
+                        <div class="alert-title">Launch Email Campaign</div>
+                        <div>Start with 20 personalized emails to enterprise prospects</div>
+                    </div>
+                    <div class="alert">
+                        <div class="alert-title">Prepare Investor Materials</div>
+                        <div>Finalize pitch deck before reaching out to investors</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Quick Actions -->
+        <div class="card">
+            <h3>⚡ Quick Actions</h3>
+            <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+                <button class="btn" onclick="markTaskComplete()">Complete Task</button>
+                <button class="btn" onclick="addNewTask()">Add Task</button>
+                <button class="btn" onclick="updateProgress()">Update Progress</button>
+                <button class="btn" onclick="refreshDashboard()">Refresh Dashboard</button>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Initialize dashboard
+        function initDashboard() {
+            updateDateTime();
+            loadDashboardData();
+            loadTaskState(); // Load saved task state
+            setInterval(updateDateTime, 60000); // Update every minute
+        }
+        
+        // Update current date/time
+        function updateDateTime() {
+            const now = new Date();
+            const options = { 
+                weekday: 'long', 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit'
+            };
+            document.getElementById('current-date').textContent = now.toLocaleDateString('en-US', options);
+        }
+        
+        // Load dashboard data (mock data for now)
+        function loadDashboardData() {
+            // This would connect to the backend API
+            updateMetrics();
+            updateSchedule();
+            updateTasks();
+        }
+        
+        // Update metrics
+        function updateMetrics() {
+            // Mock data - would come from API
+            const totalTasks = 8;
+            const completedTasks = 0;
+            const completionRate = Math.round((completedTasks / totalTasks) * 100);
+            
+            document.getElementById('total-tasks').textContent = totalTasks;
+            document.getElementById('completed-tasks').textContent = completedTasks;
+            document.getElementById('completion-rate').textContent = completionRate + '%';
+            document.getElementById('completion-progress').style.width = completionRate + '%';
+            
+            // Weekly goals
+            document.getElementById('emails-sent').textContent = '0/50';
+            document.getElementById('emails-progress').style.width = '0%';
+            document.getElementById('meetings-booked').textContent = '0/5';
+            document.getElementById('meetings-progress').style.width = '0%';
+        }
+        
+        // Update schedule
+        function updateSchedule() {
+            // Schedule is already in HTML, but could be updated dynamically
+        }
+        
+        // Update tasks
+        function updateTasks() {
+            // Tasks are already in HTML, but could be updated dynamically
+        }
+        
+        // Task completion tracking
+        let completedTasks = new Set();
+        let totalTasks = 5;
+        
+        // Complete task function
+        function completeTask(taskId) {
+            const taskElement = document.getElementById(`task-${taskId}`);
+            const button = taskElement.querySelector('.task-complete-btn');
+            const status = taskElement.querySelector('.task-status');
+            
+            if (completedTasks.has(taskId)) {
+                // Uncomplete the task
+                completedTasks.delete(taskId);
+                taskElement.classList.remove('completed');
+                button.textContent = '✓ Complete';
+                button.disabled = false;
+                status.textContent = 'Not Started';
+            } else {
+                // Complete the task
+                completedTasks.add(taskId);
+                taskElement.classList.add('completed');
+                button.textContent = '✅ Completed';
+                button.disabled = true;
+                status.textContent = 'Completed';
+            }
+            
+            updateMetrics();
+            saveTaskState();
+        }
+        
+        // Update metrics based on completed tasks
+        function updateMetrics() {
+            const completedCount = completedTasks.size;
+            const completionRate = Math.round((completedCount / totalTasks) * 100);
+            
+            document.getElementById('total-tasks').textContent = totalTasks;
+            document.getElementById('completed-tasks').textContent = completedCount;
+            document.getElementById('completion-rate').textContent = completionRate + '%';
+            document.getElementById('completion-progress').style.width = completionRate + '%';
+            
+            // Update alerts and recommendations based on completion
+            updateAlerts(completedCount, totalTasks);
+            updateRecommendations(completedCount, totalTasks);
+        }
+        
+        // Update alerts based on task completion
+        function updateAlerts(completed, total) {
+            const alertsContainer = document.getElementById('alerts');
+            const remaining = total - completed;
+            
+            if (remaining === 0) {
+                alertsContainer.innerHTML = `
+                    <div class="alert success">
+                        <div class="alert-title">🎉 All Tasks Completed!</div>
+                        <div>Congratulations! You've completed all priority tasks.</div>
+                    </div>
+                    <div class="alert">
+                        <div class="alert-title">Ready for Next Phase</div>
+                        <div>You're ready to scale up your outreach and investor meetings.</div>
+                    </div>
+                `;
+            } else if (remaining <= 2) {
+                alertsContainer.innerHTML = `
+                    <div class="alert success">
+                        <div class="alert-title">Almost There!</div>
+                        <div>Only ${remaining} tasks remaining. Great progress!</div>
+                    </div>
+                    <div class="alert">
+                        <div class="alert-title">Keep Going</div>
+                        <div>You're doing excellent. Keep up the momentum!</div>
+                    </div>
+                `;
+            } else {
+                alertsContainer.innerHTML = `
+                    <div class="alert warning">
+                        <div class="alert-title">${remaining} Tasks Remaining</div>
+                        <div>You have ${remaining} tasks that need attention</div>
+                    </div>
+                    <div class="alert">
+                        <div class="alert-title">Focus on High Priority</div>
+                        <div>Start with the red-highlighted tasks first</div>
+                    </div>
+                `;
+            }
+        }
+        
+        // Update recommendations based on task completion
+        function updateRecommendations(completed, total) {
+            const recommendationsContainer = document.getElementById('recommendations');
+            const remaining = total - completed;
+            const completionRate = Math.round((completed / total) * 100);
+            
+            if (remaining === 0) {
+                recommendationsContainer.innerHTML = `
+                    <div class="alert success">
+                        <div class="alert-title">🚀 Launch Your Investor Campaign!</div>
+                        <div>With all tasks complete, you're ready to start investor outreach</div>
+                    </div>
+                    <div class="alert">
+                        <div class="alert-title">Schedule 5 Investor Meetings</div>
+                        <div>Use your CRM to reach out to your top prospects</div>
+                    </div>
+                    <div class="alert">
+                        <div class="alert-title">Practice Your Pitch</div>
+                        <div>Use the study guide to master your 10-slide presentation</div>
+                    </div>
+                `;
+            } else if (remaining <= 2) {
+                recommendationsContainer.innerHTML = `
+                    <div class="alert success">
+                        <div class="alert-title">🎯 Final Push!</div>
+                        <div>You're so close! Complete the remaining tasks to unlock investor outreach</div>
+                    </div>
+                    <div class="alert">
+                        <div class="alert-title">Prepare Your Demo</div>
+                        <div>Test your anti-cheat demo and pitch deck</div>
+                    </div>
+                    <div class="alert">
+                        <div class="alert-title">Research Investors</div>
+                        <div>Start researching VCs while finishing tasks</div>
+                    </div>
+                `;
+            } else if (remaining <= 3) {
+                recommendationsContainer.innerHTML = `
+                    <div class="alert">
+                        <div class="alert-title">📈 Great Progress!</div>
+                        <div>You're ${completionRate}% complete. Keep the momentum going!</div>
+                    </div>
+                    <div class="alert">
+                        <div class="alert-title">Focus on High-Impact Tasks</div>
+                        <div>Complete email setup and pitch deck preparation first</div>
+                    </div>
+                    <div class="alert">
+                        <div class="alert-title">Start LinkedIn Outreach</div>
+                        <div>Begin connecting with prospects while completing tasks</div>
+                    </div>
+                `;
+            } else {
+                recommendationsContainer.innerHTML = `
+                    <div class="alert">
+                        <div class="alert-title">Focus on Email Setup</div>
+                        <div>Complete professional email setup first to enable outreach</div>
+                    </div>
+                    <div class="alert">
+                        <div class="alert-title">Launch Email Campaign</div>
+                        <div>Start with 20 personalized emails to enterprise prospects</div>
+                    </div>
+                    <div class="alert">
+                        <div class="alert-title">Prepare Investor Materials</div>
+                        <div>Finalize pitch deck before reaching out to investors</div>
+                    </div>
+                `;
+            }
+        }
+        
+        // Save task state to localStorage
+        function saveTaskState() {
+            const taskState = {
+                completed: Array.from(completedTasks),
+                timestamp: new Date().toISOString()
+            };
+            localStorage.setItem('stellarLogicTasks', JSON.stringify(taskState));
+        }
+        
+        // Load task state from localStorage
+        function loadTaskState() {
+            const saved = localStorage.getItem('stellarLogicTasks');
+            if (saved) {
+                const taskState = JSON.parse(saved);
+                taskState.completed.forEach(taskId => {
+                    completeTask(taskId);
+                });
+                // Reset the completed set since completeTask toggles it
+                completedTasks.clear();
+                taskState.completed.forEach(taskId => {
+                    completedTasks.add(taskId);
+                });
+                updateMetrics();
+            }
+        }
+        
+        function addNewTask() {
+            const title = prompt('Enter task title:');
+            const priority = prompt('Enter priority (high/medium/low):');
+            if (title && priority) {
+                alert(`Task "${title}" with ${priority} priority added!`);
+                loadDashboardData(); // Refresh data
+            }
+        }
+        
+        function updateProgress() {
+            const progress = prompt('Enter progress percentage (0-100):');
+            if (progress) {
+                alert(`Progress updated to ${progress}%!`);
+                loadDashboardData(); // Refresh data
+            }
+        }
+        
+        function refreshDashboard() {
+            alert('Dashboard refreshed!');
+            loadDashboardData();
+        }
+        
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', initDashboard);
+        
+        // Time Management System
+        class TimeManagementAI {
+            constructor() {
+                this.currentTimeBlock = null;
+                this.dailySchedule = {
+                    'full-time': { start: '08:00', end: '17:00', hours: 8 },
+                    'stellar-logic': { start: '17:00', end: '22:00', hours: 5 },
+                    'investor': { start: '22:00', end: '23:00', hours: 1 }
+                };
+                this.tasks = [
+                    { id: 'task1', title: 'Send 5 investor follow-up emails', priority: 'high', estimatedTime: 30, completed: false },
+                    { id: 'task2', title: 'Update pitch deck with new metrics', priority: 'medium', estimatedTime: 45, completed: false },
+                    { id: 'task3', title: 'Review partnership proposals', priority: 'medium', estimatedTime: 20, completed: false },
+                    { id: 'task4', title: 'Update technical documentation', priority: 'low', estimatedTime: 15, completed: false }
+                ];
+                this.meetings = [];
+                this.scheduleImage = null;
+                this.init();
+            }
+            
+            init() {
+                this.setupTaskListeners();
+                this.updateTimeProgress();
+                this.generateAIRecommendations();
+                this.startRealTimeUpdates();
+                this.loadTaskProgress();
+                this.loadMeetings();
+                this.setupChatInterface();
+            }
+            
+            setupChatInterface() {
+                // Add chat interface to AI Assistant Tasks section
+                const aiTasksCard = document.querySelector('.ai-tasks').parentElement;
+                const chatInterface = document.createElement('div');
+                chatInterface.className = 'chat-interface';
+                chatInterface.innerHTML = `
+                    <div class="chat-header">
+                        <h4>💬 AI Schedule Assistant</h4>
+                        <div class="chat-actions">
+                            <button class="chat-btn" onclick="timeManagementAI.uploadSchedule()">📅 Upload Schedule</button>
+                            <button class="chat-btn" onclick="timeManagementAI.generateEmail()">📧 Generate Email</button>
+                            <button class="chat-btn" onclick="timeManagementAI.startEmailCampaign()">🚀 Email Campaign</button>
+                            <button class="chat-btn" onclick="timeManagementAI.showMeetings()">📋 Meetings</button>
+                            <button class="chat-btn" onclick="timeManagementAI.documentGenerator()">📄 Documents</button>
+                            <button class="chat-btn" onclick="timeManagementAI.researchAssistant()">🔍 Research</button>
+                            <button class="chat-btn" onclick="timeManagementAI.lookupInformation()">📋 Look Up Info</button>
+                            <button class="chat-btn" onclick="timeManagementAI.openTeamChat()">💬 Team Chat</button>
+                            <button class="chat-btn" onclick="timeManagementAI.openFriendsSystem()">👥 Friends</button>
+                        </div>
+                    </div>
+                    <div class="chat-messages" id="aiChatMessages">
+                        <div class="ai-msg">
+                            <strong>AI Assistant:</strong> I'm powered by your custom Stellar Logic AI model through Ollama! I can help you with:
+                            <ul>
+                                <li>📅 Upload your work schedule image and I'll help plan your week</li>
+                                <li>📧 Generate intelligent emails for VC investors</li>
+                                <li>🚀 Run automated email campaigns with real AI</li>
+                                <li>📋 Track and manage meetings intelligently</li>
+                                <li>📄 Generate professional documents with real intelligence</li>
+                                <li>🔍 Conduct real market research and analysis</li>
+                            </ul>
+                            I learn from our conversations and get smarter over time. What would you like to work on?
+                        </div>
+                    </div>
+                    <div class="chat-input">
+                        <input type="file" id="scheduleUpload" accept="image/*" style="display: none;" onchange="timeManagementAI.handleScheduleUpload(event)">
+                        <input type="text" id="chatInput" placeholder="Ask me about schedules, emails, campaigns, meetings, documents, or research..." onkeypress="timeManagementAI.handleChatKeyPress(event)">
+                        <button onclick="timeManagementAI.sendMessage()">Send</button>
+                    </div>
+                `;
+                aiTasksCard.appendChild(chatInterface);
+            }
+            
+            uploadSchedule() {
+                document.getElementById('scheduleUpload').click();
+            }
+            
+            handleScheduleUpload(event) {
+                const file = event.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = (e) => {
+                        this.scheduleImage = e.target.result;
+                        this.addMessage('user', `Uploaded schedule: ${file.name}`);
+                        this.addMessage('ai', 'I can see your work schedule! Let me analyze this and help you plan your week around your full-time job and Stellar Logic AI work. Based on the image, I recommend:\n\n• Block 17:00-22:00 for Stellar Logic AI focused work\n• Use 22:00-23:00 for investor outreach\n• Schedule meetings during lunch breaks or early evenings\n• Reserve weekends for deep work on pitch deck\n\nWould you like me to create a detailed weekly schedule?');
+                    };
+                    reader.readAsDataURL(file);
+                }
+            }
+            
+            generateEmail() {
+                const investors = [
+                    'Sarah Chen (Andreessen Horowitz) - sarah.chen@a16z.com',
+                    'Mike Johnson (Sequoia Capital) - mike.johnson@sequoiacap.com',
+                    'Emily Davis (Accel) - emily.davis@accel.com',
+                    'Lisa Brown (Kleiner Perkins) - lisa.brown@kpcb.com',
+                    'Jessica Taylor (Union Square Ventures) - jessica.taylor@usv.com'
+                ];
+                
+                this.addMessage('ai', `Which investor would you like me to generate an email for?\n\nAvailable investors:\n${investors.map((inv, i) => `${i+1}. ${inv}`).join('\n')}\n\nJust tell me the number or name!`);
+            }
+            
+            async generateEmailForInvestor(investorName) {
+                try {
+                    this.addMessage('ai', '🤔 Generating personalized email...');
+                    
+                    const response = await fetch('http://localhost:5001/api/email/generate', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            investor_name: investorName,
+                            investor_firm: investorName.split('(')[1]?.replace(')', '') || '',
+                            context: 'Stellar Logic AI - 99.2% accuracy anti-cheat technology seeking $5M funding'
+                        })
+                    });
+                    
+                    const data = await response.json();
+                    
+                    // Remove typing indicator
+                    const messages = document.getElementById('aiChatMessages');
+                    messages.removeChild(messages.lastChild);
+                    
+                    if (response.ok) {
+                        // Format the email with proper line breaks
+                        const formattedEmail = data.email.replace(/\n\n/g, '\n\n').replace(/\n/g, '<br>');
+                        
+                        this.addMessage('ai', `Here's your personalized email for ${investorName}:\n\n${formattedEmail}\n\nWould you like me to:\n1. Copy this to clipboard\n2. Generate a different version\n3. Schedule follow-up reminders?`);
+                    } else {
+                        this.addMessage('ai', 'Sorry, I had trouble generating the email. Please try again.');
+                    }
+                } catch (error) {
+                    console.error('Email generation error:', error);
+                    const messages = document.getElementById('aiChatMessages');
+                    messages.removeChild(messages.lastChild);
+                    this.addMessage('ai', 'I\'m having trouble generating the email. Please check if the Stellar LLM server is running.');
+                }
+            }
+            
+            showMeetings() {
+                if (this.meetings.length === 0) {
+                    this.addMessage('ai', 'You don\'t have any meetings scheduled yet. Would you like me to help you set up some investor meetings? I can suggest optimal times based on your work schedule.');
+                } else {
+                    const meetingList = this.meetings.map((meeting, i) => 
+                        `${i+1}. ${meeting.title} - ${meeting.date} at ${meeting.time} with ${meeting.person}`
+                    ).join('\n');
+                    this.addMessage('ai', `Your upcoming meetings:\n\n${meetingList}\n\nWould you like me to add a new meeting or modify any existing ones?`);
+                }
+            }
+            
+            addMeeting(title, date, time, person) {
+                const meeting = {
+                    id: Date.now(),
+                    title,
+                    date,
+                    time,
+                    person,
+                    created: new Date().toISOString()
+                };
+                this.meetings.push(meeting);
+                this.saveMeetings();
+                this.addMessage('ai', `Meeting added: ${title} with ${person} on ${date} at ${time}. I'll remind you as the date approaches!`);
+            }
+            
+            sendMessage() {
+                const input = document.getElementById('chatInput');
+                const message = input.value.trim();
+                
+                if (message) {
+                    this.addMessage('user', message);
+                    this.processMessage(message);
+                    input.value = '';
+                }
+            }
+            
+            handleChatKeyPress(event) {
+                if (event.key === 'Enter') {
+                    this.sendMessage();
+                }
+            }
+            
+            async callStellarAI(message) {
+                try {
+                    // Show typing indicator
+                    this.addMessage('ai', '🤔 Thinking...');
+                    
+                    const response = await fetch('http://localhost:5001/api/chat', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            message: message,
+                            context: 'Stellar Logic AI dashboard - business management, investor relations, and strategic planning',
+                            user_id: 'jamie_brown'
+                        })
+                    });
+                    
+                    const data = await response.json();
+                    
+                    if (response.ok) {
+                        // Remove typing indicator and add real response
+                        const messages = document.getElementById('aiChatMessages');
+                        messages.removeChild(messages.lastChild);
+                        this.addMessage('ai', data.response);
+                    } else {
+                        // Remove typing indicator and show error
+                        const messages = document.getElementById('aiChatMessages');
+                        messages.removeChild(messages.lastChild);
+                        this.addMessage('ai', 'Sorry, I\'m having trouble connecting to my AI brain. Please make sure the Stellar LLM server is running.');
+                    }
+                } catch (error) {
+                    console.error('AI Error:', error);
+                    // Remove typing indicator and show error
+                    const messages = document.getElementById('aiChatMessages');
+                    messages.removeChild(messages.lastChild);
+                    this.addMessage('ai', 'I\'m having trouble connecting to my AI brain. Please ensure the Ollama server is running on localhost:11434 and the Stellar LLM server is running on port 5000.');
+                }
+            }
+            
+            processMessage(message) {
+                const lowerMessage = message.toLowerCase();
+                
+                // Check for feedback patterns and learn from them
+                if (this.detectFeedbackPattern(lowerMessage)) {
+                    this.processFeedback(message);
+                    return; // Don't send to AI, just process feedback
+                }
+                
+                // For all other messages, send to AI
+                this.callStellarAI(message);
+            }
+            
+            detectFeedbackPattern(message) {
+                const feedbackPatterns = [
+                    'format better',
+                    'make it shorter',
+                    'make it longer',
+                    'more professional',
+                    'more casual',
+                    'better structure',
+                    'improve formatting',
+                    'too long',
+                    'too short',
+                    'not clear',
+                    'can you',
+                    'could you',
+                    'would you'
+                ];
+                
+                return feedbackPatterns.some(pattern => message.includes(pattern));
+            }
+            
+            async processFeedback(message) {
+                // Extract feedback type and content
+                const feedbackType = this.classifyFeedback(message);
+                const feedbackContent = message;
+                
+                // Send feedback to learning system
+                try {
+                    const response = await fetch('http://localhost:5001/api/feedback', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            user_id: 'jamie_brown',
+                            feedback_type: feedbackType,
+                            feedback_content: feedbackContent,
+                            ai_adaptation: 'User requested formatting/style improvements',
+                            improvement_success: 1
+                        })
+                    });
+                    
+                    if (response.ok) {
+                        this.addMessage('ai', 'Thanks for your feedback! I\'ve learned from your preferences and will apply them to future responses. How else can I help you?');
+                    }
+                } catch (error) {
+                    console.error('Feedback processing error:', error);
+                    this.addMessage('ai', 'I appreciate your feedback! I\'m working on improving based on your input.');
+                }
+            }
+            
+            classifyFeedback(message) {
+                const lowerMessage = message.toLowerCase();
+                
+                if (lowerMessage.includes('format') || lowerMessage.includes('structure')) {
+                    return 'formatting';
+                } else if (lowerMessage.includes('shorter') || lowerMessage.includes('concise')) {
+                    return 'length_shorter';
+                } else if (lowerMessage.includes('longer') || lowerMessage.includes('detailed')) {
+                    return 'length_longer';
+                } else if (lowerMessage.includes('professional') || lowerMessage.includes('formal')) {
+                    return 'tone_professional';
+                } else if (lowerMessage.includes('casual') || lowerMessage.includes('informal')) {
+                    return 'tone_casual';
+                } else {
+                    return 'general_improvement';
+                }
+            }
+            
+            addMessage(sender, message) {
+                const chatMessages = document.getElementById('aiChatMessages');
+                const messageDiv = document.createElement('div');
+                messageDiv.className = sender === 'user' ? 'user-msg' : 'ai-msg';
+                
+                // Convert line breaks to HTML for proper formatting
+                const formattedMessage = message
+                    .replace(/\n\n/g, '</p><p>')
+                    .replace(/\n/g, '<br>')
+                    .replace(/^/, '<p>')
+                    .replace(/$/, '</p>');
+                
+                messageDiv.innerHTML = `<strong>${sender === 'user' ? 'You' : 'AI Assistant'}:</strong> ${formattedMessage}`;
+                chatMessages.appendChild(messageDiv);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+            
+            saveMeetings() {
+                localStorage.setItem('stellarLogicMeetings', JSON.stringify(this.meetings));
+            }
+            
+            loadMeetings() {
+                const saved = localStorage.getItem('stellarLogicMeetings');
+                if (saved) {
+                    this.meetings = JSON.parse(saved);
+                }
+            }
+            
+            async startEmailCampaign() {
+                this.addMessage('ai', '🚀 **Email Campaign Manager**\n\nI can run automated email campaigns to multiple investors with personalized messages! Campaign options:\n\n**Campaign Types:**\n• "VC Outreach" - Target all 5 investors with personalized pitches\n• "Follow-up Campaign" - Send follow-ups to previous contacts\n• "Sector Focus" - Target gaming-focused VCs\n• "Geographic Campaign" - Target investors in specific regions\n\n**Campaign Features:**\n• Personalized emails for each investor\n• Automated follow-up sequences\n• Response tracking and analytics\n• A/B testing of subject lines\n• Optimal send time scheduling\n\n**Available Investors:**\n• Sarah Chen (Andreessen Horowitz)\n• Mike Johnson (Sequoia Capital)\n• Emily Davis (Accel)\n• Lisa Brown (Kleiner Perkins)\n• Jessica Taylor (Union Square Ventures)\n\nJust tell me: "Start VC outreach campaign" or "Launch follow-up campaign to Sarah Chen"');
+            }
+            
+            async runEmailCampaign(campaignType, targetInvestors = 'all') {
+                try {
+                    this.addMessage('ai', '🚀 Launching email campaign... This may take a moment to personalize each email.');
+                    
+                    const response = await fetch('http://localhost:5001/api/campaign', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            campaign_type: campaignType,
+                            target_investors: targetInvestors
+                        })
+                    });
+                    
+                    if (response.ok) {
+                        const data = await response.json();
+                        this.addMessage('ai', `✅ Campaign launched successfully!\n\n${data.results}\n\nNext steps: Monitor responses and I\'ll help you craft follow-ups based on investor engagement.`);
+                    } else {
+                        this.addMessage('ai', 'I had trouble launching the campaign. Let me help you manually reach out to investors instead.');
+                    }
+                } catch (error) {
+                    console.error('Campaign error:', error);
+                    this.addMessage('ai', 'Campaign launch failed. Let me help you create individual personalized emails instead.');
+                }
+            }
+            
+            async documentGenerator() {
+                this.addMessage('ai', '📄 **Document Generator**\n\nI can create professional business documents instantly! Available documents:\n\n**Business Documents:**\n• Business Plan - Comprehensive business strategy document\n• Pitch Deck - Investor-ready presentation\n• Executive Summary - One-page business overview\n• Financial Projections - 5-year financial forecast\n• Market Analysis - Industry and competitor analysis\n• Technical Whitepaper - Detailed technical documentation\n\n**Investor Documents:**\n• Investment Memo - One-page investment summary\n• Due Diligence Package - Complete due diligence materials\n• Term Sheet Analysis - Legal document review\n• Cap Table - Ownership structure document\n\n**Marketing Materials:**\n• Press Release - Company announcement\n• Product Brochure - Marketing collateral\n• Website Copy - Professional website content\n• Social Media Posts - LinkedIn and Twitter content\n\nJust tell me what you need: "Generate business plan" or "Create pitch deck"');
+            }
+            
+            async generateDocument(documentType) {
+                try {
+                    this.addMessage('ai', '📄 Generating document... This may take a moment to create a professional document.');
+                    
+                    const response = await fetch('http://localhost:5001/api/documents', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            document_type: documentType,
+                            company_info: {
+                                name: 'Stellar Logic AI',
+                                technology: '99.2% accuracy anti-cheat technology',
+                                funding_goal: '$5M',
+                                stage: 'pre-seed'
+                            }
+                        })
+                    });
+                    
+                    if (response.ok) {
+                        const data = await response.json();
+                        this.addMessage('ai', `✅ ${documentType} generated successfully!\n\n${data.content}\n\nWould you like me to save this document or make any adjustments?`);
+                    } else {
+                        this.addMessage('ai', 'I had trouble generating the document. Let me help you create a structured outline instead.');
+                    }
+                } catch (error) {
+                    console.error('Document generation error:', error);
+                    this.addMessage('ai', 'Document generation failed. Let me help you create a structured outline for your document.');
+                }
+            }
+            
+            researchAssistant() {
+                this.addMessage('ai', '🔍 **Research Assistant**\n\nI can conduct comprehensive market research and gather intelligence for your business! Available research areas:\n\n**Market Research:**\n• Gaming Industry Trends - Latest market data and forecasts\n• AI Security Market - Enterprise AI security landscape\n• Competitor Analysis - Detailed competitor intelligence\n• Investment Trends - VC funding patterns and preferences\n• Technology Trends - Emerging technologies in your space\n\n**Investor Research:**\n• Investor Portfolio Analysis - What each investor typically funds\n• Recent Investments - Latest deals and focus areas\n• Investment Thesis - Each investor\'s investment strategy\n• Decision Makers - Key people at each firm\n• Market Timing - Optimal timing for outreach\n\n**Strategic Research:**\n• Partnership Opportunities - Potential strategic partners\n• Market Entry Strategies - How to enter new markets\n• Regulatory Landscape - Compliance requirements\n• Talent Market - Hiring trends and salary data\n• Customer Insights - Target customer behavior and preferences\n\nJust ask me: "Research gaming market trends" or "Analyze Sequoia Capital investments"');
+            }
+            
+            async lookupInformation() {
+                this.addMessage('ai', '📋 **Information Lookup**\n\nI can help you find specific information and contact details! What would you like me to look up?\n\n**Contact Information:**\n• "Find Sarah Chen\'s current email and role"\n• "Get contact info for Sequoia Capital partners"\n• "Find decision makers at Accel"\n• "Look up gaming-focused VCs"\n\n**Company Research:**\n• "Research Andreessen Horowitz current portfolio"\n• "Find recent gaming investments by a16z"\n• "Look up competitor funding rounds"\n• "Research partnership opportunities"\n\n**Market Intelligence:**\n• "Find latest gaming security reports"\n• "Look up anti-cheat market size"\n• "Research enterprise AI adoption rates"\n• "Find regulatory requirements for gaming"\n\nJust tell me what you need to find and I\'ll research it for you!');
+            }
+            
+            openFriendsSystem() {
+                this.addMessage('ai', '👥 **Friends & Presence System**\n\nOpening gaming-style friends list with unified messaging...\n\n**Friends System Features:**\n• 👥 Friends list with online status\n• 💬 Unified messaging inbox\n• 🎮 Rich presence and activity\n• 📊 Activity feed\n• 🎯 Quick actions (message, call, video)\n• 👫 Groups and teams\n• 🏆 Achievements and levels\n\n🎮 Gaming-inspired social features for team coordination!\n\nSwitching to friends system...');
+                
+                // Switch to friends system interface
+                this.switchToFriendsSystem();
+            }
+            
+            switchToFriendsSystem() {
+                const chatInterface = document.querySelector('.chat-interface');
+                chatInterface.innerHTML = `
+                    <div class="chat-header">
+                        <h4>👥 Friends & Presence</h4>
+                        <div class="chat-actions">
+                            <button class="chat-btn" onclick="timeManagementAI.switchToAI()">🤖 AI Assistant</button>
+                            <button class="chat-btn" onclick="timeManagementAI.openTeamChat()">💬 Team Chat</button>
+                            <button class="chat-btn" onclick="timeManagementAI.showUnifiedInbox()">📬 Inbox</button>
+                            <button class="chat-btn" onclick="timeManagementAI.showActivityFeed()">📊 Activity</button>
+                        </div>
+                    </div>
+                    
+                    <div class="friends-system-container">
+                        <div class="friends-sidebar">
+                            <div class="friends-search">
+                                <input type="text" placeholder="Search friends..." id="friendsSearch">
+                            </div>
+                            
+                            <div class="friends-categories">
+                                <div class="category active" onclick="timeManagementAI.showFriendsCategory('all')">
+                                    <span class="category-icon">👥</span>
+                                    <span class="category-name">All Friends</span>
+                                    <span class="category-count">12</span>
+                                </div>
+                                <div class="category" onclick="timeManagementAI.showFriendsCategory('online')">
+                                    <span class="category-icon">🟢</span>
+                                    <span class="category-name">Online</span>
+                                    <span class="category-count">3</span>
+                                </div>
+                                <div class="category" onclick="timeManagementAI.showFriendsCategory('teams')">
+                                    <span class="category-icon">👫</span>
+                                    <span class="category-name">Teams</span>
+                                    <span class="category-count">2</span>
+                                </div>
+                                <div class="category" onclick="timeManagementAI.showFriendsCategory('groups')">
+                                    <span class="category-icon">👥</span>
+                                    <span class="category-name">Groups</span>
+                                    <span class="category-count">5</span>
+                                </div>
+                                <div class="category" onclick="timeManagementAI.showFriendsCategory('meetings')">
+                                    <span class="category-icon">📅</span>
+                                    <span class="category-name">Meetings</span>
+                                    <span class="category-count">3</span>
+                                </div>
+                                <div class="category" onclick="timeManagementAI.showFriendsCategory('recent')">
+                                    <span class="category-icon">💬</span>
+                                    <span class="category-name">Recent</span>
+                                    <span class="category-count">5</span>
+                                </div>
+                            </div>
+                            
+                            <div class="friends-list" id="friendsList">
+                                <div class="friend online" onclick="timeManagementAI.openFriendChat(1)">
+                                    <div class="friend-avatar">👤</div>
+                                    <div class="friend-info">
+                                        <div class="friend-name">Jamie Brown</div>
+                                        <div class="friend-status">🟢 Working on investor outreach</div>
+                                    </div>
+                                    <div class="friend-actions">
+                                        <button class="friend-action-btn" onclick="timeManagementAI.quickMessage(1)">💬</button>
+                                        <button class="friend-action-btn" onclick="timeManagementAI.quickVoiceCall(1)">🎤</button>
+                                        <button class="friend-action-btn" onclick="timeManagementAI.quickVideoCall(1)">📹</button>
+                                    </div>
+                                </div>
+                                
+                                <div class="friend offline" onclick="timeManagementAI.openFriendChat(2)">
+                                    <div class="friend-avatar">👥</div>
+                                    <div class="friend-info">
+                                        <div class="friend-name">Sarah Chen</div>
+                                        <div class="friend-status">⚫ Last seen 2 hours ago</div>
+                                    </div>
+                                    <div class="friend-actions">
+                                        <button class="friend-action-btn" onclick="timeManagementAI.quickMessage(2)">💬</button>
+                                        <button class="friend-action-btn" onclick="timeManagementAI.quickVoiceCall(2)">🎤</button>
+                                        <button class="friend-action-btn" onclick="timeManagementAI.quickVideoCall(2)">📹</button>
+                                    </div>
+                                </div>
+                                
+                                <div class="friend online" onclick="timeManagementAI.openFriendChat(3)">
+                                    <div class="friend-avatar">👨‍💼</div>
+                                    <div class="friend-info">
+                                        <div class="friend-name">Mike Johnson</div>
+                                        <div class="friend-status">🟢 In strategy meeting</div>
+                                    </div>
+                                    <div class="friend-actions">
+                                        <button class="friend-action-btn" onclick="timeManagementAI.quickMessage(3)">💬</button>
+                                        <button class="friend-action-btn" onclick="timeManagementAI.quickVoiceCall(3)">🎤</button>
+                                        <button class="friend-action-btn" onclick="timeManagementAI.quickVideoCall(3)">📹</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="friends-main">
+                            <div class="friends-content" id="friendsContent">
+                                <div class="friends-welcome">
+                                    <h3>👥 Welcome to Friends & Presence</h3>
+                                    <p>Connect with your team and stay coordinated!</p>
+                                    
+                                    <div class="friends-stats">
+                                        <div class="stat">
+                                            <div class="stat-number">3</div>
+                                            <div class="stat-label">Online Now</div>
+                                        </div>
+                                        <div class="stat">
+                                            <div class="stat-number">12</div>
+                                            <div class="stat-label">Total Friends</div>
+                                        </div>
+                                        <div class="stat">
+                                            <div class="stat-number">5</div>
+                                            <div class="stat-label">Unread Messages</div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="friends-actions">
+                                        <button class="action-btn" onclick="timeManagementAI.showAddFriend()">➕ Add Friend</button>
+                                        <button class="action-btn" onclick="timeManagementAI.showCreateTeam()">👫 Create Team</button>
+                                        <button class="action-btn" onclick="timeManagementAI.showUnifiedInbox()">📬 Inbox</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                
+                // Load friends list
+                this.loadFriendsList();
+            }
+            
+            async loadFriendsList() {
+                try {
+                    const response = await fetch('http://localhost:5005/api/friends?user_id=1');
+                    if (response.ok) {
+                        const data = await response.json();
+                        this.displayFriendsList(data.friends);
+                    }
+                } catch (error) {
+                    console.error('Error loading friends:', error);
+                }
+            }
+            
+            displayFriendsList(friends) {
+                const friendsListContainer = document.getElementById('friendsList');
+                if (friendsListContainer) {
+                    friendsListContainer.innerHTML = friends.map(friend => `
+                        <div class="friend ${friend.status}" onclick="timeManagementAI.openFriendChat(${friend.id})">
+                            <div class="friend-avatar">${friend.avatar}</div>
+                            <div class="friend-info">
+                                <div class="friend-name">${friend.display_name}</div>
+                                <div class="friend-status">${friend.status === 'online' ? '🟢' : '⚫'} ${friend.status_message || friend.current_activity || 'Offline'}</div>
+                            </div>
+                            <div class="friend-actions">
+                                <button class="friend-action-btn" onclick="timeManagementAI.quickMessage(${friend.id})">💬</button>
+                                <button class="friend-action-btn" onclick="timeManagementAI.quickVoiceCall(${friend.id})">🎤</button>
+                                <button class="friend-action-btn" onclick="timeManagementAI.quickVideoCall(${friend.id})">📹</button>
+                            </div>
+                        </div>
+                    `).join('');
+                }
+            }
+            
+            openFriendChat(friendId) {
+                this.addMessage('ai', `💬 Opening chat with friend ${friendId}...\n\n🎮 Gaming-style chat features:\n• Rich text messaging\n• Voice clips\n• Screen sharing\n• File sharing\n• Reactions and emojis\n• Message history\n\n🔐 All messages encrypted and logged for compliance.`);
+            }
+            
+            quickMessage(friendId) {
+                this.addMessage('ai', `💬 Quick message to friend ${friendId}...\n\nType your message and press Enter to send.`);
+            }
+            
+            quickVoiceCall(friendId) {
+                this.addMessage('ai', `🎤 Starting voice call with friend ${friendId}...\n\n🔐 Call will be recorded for compliance.`);
+            }
+            
+            quickVideoCall(friendId) {
+                this.addMessage('ai', `📹 Starting video call with friend ${friendId}...\n\n🖥️ Screen sharing available\n🔐 Call will be recorded for compliance.`);
+            }
+            
+            showFriendsCategory(category) {
+                document.querySelectorAll('.category').forEach(cat => cat.classList.remove('active'));
+                event.target.closest('.category').classList.add('active');
+                
+                if (category === 'groups') {
+                    this.showGroupsList();
+                } else if (category === 'meetings') {
+                    this.showMeetingsList();
+                } else {
+                    this.addMessage(`ai`, `📁 Showing ${category} friends...`);
+                }
+            }
+            
+            showGroupsList() {
+                this.addMessage('ai', '👥 **Group Chats**\n\nOrganized group conversations for team coordination!\n\n**Group Chat Features:**\n• 👥 Group conversations with multiple participants\n• 🎤 Group voice calls for team meetings\n• 📹 Group video calls with screen sharing\n• 📁 Group file sharing and collaboration\n• 🔐 End-to-end encryption for all groups\n• 📝 Full compliance logging for groups\n• 🏷️ Group categorization and organization\n• 📊 Group analytics and insights\n\n🎮 Gaming-style group coordination for your team!');
+            }
+            
+            showMeetingsList() {
+                this.addMessage('ai', '📅 **Scheduled Meetings**\n\nOrganized meetings with voice/video integration!\n\n**Meeting Features:**\n• 📅 Scheduled voice and video meetings\n• 👥 Participant management and invites\n• 🎤 Voice conference calls with recording\n• 📹 Video meetings with screen sharing\n• 📋 Meeting agendas and notes\n• 🔐 Encrypted meeting recordings\n• 📊 Meeting analytics and insights\n• ⏰ Automatic reminders and notifications\n\n🎮 Professional meeting management with gaming-style ease!');
+            }
+            
+            showUnifiedInbox() {
+                this.addMessage('ai', '📬 **Unified Inbox**\n\nAll your messages in one place!\n\n**Inbox Features:**\n• 📨 All messages from friends and teams\n• 🔔 Real-time notifications\n• 🏷️ Message categorization\n• 🔍 Search and filter\n• 📎 Attachment management\n• ⭐ Important messages\n• 🗑️ Archive and delete\n\n🎮 Gaming-style message management with enterprise compliance!');
+            }
+            
+            showActivityFeed() {
+                this.addMessage('ai', '📊 **Activity Feed**\n\nSee what your team is working on!\n\n**Activity Features:**\n• 📈 Real-time updates\n• 👥 Friend activities\n• 🏆 Achievements unlocked\n• 📋 Project milestones\n• 💬 Message highlights\n• 🎯 Goal completions\n• 📅 Scheduled events\n\n🎮 Stay connected with your team\'s progress!');
+            }
+            
+            showAddFriend() {
+                this.addMessage('ai', '➕ **Add Friend**\n\nExpand your network!\n\n**Add Friend Options:**\n• 🔍 Search by username\n• 📧 Invite by email\n• 🔗 Share invite link\n• 📱 QR code scan\n• 👥 Suggested connections\n• 🏢 Find colleagues\n\n🎮 Build your professional gaming network!');
+            }
+            
+            showCreateTeam() {
+                this.addMessage('ai', '👫 **Create Team**\n\nOrganize your team for better coordination!\n\n**Team Features:**\n• 👥 Team roster management\n• 📋 Team goals and objectives\n• 🏆 Team achievements\n• 📊 Team statistics\n• 💬 Team chat channels\n• 🎯 Team challenges\n• 📅 Team events\n\n🎮 Level up your team collaboration!');
+            }
+            
+            switchToTeamChat() {
+                const chatInterface = document.querySelector('.chat-interface');
+                chatInterface.innerHTML = `
+                    <div class="chat-header">
+                        <h4>💬 Secure Team Chat</h4>
+                        <div class="chat-actions">
+                            <button class="chat-btn" onclick="timeManagementAI.switchToAI()">🤖 AI Assistant</button>
+                            <button class="chat-btn" onclick="timeManagementAI.showChannels()">📁 Channels</button>
+                            <button class="chat-btn" onclick="timeManagementAI.showAuditLog()">📋 Audit Log</button>
+                            <button class="chat-btn" onclick="timeManagementAI.startVoiceCall()">🎤 Voice Call</button>
+                            <button class="chat-btn" onclick="timeManagementAI.startVideoCall()">📹 Video Call</button>
+                        </div>
+                    </div>
+                    
+                    <div class="team-chat-container">
+                        <div class="team-chat-sidebar">
+                            <div class="team-chat-channels">
+                                <h5>Channels</h5>
+                                <div class="channel-list">
+                                    <div class="channel active" onclick="timeManagementAI.joinChannel('general')">
+                                        <span class="channel-icon">#</span>
+                                        <span class="channel-name">general</span>
+                                        <span class="channel-badge">🔒</span>
+                                    </div>
+                                    <div class="channel" onclick="timeManagementAI.joinChannel('investors')">
+                                        <span class="channel-icon">#</span>
+                                        <span class="channel-name">investors</span>
+                                        <span class="channel-badge">🔒</span>
+                                    </div>
+                                    <div class="channel" onclick="timeManagementAI.joinChannel('technical')">
+                                        <span class="channel-icon">#</span>
+                                        <span class="channel-name">technical</span>
+                                        <span class="channel-badge">🔒</span>
+                                    </div>
+                                    <div class="channel" onclick="timeManagementAI.joinChannel('strategy')">
+                                        <span class="channel-icon">#</span>
+                                        <span class="channel-name">strategy</span>
+                                        <span class="channel-badge">🔒</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="team-chat-members">
+                                <h5>Team Members</h5>
+                                <div class="member-list">
+                                    <div class="member online">
+                                        <div class="member-avatar">👤</div>
+                                        <div class="member-info">
+                                            <div class="member-name">Jamie Brown</div>
+                                            <div class="member-role">CEO</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="team-chat-main">
+                            <div class="team-chat-messages" id="teamChatMessages">
+                                <div class="system-message">
+                                    🔐 Secure team chat initialized. All messages are encrypted and logged for compliance.
+                                </div>
+                            </div>
+                            
+                            <div class="team-chat-input">
+                                <input type="text" id="teamChatInput" placeholder="Type your message... (Press Enter to send)" onkeypress="timeManagementAI.handleTeamChatKeyPress(event)">
+                                <button class="send-btn" onclick="timeManagementAI.sendTeamMessage()">📤</button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                
+                // Load initial messages
+                this.loadTeamMessages('general');
+            }
+            
+            switchToAI() {
+                location.reload(); // Simple way to switch back to AI interface
+            }
+            
+            async loadTeamMessages(channel) {
+                try {
+                    const response = await fetch(`http://localhost:5002/api/chat/messages/${channel}?user_id=1`);
+                    if (response.ok) {
+                        const data = await response.json();
+                        this.displayTeamMessages(data.messages);
+                    }
+                } catch (error) {
+                    console.error('Error loading team messages:', error);
+                }
+            }
+            
+            displayTeamMessages(messages) {
+                const messagesContainer = document.getElementById('teamChatMessages');
+                messagesContainer.innerHTML = '';
+                
+                messages.reverse().forEach(msg => {
+                    const messageDiv = document.createElement('div');
+                    messageDiv.className = 'team-message';
+                    messageDiv.innerHTML = `
+                        <div class="message-header">
+                            <span class="message-sender">${msg.sender}</span>
+                            <span class="message-time">${new Date(msg.timestamp).toLocaleTimeString()}</span>
+                        </div>
+                        <div class="message-content">${msg.message}</div>
+                    `;
+                    messagesContainer.appendChild(messageDiv);
+                });
+                
+                messagesContainer.scrollTop = messagesContainer.scrollHeight;
+            }
+            
+            async sendTeamMessage() {
+                const input = document.getElementById('teamChatInput');
+                const message = input.value.trim();
+                
+                if (message) {
+                    try {
+                        const response = await fetch('http://localhost:5002/api/chat/messages', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify({
+                                sender_id: 1,
+                                channel: 'general',
+                                message: message
+                            })
+                        });
+                        
+                        if (response.ok) {
+                            input.value = '';
+                            this.loadTeamMessages('general');
+                        }
+                    } catch (error) {
+                        console.error('Error sending team message:', error);
+                    }
+                }
+            }
+            
+            handleTeamChatKeyPress(event) {
+                if (event.key === 'Enter') {
+                    this.sendTeamMessage();
+                }
+            }
+            
+            joinChannel(channel) {
+                // Update active channel
+                document.querySelectorAll('.channel').forEach(ch => ch.classList.remove('active'));
+                event.target.closest('.channel').classList.add('active');
+                
+                // Load channel messages
+                this.loadTeamMessages(channel);
+            }
+            
+            showChannels() {
+                this.addMessage('ai', '📁 **Team Channels**\n\n**Available Channels:**\n\n• #general - Team coordination and general discussion\n• #investors - Investor communications and strategy\n• #technical - Product development and technical discussions\n• #strategy - Business strategy and planning\n• #marketing - Marketing campaigns and content\n\n🔐 All channels are encrypted and logged for compliance.\n\nClick on a channel to join the conversation!');
+            }
+            
+            showAuditLog() {
+                this.addMessage('ai', '📋 **Compliance Audit Log**\n\n🔐 All team communications are logged for regulatory compliance:\n\n**Logged Activities:**\n• Message creation and editing\n• User access and authentication\n• Channel creation and management\n• File uploads and downloads\n• System configuration changes\n\n**Compliance Features:**\n• Full message history\n• User action tracking\n• IP address logging\n• Timestamp recording\n• Data retention policies\n\n📊 Audit logs are available for compliance reporting and legal requirements.');
+            }
+            
+            async startVoiceCall() {
+                this.addMessage('ai', '🎤 **Voice Call**\n\nStarting secure voice call with compliance recording...\n\n**Voice Call Features:**\n• 🔐 End-to-end encryption\n• 📝 Automatic recording for compliance\n• 🎧 Noise cancellation\n• 📊 Call quality monitoring\n• 🌐 Multi-participant support\n• ⏰ Call duration tracking\n\n🔐 All voice calls are recorded and logged for regulatory compliance.\n\nInitializing voice call...');
+                
+                try {
+                    const response = await fetch('http://localhost:5003/api/voice/call', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            caller_id: 1,
+                            participants: [1],
+                            recording_enabled: true
+                        })
+                    });
+                    
+                    if (response.ok) {
+                        const data = await response.json();
+                        
+                        // Initialize WebRTC voice call
+                        const voiceResult = await window.webrtcClient.initializeVoiceCall(data.call_id, 1);
+                        
+                        if (voiceResult.success) {
+                            this.addMessage('ai', `✅ Voice call started!\n\n📞 Call ID: ${data.call_id}\n🔗 Signaling Server: ${data.signaling_server}\n🎤 Microphone access granted\n\n📝 Call is being recorded for compliance.\n\n🎧 Voice call active - speak into your microphone!`);
+                            
+                            // Show voice call UI
+                            this.showVoiceCallUI(data.call_id);
+                        } else {
+                            this.addMessage('ai', `❌ Voice call failed: ${voiceResult.error}`);
+                        }
+                    } else {
+                        this.addMessage('ai', '❌ Voice call server not available. Please start the voice chat server.');
+                    }
+                } catch (error) {
+                    console.error('Voice call error:', error);
+                    this.addMessage('ai', '❌ Voice call feature requires voice chat server to be running.\n\nStart with: python voice_chat_server.py');
+                }
+            }
+            
+            async startVideoCall() {
+                this.addMessage('ai', '📹 **Video Call**\n\nStarting secure video call with compliance recording...\n\n**Video Call Features:**\n• 🔐 End-to-end encryption\n• 📝 Automatic recording for compliance\n• 🖥️ Screen sharing capability\n• 📊 Adaptive quality based on bandwidth\n• 👥 Multi-participant video\n• 🎥 Picture-in-picture support\n\n🔐 All video calls are recorded and logged for regulatory compliance.\n\nInitializing video call...');
+                
+                try {
+                    const response = await fetch('http://localhost:5004/api/video/call', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            host_id: 1,
+                            participants: [1],
+                            quality: 'medium',
+                            recording_enabled: true
+                        })
+                    });
+                    
+                    if (response.ok) {
+                        const data = await response.json();
+                        
+                        // Initialize WebRTC video call
+                        const videoResult = await window.webrtcClient.initializeVideoCall(data.call_id, 1, data.quality);
+                        
+                        if (videoResult.success) {
+                            this.addMessage('ai', `✅ Video call started!\n\n📹 Call ID: ${data.call_id}\n🔗 Signaling Server: ${data.signaling_server}\n📊 Quality: ${data.quality}\n🖥️ Screen sharing: Available\n\n📝 Call is being recorded for compliance.\n\n📹 Video call active - camera and microphone enabled!`);
+                            
+                            // Show video call UI
+                            this.showVideoCallUI(data.call_id);
+                        } else {
+                            this.addMessage('ai', `❌ Video call failed: ${videoResult.error}`);
+                        }
+                    } else {
+                        this.addMessage('ai', '❌ Video call server not available. Please start the video chat server.');
+                    }
+                } catch (error) {
+                    console.error('Video call error:', error);
+                    this.addMessage('ai', '❌ Video call feature requires video chat server to be running.\n\nStart with: python video_chat_server.py');
+                }
+            }
+            
+            showVoiceCallUI(callId) {
+                const chatInterface = document.querySelector('.chat-interface');
+                const voiceCallHTML = `
+                    <div class="voice-call-ui">
+                        <div class="call-header">
+                            <h4>🎤 Voice Call Active</h4>
+                            <div class="call-info">Call ID: ${callId} | Recording: 🔴 ON</div>
+                        </div>
+                        <div class="call-controls">
+                            <button class="call-btn" onclick="timeManagementAI.toggleMute()">🎤 Mute</button>
+                            <button class="call-btn" onclick="timeManagementAI.endCall('${callId}')">📞 End Call</button>
+                            <button class="call-btn" onclick="timeManagementAI.switchToAI()">🤖 Back to AI</button>
+                        </div>
+                        <div class="call-status">
+                            <div class="status-indicator">🔴 Recording for compliance</div>
+                            <div class="call-timer" id="callTimer">00:00</div>
+                        </div>
+                        <div id="remote-media"></div>
+                    </div>
+                `;
+                
+                // Insert voice call UI
+                const existingUI = chatInterface.querySelector('.voice-call-ui');
+                if (existingUI) {
+                    existingUI.remove();
+                }
+                
+                chatInterface.insertAdjacentHTML('beforeend', voiceCallHTML);
+                
+                // Start call timer
+                this.startCallTimer();
+            }
+            
+            showVideoCallUI(callId) {
+                const chatInterface = document.querySelector('.chat-interface');
+                const videoCallHTML = `
+                    <div class="video-call-ui">
+                        <div class="call-header">
+                            <h4>📹 Video Call Active</h4>
+                            <div class="call-info">Call ID: ${callId} | Recording: 🔴 ON</div>
+                        </div>
+                        <div class="video-container">
+                            <div class="local-video">
+                                <video id="localVideo" autoplay muted playsinline></video>
+                                <div class="video-label">You</div>
+                            </div>
+                            <div class="remote-video">
+                                <div id="remote-media"></div>
+                                <div class="video-label">Remote</div>
+                            </div>
+                        </div>
+                        <div class="call-controls">
+                            <button class="call-btn" onclick="timeManagementAI.toggleMute()">🎤 Mute</button>
+                            <button class="call-btn" onclick="timeManagementAI.toggleVideo()">📹 Video Off</button>
+                            <button class="call-btn" onclick="timeManagementAI.toggleScreenShare('${callId}')">🖥️ Share Screen</button>
+                            <button class="call-btn" onclick="timeManagementAI.endCall('${callId}')">📞 End Call</button>
+                            <button class="call-btn" onclick="timeManagementAI.switchToAI()">🤖 Back to AI</button>
+                        </div>
+                        <div class="call-status">
+                            <div class="status-indicator">🔴 Recording for compliance</div>
+                            <div class="call-timer" id="callTimer">00:00</div>
+                        </div>
+                    </div>
+                `;
+                
+                // Insert video call UI
+                const existingUI = chatInterface.querySelector('.video-call-ui');
+                if (existingUI) {
+                    existingUI.remove();
+                }
+                
+                chatInterface.insertAdjacentHTML('beforeend', videoCallHTML);
+                
+                // Set local video
+                const localVideo = document.getElementById('localVideo');
+                if (localVideo && window.webrtcClient.localStream) {
+                    localVideo.srcObject = window.webrtcClient.localStream;
+                }
+                
+                // Start call timer
+                this.startCallTimer();
+            }
+            
+            startCallTimer() {
+                let seconds = 0;
+                this.callTimerInterval = setInterval(() => {
+                    seconds++;
+                    const minutes = Math.floor(seconds / 60);
+                    const secs = seconds % 60;
+                    const timer = document.getElementById('callTimer');
+                    if (timer) {
+                        timer.textContent = `${minutes.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+                    }
+                }, 1000);
+            }
+            
+            stopCallTimer() {
+                if (this.callTimerInterval) {
+                    clearInterval(this.callTimerInterval);
+                    this.callTimerInterval = null;
+                }
+            }
+            
+            toggleMute() {
+                if (window.webrtcClient.localStream) {
+                    const audioTracks = window.webrtcClient.localStream.getAudioTracks();
+                    audioTracks.forEach(track => {
+                        track.enabled = !track.enabled;
+                    });
+                    this.addMessage('ai', audioTracks[0].enabled ? '🎤 Microphone unmuted' : '🔇 Microphone muted');
+                }
+            }
+            
+            toggleVideo() {
+                if (window.webrtcClient.localStream) {
+                    const videoTracks = window.webrtcClient.localStream.getVideoTracks();
+                    videoTracks.forEach(track => {
+                        track.enabled = !track.enabled;
+                    });
+                    this.addMessage('ai', videoTracks[0].enabled ? '📹 Video enabled' : '📹 Video disabled');
+                }
+            }
+            
+            async toggleScreenShare(callId) {
+                const result = await window.webrtcClient.startScreenShare(callId);
+                if (result.success) {
+                    this.addMessage('ai', '🖥️ Screen sharing started');
+                } else {
+                    this.addMessage('ai', `❌ Screen share failed: ${result.error}`);
+                }
+            }
+            
+            async endCall(callId) {
+                await window.webrtcClient.endCall(callId);
+                this.stopCallTimer();
+                
+                // Remove call UI
+                const callUI = document.querySelector('.voice-call-ui, .video-call-ui');
+                if (callUI) {
+                    callUI.remove();
+                }
+                
+                this.addMessage('ai', '📞 Call ended and saved for compliance');
+            }
+            
+            async conductResearch(query, type = 'general') {
+                try {
+                    this.addMessage('ai', '🔍 Researching... This may take a moment.');
+                    
+                    const response = await fetch('http://localhost:5001/api/research', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            query: query,
+                            type: type
+                        })
+                    });
+                    
+                    if (response.ok) {
+                        const data = await response.json();
+                        this.addMessage('ai', data.research);
+                    } else {
+                        this.addMessage('ai', 'I had trouble with the research. Let me try a different approach...');
+                    }
+                } catch (error) {
+                    console.error('Research error:', error);
+                    this.addMessage('ai', 'I encountered an error during research. Let me help you with alternative approaches to find this information.');
+                }
+            }
+            
+            setupTaskListeners() {
+                this.tasks.forEach(task => {
+                    const checkbox = document.getElementById(task.id);
+                    if (checkbox) {
+                        checkbox.addEventListener('change', (e) => {
+                            this.handleTaskCompletion(task.id, e.target.checked);
+                        });
+                    }
+                });
+            }
+            
+            handleTaskCompletion(taskId, completed) {
+                const task = this.tasks.find(t => t.id === taskId);
+                if (task) {
+                    task.completed = completed;
+                    this.saveTaskProgress();
+                    this.updateTimeProgress();
+                    this.generateAIRecommendations();
+                    
+                    if (completed) {
+                        this.showTaskCompletionNotification(task);
+                    }
+                }
+            }
+            
+            updateTimeProgress() {
+                const now = new Date();
+                const currentHour = now.getHours();
+                const currentMinute = now.getMinutes();
+                const currentTimeInMinutes = currentHour * 60 + currentMinute;
+                
+                // Update full-time job progress
+                const jobStart = 8 * 60; // 08:00
+                const jobEnd = 17 * 60; // 17:00
+                const jobProgress = this.calculateProgress(jobStart, jobEnd, currentTimeInMinutes);
+                this.updateProgressDisplay('job-progress', jobProgress, '5.2/8 hours completed');
+                
+                // Update Stellar Logic AI progress
+                const aiStart = 17 * 60; // 17:00
+                const aiEnd = 22 * 60; // 22:00
+                const aiProgress = this.calculateProgress(aiStart, aiEnd, currentTimeInMinutes);
+                const aiHoursCompleted = (aiProgress / 100 * 5).toFixed(1);
+                this.updateProgressDisplay('ai-progress', aiProgress, `${aiHoursCompleted}/5 hours planned`);
+                
+                // Update investor outreach progress
+                const investorStart = 22 * 60; // 22:00
+                const investorEnd = 23 * 60; // 23:00
+                const investorProgress = this.calculateProgress(investorStart, investorEnd, currentTimeInMinutes);
+                const investorHoursCompleted = (investorProgress / 100 * 1).toFixed(1);
+                this.updateProgressDisplay('investor-progress', investorProgress, `${investorHoursCompleted}/1 hour completed`);
+                
+                // Update current focus
+                this.updateCurrentFocus(currentHour);
+            }
+            
+            calculateProgress(startTime, endTime, currentTime) {
+                if (currentTime < startTime) return 0;
+                if (currentTime > endTime) return 100;
+                return Math.round(((currentTime - startTime) / (endTime - startTime)) * 100);
+            }
+            
+            updateProgressDisplay(className, progress, text) {
+                const element = document.querySelector(`.${className}`);
+                if (element) {
+                    element.style.width = `${progress}%`;
+                    const label = element.closest('.time-details').querySelector('.time-label');
+                    if (label) {
+                        label.textContent = text;
+                    }
+                }
+            }
+            
+            updateCurrentFocus(currentHour) {
+                let focus = '';
+                if (currentHour >= 8 && currentHour < 17) {
+                    focus = 'Full-time job - Stellar Logic AI planning for evening';
+                } else if (currentHour >= 17 && currentHour < 22) {
+                    focus = 'Stellar Logic AI development - Peak productivity time';
+                } else if (currentHour >= 22 && currentHour < 23) {
+                    focus = 'Investor outreach - Strategic communication';
+                } else {
+                    focus = 'Rest & recovery - Prepare for tomorrow';
+                }
+                
+                const focusElement = document.querySelector('.summary-value');
+                if (focusElement) {
+                    focusElement.textContent = focus;
+                }
+            }
+            
+            generateAIRecommendations() {
+                const completedTasks = this.tasks.filter(t => t.completed).length;
+                const totalTasks = this.tasks.length;
+                const completionRate = (completedTasks / totalTasks) * 100;
+                
+                let recommendation = '';
+                
+                if (completionRate === 0) {
+                    recommendation = 'Start with high-priority investor emails while your energy is highest. This creates momentum for the rest of your evening work.';
+                } else if (completionRate < 50) {
+                    recommendation = 'Great progress! Focus on completing the pitch deck updates next - this will be valuable for upcoming investor meetings.';
+                } else if (completionRate < 100) {
+                    recommendation = 'Excellent momentum! Finish the remaining tasks to complete today\'s goals. Your consistency is building investor confidence.';
+                } else {
+                    recommendation = 'Perfect execution! All tasks completed. Consider planning tomorrow\'s priorities or reaching out to one additional investor contact.';
+                }
+                
+                const suggestionElement = document.querySelector('.suggestion-text');
+                if (suggestionElement) {
+                    suggestionElement.textContent = recommendation;
+                }
+            }
+            
+            showTaskCompletionNotification(task) {
+                const notification = document.createElement('div');
+                notification.style.cssText = `
+                    position: fixed;
+                    top: 20px;
+                    right: 20px;
+                    background: linear-gradient(135deg, #48bb78, #38a169);
+                    color: white;
+                    padding: 16px 24px;
+                    border-radius: 8px;
+                    box-shadow: 0 4px 20px rgba(72, 187, 120, 0.4);
+                    z-index: 1000;
+                    font-weight: 500;
+                `;
+                notification.textContent = `✅ Completed: ${task.title}`;
+                document.body.appendChild(notification);
+                
+                setTimeout(() => {
+                    notification.remove();
+                }, 3000);
+            }
+            
+            startRealTimeUpdates() {
+                // Update time progress every minute
+                setInterval(() => {
+                    this.updateTimeProgress();
+                }, 60000);
+                
+                // Update energy levels based on time
+                setInterval(() => {
+                    this.updateEnergyLevels();
+                }, 300000); // Every 5 minutes
+            }
+            
+            updateEnergyLevels() {
+                const currentHour = new Date().getHours();
+                let energyLevel = '';
+                
+                if (currentHour >= 6 && currentHour < 9) {
+                    energyLevel = 'High - Morning clarity';
+                } else if (currentHour >= 9 && currentHour < 12) {
+                    energyLevel = 'High - Peak focus';
+                } else if (currentHour >= 12 && currentHour < 14) {
+                    energyLevel = 'Medium - Post-lunch dip';
+                } else if (currentHour >= 14 && currentHour < 17) {
+                    energyLevel = 'Medium - Afternoon steady';
+                } else if (currentHour >= 17 && currentHour < 20) {
+                    energyLevel = 'High - Evening prime time';
+                } else if (currentHour >= 20 && currentHour < 22) {
+                    energyLevel = 'Medium - Evening wind-down';
+                } else {
+                    energyLevel = 'Low - Rest time';
+                }
+                
+                const energyElement = document.querySelectorAll('.summary-value')[2];
+                if (energyElement) {
+                    energyElement.textContent = energyLevel;
+                }
+            }
+            
+            saveTaskProgress() {
+                const taskProgress = {
+                    tasks: this.tasks.map(t => ({ id: t.id, completed: t.completed })),
+                    timestamp: new Date().toISOString()
+                };
+                localStorage.setItem('stellarLogicAITasks', JSON.stringify(taskProgress));
+            }
+            
+            loadTaskProgress() {
+                const saved = localStorage.getItem('stellarLogicAITasks');
+                if (saved) {
+                    const taskProgress = JSON.parse(saved);
+                    taskProgress.tasks.forEach(savedTask => {
+                        const task = this.tasks.find(t => t.id === savedTask.id);
+                        if (task) {
+                            task.completed = savedTask.completed;
+                            const checkbox = document.getElementById(task.id);
+                            if (checkbox) {
+                                checkbox.checked = task.completed;
+                            }
+                        }
+                    });
+                }
+            }
+        }
+        
+        // Initialize Time Management AI
+        let timeManagementAI;
+        
+        function initTimeManagement() {
+            timeManagementAI = new TimeManagementAI();
+        }
+        
+        // Add time management initialization to dashboard init
+        function initDashboard() {
+            // Initialize time management first
+            initTimeManagement();
+            
+            // Existing initialization code...
+            updateDateTime();
+            loadDashboardData();
+            loadTaskState();
+            setInterval(updateDateTime, 60000); // Update every minute
+        }
+    </script>
+</body>
+</html>

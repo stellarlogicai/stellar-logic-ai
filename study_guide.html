@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stellar Logic AI - Intelligent Learning Coach</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            background: white;
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        
+        .logo {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, #1a365d, #2c5282);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+        
+        .header h1 {
+            color: #2d3748;
+            flex: 1;
+        }
+        
+        .header p {
+            color: #718096;
+            font-size: 1rem;
+        }
+        
+        .ai-status {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: #f0fff4;
+            border: 1px solid #9ae6b4;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: #22543d;
+        }
+        
+        .ai-status.active {
+            background: #f0fff4;
+            border-color: #9ae6b4;
+        }
+        
+        .ai-status.thinking {
+            background: #fffbf0;
+            border-color: #fbd38d;
+            color: #744210;
+        }
+        
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 24px;
+        }
+        
+        .learning-area {
+            background: white;
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        
+        .ai-coach {
+            background: white;
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            height: fit-content;
+        }
+        
+        .tabs {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 24px;
+            border-bottom: 2px solid #e2e8f0;
+        }
+        
+        .tab {
+            padding: 12px 20px;
+            background: none;
+            border: none;
+            border-bottom: 3px solid transparent;
+            cursor: pointer;
+            font-weight: 500;
+            color: #718096;
+            transition: all 0.2s;
+        }
+        
+        .tab.active {
+            color: #667eea;
+            border-bottom-color: #667eea;
+        }
+        
+        .tab:hover {
+            color: #667eea;
+        }
+        
+        .content-section {
+            display: none;
+        }
+        
+        .content-section.active {
+            display: block;
+        }
+        
+        .ai-chat {
+            background: #f7fafc;
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 16px;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        
+        .ai-message {
+            background: white;
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 12px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .user-message {
+            background: #edf2f7;
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 12px;
+            border-left: 4px solid #48bb78;
+            margin-left: 20px;
+        }
+        
+        .ai-input {
+            display: flex;
+            gap: 8px;
+        }
+        
+        .ai-input input {
+            flex: 1;
+            padding: 12px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 0.9rem;
+        }
+        
+        .ai-input input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        
+        .btn {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+        
+        .btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 2px 8px rgba(102, 126, 234, 0.4);
+        }
+        
+        .btn-secondary {
+            background: #e2e8f0;
+            color: #4a5568;
+        }
+        
+        .btn-secondary:hover {
+            background: #cbd5e0;
+        }
+        
+        .practice-card {
+            background: #f7fafc;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 16px;
+            border: 2px solid #e2e8f0;
+        }
+        
+        .practice-card.active {
+            border-color: #667eea;
+            background: #ebf4ff;
+        }
+        
+        .progress-ring {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: conic-gradient(#667eea 0deg, #e2e8f0 0deg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+        
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+        
+        .metric-card {
+            background: #f7fafc;
+            border-radius: 8px;
+            padding: 12px;
+            text-align: center;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .metric-value {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #2d3748;
+        }
+        
+        .metric-label {
+            font-size: 0.8rem;
+            color: #718096;
+        }
+        
+        .quiz-container {
+            background: #f7fafc;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 16px;
+        }
+        
+        .quiz-question {
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: #2d3748;
+        }
+        
+        .quiz-options {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        .quiz-option {
+            background: white;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .quiz-option:hover {
+            border-color: #667eea;
+        }
+        
+        .quiz-option.correct {
+            background: #f0fff4;
+            border-color: #48bb78;
+        }
+        
+        .quiz-option.incorrect {
+            background: #fff5f5;
+            border-color: #f56565;
+        }
+        
+        .voice-practice {
+            background: linear-gradient(135deg, #f6e05e, #ed8936);
+            color: white;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+        
+        .recording {
+            background: linear-gradient(135deg, #f56565, #e53e3e);
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        
+        .recommendations {
+            background: #f0fff4;
+            border: 1px solid #9ae6b4;
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 16px;
+        }
+        
+        .recommendation-item {
+            background: white;
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 8px;
+            border-left: 4px solid #48bb78;
+        }
+        
+        .difficulty-selector {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+        
+        .difficulty-btn {
+            flex: 1;
+            padding: 8px;
+            border: 2px solid #e2e8f0;
+            background: white;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .difficulty-btn.active {
+            background: #667eea;
+            color: white;
+            border-color: #667eea;
+        }
+        
+        .key-point {
+            background: white;
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 8px;
+            border-left: 4px solid #48bb78;
+        }
+        
+        @media (max-width: 1024px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">🚀</div>
+            <div>
+                <h1>Intelligent Learning Coach</h1>
+                <p>AI-powered preparation for your investor meetings</p>
+            </div>
+            <div class="ai-status active" id="aiStatus">
+                <span>🤖</span>
+                <span>AI Coach Active</span>
+            </div>
+        </div>
+        
+        <div class="main-content">
+            <div class="learning-area">
+                <div class="tabs">
+                    <button class="tab active" onclick="switchTab('pitch-deck')">📊 Pitch Deck Practice</button>
+                    <button class="tab" onclick="switchTab('business-knowledge')">💼 Business Knowledge</button>
+                    <button class="tab" onclick="switchTab('voice-practice')">🎤 Voice Practice</button>
+                    <button class="tab" onclick="switchTab('adaptive-quiz')">🎯 Adaptive Quiz</button>
+                </div>
+                
+                <!-- Pitch Deck Practice Section -->
+                <div id="pitch-deck" class="content-section active">
+                    <h2>📊 Intelligent Pitch Deck Practice</h2>
+                    <div class="difficulty-selector">
+                        <button class="difficulty-btn active" onclick="setDifficulty('beginner')">Beginner</button>
+                        <button class="difficulty-btn" onclick="setDifficulty('intermediate')">Intermediate</button>
+                        <button class="difficulty-btn" onclick="setDifficulty('advanced')">Advanced</button>
+                    </div>
+                    
+                    <div id="pitchCards">
+                        <!-- Dynamic content will be inserted here -->
+                    </div>
+                </div>
+                
+                <!-- Business Knowledge Section -->
+                <div id="business-knowledge" class="content-section">
+                    <h2>💼 Business Knowledge Mastery</h2>
+                    <div class="metrics-grid">
+                        <div class="metric-card">
+                            <div class="metric-value">$8B+</div>
+                            <div class="metric-label">Enterprise AI Market</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-value">20%</div>
+                            <div class="metric-label">Annual Growth Rate</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-value">99.2%</div>
+                            <div class="metric-label">Anti-Cheat Accuracy</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-value">$5M</div>
+                            <div class="metric-label">Seed Round Ask</div>
+                        </div>
+                    </div>
+                    
+                    <div class="quiz-container" id="businessQuiz">
+                        <div class="quiz-question">Loading AI-generated questions...</div>
+                        <div class="quiz-options"></div>
+                    </div>
+                </div>
+                
+                <!-- Voice Practice Section -->
+                <div id="voice-practice" class="content-section">
+                    <h2>🎤 Voice Practice & Analysis</h2>
+                    <div class="voice-practice" id="voicePractice">
+                        <h3>🎙️ Practice Your Pitch</h3>
+                        <p>Click to start recording your pitch practice</p>
+                        <button class="btn" onclick="toggleRecording()">Start Recording</button>
+                        <div id="voiceFeedback" style="margin-top: 16px;"></div>
+                    </div>
+                </div>
+                
+                <!-- Adaptive Quiz Section -->
+                <div id="adaptive-quiz" class="content-section">
+                    <h2>🎯 Adaptive Learning Quiz</h2>
+                    <div class="quiz-container" id="adaptiveQuiz">
+                        <div class="quiz-question">AI is analyzing your knowledge level...</div>
+                        <div class="quiz-options"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- AI Coach Sidebar -->
+            <div class="ai-coach">
+                <h3>🤖 AI Learning Coach</h3>
+                <div class="ai-chat" id="aiChat">
+                    <div class="ai-message">
+                        <strong>Welcome! I'm your AI learning coach.</strong><br>
+                        I'll help you master your pitch deck and business knowledge through personalized learning paths, adaptive quizzes, and real-time feedback. Let's start with understanding your current knowledge level.
+                    </div>
+                </div>
+                <div class="ai-input">
+                    <input type="text" id="userInput" placeholder="Ask me anything about your pitch, business metrics, or practice tips..." onkeypress="handleKeyPress(event)">
+                    <button class="btn" onclick="sendMessage()">Send</button>
+                </div>
+                
+                <div class="recommendations">
+                    <h4>🎯 Personalized Recommendations</h4>
+                    <div id="recommendations">
+                        <div class="recommendation-item">Start with the Problem slide to master your value proposition</div>
+                        <div class="recommendation-item">Practice key metrics: 99.2% accuracy, $8B+ market, 32 modules</div>
+                        <div class="recommendation-item">Focus on investor objections and prepare responses</div>
+                    </div>
+                </div>
+                
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-value" id="progressPercent">0%</div>
+                        <div class="metric-label">Overall Progress</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value" id="sessionsCount">0</div>
+                        <div class="metric-label">Practice Sessions</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // AI Learning Coach System
+        class AILearningCoach {
+            constructor() {
+                this.currentTab = 'pitch-deck';
+                this.difficulty = 'beginner';
+                this.userProfile = {
+                    knowledgeLevel: 'beginner',
+                    weakAreas: [],
+                    strongAreas: [],
+                    practiceHistory: [],
+                    sessionsCount: 0
+                };
+                this.pitchDeckData = [
+                    {
+                        id: 'problem',
+                        title: 'The Problem',
+                        content: {
+                            beginner: {
+                                points: ['Multi-billion dollar gaming security problem', '99.2% accuracy needed', 'Current solutions inadequate'],
+                                questions: ['What is the main problem you solve?', 'Why is this important?']
+                            },
+                            intermediate: {
+                                points: ['$15B annual losses to cheating', '99.2% accuracy vs industry 85%', 'Enterprise-scale security gaps'],
+                                questions: ['What are the financial impacts?', 'How does your accuracy compare?']
+                            },
+                            advanced: {
+                                points: ['Complex multi-modal cheating patterns', 'Real-time detection requirements', 'Enterprise Zero Trust architecture'],
+                                questions: ['What are the technical challenges?', 'How does your architecture address this?']
+                            }
+                        }
+                    },
+                    {
+                        id: 'solution',
+                        title: 'Our Solution',
+                        content: {
+                            beginner: {
+                                points: ['32 production modules', '99.2% accuracy', 'Complete platform'],
+                                questions: ['What makes your solution special?', 'How many modules do you have?']
+                            },
+                            intermediate: {
+                                points: ['Multi-modal AI detection', 'Enterprise-grade security', 'Scalable architecture'],
+                                questions: ['What technologies do you use?', 'How do you ensure scalability?']
+                            },
+                            advanced: {
+                                points: ['Zero Trust security model', 'Multi-tenancy support', 'Real-time processing pipeline'],
+                                questions: ['Explain your Zero Trust approach', 'How do you handle multi-tenancy?']
+                            }
+                        }
+                    },
+                    {
+                        id: 'market',
+                        title: 'Market Opportunity',
+                        content: {
+                            beginner: {
+                                points: ['$8B+ TAM', '20% YoY growth', '$100M+ Year 5 revenue'],
+                                questions: ['How big is your market?', 'What is your growth rate?']
+                            },
+                            intermediate: {
+                                points: ['Enterprise AI market $8B+', 'Gaming security $15B losses', '20% CAGR through 2028'],
+                                questions: ['What are your market segments?', 'What drives your growth?']
+                            },
+                            advanced: {
+                                points: ['Enterprise AI adoption curves', 'Competitive landscape analysis', 'Market penetration strategy'],
+                                questions: ['How will you penetrate the market?', 'Who are your main competitors?']
+                            }
+                        }
+                    }
+                ];
+                
+                this.init();
+            }
+            
+            init() {
+                this.loadUserProfile();
+                this.generatePitchCards();
+                this.startAdaptiveLearning();
+                this.updateProgress();
+            }
+            
+            loadUserProfile() {
+                const saved = localStorage.getItem('stellarLearningProfile');
+                if (saved) {
+                    this.userProfile = JSON.parse(saved);
+                }
+            }
+            
+            saveUserProfile() {
+                localStorage.setItem('stellarLearningProfile', JSON.stringify(this.userProfile));
+            }
+            
+            generatePitchCards() {
+                const container = document.getElementById('pitchCards');
+                container.innerHTML = '';
+                
+                this.pitchDeckData.forEach((slide, index) => {
+                    const content = slide.content[this.difficulty];
+                    const card = document.createElement('div');
+                    card.className = 'practice-card';
+                    card.innerHTML = `
+                        <h3>${slide.title}</h3>
+                        <div class="progress-ring" style="background: conic-gradient(#667eea ${this.getSlideProgress(slide.id) * 3.6}deg, #e2e8f0 0deg);">
+                            ${this.getSlideProgress(slide.id)}%
+                        </div>
+                        <div class="key-points">
+                            ${content.points.map(point => `<div class="key-point">• ${point}</div>`).join('')}
+                        </div>
+                        <button class="btn" onclick="aiCoach.practiceSlide('${slide.id}')">Practice This Slide</button>
+                        <button class="btn btn-secondary" onclick="aiCoach.quizSlide('${slide.id}')">Test Knowledge</button>
+                    `;
+                    container.appendChild(card);
+                });
+            }
+            
+            getSlideProgress(slideId) {
+                const history = this.userProfile.practiceHistory.filter(h => h.slideId === slideId);
+                if (history.length === 0) return 0;
+                const avgScore = history.reduce((sum, h) => sum + h.score, 0) / history.length;
+                return Math.round(avgScore);
+            }
+            
+            practiceSlide(slideId) {
+                const slide = this.pitchDeckData.find(s => s.id === slideId);
+                const content = slide.content[this.difficulty];
+                
+                this.addAIMessage(`Let's practice the "${slide.title}" slide. I'll ask you some questions to help you master this content.`);
+                
+                // Simulate practice session
+                setTimeout(() => {
+                    const question = content.questions[Math.floor(Math.random() * content.questions.length)];
+                    this.addAIMessage(`Question: ${question}`);
+                    
+                    // Record practice session
+                    this.userProfile.practiceHistory.push({
+                        slideId,
+                        timestamp: new Date().toISOString(),
+                        type: 'practice',
+                        score: Math.random() * 100
+                    });
+                    this.userProfile.sessionsCount++;
+                    this.saveUserProfile();
+                    this.updateProgress();
+                }, 1000);
+            }
+            
+            quizSlide(slideId) {
+                const slide = this.pitchDeckData.find(s => s.id === slideId);
+                const content = slide.content[this.difficulty];
+                
+                // Generate dynamic quiz based on content
+                const quizContainer = document.getElementById('businessQuiz');
+                quizContainer.innerHTML = `
+                    <div class="quiz-question">${content.questions[0]}</div>
+                    <div class="quiz-options">
+                        ${this.generateQuizOptions(content.points)}
+                    </div>
+                `;
+            }
+            
+            generateQuizOptions(points) {
+                const correctAnswer = points[Math.floor(Math.random() * points.length)];
+                const wrongAnswers = [
+                    'Alternative option A',
+                    'Alternative option B', 
+                    'Alternative option C'
+                ];
+                
+                const options = [correctAnswer, ...wrongAnswers.slice(0, 3)].sort(() => Math.random() - 0.5);
+                
+                return options.map((option, index) => 
+                    `<div class="quiz-option" onclick="aiCoach.checkAnswer(this, '${option === correctAnswer}')">${option}</div>`
+                ).join('');
+            }
+            
+            checkAnswer(element, isCorrect) {
+                const options = element.parentElement.querySelectorAll('.quiz-option');
+                options.forEach(opt => opt.classList.remove('correct', 'incorrect'));
+                
+                if (isCorrect) {
+                    element.classList.add('correct');
+                    element.textContent += ' ✅ Correct!';
+                    this.addAIMessage('Excellent! You have a good understanding of this concept.');
+                } else {
+                    element.classList.add('incorrect');
+                    element.textContent += ' ❌ Try Again';
+                    this.addAIMessage('Not quite right. Let me help you understand this better...');
+                }
+            }
+            
+            startAdaptiveLearning() {
+                // Generate adaptive quiz based on user profile
+                setTimeout(() => {
+                    this.generateAdaptiveQuiz();
+                }, 2000);
+            }
+            
+            generateAdaptiveQuiz() {
+                const quizContainer = document.getElementById('adaptiveQuiz');
+                const question = this.generatePersonalizedQuestion();
+                
+                quizContainer.innerHTML = `
+                    <div class="quiz-question">${question.question}</div>
+                    <div class="quiz-options">
+                        ${question.options.map((option, index) => 
+                            `<div class="quiz-option" onclick="aiCoach.checkAnswer(this, ${index === question.correct})">${option}</div>`
+                        ).join('')}
+                    </div>
+                `;
+            }
+            
+            generatePersonalizedQuestion() {
+                const questions = [
+                    {
+                        question: "Based on your practice, what's Stellar Logic AI's key differentiator?",
+                        options: ["99.2% accuracy", "Lowest price", "Beautiful UI", "Fastest setup"],
+                        correct: 0
+                    },
+                    {
+                        question: "What's your primary target market for the first 3 years?",
+                        options: ["Enterprise gaming", "Consumer apps", "Social media", "E-commerce"],
+                        correct: 0
+                    },
+                    {
+                        question: "How much revenue do you project in Year 5?",
+                        options: ["$10M", "$50M", "$100M+", "$1B"],
+                        correct: 2
+                    }
+                ];
+                
+                return questions[Math.floor(Math.random() * questions.length)];
+            }
+            
+            addAIMessage(message) {
+                const chatContainer = document.getElementById('aiChat');
+                const messageDiv = document.createElement('div');
+                messageDiv.className = 'ai-message';
+                messageDiv.innerHTML = `<strong>AI Coach:</strong><br>${message}`;
+                chatContainer.appendChild(messageDiv);
+                chatContainer.scrollTop = chatContainer.scrollHeight;
+            }
+            
+            addUserMessage(message) {
+                const chatContainer = document.getElementById('aiChat');
+                const messageDiv = document.createElement('div');
+                messageDiv.className = 'user-message';
+                messageDiv.innerHTML = `<strong>You:</strong><br>${message}`;
+                chatContainer.appendChild(messageDiv);
+                chatContainer.scrollTop = chatContainer.scrollHeight;
+            }
+            
+            processUserMessage(message) {
+                this.addUserMessage(message);
+                
+                // Simulate AI thinking
+                const aiStatus = document.getElementById('aiStatus');
+                aiStatus.className = 'ai-status thinking';
+                aiStatus.innerHTML = '<span>🤔</span><span>AI Coach Thinking...</span>';
+                
+                setTimeout(() => {
+                    aiStatus.className = 'ai-status active';
+                    aiStatus.innerHTML = '<span>🤖</span><span>AI Coach Active</span>';
+                    
+                    // Generate intelligent response
+                    const response = this.generateIntelligentResponse(message);
+                    this.addAIMessage(response);
+                    
+                    // Update recommendations based on conversation
+                    this.updateRecommendations(message);
+                }, 1500);
+            }
+            
+            generateIntelligentResponse(message) {
+                const lowerMessage = message.toLowerCase();
+                
+                if (lowerMessage.includes('problem') || lowerMessage.includes('challenge')) {
+                    return "The core problem is the $15B annual losses gaming companies face from cheating. Your solution addresses this with 99.2% accuracy compared to industry average of 85%. This represents a massive market opportunity with clear ROI for customers.";
+                }
+                
+                if (lowerMessage.includes('market') || lowerMessage.includes('tAM')) {
+                    return "The Enterprise AI market is $8B+ growing at 20% YoY. Within this, gaming security represents a significant portion. Your positioning in the high-end enterprise segment with superior technology gives you strong competitive advantage.";
+                }
+                
+                if (lowerMessage.includes('practice') || lowerMessage.includes('improve')) {
+                    return "Based on your practice history, I recommend focusing on the Problem and Solution slides first. Make sure you can explain the 99.2% accuracy metric and the 32 production modules clearly. Practice in front of a mirror and record yourself to improve delivery.";
+                }
+                
+                if (lowerMessage.includes('investor') || lowerMessage.includes('funding')) {
+                    return "For investor meetings, focus on: 1) The massive market opportunity ($8B+ TAM), 2) Your superior technology (99.2% accuracy), 3) Clear business model ($100M+ Year 5 revenue), and 4) Strong team execution. Be prepared for questions about competition and scalability.";
+                }
+                
+                return "I'm here to help you master your pitch and business knowledge. Ask me about specific slides, metrics, competitive positioning, or practice techniques. I can also create personalized quizzes based on your learning progress.";
+            }
+            
+            updateRecommendations(message) {
+                const recommendations = document.getElementById('recommendations');
+                const lowerMessage = message.toLowerCase();
+                
+                let newRecommendations = [];
+                
+                if (lowerMessage.includes('problem')) {
+                    newRecommendations.push("Practice explaining the $15B gaming loss problem with specific examples");
+                }
+                
+                if (lowerMessage.includes('solution')) {
+                    newRecommendations.push("Focus on memorizing the 32 production modules and their functions");
+                }
+                
+                if (lowerMessage.includes('market')) {
+                    newRecommendations.push("Research latest Enterprise AI market reports to strengthen your TAM analysis");
+                }
+                
+                if (newRecommendations.length > 0) {
+                    recommendations.innerHTML = newRecommendations.map(rec => 
+                        `<div class="recommendation-item">${rec}</div>`
+                    ).join('');
+                }
+            }
+            
+            updateProgress() {
+                const progress = this.calculateOverallProgress();
+                document.getElementById('progressPercent').textContent = `${progress}%`;
+                document.getElementById('sessionsCount').textContent = this.userProfile.sessionsCount;
+            }
+            
+            calculateOverallProgress() {
+                const totalSlides = this.pitchDeckData.length;
+                const practicedSlides = new Set(this.userProfile.practiceHistory.map(h => h.slideId)).size;
+                return Math.round((practicedSlides / totalSlides) * 100);
+            }
+            
+            setDifficulty(level) {
+                this.difficulty = level;
+                this.userProfile.knowledgeLevel = level;
+                this.saveUserProfile();
+                this.generatePitchCards();
+                this.addAIMessage(`Difficulty set to ${level}. I've adjusted the content complexity accordingly.`);
+            }
+        }
+        
+        // Initialize AI Coach
+        let aiCoach;
+        
+        function switchTab(tabName) {
+            // Update tab buttons
+            document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            // Update content sections
+            document.querySelectorAll('.content-section').forEach(section => section.classList.remove('active'));
+            document.getElementById(tabName).classList.add('active');
+            
+            aiCoach.currentTab = tabName;
+            
+            // Load tab-specific content
+            if (tabName === 'business-knowledge') {
+                aiCoach.generateAdaptiveQuiz();
+            } else if (tabName === 'adaptive-quiz') {
+                aiCoach.generateAdaptiveQuiz();
+            }
+        }
+        
+        function setDifficulty(level) {
+            document.querySelectorAll('.difficulty-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            aiCoach.setDifficulty(level);
+        }
+        
+        function sendMessage() {
+            const input = document.getElementById('userInput');
+            const message = input.value.trim();
+            
+            if (message) {
+                aiCoach.processUserMessage(message);
+                input.value = '';
+            }
+        }
+        
+        function handleKeyPress(event) {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
+        }
+        
+        function toggleRecording() {
+            const voicePractice = document.getElementById('voicePractice');
+            const button = voicePractice.querySelector('button');
+            const feedback = document.getElementById('voiceFeedback');
+            
+            if (button.textContent === 'Start Recording') {
+                voicePractice.classList.add('recording');
+                button.textContent = 'Stop Recording';
+                feedback.innerHTML = '<div class="ai-message">🎙️ Recording... Practice your pitch now!</div>';
+                
+                // Simulate recording analysis
+                setTimeout(() => {
+                    feedback.innerHTML += `
+                        <div class="ai-message">
+                            <strong>Voice Analysis:</strong><br>
+                            • Pace: Good (120 words per minute)<br>
+                            • Clarity: Excellent<br>
+                            • Confidence: Strong<br>
+                            • Areas to improve: Add more passion when discussing the problem
+                        </div>
+                    `;
+                }, 3000);
+            } else {
+                voicePractice.classList.remove('recording');
+                button.textContent = 'Start Recording';
+            }
+        }
+        
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            aiCoach = new AILearningCoach();
+        });
+    </script>
+</body>
+</html>

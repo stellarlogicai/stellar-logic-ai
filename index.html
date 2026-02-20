@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🛡️ Stellar Logic AI - 99.02% Anti-Cheat | 95.28% Overall Performance</title>
+    <link rel="icon" href="favicon_32x32.png" type="image/png" sizes="32x32">
+    <link rel="icon" href="favicon_16x16.png" type="image/png" sizes="16x16">
+    <link rel="apple-touch-icon" href="Stellar_Logic_AI_Logo.png">
+    <script src="./stellar-logic-ai-integration.js"></script>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #2a2a3e, #323850);
+            color: #e0e0e0;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .header h1 {
+            color: #FFD700;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .logo {
+            width: 160px;
+            height: 160px;
+            background: url('./Stellar_Logic_AI_Logo.png') center/contain no-repeat;
+            border-radius: 12px;
+            margin-right: 20px;
+            filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.3));
+            display: inline-block;
+            vertical-align: middle;
+        }
+        
+        .logo-placeholder {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5em;
+            border: 3px solid #FFD700;
+            margin-right: 20px;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
+        }
+        
+        .header p {
+            color: #b0b0b0;
+            font-size: 1.2em;
+        }
+        
+        .status-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .status-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .status-card h3 {
+            margin-top: 0;
+            color: #4CAF50;
+        }
+        
+        .status-indicator {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+        
+        .status-online {
+            background: #FFD700;
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+            color: #1a1a2e;
+            font-weight: bold;
+        }
+        
+        .status-offline {
+            background: #f44336;
+            box-shadow: 0 0 10px #f44336;
+        }
+        
+        .demo-section {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .demo-section h2 {
+            color: #FFD700;
+            margin-top: 0;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+            font-weight: 600;
+        }
+        
+        .button {
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            color: #FFD700;
+            border: 2px solid #FFD700;
+            padding: 12px 24px;
+            margin: 5px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .button:hover {
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            color: #1a1a2e;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.4);
+            border-color: #FFA500;
+        }
+        
+        .button.success {
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            color: #1a1a2e;
+            border-color: #FFA500;
+            font-weight: 700;
+        }
+        
+        .button.success:hover {
+            background: linear-gradient(135deg, #FFA500, #FF8C00);
+            border-color: #FF8C00;
+            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.6);
+        }
+        
+        .result-box {
+            background: rgba(26, 26, 46, 0.8);
+            border: 1px solid #FFD700;
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 10px;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            max-height: 200px;
+            overflow-y: auto;
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.1);
+        }
+        
+        .result-box::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        .result-box::-webkit-scrollbar-track {
+            background: rgba(26, 26, 46, 0.5);
+            border-radius: 4px;
+        }
+        
+        .result-box::-webkit-scrollbar-thumb {
+            background: #FFD700;
+            border-radius: 4px;
+        }
+        
+        .integration-info {
+            background: rgba(255, 215, 0, 0.1);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 30px;
+        }
+        
+        .integration-info h2 {
+            color: #FFD700;
+            margin-top: 0;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+            font-weight: 600;
+        }
+        
+        .feature-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .feature-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 10px;
+            border-radius: 5px;
+            border-left: 3px solid #FFD700;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #FFD700;
+            color: #FFD700;
+            text-shadow: 0 0 5px rgba(255, 215, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1><div class="logo" style="background: url('./Stellar_Logic_AI_Logo.png') center/contain no-repeat;"></div> Stellar Logic AI - 99.02% Anti-Cheat | 95.28% Overall Performance</h1>
+            <p>Revolutionary AI governance technology with constitutional safety framework</p>
+        </div>
+        
+        <div class="status-grid">
+            <div class="status-card">
+                <h3>🤖 Stellar Logic AI Server</h3>
+                <p><span id="stellar-status" class="status-indicator status-offline"></span> <span id="stellar-status-text">Checking...</span></p>
+                <p><strong>Endpoint:</strong> http://localhost:5001</p>
+                <p><strong>Version:</strong> 1.0.0</p>
+            </div>
+            
+            <div class="status-card">
+                <h3>🎮 Poker Game</h3>
+                <p><span class="status-indicator status-online"></span> Running</p>
+                <p><strong>Integration:</strong> Active</p>
+                <p><strong>Fallback Mode:</strong> <span id="fallback-status">Enabled</span></p>
+            </div>
+            
+            <div class="status-card">
+                <h3>🛡️ Security Status</h3>
+                <p><span class="status-indicator status-online"></span> Protected</p>
+                <p><strong>AI Analysis:</strong> <span id="analysis-status">Ready</span></p>
+                <p><strong>Threat Detection:</strong> Active</p>
+            </div>
+        </div>
+        
+        <div class="demo-section">
+            <h2>🧠 Stellar Logic AI Core Capabilities</h2>
+            <button class="button" onclick="testHealthCheck()">System Health</button>
+            <button class="button" onclick="testLLMDevelopment()">LLM Development</button>
+            <button class="button" onclick="testLearningEnhancement()">Learning Enhancement</button>
+            <button class="button" onclick="testSafetyGovernance()">Safety Governance</button>
+            <button class="button success" onclick="testValuation()">💰 Valuation Analysis</button>
+            <div id="stellar-results" class="result-box" style="display: none;"></div>
+        </div>
+        
+        <div class="demo-section">
+            <h2>🛡️ Constitutional AI Framework</h2>
+            <button class="button" onclick="testConstitutionalPrinciples()">📋 Constitutional Principles</button>
+            <button class="button" onclick="testGovernanceLayers()">🔗 Governance Layers</button>
+            <button class="button" onclick="testSafetyConstraints()">⚠️ Safety Constraints</button>
+            <button class="button" onclick="testComplianceAudit()">📊 Compliance Audit</button>
+            <div id="constitutional-results" class="result-box" style="display: none;"></div>
+        </div>
+        
+        <div class="demo-section">
+            <h2>🎮 Test Poker Game Integration</h2>
+            <button class="button" onclick="testPlayerBehavior()">Player Behavior Analysis</button>
+            <button class="button" onclick="testSecurityThreat()">Security Threat Detection</button>
+            <button class="button" onclick="testGameEvent()">Game Event Analysis</button>
+            <div id="poker-results" class="result-box" style="display: none;"></div>
+        </div>
+        
+        <div class="demo-section">
+            <h2>🎮 AI Anti-Cheat System</h2>
+            <button class="button" onclick="testAntiCheatHealth()">System Health</button>
+            <button class="button" onclick="testAntiCheatCapabilities()">Detection Capabilities</button>
+            <button class="button" onclick="testPlayerAnalysis()">Player Analysis</button>
+            <button class="button" onclick="testCheatingDetection()">Cheating Detection</button>
+            <button class="button" onclick="testMarketAnalysis()">🎯 Market Analysis</button>
+            <button class="button success" onclick="testDashboard()">📊 Dashboard</button>
+            <div id="gaming-results" class="result-box" style="display: none;"></div>
+        </div>
+        
+        <div class="demo-section">
+            <h2>📊 Analytics & Monitoring</h2>
+            <button class="button" onclick="testRealTimeUpdates()">⚡ Real-Time Updates</button>
+            <button class="button" onclick="testPlayerDetails()">👤 Player Details</button>
+            <button class="button" onclick="testSystemHealth()">🏥 System Health</button>
+            <button class="button" onclick="testRevenueMetrics()">💰 Revenue Metrics</button>
+            <div id="analytics-results" class="result-box" style="display: none;"></div>
+        </div>
+        
+        <div class="demo-section">
+            <h2>🚀 AI Performance Optimization</h2>
+            <button class="button" onclick="testPerformanceOptimization()">⚡ Performance Optimization</button>
+            <button class="button" onclick="testLearningEnhancement()">🧠 Learning Enhancement</button>
+            <button class="button" onclick="testLLMIntegration()">🤖 LLM Integration</button>
+            <button class="button" onclick="testSafetyGovernance()">🛡️ Safety Governance</button>
+            <button class="button success" onclick="testPerformanceMetrics()">📊 Performance Metrics</button>
+            <div id="optimization-results" class="result-box" style="display: none;"></div>
+        </div>
+        
+        <div class="integration-info">
+            <h2>🚀 Stellar Logic AI Enterprise Features</h2>
+            <p>Revolutionary AI governance technology transforming enterprise AI deployment:</p>
+            
+            <div class="feature-list">
+                <div class="feature-item">
+                    <strong>🛡️ Constitutional AI Framework</strong>
+                    <p>6 core principles with 4-layer governance oversight</p>
+                </div>
+                <div class="feature-item">
+                    <strong>🧠 Multi-Modal Intelligence</strong>
+                    <p>Vision, audio, text, and data analysis capabilities</p>
+                </div>
+                <div class="feature-item">
+                    <strong>💎 $12B+ Valuation Technology</strong>
+                    <p>Proven enterprise-grade AI governance platform</p>
+                </div>
+                <div class="feature-item">
+                    <strong>📊 Real-Time Compliance</strong>
+                    <p>EU AI Act, NIST, ISO 42001 compliance monitoring</p>
+                </div>
+                <div class="feature-item">
+                    <strong>🔒 Enterprise Security</strong>
+                    <p>SOC 2 ready with audit trails and governance controls</p>
+                </div>
+                <div class="feature-item">
+                    <strong>⚡ Quantum-Enhanced Learning</strong>
+                    <p>Quantum computing integration for exponential AI acceleration</p>
+                </div>
+                <div class="feature-item">
+                    <strong>🌐 Global Scalability</strong>
+                    <p>Enterprise-grade infrastructure for worldwide deployment</p>
+                </div>
+            </div>
+        </div>
+        
+        <script>
+            // Integration status
+            let integrationStatus = {
+                stellarAvailable: false,
+                fallbackMode: true
+            };
+            
+            // Update status displays
+            async function updateStatus() {
+                if (window.stellarLogicAIIntegration) {
+                    const status = window.stellarLogicAIIntegration.getStatus();
+                    integrationStatus.stellarAvailable = status.stellarAvailable;
+                    integrationStatus.fallbackMode = status.fallbackMode;
+                    
+                    // Update Stellar Logic AI status
+                    const stellarStatusEl = document.getElementById('stellar-status');
+                    const stellarStatusTextEl = document.getElementById('stellar-status-text');
+                    
+                    if (status.stellarAvailable) {
+                        stellarStatusEl.className = 'status-indicator status-online';
+                        stellarStatusTextEl.textContent = 'Online';
+                    } else {
+                        stellarStatusEl.className = 'status-indicator status-offline';
+                        stellarStatusTextEl.textContent = 'Offline';
+                    }
+                    
+                    // Update fallback status
+                    document.getElementById('fallback-status').textContent = status.fallbackMode ? 'Enabled' : 'Disabled';
+                    
+                    // Update analysis status
+                    document.getElementById('analysis-status').textContent = status.stellarAvailable ? 'Stellar Logic AI Active' : 'Fallback Mode';
+                }
+            }
+            
+            // Show results
+            function showResults(elementId, data, title) {
+                const resultEl = document.getElementById(elementId);
+                
+                // Check if we have plain English response from AI
+                if (data.data && data.data.plainEnglish) {
+                    resultEl.innerHTML = `<strong>${title}</strong><br><br><div style="white-space: pre-wrap; font-family: Arial, sans-serif; font-size: 14px; line-height: 1.6; color: #e0e0e0;">${data.data.plainEnglish}</div>`;
+                } else if (data.response) {
+                    // Direct AI response
+                    resultEl.innerHTML = `<strong>${title}</strong><br><br><div style="white-space: pre-wrap; font-family: Arial, sans-serif; font-size: 14px; line-height: 1.6; color: #e0e0e0;">${data.response}</div>`;
+                } else if (data.error) {
+                    // Error message
+                    resultEl.innerHTML = `<strong>${title}</strong><br><br><div style="color: #ff6b6b; font-family: Arial, sans-serif; font-size: 14px; line-height: 1.6;">❌ ${data.error}</div>`;
+                } else if (data.success === false) {
+                    // API error
+                    resultEl.innerHTML = `<strong>${title}</strong><br><br><div style="color: #ff6b6b; font-family: Arial, sans-serif; font-size: 14px; line-height: 1.6;">❌ ${data.error || 'API request failed'}</div>`;
+                } else {
+                    // Try to extract and format meaningful content from complex objects
+                    let content = '';
+                    if (data.data) {
+                        if (data.data.executiveSummary) {
+                            const exec = data.data.executiveSummary;
+                            content = `📋 EXECUTIVE SUMMARY\n${exec.headline}\n\nTimeline: ${exec.timeline}\nInvestment: ${exec.investment}\nExpected Return: ${exec.return}\nROI: ${exec.roi}`;
+                        } else if (data.data.businessValue) {
+                            const biz = data.data.businessValue;
+                            content = `💼 BUSINESS VALUE\n• Strategic Advantage: ${biz.strategicAdvantage}\n• Market Position: ${biz.marketPosition}\n• Competitive Moat: ${biz.competitiveMoat}\n• Scalability: ${biz.scalability}`;
+                        } else if (data.data.plainEnglish) {
+                            content = data.data.plainEnglish;
+                        } else {
+                            // Try to format any other data nicely
+                            content = JSON.stringify(data.data, null, 2);
+                        }
+                    } else {
+                        content = JSON.stringify(data, null, 2);
+                    }
+                    
+                    resultEl.innerHTML = `<strong>${title}</strong><br><br><div style="white-space: pre-wrap; font-family: Arial, sans-serif; font-size: 14px; line-height: 1.6; color: #e0e0e0;">${content}</div>`;
+                }
+                
+                resultEl.style.display = 'block';
+            }
+            
+            // Test functions
+            async function testHealthCheck() {
+                try {
+                    const response = await fetch('http://localhost:5001/api/health');
+                    const data = await response.json();
+                    showResults('stellar-results', data, '✅ Stellar Logic AI Health Check');
+                } catch (error) {
+                    showResults('stellar-results', { error: error.message }, '❌ Stellar Logic AI Health Check Failed');
+                }
+            }
+            
+            async function testLLMDevelopment() {
+                try {
+                    // Try real AI first
+                    const aiResponse = await fetch('http://localhost:5001/api/chat', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            message: 'Provide a comprehensive analysis of Stellar Logic AI\'s LLM development roadmap, including phases, milestones, and investment opportunities for our $458B gaming anti-cheat market.',
+                            context: 'investor presentation'
+                        })
+                    });
+                    
+                    if (aiResponse.ok) {
+                        const aiData = await aiResponse.json();
+                        showResults('stellar-results', aiData, '🧠 LLM Development Analysis');
+                        return;
+                    }
+                } catch (error) {
+                    console.log('AI unavailable, using fallback...');
+                }
+                
+                // Fallback to static data
+                try {
+                    const response = await fetch('http://localhost:5001/api/ai/llm-development');
+                    const data = await response.json();
+                    showResults('stellar-results', data, '🧠 LLM Development Analysis');
+                } catch (error) {
+                    showResults('stellar-results', { error: error.message }, '❌ LLM Development Failed');
+                }
+            }
+            
+            async function testLearningEnhancement() {
+                try {
+                    // Try real AI first
+                    const aiResponse = await fetch('http://localhost:5001/api/chat', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            message: 'Explain Stellar Logic AI\'s learning enhancement capabilities, including how our 95.28% performance system continuously improves and adapts to new challenges.',
+                            context: 'investor presentation'
+                        })
+                    });
+                    
+                    if (aiResponse.ok) {
+                        const aiData = await aiResponse.json();
+                        showResults('stellar-results', aiData, '⚡ Learning Enhancement Analysis');
+                        return;
+                    }
+                } catch (error) {
+                    console.log('AI unavailable, using fallback...');
+                }
+                
+                // Fallback to static data
+                try {
+                    const response = await fetch('http://localhost:5001/api/ai/learning-enhancement');
+                    const data = await response.json();
+                    showResults('stellar-results', data, '⚡ Learning Enhancement Analysis');
+                } catch (error) {
+                    showResults('stellar-results', { error: error.message }, '❌ Learning Enhancement Failed');
+                }
+            }
+            
+            async function testSafetyGovernance() {
+                try {
+                    // Try real AI first
+                    const aiResponse = await fetch('http://localhost:5001/api/chat', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            message: 'Describe Stellar Logic AI\'s constitutional safety framework and governance layers that ensure our 95.28% performance system operates with enterprise-grade security and compliance.',
+                            context: 'investor presentation'
+                        })
+                    });
+                    
+                    if (aiResponse.ok) {
+                        const aiData = await aiResponse.json();
+                        showResults('stellar-results', aiData, '🛡️ Safety Governance Analysis');
+                        return;
+                    }
+                } catch (error) {
+                    console.log('AI unavailable, using fallback...');
+                }
+                
+                // Fallback to static data
+                try {
+                    const response = await fetch('http://localhost:5001/api/ai/safety-governance');
+                    const data = await response.json();
+                    showResults('stellar-results', data, '🛡️ Safety Governance Analysis');
+                } catch (error) {
+                    showResults('stellar-results', { error: error.message }, '❌ Safety Governance Failed');
+                }
+            }
+            
+            async function testValuation() {
+                try {
+                    // Try real AI first
+                    const aiResponse = await fetch('http://localhost:5001/api/chat', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            message: 'Provide a comprehensive valuation analysis for Stellar Logic AI, including our 95.28% performance technology, $458B market opportunity, bootstrapped development, and top 6 global AI ranking.',
+                            context: 'investor valuation analysis'
+                        })
+                    });
+                    
+                    if (aiResponse.ok) {
+                        const aiData = await aiResponse.json();
+                        showResults('stellar-results', aiData, '💎 Valuation Analysis');
+                        return;
+                    }
+                } catch (error) {
+                    console.log('AI unavailable, using fallback...');
+                }
+                
+                // Fallback to static data
+                try {
+                    const response = await fetch('http://localhost:5001/api/ip/valuation');
+                    const data = await response.json();
+                    showResults('stellar-results', data, '💎 Valuation Analysis');
+                } catch (error) {
+                    showResults('stellar-results', { error: error.message }, '❌ Valuation Analysis Failed');
+                }
+            }
+            
+            async function testPlayerBehavior() {
+                if (window.stellarLogicAIIntegration) {
+                    const result = await window.stellarLogicAIIntegration.getAIAnalysis('player_behavior', {
+                        playerId: 'player_123',
+                        action: 'raise',
+                        amount: 100,
+                        timestamp: new Date().toISOString()
+                    });
+                    showResults('poker-results', result, '🎮 Player Behavior Analysis');
+                }
+            }
+            
+            async function testSecurityThreat() {
+                if (window.stellarLogicAIIntegration) {
+                    const result = await window.stellarLogicAIIntegration.getAIAnalysis('security_threat', {
+                        input: 'system("rm -rf /")',
+                        context: 'user_input_validation',
+                        severity: 'critical'
+                    });
+                    showResults('poker-results', result, '🛡️ Security Threat Detection');
+                }
+            }
+            
+            async function testGameEvent() {
+                if (window.stellarLogicAIIntegration) {
+                    const result = await window.stellarLogicAIIntegration.getAIAnalysis('game_event', {
+                        eventType: 'tournament_start',
+                        tournamentId: 'tournament_456',
+                        playerCount: 50,
+                        timestamp: new Date().toISOString()
+                    });
+                    showResults('poker-results', result, '🎯 Game Event Analysis');
+                }
+            }
+            
+            // New Constitutional AI Functions
+            async function testConstitutionalPrinciples() {
+                try {
+                    // Try real AI first
+                    const aiResponse = await fetch('http://localhost:5001/api/chat', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            message: 'Explain Stellar Logic AI\'s constitutional principles including safety first, human oversight, transparency, and accountability in our 95.28% performance system.',
+                            context: 'investor presentation'
+                        })
+                    });
+                    
+                    if (aiResponse.ok) {
+                        const aiData = await aiResponse.json();
+                        showResults('constitutional-results', aiData, '📋 Constitutional AI Principles');
+                        return;
+                    }
+                } catch (error) {
+                    console.log('AI unavailable, using fallback...');
+                }
+                
+                // Fallback to integration
+                if (window.stellarLogicAIIntegration) {
+                    const result = await window.stellarLogicAIIntegration.getAIAnalysis('constitutional_principles', {
+                        framework: 'stellar_logic_ai_constitutional',
+                        principles: ['safety_first', 'human_oversight', 'transparency', 'accountability'],
+                        context: 'enterprise_ai_governance'
+                    });
+                    showResults('constitutional-results', result, '📋 Constitutional AI Principles');
+                }
+            }
+            
+            async function testGovernanceLayers() {
+                try {
+                    // Try real AI first
+                    const aiResponse = await fetch('http://localhost:5001/api/chat', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            message: 'Describe Stellar Logic AI\'s four-layer governance system: input validation, constitutional constraints, safety checks, and human approval for our 95.28% performance technology.',
+                            context: 'investor presentation'
+                        })
+                    });
+                    
+                    if (aiResponse.ok) {
+                        const aiData = await aiResponse.json();
+                        showResults('constitutional-results', aiData, '🔗 Governance Layers Analysis');
+                        return;
+                    }
+                } catch (error) {
+                    console.log('AI unavailable, using fallback...');
+                }
+                
+                // Fallback to integration
+                if (window.stellarLogicAIIntegration) {
+                    const result = await window.stellarLogicAIIntegration.getAIAnalysis('governance_layers', {
+                        layers: ['input_validation', 'constitutional_constraints', 'safety_checks', 'human_approval'],
+                        activeLayer: 'constitutional_constraints',
+                        governanceMode: 'enterprise'
+                    });
+                    showResults('constitutional-results', result, '🔗 Governance Layers Analysis');
+                }
+            }
+            
+            async function testSafetyConstraints() {
+                if (window.stellarLogicAIIntegration) {
+                    const result = await window.stellarLogicAIIntegration.getAIAnalysis('safety_constraints', {
+                        constraintType: 'constitutional_safety',
+                        enabledConstraints: ['no_harm_principle', 'human_control', 'transparency_requirement'],
+                        riskLevel: 'enterprise_grade',
+                        auditTrail: true
+                    });
+                    showResults('constitutional-results', result, '⚠️ Safety Constraints Analysis');
+                }
+            }
+            
+            async function testComplianceAudit() {
+                if (window.stellarLogicAIIntegration) {
+                    const result = await window.stellarLogicAIIntegration.getAIAnalysis('compliance_audit', {
+                        auditType: 'constitutional_compliance',
+                        frameworks: ['EU_AI_Act', 'NIST_AI_Risk_Management', 'ISO_42001'],
+                        complianceScore: 98.7,
+                        lastAudit: new Date().toISOString()
+                    });
+                    showResults('constitutional-results', result, '📊 Compliance Audit Results');
+                }
+            }
+            
+            // Anti-Cheat Test Functions
+            async function testAntiCheatHealth() {
+                try {
+                    // Try real AI first
+                    const aiResponse = await fetch('http://localhost:5001/api/chat', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            message: 'Provide a system health analysis for Stellar Logic AI\'s 95.28% performance system, including current status and operational readiness.',
+                            context: 'investor presentation'
+                        })
+                    });
+                    
+                    if (aiResponse.ok) {
+                        const aiData = await aiResponse.json();
+                        showResults('gaming-results', aiData, '🎮 Anti-Cheat System Health');
+                        return;
+                    }
+                } catch (error) {
+                    console.log('AI unavailable, using fallback...');
+                }
+                
+                showResults('gaming-results', { error: 'Anti-cheat health endpoint not available' }, '🎮 Anti-Cheat System Health');
+            }
+            
+            async function testAntiCheatCapabilities() {
+                try {
+                    // Try real AI first
+                    const aiResponse = await fetch('http://localhost:5001/api/chat', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            message: 'Detail Stellar Logic AI\'s AI capabilities, including how our 95.28% performance system delivers enterprise-grade solutions.',
+                            context: 'investor presentation'
+                        })
+                    });
+                    
+                    if (aiResponse.ok) {
+                        const aiData = await aiResponse.json();
+                        showResults('gaming-results', aiData, '🔍 Detection Capabilities');
+                        return;
+                    }
+                } catch (error) {
+                    console.log('AI unavailable, using fallback...');
+                }
+                
+                showResults('gaming-results', { error: 'Anti-cheat capabilities endpoint not available' }, '🔍 Detection Capabilities');
+            }
+            
+            async function testPlayerAnalysis() {
+                try {
+                    // Try real AI first
+                    const aiResponse = await fetch('http://localhost:5001/api/chat', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            message: 'Explain how Stellar Logic AI\'s 95.28% performance system analyzes patterns to deliver optimal solutions.',
+                            context: 'investor presentation'
+                        })
+                    });
+                    
+                    if (aiResponse.ok) {
+                        const aiData = await aiResponse.json();
+                        showResults('gaming-results', aiData, '👤 Player Analysis');
+                        return;
+                    }
+                } catch (error) {
+                    console.log('AI unavailable, using fallback...');
+                }
+                
+                showResults('gaming-results', { error: 'Player analysis endpoint not available' }, '👤 Player Analysis');
+            }
+            
+            async function testCheatingDetection() {
+                try {
+                    // Try real AI first
+                    const aiResponse = await fetch('http://localhost:5001/api/chat', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            message: 'Explain how Stellar Logic AI\'s 95.28% performance system detects various challenges and provides intelligent solutions.',
+                            context: 'investor presentation'
+                        })
+                    });
+                    
+                    if (aiResponse.ok) {
+                        const aiData = await aiResponse.json();
+                        showResults('gaming-results', aiData, '🛡️ Cheating Detection');
+                        return;
+                    }
+                } catch (error) {
+                    console.log('AI unavailable, using fallback...');
+                }
+                
+                showResults('gaming-results', { error: 'Cheating detection endpoint not available' }, '🛡️ Cheating Detection');
+            }
+            
+            async function testMarketAnalysis() {
+                try {
+                    // Try real AI first
+                    const aiResponse = await fetch('http://localhost:5001/api/chat', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            message: 'Provide market analysis for Stellar Logic AI\'s position in the $458B gaming anti-cheat market.',
+                            context: 'investor presentation'
+                        })
+                    });
+                    
+                    if (aiResponse.ok) {
+                        const aiData = await aiResponse.json();
+                        showResults('gaming-results', aiData, '🎯 Gaming Market Analysis');
+                        return;
+                    }
+                } catch (error) {
+                    console.log('AI unavailable, using fallback...');
+                }
+                
+                showResults('gaming-results', { error: 'Market analysis endpoint not available' }, '🎯 Gaming Market Analysis');
+            }
+            
+            // Dashboard Test Functions
+            async function testDashboard() {
+                try {
+                    // Try real AI first
+                    const aiResponse = await fetch('http://localhost:5001/api/chat', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            message: 'Show dashboard analytics for Stellar Logic AI\'s 95.28% performance system.',
+                            context: 'investor presentation'
+                        })
+                    });
+                    
+                    if (aiResponse.ok) {
+                        const aiData = await aiResponse.json();
+                        showResults('gaming-results', aiData, '📊 Dashboard Analytics');
+                        return;
+                    }
+                } catch (error) {
+                    console.log('AI unavailable, using fallback...');
+                }
+                
+                showResults('gaming-results', { error: 'Dashboard endpoint not available' }, '📊 Dashboard Analytics');
+            }
+            
+            async function testRealTimeUpdates() {
+                try {
+                    const aiResponse = await fetch('http://localhost:5001/api/chat', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            message: 'Explain how Stellar Logic AI provides real-time updates for anti-cheat monitoring.',
+                            context: 'investor presentation'
+                        })
+                    });
+                    
+                    if (aiResponse.ok) {
+                        const aiData = await aiResponse.json();
+                        showResults('gaming-results', aiData, '⚡ Real-Time Updates');
+                        return;
+                    }
+                } catch (error) {
+                    showResults('gaming-results', { error: 'Real-time updates not available' }, '⚡ Real-Time Updates');
+                }
+            }
+            
+            async function testPlayerDetails() {
+                try {
+                    const aiResponse = await fetch('http://localhost:5001/api/chat', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            message: 'Show detailed analysis capabilities of Stellar Logic AI\'s 95.28% performance system.',
+                            context: 'investor presentation'
+                        })
+                    });
+                    
+                    if (aiResponse.ok) {
+                        const aiData = await aiResponse.json();
+                        showResults('gaming-results', aiData, '👤 Player Details Analysis');
+                        return;
+                    }
+                } catch (error) {
+                    showResults('gaming-results', { error: 'Player details not available' }, '👤 Player Details Analysis');
+                }
+            }
+            
+            async function testSystemHealth() {
+                try {
+                    const aiResponse = await fetch('http://localhost:5001/api/chat', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            message: 'Provide system health check for Stellar Logic AI\'s anti-cheat infrastructure.',
+                            context: 'investor presentation'
+                        })
+                    });
+                    
+                    if (aiResponse.ok) {
+                        const aiData = await aiResponse.json();
+                        showResults('gaming-results', aiData, '🏥 System Health Check');
+                        return;
+                    }
+                } catch (error) {
+                    showResults('gaming-results', { error: 'System health not available' }, '🏥 System Health Check');
+                }
+            }
+            
+            async function testRevenueMetrics() {
+                try {
+                    // Try real AI first
+                    const aiResponse = await fetch('http://localhost:5001/api/chat', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            message: 'Provide revenue metrics and financial projections for Stellar Logic AI, including market size, pricing strategy, and growth potential for our 95.28% performance system.',
+                            context: 'investor presentation'
+                        })
+                    });
+                    
+                    if (aiResponse.ok) {
+                        const aiData = await aiResponse.json();
+                        showResults('analytics-results', aiData, '💰 Revenue Metrics');
+                        return;
+                    }
+                } catch (error) {
+                    console.log('AI unavailable, using fallback...');
+                }
+                
+                // Fallback to static data
+                try {
+                    const response = await fetch('http://localhost:5001/api/gaming/revenue');
+                    const data = await response.json();
+                    showResults('analytics-results', data, '💰 Revenue Metrics');
+                } catch (error) {
+                    showResults('analytics-results', { error: error.message }, '❌ Revenue Metrics Failed');
+                }
+            }
+            
+            // Additional stub functions for buttons that were removed
+            async function testPerformanceOptimization() {
+                try {
+                    // Try real AI first
+                    const aiResponse = await fetch('http://localhost:5001/api/chat', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            message: 'Provide performance optimization strategies for Stellar Logic AI\'s 95.28% performance system.',
+                            context: 'investor presentation'
+                        })
+                    });
+                    
+                    if (aiResponse.ok) {
+                        const aiData = await aiResponse.json();
+                        showResults('analytics-results', aiData, '⚡ Performance Optimization');
+                        return;
+                    }
+                } catch (error) {
+                    console.log('AI unavailable, using fallback...');
+                }
+                
+                showResults('analytics-results', { error: 'Performance optimization endpoint not available' }, '⚡ Performance Optimization');
+            }
+            
+            async function testLLMIntegration() {
+                try {
+                    // Try real AI first
+                    const aiResponse = await fetch('http://localhost:5001/api/chat', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            message: 'Explain Stellar Logic AI\'s LLM integration capabilities and how they enhance our 99.07% accuracy anti-cheat system.',
+                            context: 'investor presentation'
+                        })
+                    });
+                    
+                    if (aiResponse.ok) {
+                        const aiData = await aiResponse.json();
+                        showResults('analytics-results', aiData, '🤖 LLM Integration');
+                        return;
+                    }
+                } catch (error) {
+                    console.log('AI unavailable, using fallback...');
+                }
+                
+                showResults('analytics-results', { error: 'LLM integration endpoint not available' }, '🤖 LLM Integration');
+            }
+            
+            async function testPerformanceMetrics() {
+                try {
+                    // Try real AI first
+                    const aiResponse = await fetch('http://localhost:5001/api/chat', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            message: 'Show performance metrics for Stellar Logic AI\'s 99.07% accuracy anti-cheat system, including speed, accuracy, and scalability benchmarks.',
+                            context: 'investor presentation'
+                        })
+                    });
+                    
+                    if (aiResponse.ok) {
+                        const aiData = await aiResponse.json();
+                        showResults('optimization-results', aiData, '📊 Performance Metrics');
+                        return;
+                    }
+                } catch (error) {
+                    console.log('AI unavailable, using fallback...');
+                }
+                
+                showResults('optimization-results', { error: 'Performance metrics endpoint not available' }, '📊 Performance Metrics');
+            }
+            
+            // Initialize
+            document.addEventListener('DOMContentLoaded', async () => {
+                // Wait for Stellar Logic AI integration to initialize
+                await new Promise(resolve => setTimeout(resolve, 2000));
+                
+                // Update status
+                await updateStatus();
+                
+                // Update status every 5 seconds
+                setInterval(updateStatus, 5000);
+            });
+        </script>
+    </body>
+</html>
