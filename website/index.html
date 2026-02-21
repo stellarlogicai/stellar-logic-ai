@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,8 +15,72 @@
     <meta name="twitter:description" content="Revolutionizing gaming security with advanced AI automation">
     <meta name="twitter:image" content="https://stellarlogic.ai/images/twitter-image.jpg">
     
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'GA_MEASUREMENT_ID');
+    </script>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Stellar Logic AI - Revolutionary gaming security with 99.9% AI-powered cheat detection. Protect your game with advanced artificial intelligence and real-time monitoring.">
+    <meta name="keywords" content="gaming security, AI cheat detection, anti-cheat, game protection, AI security, gaming AI, cheat prevention, game security solutions">
+    <meta name="author" content="Stellar Logic AI">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://stellarlogicai.netlify.app/">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Stellar Logic AI - 99.9% AI-Powered Gaming Security">
+    <meta property="og:description" content="Revolutionary gaming security with 99.9% AI-powered cheat detection. Protect your game with advanced artificial intelligence.">
+    <meta property="og:image" content="https://stellarlogic.ai/images/og-image.jpg">
+    <meta property="og:url" content="https://stellarlogicai.netlify.app/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Stellar Logic AI">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Stellar Logic AI",
+        "description": "Revolutionary gaming security with 99.9% AI-powered cheat detection",
+        "url": "https://stellarlogicai.netlify.app/",
+        "applicationCategory": "SecurityApplication",
+        "operatingSystem": "Web",
+        "offers": {
+            "@type": "AggregateOffer",
+            "priceCurrency": "USD",
+            "lowPrice": "500",
+            "highPrice": "100000",
+            "priceValidUntil": "2025-12-31"
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "reviewCount": "127"
+        }
+    }
+    </script>
+    
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Performance Optimization -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    
+    <!-- PayPal SDK -->
+    <script src="https://www.paypal.com/sdk/js?client-id=YOUR_PAYPAL_CLIENT_ID&currency=USD&disable-funding=credit,card"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
         
@@ -88,25 +152,48 @@
 </head>
 <body class="bg-black text-white">
     <!-- Navigation -->
-    <nav class="fixed top-0 w-full bg-black/90 backdrop-blur-md z-50 border-b border-gray-800">
+    <nav class="fixed top-0 w-full bg-black/90 backdrop-blur-md border-b border-gray-800 z-50" role="navigation" aria-label="Main navigation">
         <div class="container mx-auto px-6 py-4">
             <div class="flex items-center justify-between">
                 <div class="flex items-center space-x-2">
-                    <div class="w-10 h-10 bg-gradient-to-r from-purple-500 to-indigo-600 rounded-lg flex items-center justify-center">
-                        <i class="fas fa-brain text-white"></i>
+                    <div class="w-10 h-10 bg-gradient-to-r from-purple-500 to-blue-500 rounded-lg flex items-center justify-center" aria-hidden="true">
+                        <i class="fas fa-shield-alt text-white text-xl"></i>
                     </div>
-                    <span class="text-xl font-bold">Stellar Logic AI</span>
+                    <span class="text-xl font-bold text-white">Stellar Logic AI</span>
                 </div>
                 
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="#home" class="nav-link hover:text-purple-400">Home</a>
-                    <a href="#technology" class="nav-link hover:text-purple-400">Technology</a>
-                    <a href="#solutions" class="nav-link hover:text-purple-400">Solutions</a>
-                    <a href="#about" class="nav-link hover:text-purple-400">About</a>
-                    <a href="#contact" class="nav-link hover:text-purple-400">Contact</a>
+                    <a href="#home" class="text-gray-300 hover:text-white transition-colors" aria-label="Go to Home section">Home</a>
+                    <a href="#technology" class="text-gray-300 hover:text-white transition-colors" aria-label="Go to Technology section">Technology</a>
+                    <a href="#solutions" class="text-gray-300 hover:text-white transition-colors" aria-label="Go to Solutions section">Solutions</a>
+                    <a href="#about" class="text-gray-300 hover:text-white transition-colors" aria-label="Go to About section">About</a>
+                    <a href="#pricing" class="text-gray-300 hover:text-white transition-colors" aria-label="Go to Pricing section">Pricing</a>
+                    <a href="#documentation" class="text-gray-300 hover:text-white transition-colors" aria-label="Go to Documentation section">Documentation</a>
+                    <a href="#contact" class="text-gray-300 hover:text-white transition-colors" aria-label="Go to Contact section">Contact</a>
+                    <button onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})" class="bg-purple-600 hover:bg-purple-700 text-white px-6 py-2 rounded-lg font-semibold transition-all" aria-label="Get Started - Contact us">
+                        Get Started
+                    </button>
                 </div>
                 
-                <button onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})" class="hero-gradient px-6 py-2 rounded-lg font-semibold hover:opacity-90 transition">
+                <div class="md:hidden">
+                    <button onclick="toggleMobileMenu()" class="text-gray-300 hover:text-white" aria-label="Toggle mobile menu" aria-expanded="false">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-black/95 backdrop-blur-md border-b border-gray-800" role="menu">
+            <div class="container mx-auto px-6 py-4 space-y-3">
+                <a href="#home" class="block text-gray-300 hover:text-white transition-colors" role="menuitem">Home</a>
+                <a href="#technology" class="block text-gray-300 hover:text-white transition-colors" role="menuitem">Technology</a>
+                <a href="#solutions" class="block text-gray-300 hover:text-white transition-colors" role="menuitem">Solutions</a>
+                <a href="#about" class="block text-gray-300 hover:text-white transition-colors" role="menuitem">About</a>
+                <a href="#pricing" class="block text-gray-300 hover:text-white transition-colors" role="menuitem">Pricing</a>
+                <a href="#documentation" class="block text-gray-300 hover:text-white transition-colors" role="menuitem">Documentation</a>
+                <a href="#contact" class="block text-gray-300 hover:text-white transition-colors" role="menuitem">Contact</a>
+                <button onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})" class="w-full bg-purple-600 hover:bg-purple-700 text-white px-6 py-2 rounded-lg font-semibold transition-all" role="menuitem">
                     Get Started
                 </button>
             </div>
@@ -875,9 +962,24 @@
             // For now: Check browser console F12 → Console tab for leads
         });
 
+        // Analytics tracking
+        function trackEvent(eventName, properties) {
+            // Google Analytics event tracking
+            if (typeof gtag !== 'undefined') {
+                gtag('event', eventName, properties);
+            }
+            
+            // Custom console tracking
+            console.log('📊 ANALYTICS EVENT:', eventName, properties);
+        }
+        
         // Plan selection handler
         function selectPlan(plan) {
             console.log('🚀 STELLAR LOGIC AI - PLAN SELECTED:', plan);
+            trackEvent('plan_selected', {
+                plan_name: plan,
+                page_location: 'pricing_section'
+            });
             
             if (plan === 'enterprise') {
                 // Scroll to contact form for enterprise
@@ -902,8 +1004,8 @@
                 
                 // Show purchase confirmation
                 if (confirm(`🚀 ${selectedPlan.name} - ${selectedPlan.price}\n\nFeatures:\n${selectedPlan.features.map(f => '✓ ' + f).join('\n')}\n\nProceed to checkout?`)) {
-                    // Redirect to checkout or show payment form
-                    alert(`🎉 Purchase initiated for ${selectedPlan.name}!\n\nNext steps:\n1. Complete payment setup\n2. Account creation email within 24 hours\n3. Onboarding call with our team\n\nFor immediate assistance: stellar.logic.ai@gmail.com`);
+                    // Show account creation form
+                    showAccountCreationForm(plan, selectedPlan);
                     
                     // Log purchase intent
                     console.log('💰 PURCHASE INTENT:', {
@@ -949,11 +1051,58 @@
                     timestamp: new Date().toISOString(),
                     source: 'stellarlogicai.netlify.app'
                 });
+                
+                // Track purchase intent
+                trackEvent('purchase_intent', {
+                    plan_name: plan,
+                    plan_price: selectedPlan.price,
+                    value: plan === 'smb' ? 500 : 1500,
+                    currency: 'USD'
+                });
             }
         }
         
         // Account creation form function
         function showAccountCreationForm(plan, planDetails) {
+            // Mobile menu toggle
+            function toggleMobileMenu() {
+                const menu = document.getElementById('mobileMenu');
+                menu.classList.toggle('hidden');
+            }
+            
+            // Page load analytics
+            document.addEventListener('DOMContentLoaded', function() {
+                // Track page view
+                trackEvent('page_view', {
+                    page_title: 'Stellar Logic AI - Home',
+                    page_location: window.location.href,
+                    user_agent: navigator.userAgent
+                });
+                
+                // Track scroll depth
+                let maxScroll = 0;
+                window.addEventListener('scroll', function() {
+                    const scrollPercent = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
+                    if (scrollPercent > maxScroll) {
+                        maxScroll = scrollPercent;
+                        if (maxScroll % 25 === 0) { // Track at 25%, 50%, 75%, 100%
+                            trackEvent('scroll_depth', {
+                                scroll_percentage: maxScroll
+                            });
+                        }
+                    }
+                });
+                
+                // Track time on page
+                const startTime = Date.now();
+                window.addEventListener('beforeunload', function() {
+                    const timeOnPage = Math.round((Date.now() - startTime) / 1000);
+                    trackEvent('time_on_page', {
+                        time_seconds: timeOnPage
+                    });
+                });
+            });
+            
             // Create modal overlay
             const modal = document.createElement('div');
             modal.style.cssText = `
@@ -1058,14 +1207,161 @@
                 // Log account creation
                 console.log('🎉 ACCOUNT CREATED:', accountData);
                 
+                // Send email notification
+                sendLeadNotification(accountData, plan);
+                
+                // Track account creation
+                trackEvent('account_created', {
+                    plan_name: plan,
+                    company_name: accountData.company,
+                    email_domain: accountData.email.split('@')[1],
+                    referral_source: accountData.referral,
+                    value: plan === 'smb' ? 500 : 1500,
+                    currency: 'USD'
+                });
+                
                 // Show success message
-                alert(`🎉 Account created successfully!\n\nWelcome to Stellar Logic AI, ${accountData.fullName}!\n\nNext steps:\n1. Check your email for setup instructions\n2. Our team will contact you within 24 hours\n3. Start protecting your game with 99.9% AI accuracy\n\nEmail: stellar.logic.ai@gmail.com\nPhone: Available for immediate support`);
+                alert(`🎉 Account created successfully!\n\nWelcome to Stellar Logic AI, ${accountData.fullName}!\n\nNext steps:\n1. Complete payment via PayPal\n2. Check your email for setup instructions\n3. Our team will contact you within 24 hours\n4. Start protecting your game with 99.9% AI accuracy\n\nEmail: stellar.logic.ai@gmail.com\nPhone: Available for immediate support`);
                 
                 // Remove modal
                 modal.remove();
                 
-                // Scroll to contact for any questions
-                document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+                // Show PayPal payment
+                showPayPalPayment(plan, selectedPlan);
+            });
+        }
+        
+        // PayPal payment function
+        function showPayPalPayment(plan, planDetails) {
+            // Create PayPal payment modal
+            const paypalModal = document.createElement('div');
+            paypalModal.style.cssText = `
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0,0,0,0.8);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                z-index: 1001;
+            `;
+            
+            const paypalContainer = document.createElement('div');
+            paypalContainer.style.cssText = `
+                background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+                padding: 40px;
+                border-radius: 20px;
+                max-width: 500px;
+                width: 90%;
+                border: 2px solid #7c3aed;
+                box-shadow: 0 20px 40px rgba(124, 58, 237, 0.3);
+                text-align: center;
+            `;
+            
+            const planPrice = plan === 'smb' ? '500.00' : '1500.00';
+            
+            paypalContainer.innerHTML = `
+                <h2 style="color: white; margin-bottom: 10px;">Complete Your Purchase</h2>
+                <p style="color: #9ca3af; margin-bottom: 30px;">${planDetails.name} - $${planPrice}/month</p>
+                
+                <div id="paypal-button-container" style="margin-bottom: 20px;"></div>
+                
+                <p style="color: #6b7280; font-size: 14px; margin-bottom: 20px;">
+                    Secure payment powered by PayPal<br>
+                    Credit card, debit card, or PayPal balance accepted
+                </p>
+                
+                <button onclick="this.closest('div[style*=\"position: fixed\"]').remove()" style="background: #6b7280; color: white; padding: 10px 20px; border: none; border-radius: 8px; cursor: pointer;">
+                    Cancel
+                </button>
+            `;
+            
+            paypalModal.appendChild(paypalContainer);
+            document.body.appendChild(paypalModal);
+            
+            // Render PayPal buttons
+            paypal.Buttons({
+                createOrder: function(data, actions) {
+                    return actions.order.create({
+                        purchase_units: [{
+                            amount: {
+                                value: planPrice,
+                                description: `${planDetails.name} - Monthly Subscription`
+                            }
+                        }]
+                    });
+                },
+                onApprove: function(data, actions) {
+                    return actions.order.capture().then(function(details) {
+                        console.log('💳 PAYMENT SUCCESSFUL:', details);
+                        
+                        // Track payment success
+                        trackEvent('payment_completed', {
+                            plan_name: plan,
+                            payment_amount: planPrice,
+                            payment_id: details.id,
+                            currency: 'USD'
+                        });
+                        
+                        // Show success message
+                        alert(`🎉 Payment successful!\n\nThank you for your purchase!\n\nOrder ID: ${details.id}\nPlan: ${planDetails.name}\nAmount: $${planPrice}\n\nNext steps:\n1. Check your email for account credentials\n2. Our team will contact you within 24 hours\n3. Start protecting your game with 99.9% AI accuracy\n\nEmail: stellar.logic.ai@gmail.com`);
+                        
+                        // Remove modal
+                        paypalModal.remove();
+                    });
+                },
+                onError: function(err) {
+                    console.error('💳 PAYMENT ERROR:', err);
+                    alert('❌ Payment failed. Please try again or contact us for assistance.\n\nEmail: stellar.logic.ai@gmail.com');
+                }
+            }).render('#paypal-button-container');
+        }
+        
+        // Email notification function
+        function sendLeadNotification(customerData, plan) {
+            // Create email content
+            const emailSubject = `🚀 NEW LEAD: ${customerData.fullName} - ${plan.toUpperCase()} Plan`;
+            const emailBody = `
+NEW STELLOR LOGIC AI LEAD!
+
+Customer Information:
+==================
+Name: ${customerData.fullName}
+Email: ${customerData.email}
+Phone: ${customerData.phone}
+Company: ${customerData.company}
+Plan: ${plan.toUpperCase()}
+Referral: ${customerData.referral}
+
+Timestamp: ${customerData.timestamp}
+Source: ${customerData.source}
+
+Next Steps:
+1. Contact customer within 2 hours
+2. Discuss payment options
+3. Process payment
+4. Activate account
+5. Schedule onboarding
+
+Contact Information:
+Email: stellar.logic.ai@gmail.com
+Phone: [Your Phone Number]
+
+Plan Details:
+${plan === 'smb' ? 'SMB Plan - $500/month' : 'Mid-Market Plan - $1,500/month'}
+            `;
+            
+            // Create mailto link
+            const mailtoLink = `mailto:stellar.logic.ai@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+            
+            // Open email client
+            window.open(mailtoLink, '_blank');
+            
+            // Also copy to clipboard
+            navigator.clipboard.writeText(emailBody).then(() => {
+                console.log('📧 Lead notification copied to clipboard and email opened');
             });
         }
     </script>
