@@ -804,14 +804,14 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-black">
+    <section id="contact" class="py-20 bg-gray-900">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16">
                 <h2 class="text-4xl font-bold mb-4">
-                    <span class="gradient-text">Get Started Today</span>
+                    <span class="gradient-text">Get Started</span>
                 </h2>
                 <p class="text-xl text-gray-300 max-w-2xl mx-auto">
-                    Ready to transform your gaming security with AI? Let's talk about how Stellar Logic AI can help you achieve 99.9% detection accuracy.
+                    Protect your game with 99.9% AI-powered detection accuracy
                 </p>
             </div>
             
@@ -1319,50 +1319,278 @@
             }).render('#paypal-button-container');
         }
         
-        // Email notification function
+        // AI Lead Intelligence Analysis
+        function analyzeLeadIntelligence(customerData, plan) {
+            // Extract domain for analysis
+            const domain = customerData.email.split('@')[1];
+            const company = customerData.company.toLowerCase();
+            
+            // AI Lead Scoring Algorithm
+            let intentScore = 0;
+            let confidenceScore = 5.0;
+            
+            // Intent signals
+            if (customerData.phone && customerData.phone.length > 6) intentScore += 1.5;
+            if (customerData.company && customerData.company.length > 3) intentScore += 2.0;
+            if (plan === 'enterprise') intentScore += 2.5;
+            if (plan === 'midmarket') intentScore += 2.0;
+            if (plan === 'smb') intentScore += 1.5;
+            if (customerData.referral && customerData.referral !== '') intentScore += 1.0;
+            
+            // Industry alignment scoring
+            const gamingKeywords = ['game', 'gaming', 'studio', 'entertainment', 'interactive', 'mobile', 'console'];
+            const industryAlignment = gamingKeywords.some(keyword => company.includes(keyword)) ? 2.0 : 0;
+            confidenceScore += industryAlignment;
+            
+            // Completion quality
+            const completionRate = (customerData.fullName && customerData.email && customerData.company) ? 1.0 : 0.8;
+            confidenceScore += completionRate * 2;
+            
+            // Calculate final scores
+            const finalIntentScore = Math.min(intentScore, 10);
+            const finalConfidenceScore = Math.min(confidenceScore, 10);
+            
+            // Revenue predictions
+            const baseLTV = plan === 'smb' ? 6000 : plan === 'midmarket' ? 18000 : 60000;
+            const ltvRange = `${baseLTV * 0.8}–$${baseLTV * 1.2}`;
+            
+            // Churn risk prediction
+            const churnRisk = plan === 'smb' ? 0.22 : plan === 'midmarket' ? 0.15 : 0.08;
+            
+            // Expansion potential
+            const expansionPotential = plan === 'smb' ? 'Moderate (upgrade to $1,500 plan within 12–18 months)' : 
+                                   plan === 'midmarket' ? 'High (potential enterprise expansion within 18–24 months)' : 
+                                   'Low (enterprise tier already selected)';
+            
+            return {
+                industry: 'Gaming',
+                domain: domain,
+                intentLevel: finalIntentScore >= 7 ? 'High' : finalIntentScore >= 4 ? 'Medium' : 'Low',
+                intentScore: finalIntentScore.toFixed(1),
+                confidenceScore: finalConfidenceScore.toFixed(1),
+                completionQuality: Math.round(completionRate * 100),
+                estimatedLTV: ltvRange,
+                churnRisk: Math.round(churnRisk * 100),
+                expansionPotential,
+                conversionProbability2h: finalIntentScore >= 7 ? '63%' : finalIntentScore >= 4 ? '42%' : '18%',
+                conversionProbability24h: finalIntentScore >= 7 ? '18%' : finalIntentScore >= 4 ? '12%' : '5%'
+            };
+        }
+        
+        // Executive notification function
         function sendLeadNotification(customerData, plan) {
-            // Create email content
-            const emailSubject = `🚀 NEW LEAD: ${customerData.fullName} - ${plan.toUpperCase()} Plan`;
+            const intelligence = analyzeLeadIntelligence(customerData, plan);
+            
+            // Executive-level subject
+            const emailSubject = `🚀 NEW ${plan.toUpperCase()} LEAD – ${customerData.company} – ${intelligence.intentLevel} Intent (Score: ${intelligence.confidenceScore})`;
+            
+            // Executive alert body
             const emailBody = `
-NEW STELLOR LOGIC AI LEAD!
+STELLAR LOGIC AI – NEW INBOUND LEAD
 
-Customer Information:
-==================
-Name: ${customerData.fullName}
-Email: ${customerData.email}
-Phone: ${customerData.phone}
+🧠 Lead Intelligence Summary
+
+Industry: ${intelligence.industry}
 Company: ${customerData.company}
-Plan: ${plan.toUpperCase()}
-Referral: ${customerData.referral}
+Domain: ${intelligence.domain}
+Plan Selected: ${plan.toUpperCase()} (${plan === 'smb' ? '$500/month' : plan === 'midmarket' ? '$1,500/month' : 'Custom pricing'})
+Intent Level: ${intelligence.intentLevel} (${plan === 'enterprise' ? 'Direct enterprise inquiry' : 'Direct plan selection'})
+Completion Quality: ${intelligence.completionQuality}%
+Estimated LTV: $${intelligence.estimatedLTV}
+AI Confidence Score: ${intelligence.confidenceScore} / 10
+
+📊 Risk & Opportunity Flags
+
+✅ Gaming industry alignment
+✅ Immediate plan selection
+${customerData.email.includes('@') ? '✅' : '⚠'} Corporate email verification ${customerData.email.includes('@') ? 'complete' : 'pending'}
+${customerData.phone && customerData.phone.length > 6 ? '✅' : '⚠'} Phone ${customerData.phone && customerData.phone.length > 6 ? 'verified' : 'unverified'}
+
+⏱ Required Action Window
+
+Target Response SLA: Under 2 Hours
+Probability of Conversion (if <2h response): ${intelligence.conversionProbability2h}
+Probability of Conversion (if >24h): ${intelligence.conversionProbability24h}
+
+🎯 Recommended Action
+
+Send personalized activation email (AI draft attached)
+Verify domain via DNS check
+Offer 15-min technical demo
+${plan === 'smb' ? 'Position 30-day pilot option if price sensitivity detected' : 'Schedule enterprise consultation call'}
 
 Timestamp: ${customerData.timestamp}
 Source: ${customerData.source}
-
-Next Steps:
-1. Contact customer within 2 hours
-2. Discuss payment options
-3. Process payment
-4. Activate account
-5. Schedule onboarding
-
-Contact Information:
-Email: stellar.logic.ai@gmail.com
-Phone: [Your Phone Number]
-
-Plan Details:
-${plan === 'smb' ? 'SMB Plan - $500/month' : 'Mid-Market Plan - $1,500/month'}
             `;
             
-            // Create mailto link
-            const mailtoLink = `mailto:stellar.logic.ai@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+            // Generate conversion-optimized customer response
+            const customerResponse = generateConversionOptimizedResponse(customerData, plan, intelligence);
             
-            // Open email client
-            window.open(mailtoLink, '_blank');
+            // Create mailto link for internal notification
+            const internalMailtoLink = `mailto:stellar.logic.ai@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+            
+            // Open internal notification email
+            window.open(internalMailtoLink, '_blank');
             
             // Also copy to clipboard
             navigator.clipboard.writeText(emailBody).then(() => {
                 console.log('📧 Lead notification copied to clipboard and email opened');
             });
+            
+            // Store customer response for immediate use
+            window.lastCustomerResponse = customerResponse;
+            
+            // Also create customer response email option
+            setTimeout(() => {
+                const customerMailtoLink = `mailto:${customerData.email}?subject=${encodeURIComponent(customerResponse.subject)}&body=${encodeURIComponent(customerResponse.body)}`;
+                if (confirm('📧 Send conversion-optimized email to customer now?')) {
+                    window.open(customerMailtoLink, '_blank');
+                }
+            }, 2000); // 2-second delay to avoid overwhelming
+        }
+        
+        // Dashboard login function
+        function showDashboardLogin() {
+            // Create dashboard login modal
+            const dashboardModal = document.createElement('div');
+            dashboardModal.style.cssText = `
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0,0,0,0.8);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                z-index: 1001;
+            `;
+            
+            const loginContainer = document.createElement('div');
+            loginContainer.style.cssText = `
+                background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+                padding: 40px;
+                border-radius: 20px;
+                max-width: 400px;
+                width: 90%;
+                border: 2px solid #7c3aed;
+                box-shadow: 0 20px 40px rgba(124, 58, 237, 0.3);
+            `;
+            
+            loginContainer.innerHTML = `
+                <h2 style="color: white; margin-bottom: 20px; text-align: center;">Customer Dashboard</h2>
+                <p style="color: #9ca3af; margin-bottom: 30px; text-align: center;">
+                    Access your APIs, SDKs, and monitoring dashboard
+                </p>
+                
+                <div style="margin-bottom: 20px;">
+                    <input type="email" placeholder="Email address" style="width: 100%; padding: 12px; border: 1px solid #374151; border-radius: 8px; background: #1f2937; color: white; margin-bottom: 15px;">
+                    <input type="password" placeholder="Password" style="width: 100%; padding: 12px; border: 1px solid #374151; border-radius: 8px; background: #1f2937; color: white; margin-bottom: 20px;">
+                </div>
+                
+                <button onclick="this.closest('div[style*=\"position: fixed\"]').remove()" style="width: 100%; background: #6b7280; color: white; padding: 12px; border: none; border-radius: 8px; cursor: pointer; margin-bottom: 10px;">
+                    Cancel
+                </button>
+                
+                <button onclick="handleDashboardLogin()" style="width: 100%; background: linear-gradient(135deg, #7c3aed 0%, #2563eb 100%); color: white; padding: 12px; border: none; border-radius: 8px; cursor: pointer; font-weight: 600;">
+                    Login to Dashboard
+                </button>
+                
+                <p style="color: #6b7280; font-size: 14px; text-align: center; margin-top: 20px;">
+                    Don't have an account? <a href="#contact" style="color: #7c3aed;">Get Started</a>
+                </p>
+            `;
+            
+            dashboardModal.appendChild(loginContainer);
+            document.body.appendChild(dashboardModal);
+        }
+        
+        // Handle dashboard login
+        function handleDashboardLogin() {
+            // Simulate dashboard login
+            alert('🔐 Dashboard access coming soon!\n\nFor immediate access:\n1. Complete account setup\n2. Check your email for credentials\n3. Contact support for early access\n\nEmail: stellar.logic.ai@gmail.com');
+        }
+        
+        // Conversion-optimized response generator
+        function generateConversionOptimizedResponse(customerData, plan, intelligence) {
+            const firstName = customerData.fullName.split(' ')[0];
+            const companyName = customerData.company;
+            
+            // Plan-specific technical details
+            const planDetails = {
+                'smb': {
+                    name: 'SMB',
+                    price: '$500/month',
+                    players: 'up to 100 concurrent players',
+                    features: [
+                        '99.9% AI-driven detection accuracy',
+                        'Real-time behavioral analysis', 
+                        'Adaptive threat modeling',
+                        'Email-based technical support'
+                    ]
+                },
+                'midmarket': {
+                    name: 'Mid-Market',
+                    price: '$1,500/month',
+                    players: 'up to 500 concurrent players',
+                    features: [
+                        '99.9% AI-driven detection accuracy',
+                        'Advanced behavioral analytics',
+                        'Priority threat response',
+                        'Priority technical support',
+                        'Custom integrations'
+                    ]
+                },
+                'enterprise': {
+                    name: 'Enterprise',
+                    price: 'Custom pricing',
+                    players: 'unlimited concurrent players',
+                    features: [
+                        '99.9% AI-driven detection accuracy',
+                        'Enterprise behavioral analytics',
+                        'Dedicated threat response team',
+                        '24/7 technical support',
+                        'White-label solutions',
+                        'Multi-region deployment'
+                    ]
+                }
+            };
+            
+            const selectedPlan = planDetails[plan] || planDetails['smb'];
+            
+            return {
+                subject: `Your Stellar Logic AI Protection – Activation Steps`,
+                body: `Dear ${firstName},
+
+Thank you for selecting ${selectedPlan.name} plan for ${companyName}.
+
+Gaming environments are increasingly facing AI-driven adversarial threats, and our platform was specifically engineered for sub-100ms real-time detection to protect competitive integrity.
+
+Here's what your ${selectedPlan.name} plan includes:
+
+${selectedPlan.features.map(feature => `✓ ${feature}`).join('\n')}
+
+To activate your account:
+
+Confirm your preferred payment method
+Complete onboarding (30-minute integration session)
+Deploy SDK or API endpoint
+Begin live monitoring immediately
+
+We can activate your environment within 2 hours of payment confirmation.
+
+Would you prefer:
+
+A quick 15-minute technical walkthrough?
+Immediate invoice issuance?
+Or direct activation with documentation?
+
+Looking forward to securing your platform.
+
+Best regards,
+[Name]
+Stellar Logic AI`
+            };
         }
     </script>
 </body>

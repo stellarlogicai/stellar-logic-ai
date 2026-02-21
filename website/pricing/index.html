@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing Plans - Stellar Logic AI</title>
+    <meta name="description" content="Choose the perfect Stellar Logic AI plan for your game security needs. SMB, Mid-Market, and Enterprise options available.">
+    <meta name="keywords" content="AI security pricing, game protection plans, threat detection pricing">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0a0a0a;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .header h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #7c3aed 0%, #2563eb 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+        }
+        
+        .header p {
+            color: #9ca3af;
+            font-size: 1.3rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+        
+        .pricing-card {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            border: 2px solid #374151;
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            border-color: #7c3aed;
+            box-shadow: 0 20px 40px rgba(124, 58, 237, 0.3);
+        }
+        
+        .pricing-card.featured {
+            border-color: #7c3aed;
+            transform: scale(1.05);
+        }
+        
+        .pricing-card.featured::before {
+            content: 'MOST POPULAR';
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #7c3aed 0%, #2563eb 100%);
+            color: white;
+            padding: 5px 20px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        
+        .plan-name {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #7c3aed;
+            margin-bottom: 10px;
+        }
+        
+        .plan-price {
+            font-size: 3rem;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 10px;
+        }
+        
+        .plan-price span {
+            font-size: 1rem;
+            color: #9ca3af;
+            font-weight: 400;
+        }
+        
+        .plan-description {
+            color: #9ca3af;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        
+        .features-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: left;
+        }
+        
+        .features-list li {
+            padding: 12px 0;
+            border-bottom: 1px solid #374151;
+            color: #e5e7eb;
+            display: flex;
+            align-items: center;
+        }
+        
+        .features-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .features-list li::before {
+            content: '✓';
+            color: #10b981;
+            font-weight: bold;
+            margin-right: 12px;
+            font-size: 18px;
+        }
+        
+        .cta-button {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #7c3aed 0%, #2563eb 100%);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(124, 58, 237, 0.3);
+        }
+        
+        .enterprise-note {
+            text-align: center;
+            margin-top: 40px;
+            padding: 30px;
+            background: #1f2937;
+            border-radius: 15px;
+            border: 1px solid #374151;
+        }
+        
+        .enterprise-note h3 {
+            color: #7c3aed;
+            margin-bottom: 15px;
+        }
+        
+        .enterprise-note p {
+            color: #9ca3af;
+            margin-bottom: 20px;
+        }
+        
+        .enterprise-button {
+            display: inline-block;
+            padding: 15px 30px;
+            background: #6b7280;
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .enterprise-button:hover {
+            background: #4b5563;
+            transform: translateY(-2px);
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-top: 40px;
+            padding: 12px 24px;
+            background: #6b7280;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .back-link:hover {
+            background: #4b5563;
+            transform: translateY(-2px);
+        }
+        
+        @media (max-width: 768px) {
+            .pricing-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .plan-price {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>💰 Pricing Plans</h1>
+            <p>Choose the perfect plan for your game security needs</p>
+        </div>
+        
+        <div class="pricing-grid">
+            <!-- SMB Plan -->
+            <div class="pricing-card">
+                <h2 class="plan-name">SMB</h2>
+                <div class="plan-price">$500<span>/month</span></div>
+                <p class="plan-description">Perfect for indie studios and small gaming companies</p>
+                
+                <ul class="features-list">
+                    <li>Up to 100 concurrent players</li>
+                    <li>99.9% AI-driven detection accuracy</li>
+                    <li>Real-time behavioral analysis</li>
+                    <li>Adaptive threat modeling</li>
+                    <li>Email-based technical support</li>
+                    <li>Basic analytics dashboard</li>
+                </ul>
+                
+                <button class="cta-button" onclick="selectPlan('smb')">
+                    Get Started
+                </button>
+            </div>
+            
+            <!-- Mid-Market Plan -->
+            <div class="pricing-card featured">
+                <h2 class="plan-name">Mid-Market</h2>
+                <div class="plan-price">$1,500<span>/month</span></div>
+                <p class="plan-description">Ideal for growing gaming companies</p>
+                
+                <ul class="features-list">
+                    <li>Up to 500 concurrent players</li>
+                    <li>99.9% AI-driven detection accuracy</li>
+                    <li>Advanced behavioral analytics</li>
+                    <li>Priority threat response</li>
+                    <li>Priority technical support</li>
+                    <li>Custom integrations</li>
+                    <li>Advanced analytics dashboard</li>
+                </ul>
+                
+                <button class="cta-button" onclick="selectPlan('midmarket')">
+                    Get Started
+                </button>
+            </div>
+            
+            <!-- Enterprise Plan -->
+            <div class="pricing-card">
+                <h2 class="plan-name">Enterprise</h2>
+                <div class="plan-price">Custom</div>
+                <p class="plan-description">For large gaming companies and studios</p>
+                
+                <ul class="features-list">
+                    <li>Unlimited concurrent players</li>
+                    <li>99.9% AI-driven detection accuracy</li>
+                    <li>Enterprise behavioral analytics</li>
+                    <li>Dedicated threat response team</li>
+                    <li>24/7 technical support</li>
+                    <li>White-label solutions</li>
+                    <li>Multi-region deployment</li>
+                    <li>Custom integrations</li>
+                    <li>SLA guarantees</li>
+                </ul>
+                
+                <button class="cta-button" onclick="selectPlan('enterprise')">
+                    Contact Sales
+                </button>
+            </div>
+        </div>
+        
+        <div class="enterprise-note">
+            <h3>🚀 Need a Custom Solution?</h3>
+            <p>Looking for enterprise-grade security with custom requirements? Let's discuss your specific needs.</p>
+            <a href="../index.html#contact" class="enterprise-button">Talk to Sales</a>
+        </div>
+        
+        <a href="../index.html" class="back-link">← Back to Home</a>
+    </div>
+    
+    <script>
+        function selectPlan(plan) {
+            // Redirect to main site with plan selection
+            window.location.href = `../index.html?plan=${plan}`;
+        }
+    </script>
+</body>
+</html>

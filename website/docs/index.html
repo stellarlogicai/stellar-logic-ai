@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Documentation - Stellar Logic AI</title>
+    <meta name="description" content="Complete API documentation for Stellar Logic AI threat detection platform.">
+    <meta name="keywords" content="AI security API, threat detection SDK, game protection documentation">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0a0a0a;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #7c3aed 0%, #2563eb 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            color: #9ca3af;
+            font-size: 1.2rem;
+        }
+        
+        .nav-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+            border-bottom: 1px solid #374151;
+        }
+        
+        .nav-tab {
+            padding: 15px 30px;
+            background: none;
+            border: none;
+            color: #9ca3af;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-tab.active {
+            color: #7c3aed;
+            border-bottom: 2px solid #7c3aed;
+        }
+        
+        .nav-tab:hover {
+            color: #7c3aed;
+        }
+        
+        .content-section {
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        .content-section.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .endpoint {
+            background: #1f2937;
+            border: 1px solid #374151;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .endpoint h3 {
+            color: #7c3aed;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+        
+        .method {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        
+        .method.get { background: #10b981; }
+        .method.post { background: #3b82f6; }
+        .method.put { background: #f59e0b; }
+        .method.delete { background: #ef4444; }
+        
+        .code-block {
+            background: #0f172a;
+            border: 1px solid #374151;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+        }
+        
+        .parameter-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        .parameter-table th,
+        .parameter-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #374151;
+        }
+        
+        .parameter-table th {
+            background: #1f2937;
+            color: #7c3aed;
+            font-weight: 600;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-top: 40px;
+            padding: 12px 24px;
+            background: #6b7280;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .back-link:hover {
+            background: #4b5563;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📚 API Documentation</h1>
+            <p>Complete reference for integrating Stellar Logic AI threat detection</p>
+        </div>
+        
+        <div class="nav-tabs">
+            <button class="nav-tab active" onclick="showSection('overview')">Overview</button>
+            <button class="nav-tab" onclick="showSection('authentication')">Authentication</button>
+            <button class="nav-tab" onclick="showSection('endpoints')">Endpoints</button>
+            <button class="nav-tab" onclick="showSection('sdk')">SDKs</button>
+        </div>
+        
+        <!-- Overview Section -->
+        <div id="overview" class="content-section active">
+            <div class="endpoint">
+                <h3>🚀 Quick Start</h3>
+                <p>Get started with Stellar Logic AI in minutes:</p>
+                
+                <div class="code-block">
+1. Sign up for API keys: <a href="../index.html#contact" style="color: #7c3aed;">Get Started</a>
+2. Choose your SDK: Unity, Unreal, JavaScript, or Python
+3. Initialize with your API key
+4. Start detecting threats in real-time
+                </div>
+                
+                <h3>📊 Base URL</h3>
+                <div class="code-block">
+https://api.stellarlogic.ai/v1
+                </div>
+                
+                <h3>🔑 Authentication</h3>
+                <p>All API requests require authentication using Bearer tokens:</p>
+                <div class="code-block">
+Authorization: Bearer your_api_key_here
+                </div>
+            </div>
+        </div>
+        
+        <!-- Authentication Section -->
+        <div id="authentication" class="content-section">
+            <div class="endpoint">
+                <h3>🔐 API Key Authentication</h3>
+                <p>Use your API key to authenticate all requests:</p>
+                
+                <table class="parameter-table">
+                    <tr>
+                        <th>Header</th>
+                        <th>Value</th>
+                    </tr>
+                    <tr>
+                        <td>Authorization</td>
+                        <td>Bearer your_api_key</td>
+                    </tr>
+                    <tr>
+                        <td>Content-Type</td>
+                        <td>application/json</td>
+                    </tr>
+                </table>
+                
+                <h3>🔑 Generate API Keys</h3>
+                <p>Get your API keys from the customer dashboard:</p>
+                <a href="../dashboard/index.html" style="color: #7c3aed;">Access Dashboard → API Keys</a>
+            </div>
+        </div>
+        
+        <!-- Endpoints Section -->
+        <div id="endpoints" class="content-section">
+            <div class="endpoint">
+                <span class="method post">POST</span>
+                <h3>Detect Threat</h3>
+                <p>Analyze player behavior for potential threats in real-time:</p>
+                
+                <div class="code-block">
+POST /detect
+{
+    "player_id": "player_123",
+    "behavior_data": {
+        "movement_patterns": [...],
+        "reaction_times": [...],
+        "accuracy_metrics": [...]
+    },
+    "game_context": {
+        "match_type": "competitive",
+        "player_skill": "intermediate"
+    }
+}
+                </div>
+                
+                <table class="parameter-table">
+                    <tr>
+                        <th>Parameter</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr>
+                        <td>player_id</td>
+                        <td>string</td>
+                        <td>Unique player identifier</td>
+                    </tr>
+                    <tr>
+                        <td>behavior_data</td>
+                        <td>object</td>
+                        <td>Player behavioral patterns and metrics</td>
+                    </tr>
+                    <tr>
+                        <td>game_context</td>
+                        <td>object</td>
+                        <td>Current game state and context</td>
+                    </tr>
+                </table>
+                
+                <h3>Response</h3>
+                <div class="code-block">
+{
+    "threat_detected": true,
+    "confidence": 0.95,
+    "threat_type": "aimbot",
+    "recommendation": "monitor_continuously",
+    "timestamp": "2026-02-21T02:00:00Z"
+}
+                </div>
+            </div>
+        </div>
+        
+        <!-- SDK Section -->
+        <div id="sdk" class="content-section">
+            <div class="endpoint">
+                <h3>🎮 Unity SDK</h3>
+                <p>Integrate directly into Unity games:</p>
+                <div class="code-block">
+using StellarLogicAI;
+using UnityEngine;
+
+public class ThreatDetector : MonoBehaviour
+{
+    private StellarAI stellarAI;
+    
+    void Start()
+    {
+        stellarAI = new StellarAI("your_api_key");
+        stellarAI.OnThreatDetected += HandleThreat;
+    }
+    
+    void Update()
+    {
+        var behaviorData = CaptureBehaviorData();
+        stellarAI.AnalyzeBehavior(behaviorData);
+    }
+    
+    void HandleThreat(ThreatResult threat)
+    {
+        Debug.Log($"Threat detected: {threat.type}");
+        // Apply your game logic
+    }
+}
+                </div>
+                
+                <h3>🎮 Unreal Engine SDK</h3>
+                <p>C++ integration for Unreal Engine:</p>
+                <div class="code-block">
+#include "StellarLogicAI.h"
+#include "StellarLogicAIComponent.h"
+
+UCLASS()
+class STELLARLOGICAI_API UThreatDetector : public USceneComponent
+{
+    GENERATED_BODY()
+    
+private:
+    UStellarLogicAIComponent* StellarAI;
+    
+protected:
+    virtual void BeginPlay() override;
+    
+public:
+    UFUNCTION(BlueprintCallable, Category = "Stellar AI")
+    void AnalyzePlayerBehavior(FBehaviorData Data);
+};
+                </div>
+                
+                <h3>🌐 JavaScript SDK</h3>
+                <p>Web-based games and applications:</p>
+                <div class="code-block">
+import { StellarLogicAI } from '@stellarlogicai/sdk';
+
+const stellarAI = new StellarLogicAI({
+    apiKey: 'your_api_key',
+    environment: 'production'
+});
+
+stellarAI.on('threatDetected', (threat) => {
+    console.log('Threat detected:', threat);
+    // Handle threat in your game logic
+});
+
+// Analyze player behavior
+const behaviorData = {
+    playerId: 'player_123',
+    movementPatterns: [...],
+    reactionTimes: [...]
+};
+
+stellarAI.analyze(behaviorData);
+                </div>
+            </div>
+        </div>
+        
+        <a href="../index.html" class="back-link">← Back to Home</a>
+    </div>
+    
+    <script>
+        function showSection(sectionId) {
+            // Hide all sections
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach(section => section.classList.remove('active'));
+            
+            // Remove active class from all tabs
+            const tabs = document.querySelectorAll('.nav-tab');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            
+            // Show selected section
+            document.getElementById(sectionId).classList.add('active');
+            
+            // Add active class to clicked tab
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>
