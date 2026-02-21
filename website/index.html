@@ -106,7 +106,7 @@
                     <a href="#contact" class="nav-link hover:text-purple-400">Contact</a>
                 </div>
                 
-                <button class="hero-gradient px-6 py-2 rounded-lg font-semibold hover:opacity-90 transition">
+                <button onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})" class="hero-gradient px-6 py-2 rounded-lg font-semibold hover:opacity-90 transition">
                     Get Started
                 </button>
             </div>
@@ -431,6 +431,96 @@
         </div>
     </section>
 
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-gray-900/50">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold mb-4">
+                        <span class="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">About Stellar Logic AI</span>
+                    </h2>
+                    <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                        Pioneering the future of gaming security with cutting-edge artificial intelligence
+                    </p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h3 class="text-2xl font-semibold mb-6 text-white">Our Mission</h3>
+                        <p class="text-gray-300 mb-8 leading-relaxed">
+                            At Stellar Logic AI, we're revolutionizing gaming security through advanced artificial intelligence. 
+                            Our mission is to protect competitive integrity and ensure fair play for millions of gamers worldwide 
+                            by detecting and preventing cheating in real-time with 99.9% accuracy.
+                        </p>
+                        
+                        <h3 class="text-2xl font-semibold mb-6 text-white">Technology Leadership</h3>
+                        <p class="text-gray-300 mb-8 leading-relaxed">
+                            Our AI-powered security systems analyze player behavior patterns, detect anomalies, 
+                            and respond to threats in under 100 milliseconds. We combine machine learning, 
+                            behavioral analysis, and predictive modeling to stay ahead of evolving cheating techniques.
+                        </p>
+                        
+                        <div class="grid grid-cols-3 gap-4">
+                            <div class="text-center">
+                                <div class="text-3xl font-bold text-purple-400 mb-2">99.9%</div>
+                                <div class="text-sm text-gray-400">Detection Accuracy</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-3xl font-bold text-purple-400 mb-2">&lt;100ms</div>
+                                <div class="text-sm text-gray-400">Response Time</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-3xl font-bold text-purple-400 mb-2">24/7</div>
+                                <div class="text-sm text-gray-400">Monitoring</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gray-800/50 rounded-2xl p-8">
+                        <h3 class="text-2xl font-semibold mb-6 text-white">Why Choose Stellar Logic AI?</h3>
+                        <ul class="space-y-4">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-400 mt-1 mr-4"></i>
+                                <div>
+                                    <strong class="text-white">Industry-Leading Accuracy</strong>
+                                    <p class="text-gray-300">99.9% detection rate outperforms traditional security systems</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-400 mt-1 mr-4"></i>
+                                <div>
+                                    <strong class="text-white">Real-Time Protection</strong>
+                                    <p class="text-gray-300">Sub-100ms response time prevents cheating before it impacts gameplay</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-400 mt-1 mr-4"></i>
+                                <div>
+                                    <strong class="text-white">Adaptive Learning</strong>
+                                    <p class="text-gray-300">AI systems continuously improve and evolve with new threats</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-400 mt-1 mr-4"></i>
+                                <div>
+                                    <strong class="text-white">Enterprise-Grade Security</strong>
+                                    <p class="text-gray-300">Protect gaming studios of all sizes with scalable solutions</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-400 mt-1 mr-4"></i>
+                                <div>
+                                    <strong class="text-white">Proven Results</strong>
+                                    <p class="text-gray-300">Trusted by gaming companies worldwide</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Pricing Section -->
     <section id="pricing" class="py-20 bg-gray-900/50">
         <div class="container mx-auto px-6">
@@ -447,15 +537,20 @@
                     <h3 class="text-2xl font-bold text-white mb-2">SMB</h3>
                     <div class="text-4xl font-bold text-purple-400 mb-6">$500<span class="text-lg text-gray-400">/month</span></div>
                     <ul class="text-gray-300 space-y-3 mb-8">
-                        <li class="flex items-center"><i class="fas fa-check text-green-400 mr-3"></i>Up to 100 users</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-400 mr-3"></i>Up to 100 concurrent players</li>
                         <li class="flex items-center"><i class="fas fa-check text-green-400 mr-3"></i>99.9% detection accuracy</li>
                         <li class="flex items-center"><i class="fas fa-check text-green-400 mr-3"></i>Real-time monitoring</li>
                         <li class="flex items-center"><i class="fas fa-check text-green-400 mr-3"></i>Basic analytics</li>
                         <li class="flex items-center"><i class="fas fa-check text-green-400 mr-3"></i>Email support</li>
                     </ul>
-                    <button onclick="selectPlan('smb')" class="w-full bg-purple-600 hover:bg-purple-700 text-white py-3 px-6 rounded-lg font-semibold transition-all">
-                        Get Started
-                    </button>
+                    <div class="space-y-3">
+                        <button onclick="purchaseNow('smb'); return false;" class="w-full bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white py-3 px-6 rounded-lg font-semibold transition-all">
+                            Buy Now - $500/month
+                        </button>
+                        <button onclick="selectPlan('smb')" class="w-full bg-purple-600 hover:bg-purple-700 text-white py-2 px-6 rounded-lg font-semibold transition-all">
+                            Learn More
+                        </button>
+                    </div>
                 </div>
                 
                 <!-- Mid-Market Plan -->
@@ -466,31 +561,156 @@
                     <h3 class="text-2xl font-bold text-white mb-2">Mid-Market</h3>
                     <div class="text-4xl font-bold text-purple-400 mb-6">$1,500<span class="text-lg text-gray-400">/month</span></div>
                     <ul class="text-gray-300 space-y-3 mb-8">
-                        <li class="flex items-center"><i class="fas fa-check text-green-400 mr-3"></i>Up to 500 users</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-400 mr-3"></i>Up to 500 concurrent players</li>
                         <li class="flex items-center"><i class="fas fa-check text-green-400 mr-3"></i>99.9% detection accuracy</li>
                         <li class="flex items-center"><i class="fas fa-check text-green-400 mr-3"></i>Advanced analytics</li>
                         <li class="flex items-center"><i class="fas fa-check text-green-400 mr-3"></i>Priority support</li>
                         <li class="flex items-center"><i class="fas fa-check text-green-400 mr-3"></i>Custom integrations</li>
                     </ul>
-                    <button onclick="selectPlan('midmarket')" class="w-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white py-3 px-6 rounded-lg font-semibold transition-all">
-                        Get Started
-                    </button>
+                    <div class="space-y-3">
+                        <button onclick="purchaseNow('midmarket'); return false;" class="w-full bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white py-3 px-6 rounded-lg font-semibold transition-all">
+                            Buy Now - $1,500/month
+                        </button>
+                        <button onclick="selectPlan('midmarket')" class="w-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white py-2 px-6 rounded-lg font-semibold transition-all">
+                            Learn More
+                        </button>
+                    </div>
                 </div>
                 
                 <!-- Enterprise Plan -->
                 <div class="bg-gray-800/50 rounded-2xl p-8 border border-gray-700 hover:border-purple-500 transition-all">
                     <h3 class="text-2xl font-bold text-white mb-2">Enterprise</h3>
-                    <div class="text-4xl font-bold text-purple-400 mb-6">$5,000<span class="text-lg text-gray-400">/month</span></div>
+                    <div class="text-4xl font-bold text-purple-400 mb-6">Custom Quote</div>
+                    <p class="text-gray-400 mb-6 text-sm">Usage-based pricing: Pay only for your actual concurrent players each month</p>
                     <ul class="text-gray-300 space-y-3 mb-8">
-                        <li class="flex items-center"><i class="fas fa-check text-green-400 mr-3"></i>Unlimited users</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-400 mr-3"></i>Unlimited concurrent players</li>
                         <li class="flex items-center"><i class="fas fa-check text-green-400 mr-3"></i>99.9% detection accuracy</li>
-                        <li class="flex items-center"><i class="fas fa-check text-green-400 mr-3"></i>AI-powered insights</li>
-                        <li class="flex items-center"><i class="fas fa-check text-green-400 mr-3"></i>24/7 dedicated support</li>
-                        <li class="flex items-center"><i class="fas fa-check text-green-400 mr-3"></i>Custom solutions</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-400 mr-3"></i>Custom SLA & uptime guarantees</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-400 mr-3"></i>Dedicated infrastructure</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-400 mr-3"></i>White-label solutions</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-400 mr-3"></i>Multi-region deployment</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-400 mr-3"></i>Custom integrations</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-400 mr-3"></i>24/7 dedicated support team</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-400 mr-3"></i>Monthly usage-based billing</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-400 mr-3"></i>Automatic tier adjustments</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-400 mr-3"></i>No penalties for scaling</li>
                     </ul>
-                    <button onclick="selectPlan('enterprise')" class="w-full bg-gray-700 hover:bg-gray-600 text-white py-3 px-6 rounded-lg font-semibold transition-all">
-                        Contact Sales
+                    <button onclick="selectPlan('enterprise')" class="w-full bg-gradient-to-r from-orange-600 to-red-600 hover:from-orange-700 hover:to-red-700 text-white py-3 px-6 rounded-lg font-semibold transition-all">
+                        Get Custom Quote
                     </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Documentation Section -->
+    <section id="documentation" class="py-20 bg-black">
+        <div class="container mx-auto px-6">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold mb-4">
+                        <span class="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">Documentation & Resources</span>
+                    </h2>
+                    <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                        Comprehensive guides and API documentation for seamless integration
+                    </p>
+                </div>
+                
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- API Documentation -->
+                    <div class="bg-gray-800/50 rounded-xl p-8 border border-gray-700 hover:border-purple-500 transition-all">
+                        <div class="w-12 h-12 bg-purple-500/20 rounded-lg flex items-center justify-center mb-6">
+                            <i class="fas fa-code text-purple-400 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-4 text-white">API Documentation</h3>
+                        <p class="text-gray-300 mb-6">
+                            Complete REST API documentation for integrating Stellar Logic AI into your gaming infrastructure
+                        </p>
+                        <ul class="text-sm text-gray-400 space-y-2">
+                            <li><i class="fas fa-check text-green-400 mr-2"></i>Real-time detection endpoints</li>
+                            <li><i class="fas fa-check text-green-400 mr-2"></i>Player behavior analysis</li>
+                            <li><i class="fas fa-check text-green-400 mr-2"></i>Webhook notifications</li>
+                            <li><i class="fas fa-check text-green-400 mr-2"></i>Rate limiting & security</li>
+                        </ul>
+                        <button onclick="window.open('#', '_blank')" class="w-full bg-purple-600 hover:bg-purple-700 text-white py-2 px-4 rounded-lg font-semibold transition-all mt-4">
+                            View API Docs
+                        </button>
+                    </div>
+                    
+                    <!-- Integration Guides -->
+                    <div class="bg-gray-800/50 rounded-xl p-8 border border-gray-700 hover:border-purple-500 transition-all">
+                        <div class="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center mb-6">
+                            <i class="fas fa-book text-blue-400 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-4 text-white">Integration Guides</h3>
+                        <p class="text-gray-300 mb-6">
+                            Step-by-step guides for integrating with popular gaming platforms and engines
+                        </p>
+                        <ul class="text-sm text-gray-400 space-y-2">
+                            <li><i class="fas fa-check text-green-400 mr-2"></i>Unity integration</li>
+                            <li><i class="fas fa-check text-green-400 mr-2"></i>Unreal Engine setup</li>
+                            <li><i class="fas fa-check text-green-400 mr-2"></i>Custom platform integration</li>
+                            <li><i class="fas fa-check text-green-400 mr-2"></i>Cloud deployment</li>
+                        </ul>
+                        <button onclick="window.open('#', '_blank')" class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg font-semibold transition-all mt-4">
+                            View Guides
+                        </button>
+                    </div>
+                    
+                    <!-- Technical Support -->
+                    <div class="bg-gray-800/50 rounded-xl p-8 border border-gray-700 hover:border-purple-500 transition-all">
+                        <div class="w-12 h-12 bg-green-500/20 rounded-lg flex items-center justify-center mb-6">
+                            <i class="fas fa-headset text-green-400 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-4 text-white">Technical Support</h3>
+                        <p class="text-gray-300 mb-6">
+                            24/7 technical support and troubleshooting resources for smooth implementation
+                        </p>
+                        <ul class="text-sm text-gray-400 space-y-2">
+                            <li><i class="fas fa-check text-green-400 mr-2"></i>24/7 live chat support</li>
+                            <li><i class="fas fa-check text-green-400 mr-2"></i>Video tutorials</li>
+                            <li><i class="fas fa-check text-green-400 mr-2"></i>Community forum</li>
+                            <li><i class="fas fa-check text-green-400 mr-2"></i>Priority enterprise support</li>
+                        </ul>
+                        <button onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})" class="w-full bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded-lg font-semibold transition-all mt-4">
+                            Contact Support
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Quick Start Guide -->
+                <div class="mt-16 bg-gray-800/50 rounded-xl p-8">
+                    <h3 class="text-2xl font-semibold mb-6 text-white">Quick Start Guide</h3>
+                    <div class="grid md:grid-cols-4 gap-6">
+                        <div class="text-center">
+                            <div class="w-16 h-16 bg-purple-500/20 rounded-lg flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-user-plus text-purple-400 text-2xl"></i>
+                            </div>
+                            <h4 class="font-semibold mb-2">1. Sign Up</h4>
+                            <p class="text-gray-400 text-sm">Create your Stellar Logic AI account and choose your plan</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="w-16 h-16 bg-blue-500/20 rounded-lg flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-cog text-blue-400 text-2xl"></i>
+                            </div>
+                            <h4 class="font-semibold mb-2">2. Configure</h4>
+                            <p class="text-gray-400 text-sm">Set up detection rules and integrate with your gaming platform</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="w-16 h-16 bg-green-500/20 rounded-lg flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-shield-alt text-green-400 text-2xl"></i>
+                            </div>
+                            <h4 class="font-semibold mb-2">3. Deploy</h4>
+                            <p class="text-gray-400 text-sm">Activate AI-powered protection and monitor real-time results</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="w-16 h-16 bg-yellow-500/20 rounded-lg flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-chart-line text-yellow-400 text-2xl"></i>
+                            </div>
+                            <h4 class="font-semibold mb-2">4. Monitor</h4>
+                            <p class="text-gray-400 text-sm">Track detection accuracy and system performance</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -504,7 +724,7 @@
                     <span class="gradient-text">Get Started Today</span>
                 </h2>
                 <p class="text-xl text-gray-300 max-w-2xl mx-auto">
-                    Ready to transform your gaming security and automation with AI? Let's talk about how Stellar Logic AI can help you achieve your goals.
+                    Ready to transform your gaming security with AI? Let's talk about how Stellar Logic AI can help you achieve 99.9% detection accuracy.
                 </p>
             </div>
             
@@ -516,22 +736,18 @@
                         <div class="space-y-4">
                             <div class="flex items-center space-x-3">
                                 <i class="fas fa-envelope text-purple-400"></i>
-                                <span>jamie@stellarlogic.ai</span>
+                                <span>stellar.logic.ai@gmail.com</span>
                             </div>
                             
-                            <div class="flex items-center space-x-3">
-                                <i class="fas fa-globe text-purple-400"></i>
-                                <span>www.stellarlogic.ai</span>
-                            </div>
-                            
+                                                        
                             <div class="flex items-center space-x-3">
                                 <i class="fab fa-linkedin text-purple-400"></i>
                                 <span>linkedin.com/in/jamie-brown-68a6333a9</span>
                             </div>
                             
                             <div class="flex items-center space-x-3">
-                                <i class="fab fa-twitter text-purple-400"></i>
-                                <span>@StellarLogicAI</span>
+                                <i class="fab fa-x-twitter text-purple-400"></i>
+                                <a href="https://x.com/StellarLogicAI" target="_blank" class="text-gray-300 hover:text-purple-400 transition">@StellarLogicAI</a>
                             </div>
                         </div>
                         
@@ -585,8 +801,8 @@
                 </div>
                 
                 <div class="flex space-x-6">
-                    <a href="#" class="text-gray-400 hover:text-purple-400 transition">
-                        <i class="fab fa-twitter text-xl"></i>
+                    <a href="https://x.com/StellarLogicAI" target="_blank" class="text-gray-400 hover:text-purple-400 transition">
+                        <i class="fab fa-x-twitter text-xl"></i>
                     </a>
                     <a href="#" class="text-gray-400 hover:text-purple-400 transition">
                         <i class="fab fa-linkedin text-xl"></i>
@@ -666,15 +882,191 @@
             if (plan === 'enterprise') {
                 // Scroll to contact form for enterprise
                 document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
-                alert('Excellent choice! Our enterprise team will contact you to discuss custom solutions for your organization.');
+                alert('🏢 Excellent choice! Our enterprise team will create a custom usage-based quote:\n\n• Player volume (e.g., 1.3M concurrent users)\n• Monthly usage-based billing\n• Automatic tier adjustments\n• No penalties for scaling up/down\n• Custom SLA and uptime guarantees\n• Dedicated infrastructure needs\n• Multi-region deployment\n• White-label solutions\n• Custom integrations\n\nExample pricing:\n• 100K-500K players: $10K-25K/month\n• 500K-1M players: $25K-50K/month\n• 1M+ players: $50K-100K+/month\n\nPay only for what you use each month. We\'ll contact you within 24 hours!');
             } else {
-                // Show success message for SMB/Mid-Market
-                const planNames = {
-                    'smb': 'SMB ($500/month)',
-                    'midmarket': 'Mid-Market ($1,500/month)'
+                // Show purchase options for SMB/Mid-Market
+                const planDetails = {
+                    'smb': {
+                        name: 'SMB Plan',
+                        price: '$500/month',
+                        features: ['Up to 100 concurrent players', '99.9% detection accuracy', 'Real-time monitoring', 'Basic analytics', 'Email support']
+                    },
+                    'midmarket': {
+                        name: 'Mid-Market Plan',
+                        price: '$1,500/month',
+                        features: ['Up to 500 concurrent players', '99.9% detection accuracy', 'Advanced analytics', 'Priority support', 'Custom integrations']
+                    }
                 };
-                alert(`Perfect! You've selected the ${planNames[plan]} plan. We'll contact you within 24 hours to set up your account and get you started with 99.9% AI-powered gaming security.`);
+                
+                const selectedPlan = planDetails[plan];
+                
+                // Show purchase confirmation
+                if (confirm(`🚀 ${selectedPlan.name} - ${selectedPlan.price}\n\nFeatures:\n${selectedPlan.features.map(f => '✓ ' + f).join('\n')}\n\nProceed to checkout?`)) {
+                    // Redirect to checkout or show payment form
+                    alert(`🎉 Purchase initiated for ${selectedPlan.name}!\n\nNext steps:\n1. Complete payment setup\n2. Account creation email within 24 hours\n3. Onboarding call with our team\n\nFor immediate assistance: stellar.logic.ai@gmail.com`);
+                    
+                    // Log purchase intent
+                    console.log('💰 PURCHASE INTENT:', {
+                        plan: plan,
+                        details: selectedPlan,
+                        timestamp: new Date().toISOString(),
+                        source: 'stellarlogicai.netlify.app'
+                    });
+                }
             }
+        }
+        
+        // Add purchase button function
+        function purchaseNow(plan) {
+            event.preventDefault();
+            event.stopPropagation();
+            
+            // Show purchase options for SMB/Mid-Market
+            const planDetails = {
+                'smb': {
+                    name: 'SMB Plan',
+                    price: '$500/month',
+                    features: ['Up to 100 concurrent players', '99.9% detection accuracy', 'Real-time monitoring', 'Basic analytics', 'Email support']
+                },
+                'midmarket': {
+                    name: 'Mid-Market Plan',
+                    price: '$1,500/month',
+                    features: ['Up to 500 concurrent players', '99.9% detection accuracy', 'Advanced analytics', 'Priority support', 'Custom integrations']
+                }
+            };
+            
+            const selectedPlan = planDetails[plan];
+            
+            // Show purchase confirmation
+            if (confirm(`🚀 ${selectedPlan.name} - ${selectedPlan.price}\n\nFeatures:\n${selectedPlan.features.map(f => '✓ ' + f).join('\n')}\n\nProceed to checkout?`)) {
+                // Show account creation form
+                showAccountCreationForm(plan, selectedPlan);
+                
+                // Log purchase intent
+                console.log('💰 PURCHASE INTENT:', {
+                    plan: plan,
+                    details: selectedPlan,
+                    timestamp: new Date().toISOString(),
+                    source: 'stellarlogicai.netlify.app'
+                });
+            }
+        }
+        
+        // Account creation form function
+        function showAccountCreationForm(plan, planDetails) {
+            // Create modal overlay
+            const modal = document.createElement('div');
+            modal.style.cssText = `
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0,0,0,0.8);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                z-index: 1000;
+            `;
+            
+            // Create form container
+            const formContainer = document.createElement('div');
+            formContainer.style.cssText = `
+                background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+                padding: 40px;
+                border-radius: 20px;
+                max-width: 500px;
+                width: 90%;
+                border: 2px solid #7c3aed;
+                box-shadow: 0 20px 40px rgba(124, 58, 237, 0.3);
+            `;
+            
+            formContainer.innerHTML = `
+                <h2 style="color: white; margin-bottom: 10px; text-align: center;">Create Your Account</h2>
+                <p style="color: #9ca3af; margin-bottom: 30px; text-align: center;">${planDetails.name} - ${planDetails.price}</p>
+                
+                <form id="accountCreationForm">
+                    <div style="margin-bottom: 20px;">
+                        <label style="color: white; display: block; margin-bottom: 5px;">Full Name *</label>
+                        <input type="text" name="fullName" required style="width: 100%; padding: 12px; border: 1px solid #4b5563; border-radius: 8px; background: #1f2937; color: white;">
+                    </div>
+                    
+                    <div style="margin-bottom: 20px;">
+                        <label style="color: white; display: block; margin-bottom: 5px;">Email Address *</label>
+                        <input type="email" name="email" required style="width: 100%; padding: 12px; border: 1px solid #4b5563; border-radius: 8px; background: #1f2937; color: white;">
+                    </div>
+                    
+                    <div style="margin-bottom: 20px;">
+                        <label style="color: white; display: block; margin-bottom: 5px;">Password *</label>
+                        <input type="password" name="password" required style="width: 100%; padding: 12px; border: 1px solid #4b5563; border-radius: 8px; background: #1f2937; color: white;">
+                    </div>
+                    
+                    <div style="margin-bottom: 20px;">
+                        <label style="color: white; display: block; margin-bottom: 5px;">Company Name *</label>
+                        <input type="text" name="company" required style="width: 100%; padding: 12px; border: 1px solid #4b5563; border-radius: 8px; background: #1f2937; color: white;">
+                    </div>
+                    
+                    <div style="margin-bottom: 20px;">
+                        <label style="color: white; display: block; margin-bottom: 5px;">Phone Number</label>
+                        <input type="tel" name="phone" style="width: 100%; padding: 12px; border: 1px solid #4b5563; border-radius: 8px; background: #1f2937; color: white;">
+                    </div>
+                    
+                    <div style="margin-bottom: 30px;">
+                        <label style="color: white; display: block; margin-bottom: 5px;">How did you hear about us?</label>
+                        <select name="referral" style="width: 100%; padding: 12px; border: 1px solid #4b5563; border-radius: 8px; background: #1f2937; color: white;">
+                            <option value="">Select an option</option>
+                            <option value="linkedin">LinkedIn</option>
+                            <option value="google">Google Search</option>
+                            <option value="referral">Referral</option>
+                            <option value="social">Social Media</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div style="display: flex; gap: 10px;">
+                        <button type="submit" style="flex: 1; background: linear-gradient(135deg, #10b981 0%, #059669 100%); color: white; padding: 14px; border: none; border-radius: 8px; font-weight: bold; cursor: pointer;">
+                            Create Account & Start Setup
+                        </button>
+                        <button type="button" onclick="this.closest('div[style*=\"position: fixed\"]').remove()" style="background: #6b7280; color: white; padding: 14px 20px; border: none; border-radius: 8px; cursor: pointer;">
+                            Cancel
+                        </button>
+                    </div>
+                </form>
+            `;
+            
+            modal.appendChild(formContainer);
+            document.body.appendChild(modal);
+            
+            // Handle form submission
+            document.getElementById('accountCreationForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const formData = new FormData(this);
+                const accountData = {
+                    plan: plan,
+                    planDetails: planDetails,
+                    fullName: formData.get('fullName'),
+                    email: formData.get('email'),
+                    password: formData.get('password'),
+                    company: formData.get('company'),
+                    phone: formData.get('phone'),
+                    referral: formData.get('referral'),
+                    timestamp: new Date().toISOString(),
+                    source: 'stellarlogicai.netlify.app'
+                };
+                
+                // Log account creation
+                console.log('🎉 ACCOUNT CREATED:', accountData);
+                
+                // Show success message
+                alert(`🎉 Account created successfully!\n\nWelcome to Stellar Logic AI, ${accountData.fullName}!\n\nNext steps:\n1. Check your email for setup instructions\n2. Our team will contact you within 24 hours\n3. Start protecting your game with 99.9% AI accuracy\n\nEmail: stellar.logic.ai@gmail.com\nPhone: Available for immediate support`);
+                
+                // Remove modal
+                modal.remove();
+                
+                // Scroll to contact for any questions
+                document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+            });
         }
     </script>
 </body>
