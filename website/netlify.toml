@@ -1,0 +1,66 @@
+[build]
+  publish = "website"
+  command = "echo 'Static site ready for deployment'"
+
+[build.environment]
+  NODE_VERSION = "18"
+
+# Analytics tracking
+[[edge_functions]]
+  path = "/api/analytics"
+  function = "analytics"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=()"
+
+[[headers]]
+  for = "*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[redirects]]
+  from = "/pricing"
+  to = "/pricing/index.html"
+  status = 301
+
+[[redirects]]
+  from = "/docs"
+  to = "/docs/index.html"
+  status = 301
+
+[[redirects]]
+  from = "/dashboard"
+  to = "/dashboard/index.html"
+  status = 301
+
+[[redirects]]
+  from = "/about"
+  to = "/about/index.html"
+  status = 301
+
+[[redirects]]
+  from = "/contact"
+  to = "/contact/index.html"
+  status = 301
+
+# 404 page handling
+[[redirects]]
+  from = "/*"
+  to = "/404.html"
+  status = 404

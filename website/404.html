@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found - Stellar Logic AI</title>
+    <meta name="description" content="The page you're looking for doesn't exist. Navigate back to Stellar Logic AI homepage.">
+    <meta name="robots" content="noindex, follow">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0a0a0a;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 800px;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        
+        .error-code {
+            font-size: 8rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #7c3aed 0%, #2563eb 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+            line-height: 1;
+        }
+        
+        .error-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+        
+        .error-description {
+            font-size: 1.2rem;
+            color: #9ca3af;
+            margin-bottom: 40px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .error-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            align-items: center;
+        }
+        
+        .btn-primary {
+            display: inline-block;
+            padding: 15px 30px;
+            background: linear-gradient(135deg, #7c3aed 0%, #2563eb 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(124, 58, 237, 0.3);
+        }
+        
+        .btn-secondary {
+            display: inline-block;
+            padding: 12px 24px;
+            background: #6b7280;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-secondary:hover {
+            background: #4b5563;
+            transform: translateY(-2px);
+        }
+        
+        .suggestions {
+            margin-top: 60px;
+            padding: 30px;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            border: 1px solid #374151;
+            border-radius: 20px;
+        }
+        
+        .suggestions h3 {
+            color: #7c3aed;
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+        }
+        
+        .suggestions ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .suggestions li {
+            margin-bottom: 15px;
+        }
+        
+        .suggestions a {
+            color: #e5e7eb;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .suggestions a:hover {
+            color: #7c3aed;
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            .error-code {
+                font-size: 6rem;
+            }
+            
+            .error-title {
+                font-size: 1.5rem;
+            }
+            
+            .error-description {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="error-code">404</div>
+        <h1 class="error-title">Page Not Found</h1>
+        <p class="error-description">
+            Oops! The page you're looking for doesn't exist or has been moved. 
+            Let's get you back to exploring Stellar Logic AI's AI-powered gaming security solutions.
+        </p>
+        
+        <div class="error-actions">
+            <a href="/" class="btn-primary">🚀 Go to Homepage</a>
+            <a href="javascript:history.back()" class="btn-secondary">← Go Back</a>
+        </div>
+        
+        <div class="suggestions">
+            <h3>🔍 Looking for something specific?</h3>
+            <ul>
+                <li><a href="/pricing">View our AI security pricing plans</a></li>
+                <li><a href="/docs">Explore our API documentation</a></li>
+                <li><a href="/about">Learn about our company and team</a></li>
+                <li><a href="/contact">Get in touch with our experts</a></li>
+                <li><a href="/dashboard">Access your customer dashboard</a></li>
+            </ul>
+        </div>
+    </div>
+    
+    <script>
+        // Log 404 errors for analytics
+        console.log('404 Error: Page not found - ' + window.location.pathname);
+        
+        // Optional: Send error to analytics service
+        if (typeof gtag !== 'undefined') {
+            gtag('event', '404_page_not_found', {
+                'page_path': window.location.pathname,
+                'page_location': window.location.href
+            });
+        }
+    </script>
+</body>
+</html>

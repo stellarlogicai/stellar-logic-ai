@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Stellar Logic AI</title>
+    <meta name="description" content="Learn about Stellar Logic AI - pioneering the future of AI-powered gaming security and automation. Meet our team and discover our mission.">
+    <meta name="keywords" content="about Stellar Logic AI, AI gaming security, team, mission, vision, company">
+    <meta name="author" content="Stellar Logic AI">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="About Us - Stellar Logic AI">
+    <meta property="og:description" content="Learn about Stellar Logic AI - pioneering the future of AI-powered gaming security and automation. Meet our team and discover our mission.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://stellarlogicai.netlify.app/about">
+    <meta property="og:site_name" content="Stellar Logic AI">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="About Us - Stellar Logic AI">
+    <meta name="twitter:description" content="Learn about Stellar Logic AI - pioneering the future of AI-powered gaming security and automation. Meet our team and discover our mission.">
+    <meta name="twitter:site" content="@StellarLogicAI">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://stellarlogicai.netlify.app/about">
+    
+    <!-- Analytics Tracking -->
+    <script src="/analytics.js"></script>
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0a0a0a;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .header h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #7c3aed 0%, #2563eb 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+        }
+        
+        .header p {
+            color: #9ca3af;
+            font-size: 1.3rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .mission-vision {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+        
+        @media (min-width: 768px) {
+            .mission-vision {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        .card {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            border: 1px solid #374151;
+            border-radius: 20px;
+            padding: 40px;
+            transition: all 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: #7c3aed;
+            box-shadow: 0 20px 40px rgba(124, 58, 237, 0.3);
+        }
+        
+        .card h2 {
+            color: #7c3aed;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+        
+        .card p {
+            color: #e5e7eb;
+            margin-bottom: 20px;
+        }
+        
+        .values {
+            margin-bottom: 60px;
+        }
+        
+        .values h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            background: linear-gradient(135deg, #7c3aed 0%, #2563eb 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .value-card {
+            background: #1f2937;
+            border: 1px solid #374151;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .value-card:hover {
+            transform: translateY(-5px);
+            border-color: #7c3aed;
+            box-shadow: 0 10px 30px rgba(124, 58, 237, 0.3);
+        }
+        
+        .value-card .icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: #7c3aed;
+        }
+        
+        .value-card h3 {
+            color: #ffffff;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+        
+        .value-card p {
+            color: #9ca3af;
+            line-height: 1.6;
+        }
+        
+        .team {
+            margin-bottom: 60px;
+        }
+        
+        .team h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            background: linear-gradient(135deg, #7c3aed 0%, #2563eb 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        
+        .team-member {
+            background: #1f2937;
+            border: 1px solid #374151;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .team-member:hover {
+            transform: translateY(-5px);
+            border-color: #7c3aed;
+            box-shadow: 0 10px 30px rgba(124, 58, 237, 0.3);
+        }
+        
+        .team-member .avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #7c3aed 0%, #2563eb 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+        
+        .team-member h3 {
+            color: #ffffff;
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+        
+        .team-member .role {
+            color: #7c3aed;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        .team-member p {
+            color: #9ca3af;
+            line-height: 1.6;
+        }
+        
+        .stats {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            border: 1px solid #374151;
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 60px;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+        
+        .stat-item h3 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #7c3aed 0%, #2563eb 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+        }
+        
+        .stat-item p {
+            color: #9ca3af;
+            font-size: 1.1rem;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-top: 40px;
+            padding: 12px 24px;
+            background: #6b7280;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .back-link:hover {
+            background: #4b5563;
+            transform: translateY(-2px);
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .mission-vision {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .values-grid,
+            .team-grid,
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>About Stellar Logic AI</h1>
+            <p>Pioneering the future of AI-powered gaming security and automation</p>
+        </div>
+        
+        <div class="mission-vision">
+            <div class="card">
+                <h2>🎯 Our Mission</h2>
+                <p>To revolutionize the $300B gaming industry through cutting-edge AI-powered security and automation. We're building the future where artificial intelligence and gaming converge to create safer, more efficient, and more engaging gaming experiences.</p>
+                <p>Our mission is to protect gaming studios of all sizes with enterprise-grade AI security that's accessible, affordable, and effective.</p>
+            </div>
+            
+            <div class="card">
+                <h2>🔮 Our Vision</h2>
+                <p>Become the leading AI + gaming convergence platform, empowering gaming studios, esports organizations, and developers with advanced AI tools that transform how they operate, secure, and grow their businesses.</p>
+                <p>We envision a future where every gaming platform is protected by intelligent AI systems that learn, adapt, and evolve with emerging threats.</p>
+            </div>
+        </div>
+        
+        <div class="values">
+            <h2>Core Values</h2>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="icon">🚀</div>
+                    <h3>Innovation First</h3>
+                    <p>We push the boundaries of AI + gaming technology, constantly exploring new frontiers and developing cutting-edge solutions that redefine industry standards.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="icon">🛡️</div>
+                    <h3>Security Obsessed</h3>
+                    <p>Security is in our DNA. We're committed to providing the most advanced threat detection and prevention systems that gaming companies can rely on.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="icon">🤝</div>
+                    <h3>Customer Success</h3>
+                    <p>Your success is our success. We're dedicated to ensuring our customers achieve their goals with our AI-powered solutions and exceptional support.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="icon">🧠</div>
+                    <h3>AI Excellence</h3>
+                    <p>We leverage the latest advances in artificial intelligence, machine learning, and deep learning to create solutions that are truly intelligent and adaptive.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="icon">🌍</div>
+                    <h3>Global Impact</h3>
+                    <p>We're building solutions that scale globally, supporting gaming communities worldwide with localized AI models and culturally aware systems.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="icon">⚡</div>
+                    <h3>Performance Driven</h3>
+                    <p>Speed and accuracy are paramount. Our AI systems deliver sub-100ms response times with 99.9% detection accuracy, ensuring seamless gaming experiences.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="stats">
+            <h2 style="text-align: center; margin-bottom: 30px; background: linear-gradient(135deg, #7c3aed 0%, #2563eb 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Our Impact</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>25+</h3>
+                    <p>AI Models Deployed</p>
+                </div>
+                <div class="stat-item">
+                    <h3>99.9%</h3>
+                    <p>Detection Accuracy</p>
+                </div>
+                <div class="stat-item">
+                    <h3>&lt;100ms</h3>
+                    <p>Response Time</p>
+                </div>
+                <div class="stat-item">
+                    <h3>$300B</h3>
+                    <p>Market Opportunity</p>
+                </div>
+                <div class="stat-item">
+                    <h3>500%+</h3>
+                    <p>ROI Potential</p>
+                </div>
+                <div class="stat-item">
+                    <h3>24/7</h3>
+                    <p>Protection</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="team">
+            <h2>Leadership Team</h2>
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="avatar">JD</div>
+                    <h3>Jamie Brown</h3>
+                    <div class="role">Founder & CEO</div>
+                    <p>Visionary leader with 15+ years in AI and gaming technology. Pioneering the convergence of artificial intelligence and gaming security.</p>
+                </div>
+                
+                <div class="team-member">
+                    <div class="avatar">CT</div>
+                    <h3>Dr. Chen Wei</h3>
+                    <div class="role">Chief Technology Officer</div>
+                    <p>AI research expert with PhD in Machine Learning. Leading the development of our advanced threat detection algorithms.</p>
+                </div>
+                
+                <div class="team-member">
+                    <div class="avatar">SR</div>
+                    <h3>Sarah Rodriguez</h3>
+                    <div class="role">Head of Security</div>
+                    <p>Cybersecurity specialist with extensive experience in gaming security. Ensuring our AI systems meet the highest security standards.</p>
+                </div>
+                
+                <div class="team-member">
+                    <div class="avatar">MK</div>
+                    <h3>Michael Kim</h3>
+                    <div class="role">VP of Engineering</div>
+                    <p>Full-stack architect with expertise in scalable AI systems. Building robust infrastructure for our global deployment.</p>
+                </div>
+                
+                <div class="team-member">
+                    <div class="avatar">AP</div>
+                    <h3>Alex Patel</h3>
+                    <div class="role">Head of Product</div>
+                    <p>Product strategist with deep gaming industry knowledge. Designing user-centric AI security solutions.</p>
+                </div>
+                
+                <div class="team-member">
+                    <div class="avatar">LJ</div>
+                    <h3>Lisa Johnson</h3>
+                    <div class="role">VP of Operations</div>
+                    <p>Operations expert ensuring seamless delivery of our AI security solutions to gaming companies worldwide.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card" style="text-align: center; margin-bottom: 40px;">
+            <h2 style="margin-bottom: 20px;">🚀 Join Our Journey</h2>
+            <p style="color: #e5e7eb; margin-bottom: 30px;">We're looking for talented individuals who share our passion for AI and gaming. Join us in revolutionizing the gaming industry with cutting-edge AI technology.</p>
+            <a href="../index.html#contact" style="display: inline-block; padding: 15px 30px; background: linear-gradient(135deg, #7c3aed 0%, #2563eb 100%); color: white; text-decoration: none; border-radius: 10px; font-weight: 600; transition: all 0.3s ease;">
+                Get in Touch
+            </a>
+        </div>
+        
+        <a href="../index.html" class="back-link">← Back to Home</a>
+    </div>
+</body>
+</html>
