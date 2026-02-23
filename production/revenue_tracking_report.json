@@ -1,0 +1,565 @@
+{
+  "report_timestamp": "2026-02-22T12:58:05.941828",
+  "report_period": "24 months historical + 12 months forecast",
+  "key_metrics": {
+    "current_mrr": 1696,
+    "current_arr": 20352,
+    "total_customers_all_time": 120,
+    "total_revenue_all_time": 241309.91042154783,
+    "ltv_cac_ratio": 1.2014167650531287,
+    "current_churn_rate": 0.006666666666666667,
+    "current_arpu": 11.012987012987013
+  },
+  "revenue_streams": {
+    "subscription_revenue": 1696,
+    "api_usage_revenue": 247.92021228595533,
+    "professional_services": 2748.617385369479,
+    "training_certification": 590.1505031299994,
+    "enterprise_support": 302.91602588715244,
+    "tournament_services": 9185.673391612287
+  },
+  "cost_structure": {
+    "infrastructure_costs": 254.39999999999998,
+    "personnel_costs": 15000,
+    "marketing_costs": 1100,
+    "research_development": 8000,
+    "customer_support": 3000,
+    "general_administrative": 2000
+  },
+  "growth_metrics": {
+    "avg_month_over_month_growth": 0.1522535232034686,
+    "avg_year_over_year_growth": 2.1304519513211786,
+    "avg_customer_growth_rate": 0.0,
+    "revenue_trend": "increasing",
+    "customer_trend": "declining"
+  },
+  "monthly_metrics": [
+    {
+      "period": "2024-03",
+      "total_revenue": 2542.405024668119,
+      "new_customers": 5,
+      "churned_customers": 1,
+      "customer_acquisition_cost": 220.0,
+      "average_revenue_per_user": 121.14285714285714,
+      "lifetime_value": 2907.4285714285716,
+      "churn_rate": 0.1,
+      "monthly_recurring_revenue": 1696,
+      "annual_recurring_revenue": 20352,
+      "gross_margin": -12711.994975331882,
+      "net_revenue": -8898.396482732316
+    },
+    {
+      "period": "2024-04",
+      "total_revenue": 2583.9954552198437,
+      "new_customers": 5,
+      "churned_customers": 1,
+      "customer_acquisition_cost": 220.0,
+      "average_revenue_per_user": 121.14285714285714,
+      "lifetime_value": 2907.4285714285716,
+      "churn_rate": 0.1,
+      "monthly_recurring_revenue": 1696,
+      "annual_recurring_revenue": 20352,
+      "gross_margin": -12670.404544780156,
+      "net_revenue": -8869.283181346109
+    },
+    {
+      "period": "2024-05",
+      "total_revenue": 2595.3928236230167,
+      "new_customers": 5,
+      "churned_customers": 1,
+      "customer_acquisition_cost": 220.0,
+      "average_revenue_per_user": 121.14285714285714,
+      "lifetime_value": 2907.4285714285716,
+      "churn_rate": 0.1,
+      "monthly_recurring_revenue": 1696,
+      "annual_recurring_revenue": 20352,
+      "gross_margin": -12659.007176376983,
+      "net_revenue": -8861.305023463887
+    },
+    {
+      "period": "2024-06",
+      "total_revenue": 2111.027458921888,
+      "new_customers": 5,
+      "churned_customers": 1,
+      "customer_acquisition_cost": 220.0,
+      "average_revenue_per_user": 121.14285714285714,
+      "lifetime_value": 2907.4285714285716,
+      "churn_rate": 0.1,
+      "monthly_recurring_revenue": 1696,
+      "annual_recurring_revenue": 20352,
+      "gross_margin": -13143.372541078112,
+      "net_revenue": -9200.360778754677
+    },
+    {
+      "period": "2024-07",
+      "total_revenue": 4047.8891749165996,
+      "new_customers": 5,
+      "churned_customers": 1,
+      "customer_acquisition_cost": 220.0,
+      "average_revenue_per_user": 121.14285714285714,
+      "lifetime_value": 2907.4285714285716,
+      "churn_rate": 0.1,
+      "monthly_recurring_revenue": 1696,
+      "annual_recurring_revenue": 20352,
+      "gross_margin": -11206.5108250834,
+      "net_revenue": -7844.557577558379
+    },
+    {
+      "period": "2024-08",
+      "total_revenue": 3442.2570899159787,
+      "new_customers": 5,
+      "churned_customers": 1,
+      "customer_acquisition_cost": 220.0,
+      "average_revenue_per_user": 121.14285714285714,
+      "lifetime_value": 2907.4285714285716,
+      "churn_rate": 0.1,
+      "monthly_recurring_revenue": 1696,
+      "annual_recurring_revenue": 20352,
+      "gross_margin": -11812.142910084021,
+      "net_revenue": -8268.500037058815
+    },
+    {
+      "period": "2024-08",
+      "total_revenue": 6248.245574089559,
+      "new_customers": 5,
+      "churned_customers": 1,
+      "customer_acquisition_cost": 220.0,
+      "average_revenue_per_user": 31.40740740740741,
+      "lifetime_value": 753.7777777777778,
+      "churn_rate": 0.02,
+      "monthly_recurring_revenue": 1696,
+      "annual_recurring_revenue": 20352,
+      "gross_margin": -9006.154425910441,
+      "net_revenue": -6304.308098137309
+    },
+    {
+      "period": "2024-09",
+      "total_revenue": 6418.239642296779,
+      "new_customers": 5,
+      "churned_customers": 1,
+      "customer_acquisition_cost": 220.0,
+      "average_revenue_per_user": 31.40740740740741,
+      "lifetime_value": 753.7777777777778,
+      "churn_rate": 0.02,
+      "monthly_recurring_revenue": 1696,
+      "annual_recurring_revenue": 20352,
+      "gross_margin": -8836.160357703222,
+      "net_revenue": -6185.312250392255
+    },
+    {
+      "period": "2024-10",
+      "total_revenue": 8251.352919260093,
+      "new_customers": 5,
+      "churned_customers": 1,
+      "customer_acquisition_cost": 220.0,
+      "average_revenue_per_user": 31.40740740740741,
+      "lifetime_value": 753.7777777777778,
+      "churn_rate": 0.02,
+      "monthly_recurring_revenue": 1696,
+      "annual_recurring_revenue": 20352,
+      "gross_margin": -7003.047080739907,
+      "net_revenue": -4902.132956517935
+    },
+    {
+      "period": "2024-11",
+      "total_revenue": 5461.92940715884,
+      "new_customers": 5,
+      "churned_customers": 1,
+      "customer_acquisition_cost": 220.0,
+      "average_revenue_per_user": 31.40740740740741,
+      "lifetime_value": 753.7777777777778,
+      "churn_rate": 0.02,
+      "monthly_recurring_revenue": 1696,
+      "annual_recurring_revenue": 20352,
+      "gross_margin": -9792.47059284116,
+      "net_revenue": -6854.729414988812
+    },
+    {
+      "period": "2024-12",
+      "total_revenue": 15871.381896997425,
+      "new_customers": 5,
+      "churned_customers": 1,
+      "customer_acquisition_cost": 220.0,
+      "average_revenue_per_user": 31.40740740740741,
+      "lifetime_value": 753.7777777777778,
+      "churn_rate": 0.02,
+      "monthly_recurring_revenue": 1696,
+      "annual_recurring_revenue": 20352,
+      "gross_margin": 616.9818969974258,
+      "net_revenue": 431.887327898198
+    },
+    {
+      "period": "2025-01",
+      "total_revenue": 16661.682391471382,
+      "new_customers": 5,
+      "churned_customers": 1,
+      "customer_acquisition_cost": 220.0,
+      "average_revenue_per_user": 31.40740740740741,
+      "lifetime_value": 753.7777777777778,
+      "churn_rate": 0.02,
+      "monthly_recurring_revenue": 1696,
+      "annual_recurring_revenue": 20352,
+      "gross_margin": 1407.2823914713808,
+      "net_revenue": 985.0976740299665
+    },
+    {
+      "period": "2025-02",
+      "total_revenue": 12778.076723492106,
+      "new_customers": 5,
+      "churned_customers": 1,
+      "customer_acquisition_cost": 220.0,
+      "average_revenue_per_user": 11.012987012987013,
+      "lifetime_value": 264.31168831168833,
+      "churn_rate": 0.006666666666666667,
+      "monthly_recurring_revenue": 1696,
+      "annual_recurring_revenue": 20352,
+      "gross_margin": -2476.3232765078938,
+      "net_revenue": -1733.4262935555255
+    },
+    {
+      "period": "2025-03",
+      "total_revenue": 13320.30967634963,
+      "new_customers": 5,
+      "churned_customers": 1,
+      "customer_acquisition_cost": 220.0,
+      "average_revenue_per_user": 11.012987012987013,
+      "lifetime_value": 264.31168831168833,
+      "churn_rate": 0.006666666666666667,
+      "monthly_recurring_revenue": 1696,
+      "annual_recurring_revenue": 20352,
+      "gross_margin": -1934.090323650369,
+      "net_revenue": -1353.8632265552583
+    },
+    {
+      "period": "2025-04",
+      "total_revenue": 11284.242940860237,
+      "new_customers": 5,
+      "churned_customers": 1,
+      "customer_acquisition_cost": 220.0,
+      "average_revenue_per_user": 11.012987012987013,
+      "lifetime_value": 264.31168831168833,
+      "churn_rate": 0.006666666666666667,
+      "monthly_recurring_revenue": 1696,
+      "annual_recurring_revenue": 20352,
+      "gross_margin": -3970.157059139763,
+      "net_revenue": -2779.109941397834
+    },
+    {
+      "period": "2025-05",
+      "total_revenue": 10937.051649658697,
+      "new_customers": 5,
+      "churned_customers": 1,
+      "customer_acquisition_cost": 220.0,
+      "average_revenue_per_user": 11.012987012987013,
+      "lifetime_value": 264.31168831168833,
+      "churn_rate": 0.006666666666666667,
+      "monthly_recurring_revenue": 1696,
+      "annual_recurring_revenue": 20352,
+      "gross_margin": -4317.348350341303,
+      "net_revenue": -3022.1438452389116
+    },
+    {
+      "period": "2025-06",
+      "total_revenue": 11770.746323984105,
+      "new_customers": 5,
+      "churned_customers": 1,
+      "customer_acquisition_cost": 220.0,
+      "average_revenue_per_user": 11.012987012987013,
+      "lifetime_value": 264.31168831168833,
+      "churn_rate": 0.006666666666666667,
+      "monthly_recurring_revenue": 1696,
+      "annual_recurring_revenue": 20352,
+      "gross_margin": -3483.6536760158942,
+      "net_revenue": -2438.5575732111256
+    },
+    {
+      "period": "2025-07",
+      "total_revenue": 10671.11917222138,
+      "new_customers": 5,
+      "churned_customers": 1,
+      "customer_acquisition_cost": 220.0,
+      "average_revenue_per_user": 11.012987012987013,
+      "lifetime_value": 264.31168831168833,
+      "churn_rate": 0.006666666666666667,
+      "monthly_recurring_revenue": 1696,
+      "annual_recurring_revenue": 20352,
+      "gross_margin": -4583.280827778619,
+      "net_revenue": -3208.296579445033
+    },
+    {
+      "period": "2025-08",
+      "total_revenue": 17402.071785282515,
+      "new_customers": 5,
+      "churned_customers": 1,
+      "customer_acquisition_cost": 220.0,
+      "average_revenue_per_user": 11.012987012987013,
+      "lifetime_value": 264.31168831168833,
+      "churn_rate": 0.006666666666666667,
+      "monthly_recurring_revenue": 1696,
+      "annual_recurring_revenue": 20352,
+      "gross_margin": 2147.671785282513,
+      "net_revenue": 1503.3702496977592
+    },
+    {
+      "period": "2025-09",
+      "total_revenue": 16247.870110206057,
+      "new_customers": 5,
+      "churned_customers": 1,
+      "customer_acquisition_cost": 220.0,
+      "average_revenue_per_user": 11.012987012987013,
+      "lifetime_value": 264.31168831168833,
+      "churn_rate": 0.006666666666666667,
+      "monthly_recurring_revenue": 1696,
+      "annual_recurring_revenue": 20352,
+      "gross_margin": 993.4701102060571,
+      "net_revenue": 695.42907714424
+    },
+    {
+      "period": "2025-10",
+      "total_revenue": 19212.268218928322,
+      "new_customers": 5,
+      "churned_customers": 1,
+      "customer_acquisition_cost": 220.0,
+      "average_revenue_per_user": 11.012987012987013,
+      "lifetime_value": 264.31168831168833,
+      "churn_rate": 0.006666666666666667,
+      "monthly_recurring_revenue": 1696,
+      "annual_recurring_revenue": 20352,
+      "gross_margin": 3957.868218928321,
+      "net_revenue": 2770.5077532498244
+    },
+    {
+      "period": "2025-11",
+      "total_revenue": 13619.3087159733,
+      "new_customers": 5,
+      "churned_customers": 1,
+      "customer_acquisition_cost": 220.0,
+      "average_revenue_per_user": 11.012987012987013,
+      "lifetime_value": 264.31168831168833,
+      "churn_rate": 0.006666666666666667,
+      "monthly_recurring_revenue": 1696,
+      "annual_recurring_revenue": 20352,
+      "gross_margin": -1635.0912840266992,
+      "net_revenue": -1144.5638988186893
+    },
+    {
+      "period": "2025-12",
+      "total_revenue": 13059.768727767074,
+      "new_customers": 5,
+      "churned_customers": 1,
+      "customer_acquisition_cost": 220.0,
+      "average_revenue_per_user": 11.012987012987013,
+      "lifetime_value": 264.31168831168833,
+      "churn_rate": 0.006666666666666667,
+      "monthly_recurring_revenue": 1696,
+      "annual_recurring_revenue": 20352,
+      "gross_margin": -2194.6312722329258,
+      "net_revenue": -1536.241890563048
+    },
+    {
+      "period": "2026-01",
+      "total_revenue": 14771.277518284873,
+      "new_customers": 5,
+      "churned_customers": 1,
+      "customer_acquisition_cost": 220.0,
+      "average_revenue_per_user": 11.012987012987013,
+      "lifetime_value": 264.31168831168833,
+      "churn_rate": 0.006666666666666667,
+      "monthly_recurring_revenue": 1696,
+      "annual_recurring_revenue": 20352,
+      "gross_margin": -483.1224817151269,
+      "net_revenue": -338.18573720058885
+    }
+  ],
+  "quarterly_metrics": [
+    {
+      "period": "Q1",
+      "total_revenue": 7721.79330351098,
+      "new_customers": 15,
+      "churned_customers": 3,
+      "monthly_recurring_revenue": 5088
+    },
+    {
+      "period": "Q2",
+      "total_revenue": 9601.173723754466,
+      "new_customers": 15,
+      "churned_customers": 3,
+      "monthly_recurring_revenue": 5088
+    },
+    {
+      "period": "Q3",
+      "total_revenue": 20917.83813564643,
+      "new_customers": 15,
+      "churned_customers": 3,
+      "monthly_recurring_revenue": 5088
+    },
+    {
+      "period": "Q4",
+      "total_revenue": 37994.99369562765,
+      "new_customers": 15,
+      "churned_customers": 3,
+      "monthly_recurring_revenue": 5088
+    },
+    {
+      "period": "Q5",
+      "total_revenue": 37382.62934070197,
+      "new_customers": 15,
+      "churned_customers": 3,
+      "monthly_recurring_revenue": 5088
+    },
+    {
+      "period": "Q6",
+      "total_revenue": 33378.91714586418,
+      "new_customers": 15,
+      "churned_customers": 3,
+      "monthly_recurring_revenue": 5088
+    },
+    {
+      "period": "Q7",
+      "total_revenue": 52862.21011441689,
+      "new_customers": 15,
+      "churned_customers": 3,
+      "monthly_recurring_revenue": 5088
+    },
+    {
+      "period": "Q8",
+      "total_revenue": 41450.354962025245,
+      "new_customers": 15,
+      "churned_customers": 3,
+      "monthly_recurring_revenue": 5088
+    }
+  ],
+  "annual_metrics": [
+    {
+      "period": "2026",
+      "total_revenue": 165074.1115630083,
+      "new_customers": 60,
+      "churned_customers": 12,
+      "annual_recurring_revenue": 244224
+    }
+  ],
+  "revenue_forecast": [
+    {
+      "period": "2026-03",
+      "forecast_revenue": 15477.627117752776,
+      "forecast_new_customers": 5,
+      "confidence_interval": {
+        "lower": 12382.101694202222,
+        "upper": 18573.15254130333
+      }
+    },
+    {
+      "period": "2026-04",
+      "forecast_revenue": 15381.332956919208,
+      "forecast_new_customers": 5,
+      "confidence_interval": {
+        "lower": 12305.066365535367,
+        "upper": 18457.59954830305
+      }
+    },
+    {
+      "period": "2026-05",
+      "forecast_revenue": 15539.513488820858,
+      "forecast_new_customers": 5,
+      "confidence_interval": {
+        "lower": 12431.610791056686,
+        "upper": 18647.41618658503
+      }
+    },
+    {
+      "period": "2026-06",
+      "forecast_revenue": 15400.459469549443,
+      "forecast_new_customers": 5,
+      "confidence_interval": {
+        "lower": 12320.367575639555,
+        "upper": 18480.55136345933
+      }
+    },
+    {
+      "period": "2026-07",
+      "forecast_revenue": 15428.409646797085,
+      "forecast_new_customers": 5,
+      "confidence_interval": {
+        "lower": 12342.727717437669,
+        "upper": 18514.0915761565
+      }
+    },
+    {
+      "period": "2026-08",
+      "forecast_revenue": 15326.520134971754,
+      "forecast_new_customers": 5,
+      "confidence_interval": {
+        "lower": 12261.216107977403,
+        "upper": 18391.824161966102
+      }
+    },
+    {
+      "period": "2026-09",
+      "forecast_revenue": 15332.570885760064,
+      "forecast_new_customers": 5,
+      "confidence_interval": {
+        "lower": 12266.056708608052,
+        "upper": 18399.085062912076
+      }
+    },
+    {
+      "period": "2026-10",
+      "forecast_revenue": 15518.457618461418,
+      "forecast_new_customers": 5,
+      "confidence_interval": {
+        "lower": 12414.766094769135,
+        "upper": 18622.1491421537
+      }
+    },
+    {
+      "period": "2026-11",
+      "forecast_revenue": 15374.746291972666,
+      "forecast_new_customers": 5,
+      "confidence_interval": {
+        "lower": 12299.797033578134,
+        "upper": 18449.6955503672
+      }
+    },
+    {
+      "period": "2026-12",
+      "forecast_revenue": 15512.159061786415,
+      "forecast_new_customers": 5,
+      "confidence_interval": {
+        "lower": 12409.727249429132,
+        "upper": 18614.590874143698
+      }
+    },
+    {
+      "period": "2027-01",
+      "forecast_revenue": 15344.971908620844,
+      "forecast_new_customers": 5,
+      "confidence_interval": {
+        "lower": 12275.977526896677,
+        "upper": 18413.96629034501
+      }
+    },
+    {
+      "period": "2027-02",
+      "forecast_revenue": 15458.394691694533,
+      "forecast_new_customers": 5,
+      "confidence_interval": {
+        "lower": 12366.715753355627,
+        "upper": 18550.07363003344
+      }
+    }
+  ],
+  "revenue_targets": {
+    "mrr_target": 50000,
+    "arr_target": 600000,
+    "ltv_cac_ratio_target": 3.0,
+    "churn_rate_target": 0.08,
+    "arpu_target": 250
+  },
+  "targets_achieved": {
+    "mrr_target_met": false,
+    "arr_target_met": false,
+    "ltv_cac_target_met": false,
+    "churn_rate_target_met": true,
+    "arpu_target_met": false
+  }
+}

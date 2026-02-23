@@ -1,0 +1,85 @@
+{
+  "report_timestamp": "2026-02-22T12:48:38.278826",
+  "performance_summary": {
+    "total_sessions_tested": 10000,
+    "success_rate": 98.0,
+    "avg_session_duration_ms": 4987.784765900262,
+    "sessions_per_hour": 416.6666666666667
+  },
+  "cost_analysis": {
+    "cost_per_10k_sessions": 9.501756608039141,
+    "infrastructure_cost_per_hour": 0.09501756608039141,
+    "estimated_monthly_cost": 68.41264757788181,
+    "cost_per_session": 0.0009501756608039141
+  },
+  "performance_analysis": {
+    "avg_response_time_ms": 0.0,
+    "p95_response_time_ms": 0.0,
+    "p99_response_time_ms": 0.0,
+    "requests_per_second": 0.0,
+    "peak_throughput": 0.0
+  },
+  "resource_utilization": {
+    "avg_cpu_usage_percent": 0.0,
+    "avg_memory_usage_percent": 0.0,
+    "disk_usage_percent": 0
+  },
+  "infrastructure_status": {
+    "server_count": 1,
+    "load_balancer_active": true,
+    "database_connections": 0,
+    "cache_hit_rate": 0.0,
+    "uptime_percentage": 99.9
+  },
+  "detailed_metrics": {
+    "session_metrics": {
+      "total_sessions": 10000,
+      "successful_sessions": 9800,
+      "failed_sessions": 200,
+      "avg_session_duration_ms": 4987.784765900262,
+      "sessions_per_hour": 416.6666666666667
+    },
+    "cost_metrics": {
+      "infrastructure_costs_per_hour": 0.09501756608039141,
+      "compute_costs_per_10k_sessions": 9.501756608039141,
+      "storage_costs_per_month": 0.01264757788181305,
+      "bandwidth_costs_per_gb": 0.0,
+      "total_monthly_cost": 68.41264757788181
+    },
+    "latency_metrics": {
+      "avg_response_time_ms": 0.0,
+      "p95_response_time_ms": 0.0,
+      "p99_response_time_ms": 0.0,
+      "max_response_time_ms": 0.0,
+      "min_response_time_ms": 0.0,
+      "response_times": []
+    },
+    "throughput_metrics": {
+      "requests_per_second": 0.0,
+      "sessions_per_second": 0.0,
+      "peak_throughput": 0.0,
+      "sustained_throughput": 0.0
+    },
+    "resource_metrics": {
+      "cpu_usage_percent": [],
+      "memory_usage_percent": [],
+      "disk_usage_percent": [],
+      "network_io_mb_per_sec": 0.0,
+      "avg_cpu_usage": 0.0,
+      "avg_memory_usage": 0.0
+    },
+    "infrastructure_metrics": {
+      "server_count": 1,
+      "load_balancer_active": true,
+      "database_connections": 0,
+      "cache_hit_rate": 0.0,
+      "uptime_percentage": 99.9
+    }
+  },
+  "cost_breakdown": {
+    "server_costs": 36.00000000000001,
+    "database_costs": 14.399999999999999,
+    "load_balancer_costs": 18.000000000000004,
+    "storage_costs": 0.01264757788181305
+  }
+}

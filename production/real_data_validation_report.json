@@ -1,0 +1,181 @@
+{
+  "validation_timestamp": "2026-02-22T12:28:38.190688",
+  "validation_summary": {
+    "total_samples_tested": 1000,
+    "overall_accuracy": 0.904,
+    "overall_precision": 1.0,
+    "overall_recall": 0.68,
+    "overall_f1_score": 0.8095238095238095,
+    "overall_auc_score": 0.9608238095238095,
+    "false_positive_rate": 0.0,
+    "detection_precision": 1.0
+  },
+  "detection_breakdown": {
+    "true_positives": 204,
+    "false_positives": 0,
+    "true_negatives": 700,
+    "false_negatives": 96
+  },
+  "model_performance": {
+    "edge_model": {
+      "model_type": "edge_model",
+      "accuracy": 0.3,
+      "precision": 0.3,
+      "recall": 1.0,
+      "f1_score": 0.46153846153846156,
+      "auc_score": 0.4980880952380953,
+      "false_positive_rate": 1.0,
+      "detection_precision": 0.3,
+      "confusion_matrix": [
+        [
+          0,
+          700
+        ],
+        [
+          0,
+          300
+        ]
+      ],
+      "true_positives": 300,
+      "false_positives": 700,
+      "true_negatives": 0,
+      "false_negatives": 0,
+      "avg_latency_ms": 3.2912631000144756,
+      "max_latency_ms": 10.637100000167266,
+      "min_latency_ms": 2.570299999206327
+    },
+    "general_cheat_detection": {
+      "model_type": "general_cheat_detection",
+      "accuracy": 0.904,
+      "precision": 1.0,
+      "recall": 0.68,
+      "f1_score": 0.8095238095238095,
+      "auc_score": 0.9733904761904763,
+      "false_positive_rate": 0.0,
+      "detection_precision": 1.0,
+      "confusion_matrix": [
+        [
+          700,
+          0
+        ],
+        [
+          96,
+          204
+        ]
+      ],
+      "true_positives": 204,
+      "false_positives": 0,
+      "true_negatives": 700,
+      "false_negatives": 96,
+      "avg_latency_ms": 22.67397770001844
+    },
+    "esp_detection": {
+      "model_type": "esp_detection",
+      "accuracy": 0.76,
+      "precision": 1.0,
+      "recall": 0.2,
+      "f1_score": 0.3333333333333333,
+      "auc_score": 0.8226857142857142,
+      "false_positive_rate": 0.0,
+      "detection_precision": 1.0,
+      "confusion_matrix": [
+        [
+          700,
+          0
+        ],
+        [
+          240,
+          60
+        ]
+      ],
+      "true_positives": 60,
+      "false_positives": 0,
+      "true_negatives": 700,
+      "false_negatives": 240,
+      "avg_latency_ms": 22.82902489996195
+    },
+    "aimbot_detection": {
+      "model_type": "aimbot_detection",
+      "accuracy": 0.934,
+      "precision": 1.0,
+      "recall": 0.78,
+      "f1_score": 0.8764044943820225,
+      "auc_score": 0.9606190476190477,
+      "false_positive_rate": 0.0,
+      "detection_precision": 1.0,
+      "confusion_matrix": [
+        [
+          700,
+          0
+        ],
+        [
+          66,
+          234
+        ]
+      ],
+      "true_positives": 234,
+      "false_positives": 0,
+      "true_negatives": 700,
+      "false_negatives": 66,
+      "avg_latency_ms": 22.67042059999949
+    },
+    "wallhack_detection": {
+      "model_type": "wallhack_detection",
+      "accuracy": 0.875,
+      "precision": 1.0,
+      "recall": 0.5833333333333334,
+      "f1_score": 0.7368421052631579,
+      "auc_score": 0.7853809523809523,
+      "false_positive_rate": 0.0,
+      "detection_precision": 1.0,
+      "confusion_matrix": [
+        [
+          700,
+          0
+        ],
+        [
+          125,
+          175
+        ]
+      ],
+      "true_positives": 175,
+      "false_positives": 0,
+      "true_negatives": 700,
+      "false_negatives": 125,
+      "avg_latency_ms": 23.042174700014584
+    },
+    "ensemble": {
+      "model_type": "ensemble",
+      "accuracy": 0.904,
+      "precision": 1.0,
+      "recall": 0.68,
+      "f1_score": 0.8095238095238095,
+      "auc_score": 0.9608238095238095,
+      "false_positive_rate": 0.0,
+      "detection_precision": 1.0,
+      "confusion_matrix": [
+        [
+          700,
+          0
+        ],
+        [
+          96,
+          204
+        ]
+      ],
+      "true_positives": 204,
+      "false_positives": 0,
+      "true_negatives": 700,
+      "false_negatives": 96
+    }
+  },
+  "validation_targets": {
+    "accuracy_target": 0.9,
+    "f1_score_target": 0.9,
+    "false_positive_rate_target": 0.05,
+    "detection_precision_target": 0.9
+  },
+  "targets_achieved": {
+    "accuracy_target_met": true,
+    "f1_score_target_met": false,
+    "false_positive_rate_target_met": 

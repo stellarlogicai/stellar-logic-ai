@@ -1,0 +1,55 @@
+{
+  "integration_date": "2026-02-22 03:55:36",
+  "models_loaded": [
+    "aimbot",
+    "esp",
+    "wallhack",
+    "general"
+  ],
+  "device_used": "cpu",
+  "test_results": [
+    {
+      "test_case": "Normal Gameplay",
+      "expected": false,
+      "detected": false,
+      "correct": true,
+      "confidence": 0.12519517540931702,
+      "inference_time_ms": 27.745187282562256,
+      "cheat_votes": 1,
+      "total_models": 4
+    },
+    {
+      "test_case": "Aimbot Pattern",
+      "expected": true,
+      "detected": true,
+      "correct": true,
+      "confidence": 0.875195175409317,
+      "inference_time_ms": 24.294555187225342,
+      "cheat_votes": 4,
+      "total_models": 4
+    },
+    {
+      "test_case": "ESP Overlay",
+      "expected": true,
+      "detected": false,
+      "correct": false,
+      "confidence": 0.12519517540931702,
+      "inference_time_ms": 25.634348392486572,
+      "cheat_votes": 1,
+      "total_models": 4
+    },
+    {
+      "test_case": "Wallhack Lines",
+      "expected": true,
+      "detected": true,
+      "correct": true,
+      "confidence": 0.875195175409317,
+      "inference_time_ms": 25.657474994659424,
+      "cheat_votes": 4,
+      "total_models": 4
+    }
+  ],
+  "test_accuracy": 75.0,
+  "models_directory": "c:/Users/merce/Documents/helm-ai/models",
+  "integration_status": "SUCCESS"
+}

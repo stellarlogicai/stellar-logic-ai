@@ -1,0 +1,21 @@
+{
+  "training_date": "2026-02-22 03:54:04",
+  "models_directory": "c:/Users/merce/Documents/helm-ai/models",
+  "device_used": "cpu",
+  "framework": "PyTorch",
+  "input_size": [
+    224,
+    224,
+    3
+  ],
+  "output_classes": [
+    "no_cheat",
+    "cheat"
+  ],
+  "models_trained": [
+    "aimbot_detection_model.pth",
+    "esp_detection_model.pth",
+    "wallhack_detection_model.pth",
+    "general_cheat_detection_model.pth"
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "user_001": {
+    "user_id": "user_001",
+    "created_at": "2026-02-22T04:03:11.034723",
+    "last_updated": "2026-02-22T04:03:11.034731",
+    "session_count": 3,
+    "total_playtime": 360,
+    "avg_session_length": 120.0,
+    "kills_per_game": 15.0,
+    "deaths_per_game": 5.666666666666667,
+    "win_rate": 0.6666666666666666,
+    "accuracy": 85.0,
+    "login_frequency": 1.5,
+    "playtime_variance": 600.0,
+    "performance_consistency": 0.9327591051000697,
+    "risk_score": 0.12,
+    "connected_accounts": [],
+    "account_age_days": 68,
+    "peak_hours": [
+      10,
+      14,
+      9
+    ],
+    "weekend_vs_weekday": 0.0
+  },
+  "user_002": {
+    "user_id": "user_002",
+    "created_at": "2026-02-22T04:03:11.035660",
+    "last_updated": "2026-02-22T04:03:11.035665",
+    "session_count": 2,
+    "total_playtime": 105,
+    "avg_session_length": 52.5,
+    "kills_per_game": 1.5,
+    "deaths_per_game": 13.5,
+    "win_rate": 0.0,
+    "accuracy": 21.5,
+    "login_frequency": 2.0,
+    "playtime_variance": 56.25,
+    "performance_consistency": 0.8372093023255813,
+    "risk_score": 0.12,
+    "connected_accounts": [],
+    "account_age_days": 60,
+    "peak_hours": [
+      11,
+      16
+    ],
+    "weekend_vs_weekday": 0.0
+  },
+  "user_003": {
+    "user_id": "user_003",
+    "created_at": "2026-02-22T04:03:11.036055",
+    "last_updated": "2026-02-22T04:03:11.036060",
+    "session_count": 2,
+    "total_playtime": 345,
+    "avg_session_length": 172.5,
+    "kills_per_game": 26.5,
+    "deaths_per_game": 1.5,
+    "win_rate": 1.0,
+    "accuracy": 98.5,
+    "login_frequency": 2.0,
+    "playtime_variance": 56.25,
+    "performance_consistency": 0.9949238578680203,
+    "risk_score": 0.7200000000000001,
+    "connected_accounts": [],
+    "account_age_days": 195,
+    "peak_hours": [
+      10,
+      15
+    ],
+    "weekend_vs_weekday": 0.0
+  }
+}

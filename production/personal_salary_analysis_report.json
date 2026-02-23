@@ -1,0 +1,204 @@
+{
+  "report_timestamp": "2026-02-22T23:43:32.370959",
+  "report_type": "Personal Salary and Transition Analysis",
+  "income_comparison": {
+    "current_job": {
+      "annual_salary": 120000,
+      "monthly_take_home": 7500,
+      "benefits_value": 25000,
+      "job_security": "high",
+      "work_life_balance": "good",
+      "total_compensation": 145000
+    },
+    "startup": {
+      "founder_salary": 96000,
+      "monthly_take_home": 6000,
+      "benefits_value": 12000,
+      "job_security": "very_low",
+      "work_life_balance": "poor",
+      "total_compensation": 108000
+    },
+    "annual_difference": 37000,
+    "monthly_difference": 1500
+  },
+  "runway_scenarios": {
+    "full_salary": {
+      "monthly_salary": 8000,
+      "total_burn": 18400,
+      "runway_300k": 16.304347826086957,
+      "runway_200k": 10.869565217391305,
+      "runway_100k": 5.434782608695652,
+      "description": "Full $8,000/month salary"
+    },
+    "reduced_salary": {
+      "monthly_salary": 5000,
+      "total_burn": 15400,
+      "runway_300k": 19.48051948051948,
+      "runway_200k": 12.987012987012987,
+      "runway_100k": 6.4935064935064934,
+      "description": "Reduced $5,000/month salary"
+    },
+    "minimal_salary": {
+      "monthly_salary": 3000,
+      "total_burn": 13400,
+      "runway_300k": 22.388059701492537,
+      "runway_200k": 14.925373134328359,
+      "runway_100k": 7.462686567164179,
+      "description": "Minimal $3,000/month salary"
+    },
+    "no_salary": {
+      "monthly_salary": 0,
+      "total_burn": 10400,
+      "runway_300k": 28.846153846153847,
+      "runway_200k": 19.23076923076923,
+      "runway_100k": 9.615384615384615,
+      "description": "No salary, living on savings"
+    }
+  },
+  "personal_finances": {
+    "expenses": {
+      "housing": 2000,
+      "food": 800,
+      "transportation": 600,
+      "utilities": 400,
+      "insurance": 600,
+      "debt_payments": 1000,
+      "savings": 1000,
+      "discretionary": 800,
+      "total_monthly": 7200
+    },
+    "scenarios": {
+      "current_job": {
+        "monthly_income": 7500,
+        "vs_expenses": 300,
+        "comfort_level": "comfortable"
+      },
+      "startup_full": {
+        "monthly_income": 6000,
+        "vs_expenses": -1200,
+        "comfort_level": "tight"
+      },
+      "startup_reduced": {
+        "monthly_income": 3750,
+        "vs_expenses": -3450,
+        "comfort_level": "difficult"
+      },
+      "startup_minimal": {
+        "monthly_income": 2250,
+        "vs_expenses": -4950,
+        "comfort_level": "unsustainable"
+      }
+    }
+  },
+  "risk_factors": {
+    "financial_risks": {
+      "income_reduction": "37% reduction in take-home pay",
+      "benefits_loss": "52% reduction in total compensation",
+      "runway_limitation": "16 months max runway",
+      "personal_savings_depletion": "May need to use personal savings",
+      "tax_complexity": "Self-employment tax complications"
+    },
+    "career_risks": {
+      "gap_in_resume": "Startup gap if it fails",
+      "network_loss": "Current professional network",
+      "skill_depreciation": "May not use current skills",
+      "age_factor": "Harder to return to corporate later"
+    },
+    "business_risks": {
+      "funding_risk": "May not get full $300K",
+      "revenue_risk": "May not generate revenue quickly",
+      "market_risk": "Product may not find market",
+      "competition_risk": "Competitors may emerge"
+    },
+    "personal_risks": {
+      "stress_increase": "High stress and pressure",
+      "work_life_balance": "Poor work-life balance",
+      "relationship_strain": "Pressure on personal relationships",
+      "health_impact": "Potential health issues from stress"
+    }
+  },
+  "transition_strategies": {
+    "gradual_transition": {
+      "approach": "Keep job, work on startup part-time",
+      "timeline": "6-12 months",
+      "pros": [
+        "Steady income maintained",
+        "Lower financial risk",
+        "Time to validate business",
+        "Can build foundation while employed"
+      ],
+      "cons": [
+        "Slower progress",
+        "Limited time for startup",
+        "Potential conflict of interest",
+        "Burnout risk"
+      ],
+      "requirements": [
+        "Employer allows side projects",
+        "Time management skills",
+        "Clear separation of work"
+      ]
+    },
+    "full_time_with_buffer": {
+      "approach": "Quit job with 6+ months personal savings",
+      "timeline": "Immediate transition",
+      "pros": [
+        "Full focus on startup",
+        "Faster progress",
+        "Complete commitment",
+        "Professional appearance to investors"
+      ],
+      "cons": [
+        "High financial risk",
+        "Pressure to succeed quickly",
+        "No backup plan",
+        "Personal stress"
+      ],
+      "requirements": [
+        "6+ months personal savings",
+        "Support from family",
+        "Risk tolerance",
+        "Confidence in business"
+      ]
+    },
+    "hybrid_approach": {
+      "approach": "Negotiate part-time or contract with current employer",
+      "timeline": "3-6 months transition",
+      "pros": [
+        "Some income maintained",
+        "More time for startup",
+        "Lower risk than full quit",
+        "Professional relationships maintained"
+      ],
+      "cons": [
+        "Still divided focus",
+        "May not be possible",
+        "Employer may not agree",
+        "Complex scheduling"
+      ],
+      "requirements": [
+        "Flexible employer",
+        "Negotiation skills",
+        "Clear boundaries",
+        "Performance maintenance"
+      ]
+    }
+  },
+  "key_findings": {
+    "current_job_income": 7500,
+    "startup_income": 6000,
+    "monthly_income_gap": 1500,
+    "annual_compensation_gap": 37000,
+    "max_runway_300k": 28.846153846153847,
+    "min_runway_300k": 16.304347826086957,
+    "personal_monthly_expenses": 7200
+  },
+  "recommendations": {
+    "minimum_personal_savings": 50000,
+    "ideal_personal_savings": 100000,
+    "recommended_approach": "gradual_transition",
+    "timeline_to_quit": "6-12 months",
+    "funding_target": 400000,
+    "salary_strategy": "reduced_salary"
+  }
+}

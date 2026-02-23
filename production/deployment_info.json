@@ -1,0 +1,14 @@
+{
+  "deployment_timestamp": "2026-02-22T12:29:52.030535",
+  "port": 5000,
+  "status": "deployed",
+  "endpoints": [
+    "/health",
+    "/metrics",
+    "/api/detect",
+    "/api/batch_detect",
+    "/api/user_risk",
+    "/dashboard",
+    "/api/load_test"
+  ]
+}

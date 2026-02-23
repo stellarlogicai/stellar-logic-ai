@@ -1,0 +1,184 @@
+{
+  "general_cheat_detection": {
+    "model_name": "general_cheat_detection",
+    "final_accuracy": 1.0,
+    "final_f1": 1.0,
+    "final_precision": 1.0,
+    "final_recall": 1.0,
+    "confusion_matrix": [
+      [
+        640,
+        0
+      ],
+      [
+        0,
+        960
+      ]
+    ],
+    "training_losses": [
+      0.2750988890452936,
+      0.011747187420775008,
+      0.0001713803811153647,
+      0.0038733902168255206,
+      0.008204929203642623,
+      0.00045460497131375344,
+      0.03865241915544612,
+      0.00035694236722346617,
+      7.322378360188341e-05,
+      0.00015016043237685905,
+      0.003060108186209294
+    ],
+    "test_accuracies": [
+      100.0,
+      100.0,
+      100.0,
+      100.0,
+      100.0,
+      100.0,
+      100.0,
+      100.0,
+      100.0,
+      100.0,
+      100.0
+    ],
+    "best_accuracy": 100.0,
+    "model_path": "c:/Users/merce/Documents/helm-ai/models\\improved_general_cheat_detection_model.pth"
+  },
+  "esp_detection": {
+    "model_name": "esp_detection",
+    "final_accuracy": 1.0,
+    "final_f1": 1.0,
+    "final_precision": 1.0,
+    "final_recall": 1.0,
+    "confusion_matrix": [
+      [
+        640,
+        0
+      ],
+      [
+        0,
+        960
+      ]
+    ],
+    "training_losses": [
+      0.34658531710505486,
+      0.074870731035051,
+      0.010595686547322139,
+      0.002272712816752669,
+      4.175766522971247e-05,
+      0.00013391902686532897,
+      6.230287532376089e-06,
+      1.0531049506219414e-05,
+      2.8180605091332467e-06,
+      0.0044523336218812,
+      6.768063339809393e-05,
+      0.0009939053492840576
+    ],
+    "test_accuracies": [
+      86.0625,
+      100.0,
+      100.0,
+      100.0,
+      100.0,
+      100.0,
+      100.0,
+      100.0,
+      100.0,
+      100.0,
+      100.0,
+      99.625
+    ],
+    "best_accuracy": 100.0,
+    "model_path": "c:/Users/merce/Documents/helm-ai/models\\improved_esp_detection_model.pth"
+  },
+  "aimbot_detection": {
+    "model_name": "aimbot_detection",
+    "final_accuracy": 1.0,
+    "final_f1": 1.0,
+    "final_precision": 1.0,
+    "final_recall": 1.0,
+    "confusion_matrix": [
+      [
+        640,
+        0
+      ],
+      [
+        0,
+        960
+      ]
+    ],
+    "training_losses": [
+      0.25534861740648923,
+      0.01535492436698135,
+      0.004866593859392747,
+      0.010372670637912496,
+      0.010262009037356558,
+      0.017005265703460143,
+      0.0017326024310542387,
+      2.6085801390051123e-05,
+      0.00020865551297325036,
+      3.200399556023692e-06,
+      1.4321820379570305e-06
+    ],
+    "test_accuracies": [
+      100.0,
+      100.0,
+      100.0,
+      69.125,
+      100.0,
+      100.0,
+      100.0,
+      100.0,
+      100.0,
+      100.0,
+      100.0
+    ],
+    "best_accuracy": 100.0,
+    "model_path": "c:/Users/merce/Documents/helm-ai/models\\improved_aimbot_detection_model.pth"
+  },
+  "wallhack_detection": {
+    "model_name": "wallhack_detection",
+    "final_accuracy": 1.0,
+    "final_f1": 1.0,
+    "final_precision": 1.0,
+    "final_recall": 1.0,
+    "confusion_matrix": [
+      [
+        640,
+        0
+      ],
+      [
+        0,
+        960
+      ]
+    ],
+    "training_losses": [
+      0.17341493730660687,
+      0.032465081950642155,
+      0.00041602741398611976,
+      2.451217889339996e-05,
+      0.016402735846282136,
+      1.7889152610681692e-05,
+      0.0002194617362297291,
+      0.0002725248918757694,
+      8.450196597854509e-06,
+      1.55395998395047e-05,
+      0.002119396755585481
+    ],
+    "test_accuracies": [
+      100.0,
+      100.0,
+      100.0,
+      100.0,
+      100.0,
+      100.0,
+      100.0,
+      100.0,
+      100.0,
+      100.0,
+      100.0
+    ],
+    "best_accuracy": 100.0,
+    "model_path": "c:/Users/merce/Documents/helm-ai/models\\improved_wallhack_detection_model.pth"
+  }
+}

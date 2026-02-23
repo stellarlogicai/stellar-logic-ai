@@ -1,0 +1,182 @@
+{
+  "report_timestamp": "2026-02-22T13:21:29.294979",
+  "assessment_type": "Supply Chain Security Assessment",
+  "overall_security_score": 85.12857142857143,
+  "dependency_security": {
+    "total_dependencies": 7,
+    "critical_dependencies": 6,
+    "total_vulnerabilities": 4,
+    "average_risk_score": 2.9285714285714284,
+    "high_risk_dependencies": [
+      "numpy"
+    ],
+    "security_score": 70.71428571428572
+  },
+  "ci_cd_security": {
+    "pipeline_stages": {
+      "code_analysis": {
+        "tools": [
+          "sonarqube",
+          "eslint",
+          "pylint",
+          "bandit"
+        ],
+        "security_checks": true,
+        "quality_gates": {
+          "coverage_threshold": 80,
+          "vulnerability_threshold": 0,
+          "code_smells_threshold": 10
+        }
+      },
+      "dependency_scanning": {
+        "tools": [
+          "snyk",
+          "safety",
+          "pip-audit"
+        ],
+        "scan_frequency": "every_commit",
+        "fail_on_vulnerabilities": true,
+        "severity_threshold": "Medium"
+      },
+      "container_scanning": {
+        "tools": [
+          "trivy",
+          "clair",
+          "grype"
+        ],
+        "base_image_scanning": true,
+        "runtime_scanning": true,
+        "vulnerability_threshold": "Low"
+      },
+      "secret_detection": {
+        "tools": [
+          "git-secrets",
+          "trufflehog",
+          "gitleaks"
+        ],
+        "scan_targets": [
+          "code",
+          "configs",
+          "documentation"
+        ],
+        "pattern_library": "custom_patterns"
+      }
+    },
+    "security_controls": {
+      "branch_protection": {
+        "main_branch_protection": true,
+        "require_pr_reviews": true,
+        "require_status_checks": true,
+        "require_up_to_date": true
+      },
+      "access_control": {
+        "rbac_enabled": true,
+        "mfa_required": true,
+        "audit_logging": true,
+        "session_timeout": 3600
+      },
+      "artifact_management": {
+        "signed_artifacts": true,
+        "immutable_releases": true,
+        "retention_policy": "90_days",
+        "access_logging": true
+      }
+    },
+    "compliance_checks": {
+      "soc2_controls": [
+        "access_control",
+        "change_management",
+        "incident_response"
+      ],
+      "iso27001_controls": [
+        "asset_management",
+        "access_control",
+        "cryptography"
+      ],
+      "pci_dss_controls": [
+        "secure_development",
+        "vulnerability_testing",
+        "secure_coding"
+      ]
+    },
+    "security_score": 95.0
+  },
+  "artifact_signing": {
+    "signing_keys": {
+      "primary_key": {
+        "algorithm": "RSA-4096",
+        "key_id": "KEY_PRIMARY_20260222",
+        "created": "2026-02-22T13:21:29.294708",
+        "expires": "2027-02-22T13:21:29.294715",
+        "status": "ACTIVE"
+      },
+      "secondary_key": {
+        "algorithm": "ECDSA-P384",
+        "key_id": "KEY_SECONDARY_20260222",
+        "created": "2026-02-22T13:21:29.294728",
+        "expires": "2027-02-22T13:21:29.294730",
+        "status": "ACTIVE"
+      }
+    },
+    "configuration": {
+      "signing_process": {
+        "auto_sign": true,
+        "sign_all_artifacts": true,
+        "signing_timeout": 300,
+        "parallel_signing": true
+      },
+      "verification_process": {
+        "verify_before_deploy": true,
+        "verify_signatures": true,
+        "verify_integrity": true,
+        "verify_trust_chain": true
+      },
+      "supported_artifacts": [
+        "python_packages",
+        "docker_images",
+        "model_files",
+        "configuration_files",
+        "documentation"
+      ],
+      "signing_algorithms": {
+        "primary": "RSA-4096-SHA256",
+        "secondary": "ECDSA-P384-SHA384",
+        "fallback": "ED25519-SHA512"
+      }
+    },
+    "security_score": 98.0
+  },
+  "vendor_risk": {
+    "total_vendors": 4,
+    "average_risk_score": 2.9,
+    "high_risk_vendors": [
+      "numpy"
+    ],
+    "critical_vendors": [
+      "pytorch",
+      "numpy"
+    ],
+    "security_score": 76.8
+  },
+  "security_targets": {
+    "dependency_security_target": 85.0,
+    "ci_cd_security_target": 90.0,
+    "artifact_signing_target": 95.0,
+    "vendor_risk_target": 80.0,
+    "overall_security_target": 87.5
+  },
+  "targets_achieved": {
+    "dependency_target_met": false,
+    "ci_cd_target_met": true,
+    "artifact_target_met": true,
+    "vendor_target_met": false,
+    "overall_target_met": false
+  },
+  "recommendations": [
+    "Update high-risk dependencies (numpy, torch)",
+    "Implement automated vulnerability scanning",
+    "Enhance vendor monitoring for critical dependencies",
+    "Regular security audits of CI/CD pipeline",
+    "Implement artifact integrity verification"
+  ]
+}

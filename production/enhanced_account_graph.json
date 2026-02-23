@@ -1,0 +1,36 @@
+{
+  "directed": false,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {
+      "id": "user_001"
+    },
+    {
+      "id": "user_003"
+    },
+    {
+      "id": "user_002"
+    }
+  ],
+  "edges": [
+    {
+      "weight": 0.9948411261905429,
+      "type": "behavioral_similarity",
+      "source": "user_001",
+      "target": "user_003"
+    },
+    {
+      "weight": 0.971218440781985,
+      "type": "behavioral_similarity",
+      "source": "user_001",
+      "target": "user_002"
+    },
+    {
+      "weight": 0.9856660335267646,
+      "type": "behavioral_similarity",
+      "source": "user_003",
+      "target": "user_002"
+    }
+  ]
+}

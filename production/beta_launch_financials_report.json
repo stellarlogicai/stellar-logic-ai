@@ -1,0 +1,150 @@
+{
+  "report_timestamp": "2026-02-22T23:24:39.611956",
+  "report_type": "Beta Launch Financial Analysis",
+  "monthly_burn_analysis": {
+    "infrastructure": 1100,
+    "software": 700,
+    "personnel": 14000,
+    "operations": 2600,
+    "total_burn": 18400
+  },
+  "revenue_scenarios": {
+    "conservative": {
+      "beta_customers": 5,
+      "avg_price": 500,
+      "conversion_rate": 0.2,
+      "beta_revenue": 2500,
+      "conversion_revenue": 500.0,
+      "total_revenue": 3000.0,
+      "description": "Conservative beta adoption"
+    },
+    "moderate": {
+      "beta_customers": 10,
+      "avg_price": 750,
+      "conversion_rate": 0.3,
+      "beta_revenue": 7500,
+      "conversion_revenue": 2250.0,
+      "total_revenue": 9750.0,
+      "description": "Moderate beta adoption"
+    },
+    "aggressive": {
+      "beta_customers": 20,
+      "avg_price": 1000,
+      "conversion_rate": 0.4,
+      "beta_revenue": 20000,
+      "conversion_revenue": 8000.0,
+      "total_revenue": 28000.0,
+      "description": "Aggressive beta adoption"
+    }
+  },
+  "runway_with_300k": {
+    "conservative": {
+      "monthly_revenue": 3000.0,
+      "net_burn": 15400.0,
+      "runway_months": 19.48051948051948,
+      "cash_position": "burning",
+      "break_even_point": "19.5 months"
+    },
+    "moderate": {
+      "monthly_revenue": 9750.0,
+      "net_burn": 8650.0,
+      "runway_months": 34.68208092485549,
+      "cash_position": "burning",
+      "break_even_point": "34.7 months"
+    },
+    "aggressive": {
+      "monthly_revenue": 28000.0,
+      "net_burn": -9600.0,
+      "runway_months": Infinity,
+      "cash_position": "profitable",
+      "break_even_point": "immediate"
+    }
+  },
+  "funding_requirements": {
+    "$100,000": {
+      "conservative": {
+        "runway_months": 6.4935064935064934,
+        "additional_funding_needed": 184800.0,
+        "profitable": false
+      },
+      "moderate": {
+        "runway_months": 11.560693641618498,
+        "additional_funding_needed": 103800.0,
+        "profitable": false
+      },
+      "aggressive": {
+        "runway_months": Infinity,
+        "additional_funding_needed": 0,
+        "profitable": true
+      }
+    },
+    "$200,000": {
+      "conservative": {
+        "runway_months": 12.987012987012987,
+        "additional_funding_needed": 184800.0,
+        "profitable": false
+      },
+      "moderate": {
+        "runway_months": 23.121387283236995,
+        "additional_funding_needed": 103800.0,
+        "profitable": false
+      },
+      "aggressive": {
+        "runway_months": Infinity,
+        "additional_funding_needed": 0,
+        "profitable": true
+      }
+    },
+    "$300,000": {
+      "conservative": {
+        "runway_months": 19.48051948051948,
+        "additional_funding_needed": 184800.0,
+        "profitable": false
+      },
+      "moderate": {
+        "runway_months": 34.68208092485549,
+        "additional_funding_needed": 103800.0,
+        "profitable": false
+      },
+      "aggressive": {
+        "runway_months": Infinity,
+        "additional_funding_needed": 0,
+        "profitable": true
+      }
+    },
+    "$500,000": {
+      "conservative": {
+        "runway_months": 32.467532467532465,
+        "additional_funding_needed": 184800.0,
+        "profitable": false
+      },
+      "moderate": {
+        "runway_months": 57.80346820809248,
+        "additional_funding_needed": 103800.0,
+        "profitable": false
+      },
+      "aggressive": {
+        "runway_months": Infinity,
+        "additional_funding_needed": 0,
+        "profitable": true
+      }
+    }
+  },
+  "key_insights": {
+    "total_monthly_burn": 18400,
+    "break_even_revenue_needed": 18400,
+    "conservative_runway_300k": 19.48051948051948,
+    "moderate_runway_300k": 34.68208092485549,
+    "aggressive_runway_300k": Infinity,
+    "profitable_scenarios": [
+      "aggressive"
+    ]
+  },
+  "recommendations": {
+    "minimum_funding": 200000,
+    "optimal_funding": 300000,
+    "target_beta_customers": 15,
+    "target_avg_price": 750,
+    "break_even_timeline": "6-9 months"
+  }
+}

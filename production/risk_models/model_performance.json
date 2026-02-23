@@ -1,0 +1,48 @@
+{
+  "gradient_boosting": {
+    "accuracy": 0.999,
+    "precision": 0.9966777408637874,
+    "recall": 1.0,
+    "f1_score": 0.9983361064891847,
+    "auc_score": 1.0,
+    "cv_mean": 0.99874913013222,
+    "cv_std": 0.001667102451588105,
+    "training_time": 12.113197565078735
+  },
+  "xgboost": {
+    "accuracy": 1.0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1_score": 1.0,
+    "auc_score": 1.0,
+    "cv_mean": 1.0,
+    "cv_std": 0.0,
+    "training_time": 0.33136606216430664
+  },
+  "lightgbm": {
+    "accuracy": 0.998,
+    "precision": 0.9933774834437086,
+    "recall": 1.0,
+    "f1_score": 0.9966777408637874,
+    "auc_score": 1.0,
+    "cv_mean": 0.9983367983367983,
+    "cv_std": 0.0024245122223888757,
+    "training_time": 2.1613121032714844
+  },
+  "random_forest": {
+    "accuracy": 1.0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1_score": 1.0,
+    "auc_score": 1.0,
+    "cv_mean": 1.0,
+    "cv_std": 0.0,
+    "training_time": 0.42760562896728516
+  },
+  "voting_ensemble": {
+    "accuracy": 0.999,
+    "f1_score": 0.9983361064891847,
+    "auc_score": 1.0,
+    "is_ensemble": true
+  }
+}

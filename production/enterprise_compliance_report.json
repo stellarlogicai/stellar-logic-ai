@@ -1,0 +1,118 @@
+{
+  "report_timestamp": "2026-02-22T13:14:34.704770",
+  "compliance_summary": {
+    "total_frameworks": 3,
+    "average_compliance": 100.0,
+    "security_controls_compliance": 100.0,
+    "total_gaps": 0,
+    "remediation_cost": 0
+  },
+  "frameworks": {
+    "soc2": {
+      "name": "SOC2 Type II",
+      "version": "2017",
+      "status": "Implemented",
+      "compliance_percentage": 100.0,
+      "controls_implemented": 5,
+      "total_controls": 5,
+      "last_audit": "2025-08-26T13:14:34.704000",
+      "next_audit": "2026-08-21T13:14:34.704013",
+      "gaps": [],
+      "remediation_plan": []
+    },
+    "hipaa": {
+      "name": "HIPAA Security Rule",
+      "version": "2013",
+      "status": "Implemented",
+      "compliance_percentage": 100.0,
+      "controls_implemented": 3,
+      "total_controls": 3,
+      "last_audit": "2025-02-22T13:14:34.704366",
+      "next_audit": "2027-02-22T13:14:34.704369",
+      "gaps": [],
+      "remediation_plan": []
+    },
+    "pci": {
+      "name": "PCI DSS 4.0",
+      "version": "4.0",
+      "status": "Implemented",
+      "compliance_percentage": 100.0,
+      "controls_implemented": 6,
+      "total_controls": 6,
+      "last_audit": "2025-02-22T13:14:34.704631",
+      "next_audit": "2027-02-22T13:14:34.704635",
+      "gaps": [],
+      "remediation_plan": []
+    }
+  },
+  "security_controls": {
+    "access_control": {
+      "description": "Role-based access control with MFA",
+      "implemented": true,
+      "evidence": "RBAC system with MFA enforcement",
+      "test_date": "2026-02-22T13:14:34.699548",
+      "next_review": "2026-05-23T13:14:34.699572"
+    },
+    "encryption": {
+      "description": "Data encryption at rest and in transit",
+      "implemented": true,
+      "evidence": "AES-256 encryption, TLS 1.3",
+      "test_date": "2026-02-22T13:14:34.699579",
+      "next_review": "2026-08-21T13:14:34.699580"
+    },
+    "audit_logging": {
+      "description": "Comprehensive audit logging",
+      "implemented": true,
+      "evidence": "Centralized logging system with retention",
+      "test_date": "2026-02-22T13:14:34.699582",
+      "next_review": "2026-03-24T13:14:34.699582"
+    },
+    "incident_response": {
+      "description": "Security incident response procedures",
+      "implemented": true,
+      "evidence": "Documented IRP with tested procedures",
+      "test_date": "2026-02-22T13:14:34.699584",
+      "next_review": "2026-05-23T13:14:34.699584"
+    },
+    "vulnerability_management": {
+      "description": "Regular vulnerability scanning and patching",
+      "implemented": true,
+      "evidence": "Automated scanning with patch management",
+      "test_date": "2026-02-22T13:14:34.699586",
+      "next_review": "2026-03-24T13:14:34.699586"
+    },
+    "data_backup": {
+      "description": "Regular data backup and recovery",
+      "implemented": true,
+      "evidence": "Automated daily backups with offsite storage",
+      "test_date": "2026-02-22T13:14:34.699588",
+      "next_review": "2026-05-23T13:14:34.699588"
+    },
+    "network_security": {
+      "description": "Firewall and network segmentation",
+      "implemented": true,
+      "evidence": "Configured firewalls with network zones",
+      "test_date": "2026-02-22T13:14:34.699589",
+      "next_review": "2026-04-23T13:14:34.699590"
+    },
+    "employee_training": {
+      "description": "Security awareness training",
+      "implemented": true,
+      "evidence": "Quarterly security training program",
+      "test_date": "2026-02-22T13:14:34.699591",
+      "next_review": "2026-08-21T13:14:34.699591"
+    }
+  },
+  "compliance_targets": {
+    "soc2_target": 90.0,
+    "hipaa_target": 90.0,
+    "pci_target": 90.0,
+    "overall_target": 90.0
+  },
+  "targets_achieved": {
+    "soc2_target_met": true,
+    "hipaa_target_met": true,
+    "pci_target_met": true,
+    "overall_target_met": true
+  }
+}
