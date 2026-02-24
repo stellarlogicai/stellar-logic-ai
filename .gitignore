@@ -208,3 +208,6 @@ logs/
 
 # Poker game integration (keep separate)
 poker-game/
+
+# Local Netlify folder
+.netlify
