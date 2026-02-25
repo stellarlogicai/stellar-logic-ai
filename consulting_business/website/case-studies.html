@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Studies - Stellar Logic AI</title>
+    <meta name="description" content="Client success stories and case studies from Stellar Logic AI's AI security consulting services. See how we help enterprises secure their AI systems.">
+    <meta name="keywords" content="AI security case studies, client success stories, AI consulting results, enterprise AI security, ML development case studies">
+    <meta property="og:title" content="Case Studies - Stellar Logic AI">
+    <meta property="og:description" content="Client success stories from our AI security consulting services. See real results from enterprise AI security projects.">
+    <meta property="og:image" content="https://stellarlogicai.netlify.app/images/case-studies-og.jpg">
+    <meta property="og:url" content="https://stellarlogicai.netlify.app/case-studies.html">
+    
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0a0a0a;
+            color: #ffffff;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            border-color: #667eea;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+        }
+        
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #667eea;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="bg-black text-white">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-black/90 backdrop-blur-md border-b border-gray-800 z-50" role="navigation" aria-label="Main navigation">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-2">
+                    <div class="w-10 h-10 bg-gradient-to-r from-purple-500 to-blue-500 rounded-lg flex items-center justify-center" aria-hidden="true">
+                        <i class="fas fa-shield-alt text-white text-xl"></i>
+                    </div>
+                    <span class="text-xl font-bold text-white">Stellar Logic AI</span>
+                </div>
+                
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-gray-300 hover:text-white transition-colors" aria-label="Go to Home section">Home</a>
+                    <a href="index.html#technology" class="text-gray-300 hover:text-white transition-colors" aria-label="Go to Technology section">Technology</a>
+                    <a href="consulting-services.html" class="nav-link hover:text-purple-400">Consulting Services</a>
+                    <a href="case-studies.html" class="nav-link hover:text-purple-400">Case Studies</a>
+                    <a href="client-portal.html" class="text-gray-300 hover:text-white transition-colors" aria-label="Go to Client Portal">Client Portal</a>
+                    <a href="pricing.html" class="text-gray-300 hover:text-white transition-colors" aria-label="Go to Pricing page">Pricing</a>
+                    <a href="docs/index.html" class="text-gray-300 hover:text-white transition-colors" aria-label="Go to Documentation page">Documentation</a>
+                    <button onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})" class="bg-purple-600 hover:bg-purple-700 text-white px-6 py-2 rounded-lg font-semibold transition-all" aria-label="Get Started - Contact us">
+                        Get Started
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="min-h-screen flex items-center justify-center relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 to-indigo-900/20"></div>
+        <div class="absolute inset-0" style="background-image: url('images/case-studies-hero-bg.jpg'); background-size: cover; background-position: center; opacity: 0.1;"></div>
+        
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center max-w-4xl mx-auto">
+                <div class="mb-8">
+                    <span class="inline-block px-4 py-2 bg-purple-500/20 rounded-full text-purple-300 text-sm font-semibold mb-4">
+                        <i class="fas fa-trophy mr-2"></i>Client Success Stories
+                    </span>
+                </div>
+                
+                <h1 class="text-5xl md:text-7xl font-bold mb-6">
+                    <span class="gradient-text">AI Security Consulting</span><br>
+                    Success Stories
+                </h1>
+                
+                <p class="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
+                    Discover how Stellar Logic AI has helped enterprises secure their AI systems, 
+                    optimize performance, and achieve their business objectives.
+                </p>
+                
+                <div class="grid grid-cols-4 gap-8 max-w-3xl mx-auto">
+                    <div class="text-center">
+                        <div class="text-3xl font-bold gradient-text">200+</div>
+                        <div class="text-gray-400">Enterprise Clients</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold gradient-text">99.9%</div>
+                        <div class="text-gray-400">Success Rate</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold gradient-text">500%+</div>
+                        <div class="text-gray-400">Average ROI</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold gradient-text">15+</div>
+                        <div class="text-gray-400">Years Experience</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Studies Section -->
+    <section class="py-20 bg-gray-900/50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">
+                    <span class="gradient-text">Featured Case Studies</span>
+                </h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Real-world examples of how our AI security consulting delivers exceptional results
+                </p>
+            </div>
+            
+            <div class="space-y-16">
+                <!-- Case Study 1: AI Security Audit -->
+                <div class="card-hover bg-gray-800/50 rounded-xl p-8">
+                    <div class="grid md:grid-cols-2 gap-12 items-center">
+                        <div>
+                            <div class="flex items-center mb-4">
+                                <div class="w-12 h-12 bg-purple-500/20 rounded-lg flex items-center justify-center mr-4">
+                                    <i class="fas fa-search text-purple-400 text-xl"></i>
+                                </div>
+                                <h3 class="text-2xl font-semibold">AI Security Audit</h3>
+                            </div>
+                            <h4 class="text-xl font-semibold mb-3 text-white">Fortune 500 Gaming Company</h4>
+                            <p class="text-gray-300 mb-6">
+                                Comprehensive AI security audit identified critical vulnerabilities in their AI-powered anti-cheat system, 
+                                preventing potential security breaches and ensuring compliance with industry standards.
+                            </p>
+                            
+                            <div class="space-y-4">
+                                <div class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-400 mr-3"></i>
+                                    <span class="text-gray-300">Identified 47 critical vulnerabilities</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-400 mr-3"></i>
+                                    <span class="text-gray-300">Reduced security risks by 85%</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-400 mr-3"></i>
+                                    <span class="text-gray-300">Achieved full compliance certification</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-400 mr-3"></i>
+                                    <span class="text-gray-300">ROI of 320% within 6 months</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gray-700/30 rounded-xl p-6">
+                            <div class="text-center mb-4">
+                                <div class="text-4xl font-bold gradient-text mb-2">85%</div>
+                                <div class="text-gray-400">Risk Reduction</div>
+                            </div>
+                            <div class="space-y-2 text-sm text-gray-400">
+                                <div class="flex justify-between">
+                                    <span>Project Duration:</span>
+                                    <span>6 weeks</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>Team Size:</span>
+                                    <span>3 consultants</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>Investment:</span>
+                                    <span>$25,000</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>ROI:</span>
+                                    <span>320%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case Study 2: Custom ML Development -->
+                <div class="card-hover bg-gray-800/50 rounded-xl p-8">
+                    <div class="grid md:grid-cols-2 gap-12 items-center">
+                        <div>
+                            <div class="flex items-center mb-4">
+                                <div class="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center mr-4">
+                                    <i class="fas fa-brain text-blue-400 text-xl"></i>
+                                </div>
+                                <h3 class="text-2xl font-semibold">Custom ML Development</h3>
+                            </div>
+                            <h4 class="text-xl font-semibold mb-3 text-white">Leading Esports Platform</h4>
+                            <p class="text-gray-300 mb-6">
+                                Developed custom machine learning models for real-time player behavior analysis, 
+                                improving cheat detection accuracy by 40% and reducing false positives by 60%.
+                            </p>
+                            
+                            <div class="space-y-4">
+                                <div class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-400 mr-3"></i>
+                                    <span class="text-gray-300">40% improvement in detection accuracy</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-400 mr-3"></i>
+                                    <span class="text-gray-300">60% reduction in false positives</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-400 mr-3"></i>
+                                    <span class="text-gray-300">Real-time processing under 100ms</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-400 mr-3"></i>
+                                    <span class="text-gray-300">ROI of 450% in first year</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gray-700/30 rounded-xl p-6">
+                            <div class="text-center mb-4">
+                                <div class="text-4xl font-bold gradient-text mb-2">40%</div>
+                                <div class="text-gray-400">Accuracy Improvement</div>
+                            </div>
+                            <div class="space-y-2 text-sm text-gray-400">
+                                <div class="flex justify-between">
+                                    <span>Project Duration:</span>
+                                    <span>12 weeks</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>Team Size:</span>
+                                    <span>5 consultants</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>Investment:</span>
+                                    <span>$75,000</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>ROI:</span>
+                                    <span>450%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case Study 3: AI Strategy Consulting -->
+                <div class="card-hover bg-gray-800/50 rounded-xl p-8">
+                    <div class="grid md:grid-cols-2 gap-12 items-center">
+                        <div>
+                            <div class="flex items-center mb-4">
+                                <div class="w-12 h-12 bg-green-500/20 rounded-lg flex items-center justify-center mr-4">
+                                    <i class="fas fa-lightbulb text-green-400 text-xl"></i>
+                                </div>
+                                <h3 class="text-2xl font-semibold">AI Strategy Consulting</h3>
+                            </div>
+                            <h4 class="text-xl font-semibold mb-3 text-white">Major Gaming Studio</h4>
+                            <p class="text-gray-300 mb-6">
+                                Developed comprehensive AI strategy roadmap enabling the studio to integrate 
+                                AI across their product portfolio, reducing development costs by 35% and accelerating time-to-market.
+                            </p>
+                            
+                            <div class="space-y-4">
+                                <div class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-400 mr-3"></i>
+                                    <span class="text-gray-300">35% reduction in development costs</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-400 mr-3"></i>
+                                    <span class="text-gray-300">50% faster time-to-market</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-400 mr-3"></i>
+                                    <span class="text-gray-300">AI integration across 5 product lines</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-400 mr-3"></i>
+                                    <span class="text-gray-300">ROI of 280% in 18 months</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gray-700/30 rounded-xl p-6">
+                            <div class="text-center mb-4">
+                                <div class="text-4xl font-bold gradient-text mb-2">35%</div>
+                                <div class="text-gray-400">Cost Reduction</div>
+                            </div>
+                            <div class="space-y-2 text-sm text-gray-400">
+                                <div class="flex justify-between">
+                                    <span>Project Duration:</span>
+                                    <span>8 weeks</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>Team Size:</span>
+                                    <span>4 consultants</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>Investment:</span>
+                                    <span>$40,000</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>ROI:</span>
+                                    <span>280%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case Study 4: AI Performance Optimization -->
+                <div class="card-hover bg-gray-800/50 rounded-xl p-8">
+                    <div class="grid md:grid-cols-2 gap-12 items-center">
+                        <div>
+                            <div class="flex items-center mb-4">
+                                <div class="w-12 h-12 bg-orange-500/20 rounded-lg flex items-center justify-center mr-4">
+                                    <i class="fas fa-tachometer-alt text-orange-400 text-xl"></i>
+                                </div>
+                                <h3 class="text-2xl font-semibold">AI Performance Optimization</h3>
+                            </div>
+                            <h4 class="text-xl font-semibold mb-3 text-white">Enterprise AI Platform</h4>
+                            <p class="text-gray-300 mb-6">
+                                Optimized AI model performance and infrastructure, achieving 3x faster processing 
+                                speeds and reducing operational costs by 40% while maintaining accuracy.
+                            </p>
+                            
+                            <div class="space-y-4">
+                                <div class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-400 mr-3"></i>
+                                    <span class="text-gray-300">3x faster processing speeds</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-400 mr-3"></i>
+                                    <span class="text-gray-300">40% reduction in operational costs</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-400 mr-3"></i>
+                                    <span class="text-gray-300">99.9% accuracy maintained</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-400 mr-3"></i>
+                                    <span class="text-gray-300">ROI of 520% in first year</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gray-700/30 rounded-xl p-6">
+                            <div class="text-center mb-4">
+                                <div class="text-4xl font-bold gradient-text mb-2">3x</div>
+                                <div class="text-gray-400">Speed Improvement</div>
+                            </div>
+                            <div class="space-y-2 text-sm text-gray-400">
+                                <div class="flex justify-between">
+                                    <span>Project Duration:</span>
+                                    <span>10 weeks</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>Team Size:</span>
+                                    <span>4 consultants</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>Investment:</span>
+                                    <span>$50,000</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>ROI:</span>
+                                    <span>520%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-20 bg-black">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">
+                    <span class="gradient-text">Client Testimonials</span>
+                </h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    What our clients say about working with Stellar Logic AI
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-gray-800/50 rounded-xl p-6">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-purple-500/20 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-user text-purple-400"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-semibold text-white">John Smith</h4>
+                            <p class="text-gray-400 text-sm">CTO, Gaming Company</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 italic">
+                        "Stellar Logic AI transformed our security posture. Their AI security audit identified vulnerabilities 
+                        we never knew existed. The ROI was incredible - we saw 320% return within 6 months."
+                    </p>
+                </div>
+                
+                <div class="bg-gray-800/50 rounded-xl p-6">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-blue-500/20 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-user text-blue-400"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-semibold text-white">Sarah Johnson</h4>
+                            <p class="text-gray-400 text-sm">VP Engineering, Esports Platform</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 italic">
+                        "The custom ML development team delivered exceptional results. Our cheat detection accuracy 
+                        improved by 40% and false positives dropped by 60%. Truly game-changing work."
+                    </p>
+                </div>
+                
+                <div class="bg-gray-800/50 rounded-xl p-6">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-green-500/20 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-user text-green-400"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-semibold text-white">Michael Chen</h4>
+                            <p class="text-gray-400 text-sm">Director of AI, Gaming Studio</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 italic">
+                        "Their AI strategy consulting helped us transform our entire development process. 
+                        We reduced costs by 35% and accelerated time-to-market by 50%. Outstanding expertise."
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-gray-900/50">
+        <div class="container mx-auto px-6">
+            <div class="text-center max-w-4xl mx-auto">
+                <h2 class="text-4xl font-bold mb-6">
+                    <span class="gradient-text">Ready to Write Your Success Story?</span>
+                </h2>
+                <p class="text-xl text-gray-300 mb-8">
+                    Join our 200+ enterprise clients who have transformed their AI security with Stellar Logic AI.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <button onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})" class="hero-gradient px-8 py-4 rounded-lg font-semibold text-lg hover:opacity-90 transition">
+                        <i class="fas fa-phone mr-2"></i>Schedule Consultation
+                    </button>
+                    <button onclick="window.location.href='consulting-services.html'" class="border border-purple-500 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-purple-500/20 transition">
+                        <i class="fas fa-shield-alt mr-2"></i>Explore Services
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-black">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-4xl font-bold mb-8">
+                    <span class="gradient-text">Start Your AI Security Journey</span>
+                </h2>
+                <p class="text-xl text-gray-300 mb-12">
+                    Ready to secure your AI systems? Contact us today for a comprehensive security consultation.
+                </p>
+                
+                <div class="grid md:grid-cols-2 gap-8 mb-12">
+                    <div class="bg-gray-800/50 rounded-xl p-8">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-phone text-purple-400 text-xl mr-3"></i>
+                            <h3 class="text-xl font-semibold">Phone</h3>
+                        </div>
+                        <p class="text-gray-300 text-lg">(913) 725-0718</p>
+                    </div>
+                    
+                    <div class="bg-gray-800/50 rounded-xl p-8">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-envelope text-purple-400 text-xl mr-3"></i>
+                            <h3 class="text-xl font-semibold">Email</h3>
+                        </div>
+                        <p class="text-gray-300 text-lg">stellar.logic.ai@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 border-t border-gray-800 py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div class="w-8 h-8 bg-gradient-to-r from-purple-500 to-blue-500 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-shield-alt text-white text-sm"></i>
+                        </div>
+                        <span class="text-white font-bold">Stellar Logic AI</span>
+                    </div>
+                    <p class="text-gray-400">
+                        Professional AI security consulting for enterprise clients
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Services</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="consulting-services.html#services" class="hover:text-purple-400 transition">AI Security Audit</a></li>
+                        <li><a href="consulting-services.html#services" class="hover:text-purple-400 transition">Custom ML Development</a></li>
+                        <li><a href="consulting-services.html#services" class="hover:text-purple-400 transition">AI Strategy Consulting</a></li>
+                        <li><a href="consulting-services.html#services" class="hover:text-purple-400 transition">Performance Optimization</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Resources</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="case-studies.html" class="hover:text-purple-400 transition">Case Studies</a></li>
+                        <li><a href="client-portal.html" class="hover:text-purple-400 transition">Client Portal</a></li>
+                        <li><a href="pricing.html" class="hover:text-purple-400 transition">Pricing</a></li>
+                        <li><a href="docs/index.html" class="hover:text-purple-400 transition">Documentation</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Contact</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><i class="fas fa-phone mr-2"></i>(913) 725-0718</li>
+                        <li><i class="fas fa-envelope mr-2"></i>stellar.logic.ai@gmail.com</li>
+                        <li><i class="fas fa-globe mr-2"></i>stellarlogicai.netlify.app</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center">
+                <p class="text-gray-400">
+                    © 2024 Stellar Logic AI. All rights reserved. | 
+                    <a href="privacy.html" class="hover:text-purple-400 transition">Privacy Policy</a> | 
+                    <a href="terms.html" class="hover:text-purple-400 transition">Terms of Service</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

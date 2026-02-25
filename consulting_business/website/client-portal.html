@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Portal - Stellar Logic AI</title>
+    <meta name="description" content="Secure client portal for Stellar Logic AI clients. Access project documents, track progress, and manage your AI security consulting projects.">
+    <meta name="keywords" content="client portal, secure login, project management, document sharing, AI security consulting client access">
+    <meta property="og:title" content="Client Portal - Stellar Logic AI">
+    <meta property="og:description" content="Secure client portal for accessing project documents and tracking AI security consulting progress.">
+    <meta property="og:image" content="https://stellarlogicai.netlify.app/images/client-portal-og.jpg">
+    <meta property="og:url" content="https://stellarlogicai.netlify.app/client-portal.html">
+    
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0a0a0a;
+            color: #ffffff;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            border-color: #667eea;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+        }
+        
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #667eea;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .login-form {
+            backdrop-filter: blur(10px);
+            background: rgba(10, 10, 10, 0.9);
+        }
+        
+        .feature-icon {
+            transition: all 0.3s ease;
+        }
+        
+        .feature-card:hover .feature-icon {
+            transform: scale(1.1);
+            color: #667eea;
+        }
+    </style>
+</head>
+<body class="bg-black text-white">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-black/90 backdrop-blur-md border-b border-gray-800 z-50" role="navigation" aria-label="Main navigation">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-2">
+                    <div class="w-10 h-10 bg-gradient-to-r from-purple-500 to-blue-500 rounded-lg flex items-center justify-center" aria-hidden="true">
+                        <i class="fas fa-shield-alt text-white text-xl"></i>
+                    </div>
+                    <span class="text-xl font-bold text-white">Stellar Logic AI</span>
+                </div>
+                
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-gray-300 hover:text-white transition-colors" aria-label="Go to Home section">Home</a>
+                    <a href="index.html#technology" class="text-gray-300 hover:text-white transition-colors" aria-label="Go to Technology section">Technology</a>
+                    <a href="consulting-services.html" class="nav-link hover:text-purple-400">Consulting Services</a>
+                    <a href="case-studies.html" class="text-gray-300 hover:text-white transition-colors" aria-label="Go to Case Studies page">Case Studies</a>
+                    <a href="client-portal.html" class="nav-link hover:text-purple-400">Client Portal</a>
+                    <a href="pricing.html" class="text-gray-300 hover:text-white transition-colors" aria-label="Go to Pricing page">Pricing</a>
+                    <a href="docs/index.html" class="text-gray-300 hover:text-white transition-colors" aria-label="Go to Documentation page">Documentation</a>
+                    <button onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})" class="bg-purple-600 hover:bg-purple-700 text-white px-6 py-2 rounded-lg font-semibold transition-all" aria-label="Get Started - Contact us">
+                        Get Started
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="min-h-screen flex items-center justify-center relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 to-indigo-900/20"></div>
+        <div class="absolute inset-0" style="background-image: url('images/portal-hero-bg.jpg'); background-size: cover; background-position: center; opacity: 0.1;"></div>
+        
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-12">
+                    <div class="mb-8">
+                        <span class="inline-block px-4 py-2 bg-purple-500/20 rounded-full text-purple-300 text-sm font-semibold mb-4">
+                            <i class="fas fa-lock mr-2"></i>Secure Client Portal
+                        </span>
+                    </div>
+                    
+                    <h1 class="text-5xl md:text-7xl font-bold mb-6">
+                        <span class="gradient-text">Client Portal</span>
+                    </h1>
+                    
+                    <p class="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+                        Access your project documents, track progress, and manage your AI security consulting services 
+                        in our secure client portal.
+                    </p>
+                </div>
+                
+                <!-- Login Form -->
+                <div class="max-w-md mx-auto">
+                    <div class="login-form rounded-xl p-8 border border-gray-800">
+                        <div class="text-center mb-6">
+                            <div class="w-16 h-16 bg-purple-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-user-shield text-purple-400 text-2xl"></i>
+                            </div>
+                            <h2 class="text-2xl font-semibold mb-2">Client Login</h2>
+                            <p class="text-gray-400">Access your secure project portal</p>
+                        </div>
+                        
+                        <form class="space-y-6">
+                            <div>
+                                <label class="block text-gray-300 mb-2">Email Address</label>
+                                <input type="email" required class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-white" placeholder="your.email@company.com">
+                            </div>
+                            
+                            <div>
+                                <label class="block text-gray-300 mb-2">Password</label>
+                                <input type="password" required class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-white" placeholder="Enter your password">
+                            </div>
+                            
+                            <div class="flex items-center justify-between">
+                                <label class="flex items-center">
+                                    <input type="checkbox" class="mr-2 bg-gray-700 border-gray-600 rounded">
+                                    <span class="text-gray-300 text-sm">Remember me</span>
+                                </label>
+                                <a href="#" class="text-purple-400 hover:text-purple-300 text-sm">Forgot password?</a>
+                            </div>
+                            
+                            <button type="submit" class="w-full hero-gradient py-3 rounded-lg font-semibold text-lg hover:opacity-90 transition">
+                                <i class="fas fa-sign-in-alt mr-2"></i>
+                                Sign In to Portal
+                            </button>
+                        </form>
+                        
+                        <div class="mt-6 text-center">
+                            <p class="text-gray-400 text-sm">
+                                Don't have an account? 
+                                <a href="#contact" class="text-purple-400 hover:text-purple-300">Contact us to get started</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-20 bg-gray-900/50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">
+                    <span class="gradient-text">Portal Features</span>
+                </h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Everything you need to manage your AI security consulting projects
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="feature-card card-hover bg-gray-800/50 rounded-xl p-6">
+                    <div class="feature-icon w-16 h-16 bg-purple-500/20 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-folder text-purple-400 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Document Management</h3>
+                    <p class="text-gray-400">
+                        Secure access to all project documents, contracts, and deliverables with version control 
+                        and real-time updates.
+                    </p>
+                </div>
+                
+                <div class="feature-card card-hover bg-gray-800/50 rounded-xl p-6">
+                    <div class="feature-icon w-16 h-16 bg-blue-500/20 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-chart-line text-blue-400 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Project Tracking</h3>
+                    <p class="text-gray-400">
+                        Real-time project progress tracking, milestone monitoring, and timeline visualization 
+                        for complete transparency.
+                    </p>
+                </div>
+                
+                <div class="feature-card card-hover bg-gray-800/50 rounded-xl p-6">
+                    <div class="feature-icon w-16 h-16 bg-green-500/20 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-comments text-green-400 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Secure Communication</h3>
+                    <p class="text-gray-400">
+                        Encrypted messaging and file sharing with your consulting team for 
+                        confidential project discussions.
+                    </p>
+                </div>
+                
+                <div class="feature-card card-hover bg-gray-800/50 rounded-xl p-6">
+                    <div class="feature-icon w-16 h-16 bg-orange-500/20 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-file-invoice text-orange-400 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Invoice Management</h3>
+                    <p class="text-gray-400">
+                        View and pay invoices online, track payment history, and manage billing 
+                        information securely.
+                    </p>
+                </div>
+                
+                <div class="feature-card card-hover bg-gray-800/50 rounded-xl p-6">
+                    <div class="feature-icon w-16 h-16 bg-red-500/20 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-shield-alt text-red-400 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Security & Compliance</h3>
+                    <p class="text-gray-400">
+                        Enterprise-grade security with two-factor authentication, encryption, 
+                        and compliance with data protection regulations.
+                    </p>
+                </div>
+                
+                <div class="feature-card card-hover bg-gray-800/50 rounded-xl p-6">
+                    <div class="feature-icon w-16 h-16 bg-indigo-500/20 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-mobile-alt text-indigo-400 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Mobile Access</h3>
+                    <p class="text-gray-400">
+                        Full mobile responsiveness and dedicated mobile app for accessing your portal 
+                        anytime, anywhere.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Security Section -->
+    <section class="py-20 bg-black">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold mb-4">
+                        <span class="gradient-text">Enterprise-Grade Security</span>
+                    </h2>
+                    <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                        Your data and project information are protected with industry-leading security measures
+                    </p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-12">
+                    <div class="space-y-8">
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 bg-purple-500/20 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                                <i class="fas fa-lock text-purple-400 text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold mb-2">End-to-End Encryption</h3>
+                                <p class="text-gray-400">
+                                    All data transmitted and stored using AES-256 encryption for maximum security.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                                <i class="fas fa-user-shield text-blue-400 text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold mb-2">Two-Factor Authentication</h3>
+                                <p class="text-gray-400">
+                                    Optional 2FA for enhanced account security and unauthorized access prevention.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 bg-green-500/20 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                                <i class="fas fa-history text-green-400 text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold mb-2">Audit Logs</h3>
+                                <p class="text-gray-400">
+                                    Comprehensive activity logging and monitoring for security and compliance.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-8">
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 bg-orange-500/20 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                                <i class="fas fa-certificate text-orange-400 text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold mb-2">SOC 2 Compliance</h3>
+                                <p class="text-gray-400">
+                                    SOC 2 Type II certified for enterprise security standards compliance.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 bg-red-500/20 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                                <i class="fas fa-database text-red-400 text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold mb-2">Regular Backups</h3>
+                                <p class="text-gray-400">
+                                    Automated daily backups with geographic redundancy for data protection.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 bg-indigo-500/20 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                                <i class="fas fa-user-secret text-indigo-400 text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold mb-2">Privacy Protection</h3>
+                                <p class="text-gray-400">
+                                    GDPR and CCPA compliant with strict privacy protection measures.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Support Section -->
+    <section class="py-20 bg-gray-900/50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">
+                    <span class="gradient-text">24/7 Support</span>
+                </h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Need help with the client portal? Our support team is available around the clock
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-gray-800/50 rounded-xl p-6 text-center">
+                    <div class="w-16 h-16 bg-purple-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-headset text-purple-400 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Live Chat Support</h3>
+                    <p class="text-gray-400 mb-4">
+                        Get instant help from our support team via live chat
+                    </p>
+                    <button class="bg-purple-600 hover:bg-purple-700 text-white px-6 py-2 rounded-lg font-semibold transition">
+                        Start Chat
+                    </button>
+                </div>
+                
+                <div class="bg-gray-800/50 rounded-xl p-6 text-center">
+                    <div class="w-16 h-16 bg-blue-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-envelope text-blue-400 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Email Support</h3>
+                    <p class="text-gray-400 mb-4">
+                        Send us an email and we'll respond within 4 hours
+                    </p>
+                    <a href="mailto:support@stellarlogic.ai" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-semibold transition inline-block">
+                        Send Email
+                    </a>
+                </div>
+                
+                <div class="bg-gray-800/50 rounded-xl p-6 text-center">
+                    <div class="w-16 h-16 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-phone text-green-400 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Phone Support</h3>
+                    <p class="text-gray-400 mb-4">
+                        Call us for immediate assistance with your portal access
+                    </p>
+                    <a href="tel:+19137250718" class="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-lg font-semibold transition inline-block">
+                        (913) 725-0718
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-black">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-4xl font-bold mb-8">
+                    <span class="gradient-text">Need Portal Access?</span>
+                </h2>
+                <p class="text-xl text-gray-300 mb-12">
+                    Contact us to set up your client portal account and start managing your AI security projects efficiently.
+                </p>
+                
+                <div class="grid md:grid-cols-2 gap-8 mb-12">
+                    <div class="bg-gray-800/50 rounded-xl p-8">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-phone text-purple-400 text-xl mr-3"></i>
+                            <h3 class="text-xl font-semibold">Phone</h3>
+                        </div>
+                        <p class="text-gray-300 text-lg">(913) 725-0718</p>
+                    </div>
+                    
+                    <div class="bg-gray-800/50 rounded-xl p-8">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-envelope text-purple-400 text-xl mr-3"></i>
+                            <h3 class="text-xl font-semibold">Email</h3>
+                        </div>
+                        <p class="text-gray-300 text-lg">stellar.logic.ai@gmail.com</p>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-800/50 rounded-xl p-8">
+                    <h3 class="text-xl font-semibold mb-6">Request Portal Access</h3>
+                    <form class="space-y-6">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-gray-300 mb-2">First Name *</label>
+                                <input type="text" required class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-white">
+                            </div>
+                            <div>
+                                <label class="block text-gray-300 mb-2">Last Name *</label>
+                                <input type="text" required class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-white">
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-gray-300 mb-2">Company *</label>
+                            <input type="text" required class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-white">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-gray-300 mb-2">Email *</label>
+                            <input type="email" required class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-white">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-gray-300 mb-2">Message</label>
+                            <textarea rows="4" class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-white" placeholder="Tell us about your project and portal access needs..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="w-full hero-gradient py-4 rounded-lg font-semibold text-lg hover:opacity-90 transition">
+                            <i class="fas fa-paper-plane mr-2"></i>
+                            Request Portal Access
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 border-t border-gray-800 py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div class="w-8 h-8 bg-gradient-to-r from-purple-500 to-blue-500 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-shield-alt text-white text-sm"></i>
+                        </div>
+                        <span class="text-white font-bold">Stellar Logic AI</span>
+                    </div>
+                    <p class="text-gray-400">
+                        Professional AI security consulting for enterprise clients
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Services</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="consulting-services.html#services" class="hover:text-purple-400 transition">AI Security Audit</a></li>
+                        <li><a href="consulting-services.html#services" class="hover:text-purple-400 transition">Custom ML Development</a></li>
+                        <li><a href="consulting-services.html#services" class="hover:text-purple-400 transition">AI Strategy Consulting</a></li>
+                        <li><a href="consulting-services.html#services" class="hover:text-purple-400 transition">Performance Optimization</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Resources</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="case-studies.html" class="hover:text-purple-400 transition">Case Studies</a></li>
+                        <li><a href="client-portal.html" class="hover:text-purple-400 transition">Client Portal</a></li>
+                        <li><a href="pricing.html" class="hover:text-purple-400 transition">Pricing</a></li>
+                        <li><a href="docs/index.html" class="hover:text-purple-400 transition">Documentation</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Contact</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><i class="fas fa-phone mr-2"></i>(913) 725-0718</li>
+                        <li><i class="fas fa-envelope mr-2"></i>stellar.logic.ai@gmail.com</li>
+                        <li><i class="fas fa-globe mr-2"></i>stellarlogicai.netlify.app</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center">
+                <p class="text-gray-400">
+                    © 2024 Stellar Logic AI. All rights reserved. | 
+                    <a href="privacy.html" class="hover:text-purple-400 transition">Privacy Policy</a> | 
+                    <a href="terms.html" class="hover:text-purple-400 transition">Terms of Service</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Form submission handler
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(e.target);
+            const data = Object.fromEntries(formData);
+            
+            // Here you would typically send this to your backend
+            // For now, we'll show a success message
+            alert('Thank you for your portal access request! We will contact you within 24 hours to set up your account.');
+            
+            // Reset form
+            e.target.reset();
+        });
+        
+        // Smooth scroll for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

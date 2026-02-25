@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing - Stellar Logic AI</title>
+    <meta name="description" content="Transparent pricing for AI security consulting services. Professional AI security audit, custom ML development, AI strategy consulting, and performance optimization packages.">
+    <meta name="keywords" content="AI security pricing, consulting rates, ML development cost, AI strategy consulting fees, performance optimization pricing">
+    <meta property="og:title" content="Pricing - Stellar Logic AI">
+    <meta property="og:description" content="Transparent pricing for professional AI security consulting services.">
+    <meta property="og:image" content="https://stellarlogicai.netlify.app/images/pricing-og.jpg">
+    <meta property="og:url" content="https://stellarlogicai.netlify.app/pricing.html">
+    
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0a0a0a;
+            color: #ffffff;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            border-color: #667eea;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+        }
+        
+        .pricing-card {
+            transition: all 0.3s ease;
+        }
+        
+        .pricing-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.3);
+        }
+        
+        .popular-badge {
+            position: absolute;
+            top: -12px;
+            right: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #667eea;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="bg-black text-white">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-black/90 backdrop-blur-md border-b border-gray-800 z-50" role="navigation" aria-label="Main navigation">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-2">
+                    <div class="w-10 h-10 bg-gradient-to-r from-purple-500 to-blue-500 rounded-lg flex items-center justify-center" aria-hidden="true">
+                        <i class="fas fa-shield-alt text-white text-xl"></i>
+                    </div>
+                    <span class="text-xl font-bold text-white">Stellar Logic AI</span>
+                </div>
+                
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-gray-300 hover:text-white transition-colors" aria-label="Go to Home section">Home</a>
+                    <a href="index.html#technology" class="text-gray-300 hover:text-white transition-colors" aria-label="Go to Technology section">Technology</a>
+                    <a href="consulting-services.html" class="nav-link hover:text-purple-400">Consulting Services</a>
+                    <a href="case-studies.html" class="text-gray-300 hover:text-white transition-colors" aria-label="Go to Case Studies page">Case Studies</a>
+                    <a href="client-portal.html" class="text-gray-300 hover:text-white transition-colors" aria-label="Go to Client Portal">Client Portal</a>
+                    <a href="pricing.html" class="nav-link hover:text-purple-400">Pricing</a>
+                    <a href="docs/index.html" class="text-gray-300 hover:text-white transition-colors" aria-label="Go to Documentation page">Documentation</a>
+                    <button onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})" class="bg-purple-600 hover:bg-purple-700 text-white px-6 py-2 rounded-lg font-semibold transition-all" aria-label="Get Started - Contact us">
+                        Get Started
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="min-h-screen flex items-center justify-center relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 to-indigo-900/20"></div>
+        <div class="absolute inset-0" style="background-image: url('images/pricing-hero-bg.jpg'); background-size: cover; background-position: center; opacity: 0.1;"></div>
+        
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center max-w-4xl mx-auto">
+                <div class="mb-8">
+                    <span class="inline-block px-4 py-2 bg-purple-500/20 rounded-full text-purple-300 text-sm font-semibold mb-4">
+                        <i class="fas fa-dollar-sign mr-2"></i>Transparent Pricing
+                    </span>
+                </div>
+                
+                <h1 class="text-5xl md:text-7xl font-bold mb-6">
+                    <span class="gradient-text">AI Security Consulting</span><br>
+                    Pricing Plans
+                </h1>
+                
+                <p class="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
+                    Flexible pricing packages designed to meet your enterprise AI security needs. 
+                    No hidden fees, just transparent, value-driven pricing.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+                    <button onclick="document.getElementById('ai-security-audit').scrollIntoView({behavior: 'smooth'})" class="hero-gradient px-8 py-4 rounded-lg font-semibold text-lg hover:opacity-90 transition">
+                        <i class="fas fa-search mr-2"></i>View AI Audit Pricing
+                    </button>
+                    <button onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})" class="border border-purple-500 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-purple-500/20 transition">
+                        <i class="fas fa-phone mr-2"></i>Get Custom Quote
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Security Audit Pricing -->
+    <section id="ai-security-audit" class="py-20 bg-gray-900/50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">
+                    <span class="gradient-text">AI Security Audit</span>
+                </h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Comprehensive AI system security assessments tailored to your needs
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <!-- Basic Package -->
+                <div class="pricing-card bg-gray-800/50 rounded-xl p-8 relative">
+                    <div class="text-center mb-8">
+                        <h3 class="text-2xl font-semibold mb-2">Basic Audit</h3>
+                        <div class="text-4xl font-bold gradient-text mb-2">$5,000</div>
+                        <p class="text-gray-400">Essential security assessment</p>
+                    </div>
+                    
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-400 mt-1 mr-3 flex-shrink-0"></i>
+                            <span class="text-gray-300">Basic AI system vulnerability scan</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-400 mt-1 mr-3 flex-shrink-0"></i>
+                            <span class="text-gray-300">Security architecture review</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-400 mt-1 mr-3 flex-shrink-0"></i>
+                            <span class="text-gray-300">Basic compliance check</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-400 mt-1 mr-3 flex-shrink-0"></i>
+                            <span class="text-gray-300">Executive summary report</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-400 mt-1 mr-3 flex-shrink-0"></i>
+                            <span class="text-gray-300">5-day project timeline</span>
+                        </li>
+                    </ul>
+                    
+                    <button onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})" class="w-full bg-gray-700 hover:bg-gray-600 text-white py-3 rounded-lg font-semibold transition">
+                        Get Started
+                    </button>
+                </div>
+
+                <!-- Professional Package -->
+                <div class="pricing-card bg-gray-800/50 rounded-xl p-8 relative border-2 border-purple-500">
+                    <div class="popular-badge">Most Popular</div>
+                    <div class="text-center mb-8">
+                        <h3 class="text-2xl font-semibold mb-2">Professional Audit</h3>
+                        <div class="text-4xl font-bold gradient-text mb-2">$15,000</div>
+                        <p class="text-gray-400">Comprehensive security assessment</p>
+                    </div>
+                    
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-400 mt-1 mr-3 flex-shrink-0"></i>
+                            <span class="text-gray-300">Advanced vulnerability assessment</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-400 mt-1 mr-3 flex-shrink-0"></i>
+                            <span class="text-gray-300">Deep security architecture analysis</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-400 mt-1 mr-3 flex-shrink-0"></i>
+                            <span class="text-gray-300">Threat modeling & risk analysis</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-400 mt-1 mr-3 flex-shrink-0"></i>
+                            <span class="text-gray-300">Comprehensive compliance review</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-400 mt-1 mr-3 flex-shrink-0"></i>
+                            <span class="text-gray-300">Detailed remediation roadmap</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-400 mt-1 mr-3 flex-shrink-0"></i>
+                            <span class="text-gray-300">2-week project timeline</span>
+                        </li>
+                    </ul>
+                    
+                    <button onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})" class="w-full hero-gradient py-3 rounded-lg font-semibold transition">
+                        Get Started
+                    </button>
+                </div>
+
+                <!-- Enterprise Package -->
+                <div class="pricing-card bg-gray-800/50 rounded-xl p-8 relative">
+                    <div class="text-center mb-8">
+                        <h3 class="text-2xl font-semibold mb-2">Enterprise Audit</h3>
+                        <div class="text-4xl font-bold gradient-text mb-2">$25,000+</div>
+                        <p class="text-gray-400">Complete enterprise security solution</p>
+                    </div>
+                    
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-400 mt-1 mr-3 flex-shrink-0"></i>
+                            <span class="text-gray-300">Full-spectrum vulnerability assessment</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-400 mt-1 mr-3 flex-shrink-0"></i>
+                            <span class="text-gray-300">Enterprise architecture review</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-400 mt-1 mr-3 flex-shrink-0"></i>
+                            <span class="text-gray-300">Advanced threat intelligence</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-400 mt-1 mr-3 flex-shrink-0"></i>
+                            <span class="text-gray-300">Multi-regulatory compliance</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-400 mt-1 mr-3 flex-shrink-0"></i>
+                            <span class="text-gray-300">Implementation support</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-400 mt-1 mr-3 flex-shrink-0"></i>
+                            <span class="text-gray-300">Custom timeline (3-4 weeks)</span>
+                        </li>
+                    </ul>
+                    
+                    <button onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})" class="w-full bg-gray-700 hover:bg-gray-600 text-white py-3 rounded-lg font-semibold transition">
+                        Get Custom Quote
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Custom ML Development Pricing -->
+    <section class="py-20 bg-black">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">
+                    <span class="gradient-text">Custom ML Development</span>
+                </h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Tailored machine learning solutions for your specific AI security challenges
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <!-- Basic Development -->
+                <div class="pricing-card bg-gray-800/50 rounded-xl p-8">
+                    <div class="text-center mb-8">
+                        <h3 class="text-2xl font-semibold mb-2">Basic Development</h3>
+                        <div class="text-4xl font-bold gradient-text mb-2">$15,000</div>
+                        <p class="text-gray-400">Custom model development</p>
+                    </div>
+                    
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-400 mt-1 mr-3 flex-shrink-0"></i>
+                            <span class="text-gray-300">Custom ML model development</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-400 mt-1 mr-3 flex-shrink-0"></i>
+                            <span class="text-gray-300">Basic integration support</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-400 mt-1 mr-3 flex-shrink-0"></i>
+                            <span class="text-gray-300">Model documentation</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-400 mt-1 mr-3 flex-shrink-0"></i>
+                            <span class="text-gray-300">4-week development timeline</span>
+                        </li>
+                    </ul>
+                    
+                    <button onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})" class="w-full bg-gray-700 hover:bg-gray-600 text-white py-3 rounded-lg font-semibold transition">
+                        Get Started
+                    </button>
+                </div>
+
+                <!-- Professional Development -->
+                <div class="pricing-card bg-gray-800/50 rounded-xl p-8 relative border-2 border-purple-500">
+                    <div class="popular-badge">Most Popular</div>
+                    <div class="text-center mb-8">
+                        <h3 class="text-2xl font-semibold mb-2">Professional Development</h3>
+                        <div class="text-4xl font-bold gradient-text mb-2">$35,000</div>
+                        <p class="text-gray-300">Advanced ML solutions</p>
+                    </div>
+                    
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-400 mt-1 mr-3 flex-shrink-0"></i>
+                            <span class="text-gray-300">Advanced ML model development</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-400 mt-1 mr-3 flex-shrink-0"></i>
+                            <span class="text-gray-300">Full AI system integration</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-400 mt-1 mr-3 flex-shrink-0"></i>
+                            <span class="text-gray-300">Performance optimization</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-400 mt-1 mr-3 flex-shrink-0"></i>
+                            <span class="text-gray-300">Deployment & monitoring setup</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-400 mt-1 mr-3 flex-shrink-0"></i>
+                            <span class="text-gray-300">8-week development timeline</span>
+                        </li>
+                    </ul>
+                    
+                    <button onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})" class="w-full hero-gradient py-3 rounded-lg font-semibold transition">
+                        Get Started
+                    </button>
+                </div>
+
+                <!-- Enterprise Development -->
+                <div class="pricing-card bg-gray-800/50 rounded-xl p-8">
+                    <div class="text-center mb-8">
+                        <h3 class="text-2xl font-semibold mb-2">Enterprise Development</h3>
+                        <div class="text-4xl font-bold gradient-text mb-2">$75,000+</div>
+                        <p class="text-gray-400">Enterprise ML solutions</p>
+                    </div>
+                    
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-400 mt-1 mr-3 flex-shrink-0"></i>
+                            <span class="text-gray-300">Enterprise-scale ML development</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-400 mt-1 mr-3 flex-shrink-0"></i>
+                            <span class="text-gray-300">Multi-system integration</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-400 mt-1 mr-3 flex-shrink-0"></i>
+                            <span class="text-gray-300">Advanced optimization</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-400 mt-1 mr-3 flex-shrink-0"></i>
+                            <span class="text-gray-300">Production deployment</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-400 mt-1 mr-3 flex-shrink-0"></i>
+                            <span class="text-gray-300">Ongoing support & maintenance</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-400 mt-1 mr-3 flex-shrink-0"></i>
+                            <span class="text-gray-300">Custom timeline (12+ weeks)</span>
+                        </li>
+                    </ul>
+                    
+                    <button onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})" class="w-full bg-gray-700 hover:bg-gray-600 text-white py-3 rounded-lg font-semibold transition">
+                        Get Custom Quote
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Additional Services -->
+    <section class="py-20 bg-gray-900/50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">
+                    <span class="gradient-text">Additional Services</span>
+                </h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Complementary services to enhance your AI security strategy
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <!-- AI Strategy Consulting -->
+                <div class="card-hover bg-gray-800/50 rounded-xl p-8">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-green-500/20 rounded-lg flex items-center justify-center mr-4">
+                            <i class="fas fa-lightbulb text-green-400 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold">AI Strategy Consulting</h3>
+                    </div>
+                    <div class="text-3xl font-bold gradient-text mb-4">$10,000 - $25,000</div>
+                    <p class="text-gray-300 mb-4">
+                        Strategic AI consulting to help organizations leverage artificial intelligence effectively 
+                        while maintaining security and compliance.
+                    </p>
+                    <ul class="text-gray-400 space-y-2 mb-6">
+                        <li>• AI readiness assessment</li>
+                        <li>• Strategic roadmap development</li>
+                        <li>• Implementation planning</li>
+                        <li>• Change management support</li>
+                    </ul>
+                    <button onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})" class="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-lg font-semibold transition">
+                        Get Quote
+                    </button>
+                </div>
+
+                <!-- AI Performance Optimization -->
+                <div class="card-hover bg-gray-800/50 rounded-xl p-8">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-orange-500/20 rounded-lg flex items-center justify-center mr-4">
+                            <i class="fas fa-tachometer-alt text-orange-400 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold">AI Performance Optimization</h3>
+                    </div>
+                    <div class="text-3xl font-bold gradient-text mb-4">$8,000 - $20,000</div>
+                    <p class="text-gray-300 mb-4">
+                        Optimize AI system performance and efficiency for maximum operational excellence 
+                        and resource utilization.
+                    </p>
+                    <ul class="text-gray-400 space-y-2 mb-6">
+                        <li>• Model performance tuning</li>
+                        <li>• System optimization</li>
+                        <li>• Resource utilization analysis</li>
+                        <li>• Scalability planning</li>
+                    </ul>
+                    <button onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})" class="bg-orange-600 hover:bg-orange-700 text-white px-6 py-2 rounded-lg font-semibold transition">
+                        Get Quote
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-20 bg-black">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">
+                    <span class="gradient-text">Frequently Asked Questions</span>
+                </h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Common questions about our AI security consulting pricing
+                </p>
+            </div>
+            
+            <div class="max-w-3xl mx-auto space-y-6">
+                <div class="bg-gray-800/50 rounded-xl p-6">
+                    <h3 class="text-xl font-semibold mb-3">What's included in the initial consultation?</h3>
+                    <p class="text-gray-300">
+                        Our initial consultation includes a comprehensive assessment of your AI security needs, 
+                        discussion of your current infrastructure, and recommendations for the best service package 
+                        for your organization.
+                    </p>
+                </div>
+                
+                <div class="bg-gray-800/50 rounded-xl p-6">
+                    <h3 class="text-xl font-semibold mb-3">Do you offer custom pricing?</h3>
+                    <p class="text-gray-300">
+                        Yes! We understand that every organization has unique needs. We offer custom pricing 
+                        for enterprise clients and complex projects. Contact us for a tailored quote.
+                    </p>
+                </div>
+                
+                <div class="bg-gray-800/50 rounded-xl p-6">
+                    <h3 class="text-xl font-semibold mb-3">What payment methods do you accept?</h3>
+                    <p class="text-gray-300">
+                        We accept bank transfers, credit cards, and PayPal payments. For enterprise clients, 
+                        we also offer NET 30 payment terms with approved credit.
+                    </p>
+                </div>
+                
+                <div class="bg-gray-800/50 rounded-xl p-6">
+                    <h3 class="text-xl font-semibold mb-3">Do you provide ongoing support?</h3>
+                    <p class="text-gray-300">
+                        Yes, we offer various support packages including ongoing monitoring, maintenance, 
+                        and optimization services. These can be added to any of our service packages.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-900/50">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-4xl font-bold mb-8">
+                    <span class="gradient-text">Get Your Custom Quote</span>
+                </h2>
+                <p class="text-xl text-gray-300 mb-12">
+                    Ready to secure your AI systems? Contact us today for a personalized quote based on your specific needs.
+                </p>
+                
+                <div class="grid md:grid-cols-2 gap-8 mb-12">
+                    <div class="bg-gray-800/50 rounded-xl p-8">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-phone text-purple-400 text-xl mr-3"></i>
+                            <h3 class="text-xl font-semibold">Phone</h3>
+                        </div>
+                        <p class="text-gray-300 text-lg">(913) 725-0718</p>
+                    </div>
+                    
+                    <div class="bg-gray-800/50 rounded-xl p-8">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-envelope text-purple-400 text-xl mr-3"></i>
+                            <h3 class="text-xl font-semibold">Email</h3>
+                        </div>
+                        <p class="text-gray-300 text-lg">stellar.logic.ai@gmail.com</p>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-800/50 rounded-xl p-8">
+                    <h3 class="text-xl font-semibold mb-6">Request Custom Quote</h3>
+                    <form class="space-y-6">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-gray-300 mb-2">Company Name *</label>
+                                <input type="text" required class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-white">
+                            </div>
+                            <div>
+                                <label class="block text-gray-300 mb-2">Your Name *</label>
+                                <input type="text" required class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-white">
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-gray-300 mb-2">Email *</label>
+                            <input type="email" required class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-white">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-gray-300 mb-2">Service Interest</label>
+                            <select class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-white">
+                                <option value="">Select a service</option>
+                                <option value="ai-security-audit">AI Security Audit</option>
+                                <option value="custom-ml-development">Custom ML Development</option>
+                                <option value="ai-strategy-consulting">AI Strategy Consulting</option>
+                                <option value="ai-performance-optimization">AI Performance Optimization</option>
+                                <option value="multiple-services">Multiple Services</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-gray-300 mb-2">Project Details</label>
+                            <textarea rows="4" class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-white" placeholder="Tell us about your project and requirements..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="w-full hero-gradient py-4 rounded-lg font-semibold text-lg hover:opacity-90 transition">
+                            <i class="fas fa-paper-plane mr-2"></i>
+                            Request Custom Quote
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 border-t border-gray-800 py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div class="w-8 h-8 bg-gradient-to-r from-purple-500 to-blue-500 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-shield-alt text-white text-sm"></i>
+                        </div>
+                        <span class="text-white font-bold">Stellar Logic AI</span>
+                    </div>
+                    <p class="text-gray-400">
+                        Professional AI security consulting for enterprise clients
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Services</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="consulting-services.html#services" class="hover:text-purple-400 transition">AI Security Audit</a></li>
+                        <li><a href="consulting-services.html#services" class="hover:text-purple-400 transition">Custom ML Development</a></li>
+                        <li><a href="consulting-services.html#services" class="hover:text-purple-400 transition">AI Strategy Consulting</a></li>
+                        <li><a href="consulting-services.html#services" class="hover:text-purple-400 transition">Performance Optimization</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Resources</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="case-studies.html" class="hover:text-purple-400 transition">Case Studies</a></li>
+                        <li><a href="client-portal.html" class="hover:text-purple-400 transition">Client Portal</a></li>
+                        <li><a href="pricing.html" class="hover:text-purple-400 transition">Pricing</a></li>
+                        <li><a href="docs/index.html" class="hover:text-purple-400 transition">Documentation</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Contact</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><i class="fas fa-phone mr-2"></i>(913) 725-0718</li>
+                        <li><i class="fas fa-envelope mr-2"></i>stellar.logic.ai@gmail.com</li>
+                        <li><i class="fas fa-globe mr-2"></i>stellarlogicai.netlify.app</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center">
+                <p class="text-gray-400">
+                    © 2024 Stellar Logic AI. All rights reserved. | 
+                    <a href="privacy.html" class="hover:text-purple-400 transition">Privacy Policy</a> | 
+                    <a href="terms.html" class="hover:text-purple-400 transition">Terms of Service</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Form submission handler
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(e.target);
+            const data = Object.fromEntries(formData);
+            
+            // Here you would typically send this to your backend
+            // For now, we'll show a success message
+            alert('Thank you for your quote request! We will contact you within 24 hours with a personalized quote.');
+            
+            // Reset form
+            e.target.reset();
+        });
+        
+        // Smooth scroll for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
