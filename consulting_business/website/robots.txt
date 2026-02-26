@@ -1,0 +1,33 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://stellarlogicai.netlify.app/sitemap.xml
+
+# Block common non-content paths
+Disallow: /_*
+Disallow: /admin/
+Disallow: /api/
+Disallow: /private/
+Disallow: /temp/
+Disallow: /test/
+
+# Allow search engines to crawl all public content
+Allow: /
+Allow: /index.html
+Allow: /consulting-services.html
+Allow: /pricing.html
+Allow: /case-studies.html
+Allow: /about-us.html
+Allow: /client-portal.html
+Allow: /privacy.html
+Allow: /terms.html
+Allow: /404.html
+
+# Allow images and assets
+Allow: /images/
+Allow: /css/
+Allow: /js/
+
+# Crawl delay (optional - be respectful)
+Crawl-delay: 1

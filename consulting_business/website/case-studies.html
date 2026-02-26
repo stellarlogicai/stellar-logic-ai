@@ -14,6 +14,20 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7GGWTPRTJ0"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-7GGWTPRTJ0', {
+        page_title: 'Case Studies - Stellar Logic AI',
+        page_location: 'https://stellarlogicai.netlify.app/case-studies.html',
+        content_group1: 'AI Security Consulting'
+      });
+    </script>
+    
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
         
@@ -68,31 +82,28 @@
 </head>
 <body class="bg-black text-white">
     <!-- Navigation -->
-    <nav class="fixed top-0 w-full bg-black/90 backdrop-blur-md border-b border-gray-800 z-50" role="navigation" aria-label="Main navigation">
-        <div class="container mx-auto px-6 py-4">
-            <div class="flex items-center justify-between">
-                <div class="flex items-center space-x-2">
-                    <div class="w-10 h-10 bg-gradient-to-r from-purple-500 to-blue-500 rounded-lg flex items-center justify-center" aria-hidden="true">
-                        <i class="fas fa-shield-alt text-white text-xl"></i>
-                    </div>
-                    <span class="text-xl font-bold text-white">Stellar Logic AI</span>
+    <header class="fixed top-0 w-full bg-black/80 backdrop-blur-md z-50 border-b border-white/10">
+        <nav class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="logo">
+                    <img src="images/stellar_logic_ai_icon_1.png" alt="Stellar Logic AI Logo">
+                    <span class="gradient-text">Stellar Logic AI</span>
                 </div>
-                
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="index.html" class="text-gray-300 hover:text-white transition-colors" aria-label="Go to Home section">Home</a>
-                    <a href="index.html#technology" class="text-gray-300 hover:text-white transition-colors" aria-label="Go to Technology section">Technology</a>
-                    <a href="consulting-services.html" class="nav-link hover:text-purple-400">Consulting Services</a>
-                    <a href="case-studies.html" class="nav-link hover:text-purple-400">Case Studies</a>
-                    <a href="client-portal.html" class="text-gray-300 hover:text-white transition-colors" aria-label="Go to Client Portal">Client Portal</a>
-                    <a href="pricing.html" class="text-gray-300 hover:text-white transition-colors" aria-label="Go to Pricing page">Pricing</a>
-                    <a href="docs/index.html" class="text-gray-300 hover:text-white transition-colors" aria-label="Go to Documentation page">Documentation</a>
-                    <button onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})" class="bg-purple-600 hover:bg-purple-700 text-white px-6 py-2 rounded-lg font-semibold transition-all" aria-label="Get Started - Contact us">
-                        Get Started
-                    </button>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="text-gray-300 hover:text-white transition">Home</a>
+                    <a href="consulting-services.html" class="text-gray-300 hover:text-white transition">Services</a>
+                    <a href="pricing.html" class="text-gray-300 hover:text-white transition">Pricing</a>
+                    <a href="case-studies.html" class="text-gray-300 hover:text-white transition">Case Studies</a>
+                    <a href="about-us.html" class="text-gray-300 hover:text-white transition">About Us</a>
+                    <a href="client-portal.html" class="text-gray-300 hover:text-white transition">Client Portal</a>
+                    <a href="#contact" class="text-gray-300 hover:text-white transition">Contact</a>
                 </div>
+                <button class="md:hidden text-white" onclick="toggleMobileMenu()">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
             </div>
-        </div>
-    </nav>
+        </nav>
+    </header>
 
     <!-- Hero Section -->
     <section class="min-h-screen flex items-center justify-center relative overflow-hidden">
@@ -117,22 +128,18 @@
                     optimize performance, and achieve their business objectives.
                 </p>
                 
-                <div class="grid grid-cols-4 gap-8 max-w-3xl mx-auto">
+                <div class="grid grid-cols-3 gap-8 max-w-2xl mx-auto">
                     <div class="text-center">
-                        <div class="text-3xl font-bold gradient-text">200+</div>
-                        <div class="text-gray-400">Enterprise Clients</div>
+                        <div class="text-3xl font-bold gradient-text">100%</div>
+                        <div class="text-gray-400">Security Focus</div>
                     </div>
                     <div class="text-center">
-                        <div class="text-3xl font-bold gradient-text">99.9%</div>
-                        <div class="text-gray-400">Success Rate</div>
+                        <div class="text-3xl font-bold gradient-text">24/7</div>
+                        <div class="text-gray-400">Expert Support</div>
                     </div>
                     <div class="text-center">
-                        <div class="text-3xl font-bold gradient-text">500%+</div>
-                        <div class="text-gray-400">Average ROI</div>
-                    </div>
-                    <div class="text-center">
-                        <div class="text-3xl font-bold gradient-text">15+</div>
-                        <div class="text-gray-400">Years Experience</div>
+                        <div class="text-3xl font-bold gradient-text">4</div>
+                        <div class="text-gray-400">Core Services</div>
                     </div>
                 </div>
             </div>

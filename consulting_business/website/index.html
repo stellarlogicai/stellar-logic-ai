@@ -1,551 +1,451 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stellar Logic AI | Expert AI & ML Security Consulting</title>
     <meta name="description" content="Stellar Logic AI provides expert AI security consulting with technical excellence. Comprehensive AI security audits, ML development, and strategic guidance.">
+    <meta name="keywords" content="AI security consulting, enterprise AI security, AI security audit, custom ML development, AI strategy consulting, artificial intelligence security">
+    <meta property="og:title" content="Stellar Logic AI | Expert AI & ML Security Consulting">
+    <meta property="og:description" content="Expert AI security consulting with technical excellence. Comprehensive AI security audits, ML development, and strategic guidance.">
+    <meta property="og:image" content="https://stellarlogicai.netlify.app/images/consulting-og.jpg">
+    <meta property="og:url" content="https://stellarlogicai.netlify.app">
+    
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7GGWTPRTJ0"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-7GGWTPRTJ0', {
+        page_title: 'Stellar Logic AI - Expert AI & ML Security Consulting',
+        page_location: 'https://stellarlogicai.netlify.app/',
+        content_group1: 'AI Security Consulting'
+      });
+    </script>
+    
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
         
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
+            font-family: 'Inter', sans-serif;
+            background: #0a0a0a;
+            color: #ffffff;
+        }
+        
+        .gradient-text {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
         
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
+        .hero-gradient {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         }
         
-        header {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 1rem 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        .card-hover {
+            transition: transform 0.3s, box-shadow 0.3s;
         }
         
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+        }
+        
+        .tech-grid {
+            background-image: 
+                linear-gradient(rgba(102, 126, 234, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(102, 126, 234, 0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+        
+        .pulse-animation {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
         }
         
         .logo {
+            display: flex;
+            align-items: center;
             font-size: 1.5rem;
             font-weight: bold;
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
         }
         
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
+        .logo img {
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+            border-radius: 8px;
         }
         
-        .nav-links a {
-            text-decoration: none;
-            color: #333;
-            font-weight: 500;
-            transition: color 0.3s;
+        .service-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.3s ease;
         }
         
-        .nav-links a:hover {
-            color: #667eea;
-        }
-        
-        .hero {
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.9), rgba(118, 75, 162, 0.9)),
-                        url('images/hero-banner.png') center/cover;
-            padding: 120px 0 60px;
-            text-align: center;
-            color: white;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y="50" font-size="100" fill="rgba(255,255,255,0.1)">🔒</text></svg>') center/200px;
-            animation: float 20s infinite ease-in-out;
-        }
-        
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-        }
-        
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-            position: relative;
-            z-index: 1;
-        }
-        
-        .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-            position: relative;
-            z-index: 1;
+        .service-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(102, 126, 234, 0.5);
+            transform: translateY(-5px);
         }
         
         .cta-button {
-            display: inline-block;
-            background: white;
-            color: #667eea;
-            padding: 15px 30px;
-            border-radius: 50px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
             text-decoration: none;
-            font-weight: bold;
-            transition: transform 0.3s, box-shadow 0.3s;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            position: relative;
-            z-index: 1;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-block;
+            text-align: center;
         }
         
         .cta-button:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
-        }
-        
-        .services {
-            padding: 60px 0;
-            background: white;
-        }
-        
-        .services h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: #333;
-        }
-        
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
-        }
-        
-        .service-card {
-            background: #f8f9fa;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(45deg, #667eea, #764ba2);
-        }
-        
-        .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-        }
-        
-        .service-card h3 {
-            color: #667eea;
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        
-        .service-icon {
-            font-size: 1.5rem;
-        }
-        
-        .service-image {
-            margin-bottom: 1rem;
-            text-align: center;
-        }
-        
-        .service-image img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
-        }
-        
-        .service-image img:hover {
-            transform: scale(1.05);
-        }
-        
-        .service-card .price {
-            font-size: 1.2rem;
-            font-weight: bold;
-            color: #764ba2;
-            margin-bottom: 1rem;
-        }
-        
-        .service-card ul {
-            list-style: none;
-            margin-bottom: 1.5rem;
-        }
-        
-        .service-card li {
-            padding: 0.5rem 0;
-            border-bottom: 1px solid #e9ecef;
-        }
-        
-        .service-card li:before {
-            content: "✓ ";
-            color: #28a745;
-            font-weight: bold;
-        }
-        
-        .about {
-            padding: 60px 0;
-            background: #f8f9fa;
-        }
-        
-        .about h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: #333;
-        }
-        
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-        }
-        
-        .about-text {
-            font-size: 1.1rem;
-            line-height: 1.8;
-        }
-        
-        .about-stats {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-        
-        .stat {
-            text-align: center;
-            margin-bottom: 1.5rem;
-        }
-        
-        .stat-number {
-            font-size: 2rem;
-            font-weight: bold;
-            color: #667eea;
-        }
-        
-        .contact {
-            padding: 60px 0;
-            background: white;
-            text-align: center;
-        }
-        
-        .contact h2 {
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
-            color: #333;
-        }
-        
-        .contact-info {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
-        }
-        
-        .contact-item {
-            background: #f8f9fa;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
-        }
-        
-        .contact-item:hover {
-            transform: translateY(-3px);
-        }
-        
-        .contact-item h3 {
-            color: #667eea;
-            margin-bottom: 1rem;
-        }
-        
-        .cta-container {
-            text-align: center;
-            margin: 2rem 0;
-        }
-        
-        .cta-container p {
-            margin-bottom: 1.5rem;
-            font-size: 1.1rem;
-            color: #333;
-        }
-        
-        .cta-container .cta-button {
-            margin: 0 0.5rem;
-            display: inline-block;
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
         }
         
         .cta-button.secondary {
-            background: #764ba2;
-            color: white;
+            background: transparent;
+            border: 2px solid #667eea;
+            color: #667eea;
         }
         
         .cta-button.secondary:hover {
-            background: #5a3d7a;
+            background: #667eea;
+            color: white;
+        }
+        
+        .trust-badge {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin: 4px;
+        }
+        
+        .contact-item {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-item:hover {
+            background: rgba(255, 255, 255, 0.08);
             transform: translateY(-2px);
         }
         
-        footer {
-            background: #333;
-            color: white;
-            text-align: center;
-            padding: 2rem 0;
-        }
-        
-        .trust-badges {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin: 2rem 0;
-            flex-wrap: wrap;
-        }
-        
-        .badge {
-            background: rgba(255,255,255,0.1);
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            border: 1px solid rgba(255,255,255,0.2);
-        }
-        
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2rem;
+            .logo {
+                font-size: 1.2rem;
             }
             
-            .about-content {
-                grid-template-columns: 1fr;
-            }
-            
-            .nav-links {
-                display: none;
-            }
-            
-            .trust-badges {
-                flex-direction: column;
-                align-items: center;
+            .logo img {
+                width: 32px;
+                height: 32px;
             }
         }
     </style>
 </head>
-<body>
-    <header>
-        <nav class="container">
-            <div class="logo">Stellar Logic AI</div>
-            <ul class="nav-links">
-                <li><a href="consulting-services.html">Services</a></li>
-                <li><a href="pricing.html">Pricing</a></li>
-                <li><a href="case-studies.html">Case Studies</a></li>
-                <li><a href="about-us.html">About Us</a></li>
-                <li><a href="client-portal.html">Client Portal</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+<body class="tech-grid">
+    <!-- Navigation -->
+    <header class="fixed top-0 w-full bg-black/80 backdrop-blur-md z-50 border-b border-white/10">
+        <nav class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="logo">
+                    <img src="images/stellar_logic_ai_icon_1.png" alt="Stellar Logic AI Logo">
+                    <span class="gradient-text">Stellar Logic AI</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="consulting-services.html" class="text-gray-300 hover:text-white transition">Services</a>
+                    <a href="pricing.html" class="text-gray-300 hover:text-white transition">Pricing</a>
+                    <a href="case-studies.html" class="text-gray-300 hover:text-white transition">Case Studies</a>
+                    <a href="about-us.html" class="text-gray-300 hover:text-white transition">About Us</a>
+                    <a href="client-portal.html" class="text-gray-300 hover:text-white transition">Client Portal</a>
+                    <a href="#contact" class="text-gray-300 hover:text-white transition">Contact</a>
+                </div>
+                <button class="md:hidden text-white" onclick="toggleMobileMenu()">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
         </nav>
     </header>
 
-    <section class="hero">
-        <div class="container">
-            <h1>Stellar Logic AI</h1>
-            <p>Expert AI security consulting with technical excellence. Comprehensive AI security audits, ML development, and strategic guidance.</p>
-            <a href="#contact" class="cta-button">Schedule Your Consultation</a>
-        </div>
-    </section>
-
-    <section class="services" id="services">
-        <div class="container">
-            <h2>Our Services</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-image">
-                        <img src="images/service-audit.png" alt="AI Security Audit">
-                    </div>
-                    <h3><span class="service-icon">🔍</span> AI Security Audit</h3>
-                    <div class="price">$3,000 - $8,000</div>
-                    <ul>
-                        <li>Security vulnerability assessment</li>
-                        <li>Model integrity analysis</li>
-                        <li>Data pipeline security review</li>
-                        <li>Compliance evaluation</li>
-                        <li>Risk mitigation roadmap</li>
-                        <li>Technical implementation plan</li>
-                    </ul>
-                    <p>Identify and fix security vulnerabilities before they become breaches</p>
+    <!-- Hero Section -->
+    <section class="min-h-screen flex items-center justify-center relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 to-indigo-900/20"></div>
+        <div class="absolute inset-0" style="background-image: url('images/hero-banner.png'); background-size: cover; background-position: center; opacity: 0.1;"></div>
+        
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center max-w-4xl mx-auto">
+                <div class="mb-8">
+                    <span class="inline-block px-4 py-2 bg-purple-500/20 rounded-full text-purple-300 text-sm font-semibold mb-4">
+                        <i class="fas fa-shield-alt mr-2"></i>Expert AI Security Consulting
+                    </span>
                 </div>
-
-                <div class="service-card">
-                    <div class="service-image">
-                        <img src="images/service-ml-development.png" alt="Custom ML Development">
-                    </div>
-                    <h3><span class="service-icon">🤖</span> Custom ML Development</h3>
-                    <div class="price">$5,000 - $20,000</div>
-                    <ul>
-                        <li>Requirements analysis</li>
-                        <li>Model design and development</li>
-                        <li>Training and optimization</li>
-                        <li>Integration support</li>
-                        <li>Performance testing</li>
-                        <li>Documentation and training</li>
-                    </ul>
-                    <p>Build ML models that solve your specific business problems</p>
+                
+                <h1 class="text-5xl md:text-7xl font-bold mb-6">
+                    <span class="gradient-text">Stellar Logic AI</span><br>
+                    Expert AI Security Consulting
+                </h1>
+                
+                <p class="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+                    Expert AI security consulting with technical excellence. Comprehensive AI security audits, 
+                    ML development, and strategic guidance for enterprise organizations.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+                    <a href="#contact" class="cta-button pulse-animation">
+                        <i class="fas fa-calendar-check mr-2"></i>Schedule Consultation
+                    </a>
+                    <a href="consulting-services.html" class="cta-button secondary">
+                        <i class="fas fa-shield-alt mr-2"></i>Explore Services
+                    </a>
                 </div>
-
-                <div class="service-card">
-                    <div class="service-image">
-                        <img src="images/service-strategy.png" alt="AI Strategy Consulting">
+                
+                <div class="grid grid-cols-3 gap-8 max-w-2xl mx-auto">
+                    <div class="text-center">
+                        <div class="text-3xl font-bold gradient-text">100%</div>
+                        <div class="text-gray-400">Security Focus</div>
                     </div>
-                    <h3><span class="service-icon">📊</span> AI Strategy Consulting</h3>
-                    <div class="price">$2,000 - $6,000</div>
-                    <ul>
-                        <li>AI readiness assessment</li>
-                        <li>Technology roadmap</li>
-                        <li>Implementation strategy</li>
-                        <li>ROI analysis</li>
-                        <li>Risk assessment</li>
-                        <li>Change management plan</li>
-                    </ul>
-                    <p>Strategic guidance for successful AI implementation</p>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-image">
-                        <img src="images/service-optimization.png" alt="AI Performance Optimization">
+                    <div class="text-center">
+                        <div class="text-3xl font-bold gradient-text">24/7</div>
+                        <div class="text-gray-400">Expert Support</div>
                     </div>
-                    <h3><span class="service-icon">⚡</span> AI Performance Optimization</h3>
-                    <div class="price">$2,500 - $7,000</div>
-                    <ul>
-                        <li>Performance analysis</li>
-                        <li>Optimization recommendations</li>
-                        <li>Implementation support</li>
-                        <li>Testing and validation</li>
-                        <li>Performance monitoring</li>
-                        <li>Continuous improvement plan</li>
-                    </ul>
-                    <p>Maximize efficiency and reduce costs of AI operations</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="about" id="about">
-        <div class="container">
-            <h2>Why Choose Stellar Logic AI</h2>
-            <div class="trust-badges">
-                <div class="badge">🔒 100% Security Focus</div>
-                <div class="badge">⚡ 24/7 Support</div>
-                <div class="badge">🎯 Proven Results</div>
-                <div class="badge">🏆 Expert Team</div>
-                <div class="badge">💰 Cost-Effective</div>
-                <div class="badge">🚀 Rapid Delivery</div>
-            </div>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>We combine deep technical expertise with strategic business insights to deliver comprehensive AI security solutions. Our approach ensures that your AI systems are not only secure but also optimized for performance and business value.</p>
-                    <p>With extensive experience in AI/ML development and security, we provide practical solutions that address real-world challenges. Our team works closely with yours to understand your unique needs and deliver tailored recommendations.</p>
-                    <p>We pride ourselves on rapid development, strategic thinking, and building long-term client partnerships. Our goal is to help you leverage AI safely and effectively.</p>
-                </div>
-                <div class="about-stats">
-                    <div class="stat">
-                        <div class="stat-number">🎯</div>
-                        <div>Client-Focused Approach</div>
-                    </div>
-                    <div class="stat">
-                        <div class="stat-number">🔒</div>
-                        <div>AI Security Specialization</div>
-                    </div>
-                    <div class="stat">
-                        <div class="stat-number">🚀</div>
-                        <div>Rapid Project Delivery</div>
-                    </div>
-                    <div class="stat">
-                        <div class="stat-number">🤝</div>
-                        <div>Long-Term Partnerships</div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold gradient-text">4</div>
+                        <div class="text-gray-400">Core Services</div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="contact" id="contact">
-        <div class="container">
-            <h2>Get Started Today</h2>
-            <p>Ready to secure your AI systems and optimize your ML operations? Schedule a consultation to discuss your specific needs.</p>
-            
-            <div class="contact-info">
-                <div class="contact-item">
-                    <h3>📧 Email</h3>
-                    <p>stellar.logic.ai@gmail.com</p>
-                </div>
-                <div class="contact-item">
-                    <h3>📞 Phone</h3>
-                    <p>(913) 725-0718</p>
-                </div>
-                <div class="contact-item">
-                    <h3>📅 Schedule</h3>
-                    <p>Book a free 30-minute consultation</p>
-                </div>
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-black/50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">
+                    <span class="gradient-text">Our Core Services</span>
+                </h2>
+                <p class="text-xl text-gray-300 max-w-2xl mx-auto">
+                    Comprehensive AI security consulting services tailored to your enterprise needs
+                </p>
             </div>
             
-            <div class="cta-container">
-                <p>Ready to secure your AI systems? Contact us today for a free consultation!</p>
-                <a href="mailto:stellar.logic.ai@gmail.com" class="cta-button">Schedule Your Consultation</a>
-                <a href="tel:+19137250718" class="cta-button secondary">Call Us Now</a>
-                <a href="pricing.html" class="cta-button secondary">View Pricing</a>
-                <a href="case-studies.html" class="cta-button secondary">See Case Studies</a>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="service-card">
+                    <div class="service-image mb-4">
+                        <img src="images/stellar_logic_ai_icon_1.png" alt="AI Security Audit" class="w-full h-32 object-cover rounded-lg">
+                    </div>
+                    <div class="w-12 h-12 bg-purple-500/20 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-shield-alt text-purple-400 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">AI Security Audit</h3>
+                    <p class="text-gray-400 mb-4">
+                        Comprehensive security vulnerability assessment and model integrity analysis
+                    </p>
+                    <a href="pricing.html" class="cta-button">View Pricing</a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-image mb-4">
+                        <img src="images/stellar_logic_ai_icon_2.png" alt="Custom ML Development" class="w-full h-32 object-cover rounded-lg">
+                    </div>
+                    <div class="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-brain text-blue-400 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Custom ML Development</h3>
+                    <p class="text-gray-400 mb-4">
+                        Tailored machine learning solutions for your specific business challenges
+                    </p>
+                    <a href="pricing.html" class="cta-button">View Pricing</a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-image mb-4">
+                        <img src="images/stellar_logic_ai_icon_3.png" alt="AI Strategy Consulting" class="w-full h-32 object-cover rounded-lg">
+                    </div>
+                    <div class="w-12 h-12 bg-green-500/20 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-lightbulb text-green-400 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">AI Strategy Consulting</h3>
+                    <p class="text-gray-400 mb-4">
+                        Strategic guidance for successful AI implementation and adoption
+                    </p>
+                    <a href="pricing.html" class="cta-button">View Pricing</a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-image mb-4">
+                        <img src="images/stellar_logic_ai_icon_4.png" alt="Performance Optimization" class="w-full h-32 object-cover rounded-lg">
+                    </div>
+                    <div class="w-12 h-12 bg-yellow-500/20 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-tachometer-alt text-yellow-400 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Performance Optimization</h3>
+                    <p class="text-gray-400 mb-4">
+                        Maximize efficiency and reduce costs of your AI operations
+                    </p>
+                    <a href="pricing.html" class="cta-button">View Pricing</a>
+                </div>
             </div>
         </div>
     </section>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2024 Stellar Logic AI. All rights reserved.</p>
+    <!-- Why Choose Us Section -->
+    <section id="about" class="py-20 bg-black/30">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">
+                    <span class="gradient-text">Why Choose Stellar Logic AI</span>
+                </h2>
+                <p class="text-xl text-gray-300 max-w-2xl mx-auto">
+                    We combine deep technical expertise with strategic business insights
+                </p>
+            </div>
+            
+            <div class="flex flex-wrap justify-center gap-4 mb-12">
+                <div class="trust-badge">🔒 100% Security Focus</div>
+                <div class="trust-badge">⚡ 24/7 Support</div>
+                <div class="trust-badge">🎯 Proven Results</div>
+                <div class="trust-badge">🏆 Expert Team</div>
+                <div class="trust-badge">💰 Cost-Effective</div>
+                <div class="trust-badge">🚀 Rapid Delivery</div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12 items-center max-w-4xl mx-auto">
+                <div>
+                    <p class="text-gray-300 mb-6">
+                        We combine deep technical expertise with strategic business insights to deliver comprehensive AI security solutions. Our approach ensures that your AI systems are not only secure but also optimized for performance and business value.
+                    </p>
+                    <p class="text-gray-300 mb-6">
+                        With extensive experience in AI/ML development and security, we provide practical solutions that address real-world challenges. Our team works closely with yours to understand your unique needs and deliver tailored recommendations.
+                    </p>
+                    <p class="text-gray-300">
+                        We pride ourselves on rapid development, strategic thinking, and building long-term client partnerships. Our goal is to help you leverage AI safely and effectively.
+                    </p>
+                </div>
+                
+                <div class="grid grid-cols-2 gap-6">
+                    <div class="text-center">
+                        <div class="text-3xl font-bold gradient-text mb-2">🎯</div>
+                        <div class="text-gray-400">Client-Focused Approach</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold gradient-text mb-2">🔒</div>
+                        <div class="text-gray-400">AI Security Specialization</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold gradient-text mb-2">🚀</div>
+                        <div class="text-gray-400">Rapid Project Delivery</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold gradient-text mb-2">🤝</div>
+                        <div class="text-gray-400">Long-Term Partnerships</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-black/50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">
+                    <span class="gradient-text">Get Started Today</span>
+                </h2>
+                <p class="text-xl text-gray-300 max-w-2xl mx-auto">
+                    Ready to secure your AI systems and optimize your ML operations? Schedule a consultation to discuss your specific needs.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto mb-12">
+                <div class="contact-item text-center">
+                    <div class="text-3xl gradient-text mb-4">📧</div>
+                    <h3 class="text-xl font-semibold mb-2">Email</h3>
+                    <p class="text-gray-400">stellar.logic.ai@gmail.com</p>
+                </div>
+                
+                <div class="contact-item text-center">
+                    <div class="text-3xl gradient-text mb-4">📞</div>
+                    <h3 class="text-xl font-semibold mb-2">Phone</h3>
+                    <p class="text-gray-400">(913) 725-0718</p>
+                </div>
+                
+                <div class="contact-item text-center">
+                    <div class="text-3xl gradient-text mb-4">📅</div>
+                    <h3 class="text-xl font-semibold mb-2">Schedule</h3>
+                    <p class="text-gray-400">Book a free 30-minute consultation</p>
+                </div>
+            </div>
+            
+            <div class="text-center">
+                <p class="text-gray-300 mb-8">Ready to secure your AI systems? Contact us today for a free consultation!</p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="mailto:stellar.logic.ai@gmail.com" class="cta-button">
+                        <i class="fas fa-envelope mr-2"></i>Schedule Your Consultation
+                    </a>
+                    <a href="tel:+19137250718" class="cta-button secondary">
+                        <i class="fas fa-phone mr-2"></i>Call Us Now
+                    </a>
+                    <a href="pricing.html" class="cta-button secondary">
+                        <i class="fas fa-tag mr-2"></i>View Pricing
+                    </a>
+                    <a href="case-studies.html" class="cta-button secondary">
+                        <i class="fas fa-briefcase mr-2"></i>See Case Studies
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black border-t border-white/10 py-8">
+        <div class="container mx-auto px-6">
+            <div class="text-center">
+                <p class="text-gray-400">&copy; 2024 Stellar Logic AI. All rights reserved.</p>
+            </div>
         </div>
     </footer>
+
+    <script>
+        function toggleMobileMenu() {
+            // Mobile menu toggle implementation
+            alert('Mobile menu would be implemented here');
+        }
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>

@@ -14,6 +14,20 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7GGWTPRTJ0"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-7GGWTPRTJ0', {
+        page_title: 'Client Portal - Stellar Logic AI',
+        page_location: 'https://stellarlogicai.netlify.app/client-portal.html',
+        content_group1: 'AI Security Consulting'
+      });
+    </script>
+    
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
         
@@ -82,31 +96,28 @@
 </head>
 <body class="bg-black text-white">
     <!-- Navigation -->
-    <nav class="fixed top-0 w-full bg-black/90 backdrop-blur-md border-b border-gray-800 z-50" role="navigation" aria-label="Main navigation">
-        <div class="container mx-auto px-6 py-4">
-            <div class="flex items-center justify-between">
-                <div class="flex items-center space-x-2">
-                    <div class="w-10 h-10 bg-gradient-to-r from-purple-500 to-blue-500 rounded-lg flex items-center justify-center" aria-hidden="true">
-                        <i class="fas fa-shield-alt text-white text-xl"></i>
-                    </div>
-                    <span class="text-xl font-bold text-white">Stellar Logic AI</span>
+    <header class="fixed top-0 w-full bg-black/80 backdrop-blur-md z-50 border-b border-white/10">
+        <nav class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="logo">
+                    <img src="images/stellar_logic_ai_icon_1.png" alt="Stellar Logic AI Logo">
+                    <span class="gradient-text">Stellar Logic AI</span>
                 </div>
-                
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="index.html" class="text-gray-300 hover:text-white transition-colors" aria-label="Go to Home section">Home</a>
-                    <a href="index.html#technology" class="text-gray-300 hover:text-white transition-colors" aria-label="Go to Technology section">Technology</a>
-                    <a href="consulting-services.html" class="nav-link hover:text-purple-400">Consulting Services</a>
-                    <a href="case-studies.html" class="text-gray-300 hover:text-white transition-colors" aria-label="Go to Case Studies page">Case Studies</a>
-                    <a href="client-portal.html" class="nav-link hover:text-purple-400">Client Portal</a>
-                    <a href="pricing.html" class="text-gray-300 hover:text-white transition-colors" aria-label="Go to Pricing page">Pricing</a>
-                    <a href="docs/index.html" class="text-gray-300 hover:text-white transition-colors" aria-label="Go to Documentation page">Documentation</a>
-                    <button onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})" class="bg-purple-600 hover:bg-purple-700 text-white px-6 py-2 rounded-lg font-semibold transition-all" aria-label="Get Started - Contact us">
-                        Get Started
-                    </button>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="text-gray-300 hover:text-white transition">Home</a>
+                    <a href="consulting-services.html" class="text-gray-300 hover:text-white transition">Services</a>
+                    <a href="pricing.html" class="text-gray-300 hover:text-white transition">Pricing</a>
+                    <a href="case-studies.html" class="text-gray-300 hover:text-white transition">Case Studies</a>
+                    <a href="about-us.html" class="text-gray-300 hover:text-white transition">About Us</a>
+                    <a href="client-portal.html" class="text-gray-300 hover:text-white transition">Client Portal</a>
+                    <a href="#contact" class="text-gray-300 hover:text-white transition">Contact</a>
                 </div>
+                <button class="md:hidden text-white" onclick="toggleMobileMenu()">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
             </div>
-        </div>
-    </nav>
+        </nav>
+    </header>
 
     <!-- Hero Section -->
     <section class="min-h-screen flex items-center justify-center relative overflow-hidden">
@@ -146,12 +157,12 @@
                         <form class="space-y-6">
                             <div>
                                 <label class="block text-gray-300 mb-2">Email Address</label>
-                                <input type="email" required class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-white" placeholder="your.email@company.com">
+                                <input type="email" name="email" required class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-white" placeholder="john.doe@company.com">
                             </div>
                             
                             <div>
                                 <label class="block text-gray-300 mb-2">Password</label>
-                                <input type="password" required class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-white" placeholder="Enter your password">
+                                <input type="password" name="password" required class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-white" placeholder="Enter your secure password">
                             </div>
                             
                             <div class="flex items-center justify-between">
@@ -442,31 +453,42 @@
                 
                 <div class="bg-gray-800/50 rounded-xl p-8">
                     <h3 class="text-xl font-semibold mb-6">Request Portal Access</h3>
-                    <form class="space-y-6">
+                    <form action="https://formspree.io/f/xaqdvqqa" method="POST" class="space-y-6">
                         <div class="grid md:grid-cols-2 gap-6">
                             <div>
-                                <label class="block text-gray-300 mb-2">First Name *</label>
-                                <input type="text" required class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-white">
+                                <label class="block text-gray-300 mb-2">Full Name *</label>
+                                <input type="text" name="name" required class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-white">
                             </div>
                             <div>
-                                <label class="block text-gray-300 mb-2">Last Name *</label>
-                                <input type="text" required class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-white">
+                                <label class="block text-gray-300 mb-2">Company Name *</label>
+                                <input type="text" name="company" required class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-white">
                             </div>
                         </div>
                         
                         <div>
-                            <label class="block text-gray-300 mb-2">Company *</label>
-                            <input type="text" required class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-white">
+                            <label class="block text-gray-300 mb-2">Work Email *</label>
+                            <input type="email" name="email" required class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-white">
                         </div>
                         
                         <div>
-                            <label class="block text-gray-300 mb-2">Email *</label>
-                            <input type="email" required class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-white">
+                            <label class="block text-gray-300 mb-2">Job Title</label>
+                            <input type="text" name="title" class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-white">
                         </div>
                         
                         <div>
-                            <label class="block text-gray-300 mb-2">Message</label>
-                            <textarea rows="4" class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-white" placeholder="Tell us about your project and portal access needs..."></textarea>
+                            <label class="block text-gray-300 mb-2">Reason for Access</label>
+                            <select name="reason" class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-white">
+                                <option value="">Select reason</option>
+                                <option value="existing-client">Existing Client</option>
+                                <option value="prospect">Evaluating Services</option>
+                                <option value="partner">Partner Organization</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-gray-300 mb-2">Additional Notes</label>
+                            <textarea name="message" rows="4" class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-white" placeholder="Specify your access requirements, project details, timeline, and any technical considerations..."></textarea>
                         </div>
                         
                         <button type="submit" class="w-full hero-gradient py-4 rounded-lg font-semibold text-lg hover:opacity-90 transition">
@@ -536,21 +558,8 @@
     </footer>
 
     <script>
-        // Form submission handler
-        document.querySelector('form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Get form data
-            const formData = new FormData(e.target);
-            const data = Object.fromEntries(formData);
-            
-            // Here you would typically send this to your backend
-            // For now, we'll show a success message
-            alert('Thank you for your portal access request! We will contact you within 24 hours to set up your account.');
-            
-            // Reset form
-            e.target.reset();
-        });
+        // Formspree handles submission automatically
+        // No custom JavaScript needed - Formspree redirects to thank you page
         
         // Smooth scroll for navigation
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
