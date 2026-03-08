@@ -1,0 +1,23 @@
+[
+  {
+    "timestamp": "2026-02-02T13:38:48.856229",
+    "component": "behavioral_analytics",
+    "alert_type": "HIGH_RESPONSE_TIME",
+    "message": "Response time: 141.1ms",
+    "severity": "WARNING"
+  },
+  {
+    "timestamp": "2026-02-02T13:38:48.858346",
+    "component": "zero_trust",
+    "alert_type": "HIGH_RESPONSE_TIME",
+    "message": "Response time: 109.6ms",
+    "severity": "WARNING"
+  },
+  {
+    "timestamp": "2026-02-02T13:38:48.871799",
+    "component": "security_scanning",
+    "alert_type": "HIGH_RESPONSE_TIME",
+    "message": "Response time: 9296.0ms",
+    "severity": "WARNING"
+  }
+]

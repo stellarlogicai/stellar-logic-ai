@@ -1,0 +1,9 @@
+2026-02-22 04:03:11,033 - INFO - Enhanced Behavioral Analytics System initialized
+2026-02-22 04:03:11,036 - INFO - Training advanced anomaly detection models...
+2026-02-22 04:03:11,036 - WARNING - Insufficient data for training advanced models
+2026-02-22 04:03:11,036 - INFO - Analyzing cross-account patterns...
+2026-02-22 04:03:11,038 - WARNING - Models not trained yet
+2026-02-22 04:03:11,038 - WARNING - Models not trained yet
+2026-02-22 04:03:11,038 - WARNING - Models not trained yet
+2026-02-22 04:03:11,038 - INFO - Analyzing cross-account patterns...
+2026-02-22 04:03:11,042 - INFO - Enhanced behavioral data saved successfully

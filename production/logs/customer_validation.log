@@ -1,0 +1,55 @@
+2026-02-22 12:54:12,652 - INFO - Customer Validation System initialized
+2026-02-22 12:54:12,653 - INFO - Generating customer validation report...
+2026-02-22 12:54:12,653 - INFO - Generating 50 beta customer profiles...
+2026-02-22 12:54:12,654 - INFO - Generated 50 beta customer profiles
+2026-02-22 12:54:12,655 - INFO - Calculating retention metrics...
+2026-02-22 12:54:12,655 - INFO - Retention metrics calculated:
+2026-02-22 12:54:12,655 - INFO -   Total customers: 50
+2026-02-22 12:54:12,655 - INFO -   Retention rate: 90.0%
+2026-02-22 12:54:12,655 - INFO -   Satisfaction score: 4.30/5.0
+2026-02-22 12:54:12,656 - INFO -   Net Promoter Score: 32.0
+2026-02-22 12:54:12,656 - INFO -   Churn rate: 10.0%
+2026-02-22 12:54:12,656 - INFO -   Customer Acquisition Cost: $37.00
+2026-02-22 12:54:12,656 - INFO -   Lifetime Value: $950.42
+2026-02-22 12:54:12,656 - INFO - Analyzing customer feedback...
+2026-02-22 12:54:12,657 - INFO - Feedback analysis completed:
+2026-02-22 12:54:12,657 - INFO -   Positive feedback: 27
+2026-02-22 12:54:12,658 - INFO -   Negative feedback: 26
+2026-02-22 12:54:12,658 - INFO -   Feature requests: 26
+2026-02-22 12:54:12,658 - INFO -   Bug reports: 29
+2026-02-22 12:54:12,658 - INFO -   High priority issues: 43
+2026-02-22 12:54:12,658 - INFO - Analyzing usage metrics...
+2026-02-22 12:54:12,658 - INFO - Usage metrics analyzed:
+2026-02-22 12:54:12,658 - INFO -   Avg sessions/customer: 2728
+2026-02-22 12:54:12,659 - INFO -   Avg detection accuracy: 91.7%
+2026-02-22 12:54:12,659 - INFO -   Avg response time: 8.8ms
+2026-02-22 12:54:12,659 - INFO -   High usage customers: 35
+2026-02-22 12:54:12,659 - INFO -   Low usage customers: 1
+2026-02-22 12:55:34,091 - INFO - Customer Validation System initialized
+2026-02-22 12:55:34,091 - INFO - Generating customer validation report...
+2026-02-22 12:55:34,091 - INFO - Generating 50 beta customer profiles...
+2026-02-22 12:55:34,093 - INFO - Generated 50 beta customer profiles
+2026-02-22 12:55:34,094 - INFO - Calculating retention metrics...
+2026-02-22 12:55:34,094 - INFO - Retention metrics calculated:
+2026-02-22 12:55:34,094 - INFO -   Total customers: 50
+2026-02-22 12:55:34,094 - INFO -   Retention rate: 88.0%
+2026-02-22 12:55:34,094 - INFO -   Satisfaction score: 4.24/5.0
+2026-02-22 12:55:34,095 - INFO -   Net Promoter Score: 36.0
+2026-02-22 12:55:34,095 - INFO -   Churn rate: 12.0%
+2026-02-22 12:55:34,095 - INFO -   Customer Acquisition Cost: $37.00
+2026-02-22 12:55:34,095 - INFO -   Lifetime Value: $996.67
+2026-02-22 12:55:34,095 - INFO - Analyzing customer feedback...
+2026-02-22 12:55:34,096 - INFO - Feedback analysis completed:
+2026-02-22 12:55:34,096 - INFO -   Positive feedback: 27
+2026-02-22 12:55:34,097 - INFO -   Negative feedback: 24
+2026-02-22 12:55:34,097 - INFO -   Feature requests: 17
+2026-02-22 12:55:34,097 - INFO -   Bug reports: 28
+2026-02-22 12:55:34,097 - INFO -   High priority issues: 45
+2026-02-22 12:55:34,097 - INFO - Analyzing usage metrics...
+2026-02-22 12:55:34,097 - INFO - Usage metrics analyzed:
+2026-02-22 12:55:34,098 - INFO -   Avg sessions/customer: 2707
+2026-02-22 12:55:34,098 - INFO -   Avg detection accuracy: 91.3%
+2026-02-22 12:55:34,098 - INFO -   Avg response time: 8.9ms
+2026-02-22 12:55:34,098 - INFO -   High usage customers: 34
+2026-02-22 12:55:34,098 - INFO -   Low usage customers: 3
+2026-02-22 12:55:34,101 - INFO - Customer validation report saved: c:/Users/merce/Documents/helm-ai\production\customer_validation_report.json

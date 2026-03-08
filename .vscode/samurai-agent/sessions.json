@@ -1,0 +1,67 @@
+[
+  {
+    "id": "7a78e35e-5bf7-4c46-acab-6d5244d93589",
+    "title": "just did a major overhaul of the project",
+    "status": "active",
+    "messageCount": 5,
+    "totalTokens": 0,
+    "totalCost": 0,
+    "lastMessageAt": "2026-02-20T02:49:51.176Z",
+    "tags": [],
+    "metadata": {
+      "projectId": "default-project",
+      "model": "free-trial-model-with-daily-limit",
+      "mode": "debugging",
+      "connectedCodebasePath": "c:\\Users\\merce\\Documents\\helm-ai"
+    },
+    "codeContextIds": [],
+    "previous_session_intent": "pure_discussion",
+    "pinnedFilePaths": [],
+    "createdAt": "2026-02-20T02:25:33.797Z",
+    "updatedAt": "2026-02-20T02:49:51.181Z"
+  },
+  {
+    "id": "88b28a6d-a6e5-4b0a-8a84-6a8ab8b1eaef",
+    "title": "Code Review - 2/19/2026, 8:50:48 PM",
+    "status": "active",
+    "messageCount": 6,
+    "totalTokens": 0,
+    "totalCost": 0,
+    "lastMessageAt": "2026-02-20T04:08:58.366Z",
+    "tags": [],
+    "metadata": {
+      "projectId": "default-project",
+      "model": "free-trial-model-with-daily-limit",
+      "mode": "debugging",
+      "connectedCodebasePath": "c:\\Users\\merce\\Documents\\helm-ai"
+    },
+    "codeContextIds": [],
+    "previous_session_intent": "pure_discussion",
+    "pinnedFilePaths": [],
+    "createdAt": "2026-02-20T02:50:48.857Z",
+    "updatedAt": "2026-02-20T04:08:58.368Z",
+    "type": "code-review"
+  },
+  {
+    "id": "9896b512-01ed-4cd0-8519-5136c68e4b56",
+    "title": "Code Review - 2/19/2026, 10:06:57 PM",
+    "status": "active",
+    "messageCount": 2,
+    "totalTokens": 0,
+    "totalCost": 0,
+    "lastMessageAt": "2026-02-20T04:12:31.268Z",
+    "tags": [],
+    "metadata": {
+      "projectId": "default-project",
+      "model": "free-trial-model-with-daily-limit",
+      "mode": "debugging",
+      "connectedCodebasePath": "c:\\Users\\merce\\Documents\\helm-ai"
+    },
+    "codeContextIds": [],
+    "previous_session_intent": "pure_discussion",
+    "pinnedFilePaths": [],
+    "createdAt": "2026-02-20T04:06:57.491Z",
+    "updatedAt": "2026-02-20T04:21:59.325Z",
+    "type": "code-review"
+  }
+]

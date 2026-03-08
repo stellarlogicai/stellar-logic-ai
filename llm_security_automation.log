@@ -1,0 +1,5 @@
+2026-02-19 23:54:38,548 - llm_security_automation - INFO - Starting daily security review
+2026-02-19 23:54:38,550 - llm_security_automation - INFO - Updated security patterns: ['new_injection_pattern_1', 'new_content_filter_1', 'new_rate_limit_rule_1']
+2026-02-19 23:54:38,551 - llm_security_automation - INFO - Cleaned up 150 old security events
+2026-02-19 23:54:38,554 - llm_security_automation - INFO - Generated daily security report: daily_security_report_20260219.json
+2026-02-19 23:54:38,555 - llm_security_automation - INFO - Daily security review completed: 3 actions taken

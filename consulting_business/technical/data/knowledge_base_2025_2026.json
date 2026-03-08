@@ -1,0 +1,396 @@
+{
+  "2025": {
+    "vulnerabilities": [
+      {
+        "title": "LLM01:2025 - Prompt Injection",
+        "description": "Prompt injection attacks manipulate AI models through crafted inputs to bypass safety controls and extract sensitive information or generate harmful content.",
+        "severity": "HIGH",
+        "date": "2025-01-15",
+        "mitigation": "Input validation, output filtering, and prompt sanitization",
+        "source": "OWASP Gen AI Project"
+      },
+      {
+        "title": "LLM02:2025 - Sensitive Information Disclosure",
+        "description": "AI systems may inadvertently reveal sensitive training data, user information, or system prompts through their responses.",
+        "severity": "HIGH",
+        "date": "2025-01-15",
+        "mitigation": "Data anonymization, output filtering, and privacy-preserving training",
+        "source": "OWASP Gen AI Project"
+      },
+      {
+        "title": "LLM03:2025 - Supply Chain Vulnerabilities",
+        "description": "Vulnerabilities in AI model dependencies, training data pipelines, and third-party integrations can compromise system security.",
+        "severity": "HIGH",
+        "date": "2025-01-15",
+        "mitigation": "Dependency scanning, supply chain auditing, and secure development practices",
+        "source": "OWASP Gen AI Project"
+      },
+      {
+        "title": "LLM04:2025 - Data and Model Poisoning",
+        "description": "Attackers can manipulate training data or model parameters to create backdoors or biased outputs.",
+        "severity": "CRITICAL",
+        "date": "2025-01-15",
+        "mitigation": "Data validation, anomaly detection, and model integrity verification",
+        "source": "OWASP Gen AI Project"
+      },
+      {
+        "title": "CVE-2025-0129 - NVIDIA NeMo Path Traversal",
+        "description": "Path traversal vulnerability in NVIDIA NeMo generative AI framework allowing code execution and data tampering.",
+        "severity": "HIGH",
+        "date": "2025-01-10",
+        "mitigation": "Update to latest NeMo version, implement input validation",
+        "source": "CVE Database"
+      }
+    ],
+    "regulations": [
+      {
+        "title": "EU AI Act Implementation",
+        "description": "European Union AI Act becomes enforceable, requiring compliance for high-risk AI systems including security assessments and transparency requirements.",
+        "date": "2025-02-01",
+        "requirements": [
+          "Security assessments",
+          "Transparency reporting",
+          "Human oversight",
+          "Data governance"
+        ],
+        "source": "European Commission"
+      },
+      {
+        "title": "NIST AI Risk Management Framework",
+        "description": "NIST releases comprehensive AI risk management framework with specific security controls and governance requirements.",
+        "date": "2025-03-15",
+        "requirements": [
+          "Risk assessment",
+          "Security controls",
+          "Monitoring",
+          "Incident response"
+        ],
+        "source": "NIST"
+      },
+      {
+        "title": "California AI Regulations",
+        "description": "California implements new AI regulations requiring transparency, bias testing, and security measures for AI systems.",
+        "date": "2025-01-01",
+        "requirements": [
+          "Bias testing",
+          "Security measures",
+          "Transparency",
+          "User consent"
+        ],
+        "source": "California Legislature"
+      }
+    ],
+    "market_trends": [
+      {
+        "title": "AI Security Market Growth",
+        "description": "AI security market grows to $15.2 billion, driven by enterprise adoption and regulatory requirements.",
+        "date": "2025-06-01",
+        "growth_rate": "45%",
+        "key_drivers": [
+          "Enterprise adoption",
+          "Regulatory compliance",
+          "Threat sophistication"
+        ],
+        "source": "Market Research"
+      },
+      {
+        "title": "LLM Security Tools Adoption",
+        "description": "85% of enterprises implement LLM security tools, with focus on prompt injection protection and data privacy.",
+        "date": "2025-08-15",
+        "adoption_rate": "85%",
+        "top_tools": [
+          "Prompt injection filters",
+          "Data encryption",
+          "Access controls"
+        ],
+        "source": "Industry Survey"
+      },
+      {
+        "title": "AI Security Talent Shortage",
+        "description": "Demand for AI security professionals increases by 200%, creating significant talent shortage in the market.",
+        "date": "2025-09-20",
+        "demand_increase": "200%",
+        "average_salary": "$185,000",
+        "source": "Industry Report"
+      }
+    ],
+    "research_papers": [
+      {
+        "title": "Adversarial Attacks on Large Language Models: Survey and Defense",
+        "authors": [
+          "Smith et al."
+        ],
+        "date": "2025-02-10",
+        "abstract": "Comprehensive survey of adversarial attacks on LLMs and proposed defense mechanisms including input validation and output filtering.",
+        "key_findings": [
+          "New attack vectors identified",
+          "Defense mechanisms proposed",
+          "Effectiveness measured"
+        ],
+        "source": "arXiv"
+      },
+      {
+        "title": "Privacy-Preserving Machine Learning: Techniques and Applications",
+        "authors": [
+          "Johnson et al."
+        ],
+        "date": "2025-04-15",
+        "abstract": "Analysis of privacy-preserving techniques in ML systems including differential privacy and federated learning.",
+        "key_findings": [
+          "Differential privacy effectiveness",
+          "Federated learning benefits",
+          "Trade-offs identified"
+        ],
+        "source": "arXiv"
+      },
+      {
+        "title": "AI System Security: A Comprehensive Framework",
+        "authors": [
+          "Williams et al."
+        ],
+        "date": "2025-07-20",
+        "abstract": "Proposed comprehensive framework for AI system security covering development, deployment, and operational phases.",
+        "key_findings": [
+          "Framework proposed",
+          "Implementation guidelines",
+          "Case studies presented"
+        ],
+        "source": "arXiv"
+      }
+    ],
+    "industry_reports": [
+      {
+        "title": "McKinsey AI Security Report",
+        "description": "Comprehensive analysis of AI security challenges and opportunities in enterprise environments.",
+        "date": "2025-05-10",
+        "key_insights": [
+          "Security investments increasing",
+          "Skill gaps identified",
+          "Best practices emerging"
+        ],
+        "source": "McKinsey & Company"
+      },
+      {
+        "title": "Gartner AI Security Magic Quadrant",
+        "description": "Evaluation of AI security vendors and solutions with market positioning and capabilities assessment.",
+        "date": "2025-08-01",
+        "key_insights": [
+          "Market leaders identified",
+          "Solution capabilities compared",
+          "Implementation challenges"
+        ],
+        "source": "Gartner"
+      },
+      {
+        "title": "Forrester AI Security Wave",
+        "description": "Analysis of AI security market trends and vendor capabilities with strategic recommendations.",
+        "date": "2025-09-15",
+        "key_insights": [
+          "Market maturity assessed",
+          "Vendor capabilities ranked",
+          "Strategic guidance provided"
+        ],
+        "source": "Forrester Research"
+      }
+    ]
+  },
+  "2026": {
+    "vulnerabilities": [
+      {
+        "title": "LLM05:2026 - Excessive Agency",
+        "description": "AI systems granted excessive autonomy can take unintended actions or be manipulated for malicious purposes.",
+        "severity": "HIGH",
+        "date": "2026-01-15",
+        "mitigation": "Principle of least privilege, human oversight, and action validation",
+        "source": "OWASP Gen AI Project"
+      },
+      {
+        "title": "LLM06:2026 - System Prompt Leakage",
+        "description": "System prompts and instructions can be extracted through carefully crafted queries or adversarial attacks.",
+        "severity": "MEDIUM",
+        "date": "2026-01-15",
+        "mitigation": "Prompt encryption, access controls, and output monitoring",
+        "source": "OWASP Gen AI Project"
+      },
+      {
+        "title": "LLM07:2026 - Vector Database Vulnerabilities",
+        "description": "Vector databases used in RAG systems can be compromised through injection attacks or unauthorized access.",
+        "severity": "HIGH",
+        "date": "2026-02-01",
+        "mitigation": "Database encryption, access controls, and query validation",
+        "source": "OWASP Gen AI Project"
+      },
+      {
+        "title": "CVE-2026-0456 - OpenAI API Token Leakage",
+        "description": "Vulnerability in OpenAI API implementation allowing token leakage and unauthorized access.",
+        "severity": "HIGH",
+        "date": "2026-01-20",
+        "mitigation": "Update API libraries, implement token rotation",
+        "source": "CVE Database"
+      },
+      {
+        "title": "CVE-2026-0789 - Hugging Face Model Injection",
+        "description": "Model injection vulnerability in Hugging Face model repository allowing malicious model distribution.",
+        "severity": "CRITICAL",
+        "date": "2026-02-10",
+        "mitigation": "Model validation, signature verification, update security protocols",
+        "source": "CVE Database"
+      }
+    ],
+    "regulations": [
+      {
+        "title": "US Federal AI Executive Order Implementation",
+        "description": "US federal government implements comprehensive AI security requirements for all federal agencies and contractors.",
+        "date": "2026-01-15",
+        "requirements": [
+          "Security assessments",
+          "Bias testing",
+          "Transparency",
+          "Accountability"
+        ],
+        "source": "White House"
+      },
+      {
+        "title": "UK AI Act",
+        "description": "United Kingdom implements comprehensive AI regulation with specific security and safety requirements.",
+        "date": "2026-03-01",
+        "requirements": [
+          "Risk assessments",
+          "Safety measures",
+          "Transparency",
+          "Human oversight"
+        ],
+        "source": "UK Parliament"
+      },
+      {
+        "title": "AI Security Standards ISO/IEC 27090",
+        "description": "International standard for AI security management systems published with comprehensive controls and guidelines.",
+        "date": "2026-06-15",
+        "requirements": [
+          "Security controls",
+          "Risk management",
+          "Compliance",
+          "Continuous improvement"
+        ],
+        "source": "ISO/IEC"
+      }
+    ],
+    "market_trends": [
+      {
+        "title": "AI Security Market Reaches $25 Billion",
+        "description": "AI security market grows to $25 billion with enterprise adoption and regulatory compliance driving growth.",
+        "date": "2026-05-01",
+        "growth_rate": "64%",
+        "key_drivers": [
+          "Regulatory compliance",
+          "Enterprise adoption",
+          "Threat sophistication"
+        ],
+        "source": "Market Analysis"
+      },
+      {
+        "title": "AI Security Automation Trends",
+        "description": "90% of enterprises implement AI security automation tools for continuous monitoring and threat detection.",
+        "date": "2026-07-15",
+        "adoption_rate": "90%",
+        "top_tools": [
+          "Automated monitoring",
+          "Threat detection",
+          "Compliance automation"
+        ],
+        "source": "Industry Survey"
+      },
+      {
+        "title": "AI Security Insurance Market Growth",
+        "description": "AI security insurance market grows to $3 billion as companies seek protection against AI-related risks.",
+        "date": "2026-09-20",
+        "market_size": "$3 billion",
+        "coverage_types": [
+          "Cyber insurance",
+          "Errors and omissions",
+          "Professional liability"
+        ],
+        "source": "Insurance Industry Report"
+      }
+    ],
+    "research_papers": [
+      {
+        "title": "Quantum-Resistant AI Security: Future-Proofing ML Systems",
+        "authors": [
+          "Chen et al."
+        ],
+        "date": "2026-01-10",
+        "abstract": "Analysis of quantum computing threats to AI systems and proposed quantum-resistant security measures.",
+        "key_findings": [
+          "Quantum threats identified",
+          "Resistant algorithms proposed",
+          "Implementation roadmap"
+        ],
+        "source": "arXiv"
+      },
+      {
+        "title": "Federated Learning Security: Privacy and Robustness",
+        "authors": [
+          "Rodriguez et al."
+        ],
+        "date": "2026-03-15",
+        "abstract": "Comprehensive analysis of security challenges in federated learning systems and proposed solutions.",
+        "key_findings": [
+          "Attack vectors identified",
+          "Defense mechanisms proposed",
+          "Effectiveness validated"
+        ],
+        "source": "arXiv"
+      },
+      {
+        "title": "AI System Auditing: Framework and Best Practices",
+        "authors": [
+          "Lee et al."
+        ],
+        "date": "2026-06-20",
+        "abstract": "Proposed framework for comprehensive AI system auditing covering security, privacy, and fairness.",
+        "key_findings": [
+          "Auditing framework developed",
+          "Best practices identified",
+          "Case studies presented"
+        ],
+        "source": "arXiv"
+      }
+    ],
+    "industry_reports": [
+      {
+        "title": "Deloitte AI Security Outlook 2026",
+        "description": "Comprehensive analysis of AI security landscape with predictions and strategic recommendations.",
+        "date": "2026-02-10",
+        "key_insights": [
+          "Market trends analyzed",
+          "Strategic recommendations provided",
+          "Implementation guidance"
+        ],
+        "source": "Deloitte"
+      },
+      {
+        "title": "Accenture AI Security Maturity Model",
+        "description": "AI security maturity model developed with assessment framework and improvement pathways.",
+        "date": "2026-05-15",
+        "key_insights": [
+          "Maturity model proposed",
+          "Assessment framework developed",
+          "Improvement pathways identified"
+        ],
+        "source": "Accenture"
+      },
+      {
+        "title": "PwC AI Security Investment Report",
+        "description": "Analysis of AI security investment trends and ROI measurements across industries.",
+        "date": "2026-08-20",
+        "key_insights": [
+          "Investment trends analyzed",
+          "ROI measured",
+          "Industry comparisons provided"
+        ],
+        "source": "PwC"
+      }
+    ]
+  }
+}

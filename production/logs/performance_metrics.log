@@ -1,0 +1,17 @@
+2026-02-22 12:48:34,140 - INFO - Performance Metrics Tracker initialized
+2026-02-22 12:48:34,141 - INFO - Generating performance report...
+2026-02-22 12:48:34,141 - INFO - Calculating infrastructure costs...
+2026-02-22 12:48:34,165 - INFO - Total storage usage: 0.55 GB
+2026-02-22 12:48:34,166 - INFO - Infrastructure costs calculated:
+2026-02-22 12:48:34,166 - INFO -   Hourly cost: $0.0950
+2026-02-22 12:48:34,166 - INFO -   Cost per 10K sessions: $9.50
+2026-02-22 12:48:34,167 - INFO -   Monthly cost: $68.41
+2026-02-22 12:48:34,167 - INFO - Simulating metrics for 10000 sessions...
+2026-02-22 12:48:34,182 - INFO - Session simulation completed:
+2026-02-22 12:48:34,182 - INFO -   Total sessions: 10000
+2026-02-22 12:48:34,182 - INFO -   Successful: 9800 (98.0%)
+2026-02-22 12:48:34,182 - INFO -   Failed: 200
+2026-02-22 12:48:34,183 - INFO -   Avg session duration: 4988ms
+2026-02-22 12:48:34,183 - INFO -   Sessions per hour: 417
+2026-02-22 12:48:38,278 - WARNING - Production server not available for load testing
+2026-02-22 12:48:38,280 - INFO - Performance report saved: c:/Users/merce/Documents/helm-ai\production\performance_metrics_report.json

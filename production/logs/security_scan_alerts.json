@@ -1,0 +1,38 @@
+[
+  {
+    "alert_type": "SECURITY_SCAN",
+    "message": "CRITICAL: 2 critical vulnerabilities found (threshold: 0)",
+    "scan_id": "SCAN-20260202125938-628dd500",
+    "scan_type": "comprehensive",
+    "scan_score": 6.666666666666667,
+    "vulnerabilities_count": 10,
+    "timestamp": "2026-02-02T12:59:38.911467"
+  },
+  {
+    "alert_type": "SECURITY_SCAN",
+    "message": "LOW: Scan score 6.67 below threshold 7.0",
+    "scan_id": "SCAN-20260202125938-628dd500",
+    "scan_type": "comprehensive",
+    "scan_score": 6.666666666666667,
+    "vulnerabilities_count": 10,
+    "timestamp": "2026-02-02T12:59:38.912898"
+  },
+  {
+    "alert_type": "SECURITY_SCAN",
+    "message": "CRITICAL: 2 critical vulnerabilities found (threshold: 0)",
+    "scan_id": "SCAN-20260202125950-5c1488ba",
+    "scan_type": "comprehensive",
+    "scan_score": 6.666666666666667,
+    "vulnerabilities_count": 10,
+    "timestamp": "2026-02-02T12:59:50.136400"
+  },
+  {
+    "alert_type": "SECURITY_SCAN",
+    "message": "LOW: Scan score 6.67 below threshold 7.0",
+    "scan_id": "SCAN-20260202125950-5c1488ba",
+    "scan_type": "comprehensive",
+    "scan_score": 6.666666666666667,
+    "vulnerabilities_count": 10,
+    "timestamp": "2026-02-02T12:59:50.146972"
+  }
+]

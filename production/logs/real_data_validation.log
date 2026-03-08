@@ -1,0 +1,61 @@
+2026-02-22 12:25:25,480 - INFO - Loading models for validation...
+2026-02-22 12:25:26,086 - INFO - Real Data Validator initialized
+2026-02-22 12:25:26,086 - INFO - Running validation suite with 1000 samples...
+2026-02-22 12:25:26,086 - INFO - Generating 1000 realistic gaming samples...
+2026-02-22 12:25:27,669 - INFO - Generated 1000 samples (300 cheats, 700 legitimate)
+2026-02-22 12:25:27,670 - INFO - Validating edge model...
+2026-02-22 12:25:30,985 - INFO - Edge Model Results:
+2026-02-22 12:25:30,985 - INFO -   Accuracy: 0.3000
+2026-02-22 12:25:30,985 - INFO -   Precision: 0.3000
+2026-02-22 12:25:30,986 - INFO -   Recall: 1.0000
+2026-02-22 12:25:30,986 - INFO -   F1-Score: 0.4615
+2026-02-22 12:25:30,986 - INFO -   False Positive Rate: 1.0000
+2026-02-22 12:25:30,986 - INFO -   Detection Precision: 0.3000
+2026-02-22 12:25:30,986 - INFO -   Avg Latency: 3.291ms
+2026-02-22 12:25:30,988 - INFO - Validating improved models...
+2026-02-22 12:25:30,988 - INFO - Validating general_cheat_detection...
+2026-02-22 12:25:53,681 - INFO - general_cheat_detection Results:
+2026-02-22 12:25:53,681 - INFO -   Accuracy: 0.9040
+2026-02-22 12:25:53,681 - INFO -   Precision: 1.0000
+2026-02-22 12:25:53,682 - INFO -   Recall: 0.6800
+2026-02-22 12:25:53,682 - INFO -   F1-Score: 0.8095
+2026-02-22 12:25:53,682 - INFO -   False Positive Rate: 0.0000
+2026-02-22 12:25:53,682 - INFO -   Detection Precision: 1.0000
+2026-02-22 12:25:53,682 - INFO -   Avg Latency: 22.674ms
+2026-02-22 12:25:53,682 - INFO - Validating esp_detection...
+2026-02-22 12:26:16,532 - INFO - esp_detection Results:
+2026-02-22 12:26:16,533 - INFO -   Accuracy: 0.7600
+2026-02-22 12:26:16,533 - INFO -   Precision: 1.0000
+2026-02-22 12:26:16,533 - INFO -   Recall: 0.2000
+2026-02-22 12:26:16,533 - INFO -   F1-Score: 0.3333
+2026-02-22 12:26:16,533 - INFO -   False Positive Rate: 0.0000
+2026-02-22 12:26:16,534 - INFO -   Detection Precision: 1.0000
+2026-02-22 12:26:16,534 - INFO -   Avg Latency: 22.829ms
+2026-02-22 12:26:16,534 - INFO - Validating aimbot_detection...
+2026-02-22 12:26:39,221 - INFO - aimbot_detection Results:
+2026-02-22 12:26:39,221 - INFO -   Accuracy: 0.9340
+2026-02-22 12:26:39,221 - INFO -   Precision: 1.0000
+2026-02-22 12:26:39,221 - INFO -   Recall: 0.7800
+2026-02-22 12:26:39,221 - INFO -   F1-Score: 0.8764
+2026-02-22 12:26:39,221 - INFO -   False Positive Rate: 0.0000
+2026-02-22 12:26:39,222 - INFO -   Detection Precision: 1.0000
+2026-02-22 12:26:39,222 - INFO -   Avg Latency: 22.670ms
+2026-02-22 12:26:39,222 - INFO - Validating wallhack_detection...
+2026-02-22 12:27:02,281 - INFO - wallhack_detection Results:
+2026-02-22 12:27:02,282 - INFO -   Accuracy: 0.8750
+2026-02-22 12:27:02,282 - INFO -   Precision: 1.0000
+2026-02-22 12:27:02,282 - INFO -   Recall: 0.5833
+2026-02-22 12:27:02,282 - INFO -   F1-Score: 0.7368
+2026-02-22 12:27:02,282 - INFO -   False Positive Rate: 0.0000
+2026-02-22 12:27:02,282 - INFO -   Detection Precision: 1.0000
+2026-02-22 12:27:02,283 - INFO -   Avg Latency: 23.042ms
+2026-02-22 12:27:02,285 - INFO - Calculating ensemble performance...
+2026-02-22 12:28:38,186 - INFO - Ensemble Results:
+2026-02-22 12:28:38,186 - INFO -   Accuracy: 0.9040
+2026-02-22 12:28:38,186 - INFO -   Precision: 1.0000
+2026-02-22 12:28:38,187 - INFO -   Recall: 0.6800
+2026-02-22 12:28:38,187 - INFO -   F1-Score: 0.8095
+2026-02-22 12:28:38,187 - INFO -   False Positive Rate: 0.0000
+2026-02-22 12:28:38,187 - INFO -   Detection Precision: 1.0000
+2026-02-22 12:28:38,189 - INFO - Calculating overall metrics...
+2026-02-22 12:28:38,190 - INFO - Generating validation report...
