@@ -196,5 +196,6 @@ temp/
 # CRITICAL: Google Cloud Service Account Credentials
 *credentials.json
 *service-account.json
-stellar-logic-ai-credentials.json
+stellar-logic-logic-ai-credentials.json
 business/*credentials*.json
+backups/**/*credentials*.json
