@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stellar Logic AI | Expert AI Behavioral Analysis Consulting</title>
+    <meta name="description" content="Stellar Logic AI provides expert AI behavioral analysis consulting using anti-cheat detection techniques. Analyzing 760+ weekly AI company items for competitive intelligence and strategic insights.">
+    <meta name="keywords" content="AI behavioral analysis, competitive intelligence, AI company analysis, anti-cheat detection, behavioral patterns, strategic insights, AI market intelligence">
+    <meta property="og:title" content="Stellar Logic AI | Expert AI Behavioral Analysis Consulting">
+    <meta property="og:description" content="Expert AI behavioral analysis consulting using anti-cheat detection techniques. Analyzing 760+ weekly AI company items for competitive intelligence and strategic insights.">
+    <meta property="og:image" content="https://stellarlogicai.netlify.app/images/consulting-og.jpg">
+    <meta property="og:url" content="https://stellarlogicai.netlify.app">
+    
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7GGWTPRTJ0"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-7GGWTPRTJ0', {
+        page_title: 'Stellar Logic AI - Home',
+        page_location: 'https://stellarlogicai.netlify.app',
+        content_group1: 'Home Page'
+      });
+    </script>
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0a0a0a;
+            color: #ffffff;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .card-hover {
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+        }
+        
+        .tech-grid {
+            background-image: 
+                linear-gradient(rgba(102, 126, 234, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(102, 126, 234, 0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+        
+        .pulse-animation {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+        
+        .cta-button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+        }
+        
+        .cta-button.secondary {
+            background: transparent;
+            border: 2px solid #667eea;
+            color: #667eea;
+        }
+        
+        .cta-button.secondary:hover {
+            background: #667eea;
+            color: white;
+        }
+        
+        .service-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .service-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            transform: translateY(-5px);
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        .logo img {
+            width: 24px;
+            height: 24px;
+            margin-right: 10px;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body class="tech-grid">
+    <!-- Navigation -->
+    <header class="w-full bg-black/80 backdrop-blur-md z-50 border-b border-white/10">
+        <nav class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="logo">
+                    <img src="images/stellar_logic_ai_icon_1.png" alt="Stellar Logic AI Logo">
+                    <span class="gradient-text">Stellar Logic AI</span>
+                </div>
+                <ul class="hidden md:flex space-x-8">
+                    <li><a href="index.html" class="hover:text-blue-400 transition-colors">Home</a></li>
+                    <li><a href="consulting-services.html" class="hover:text-blue-400 transition-colors">Services</a></li>
+                    <li><a href="case-studies.html" class="hover:text-blue-400 transition-colors">Case Studies</a></li>
+                    <li><a href="about-us.html" class="hover:text-blue-400 transition-colors">About</a></li>
+                    <li><a href="pricing.html" class="hover:text-blue-400 transition-colors">Pricing</a></li>
+                    <li><a href="contact.html" class="hover:text-blue-400 transition-colors">Contact</a></li>
+                </ul>
+                <button class="md:hidden text-white" onclick="toggleMobileMenu()">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="min-h-screen flex items-center justify-center relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 to-indigo-900/20"></div>
+        <div class="absolute inset-0" style="background-image: url('images/ai_security_consulting_excellence.png'); background-size: cover; background-position: center center; background-repeat: no-repeat; background-attachment: fixed; opacity: 0.15;"></div>
+        
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center max-w-4xl mx-auto">
+                <div class="mb-8">
+                    <span class="inline-block px-4 py-2 bg-purple-500/20 rounded-full text-purple-300 text-sm font-semibold mb-4">
+                        <i class="fas fa-brain mr-2"></i>Expert AI Behavioral Analysis
+                    </span>
+                </div>
+                
+                <h1 class="text-5xl md:text-7xl font-bold mb-6">
+                    <span class="gradient-text">Stellar Logic AI</span><br>
+                    Expert AI Behavioral Analysis
+                </h1>
+                
+                <p class="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+                    Expert AI behavioral analysis using anti-cheat detection techniques. Analyzing 760+ weekly AI company 
+                    items for competitive intelligence and strategic insights for enterprise organizations.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+                    <a href="#contact" class="cta-button pulse-animation">
+                        <i class="fas fa-calendar-check mr-2"></i>Schedule Consultation
+                    </a>
+                    <a href="consulting-services.html" class="cta-button secondary">
+                        <i class="fas fa-brain mr-2"></i>Explore Services
+                    </a>
+                </div>
+                
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                    <div>
+                        <div class="text-3xl font-bold gradient-text mb-2">760+</div>
+                        <p class="text-gray-400">Weekly Items Analyzed</p>
+                    </div>
+                    <div>
+                        <div class="text-3xl font-bold gradient-text mb-2">100%</div>
+                        <p class="text-gray-400">Behavioral Pattern Detection</p>
+                    </div>
+                    <div>
+                        <div class="text-3xl font-bold gradient-text mb-2">24/7</div>
+                        <p class="text-gray-400">Competitive Intelligence</p>
+                    </div>
+                    <div>
+                        <div class="text-3xl font-bold gradient-text mb-2">Enterprise</div>
+                        <p class="text-gray-400">Strategic Insights</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-gray-900/50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">
+                    <span class="gradient-text">Our Behavioral Analysis Services</span>
+                </h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Comprehensive behavioral pattern analysis using anti-cheat detection techniques for competitive intelligence
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="service-card">
+                    <div class="service-image mb-4">
+                        <img src="images/stellar_logic_ai_icon_1.png" alt="AI Behavioral Analysis" class="w-full h-auto max-h-32 object-contain rounded-lg">
+                    </div>
+                    <div class="w-12 h-12 bg-purple-500/20 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-brain text-purple-400 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">AI Behavioral Analysis</h3>
+                    <p class="text-gray-400 mb-4">
+                        Comprehensive behavioral pattern analysis using anti-cheat detection techniques on 760+ weekly AI company items
+                    </p>
+                    <a href="pricing.html" class="cta-button">View Pricing</a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-image mb-4">
+                        <img src="images/stellar_logic_ai_icon_2.png" alt="Competitive Intelligence" class="w-full h-auto max-h-32 object-contain rounded-lg">
+                    </div>
+                    <div class="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-chart-line text-blue-400 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Competitive Intelligence</h3>
+                    <p class="text-gray-400 mb-4">
+                        Strategic competitive intelligence through behavioral pattern analysis and market positioning insights
+                    </p>
+                    <a href="pricing.html" class="cta-button">View Pricing</a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-image mb-4">
+                        <img src="images/stellar_logic_ai_icon_3.png" alt="Market Analysis" class="w-full h-auto max-h-32 object-contain rounded-lg">
+                    </div>
+                    <div class="w-12 h-12 bg-green-500/20 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-search text-green-400 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Market Analysis</h3>
+                    <p class="text-gray-400 mb-4">
+                        Deep market analysis through behavioral pattern recognition and strategic trend identification
+                    </p>
+                    <a href="pricing.html" class="cta-button">View Pricing</a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-image mb-4">
+                        <img src="images/stellar_logic_ai_icon_4.png" alt="Strategic Insights" class="w-full h-auto max-h-32 object-contain rounded-lg">
+                    </div>
+                    <div class="w-12 h-12 bg-yellow-500/20 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-lightbulb text-yellow-400 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Strategic Insights</h3>
+                    <p class="text-gray-400 mb-4">
+                        Actionable strategic insights derived from behavioral analysis and competitive intelligence
+                    </p>
+                    <a href="pricing.html" class="cta-button">View Pricing</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section id="about" class="py-20 bg-black/30">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">
+                    <span class="gradient-text">Why Choose Stellar Logic AI</span>
+                </h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Unmatched expertise in AI behavioral analysis using anti-cheat detection methodologies
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-purple-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-brain text-purple-400 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Anti-Cheat Detection</h3>
+                    <p class="text-gray-400">
+                        Proprietary behavioral analysis techniques adapted from anti-cheat detection systems
+                    </p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-blue-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-chart-line text-blue-400 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">760+ Weekly Analysis</h3>
+                    <p class="text-gray-400">
+                        Comprehensive analysis of over 760 AI company items weekly for maximum intelligence
+                    </p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-shield-alt text-green-400 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Enterprise Grade</h3>
+                    <p class="text-gray-400">
+                        Enterprise-level behavioral analysis with strategic insights and competitive intelligence
+                    </p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-yellow-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-clock text-yellow-400 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Real-time Insights</h3>
+                    <p class="text-gray-400">
+                        Continuous monitoring and real-time behavioral pattern analysis for immediate intelligence
+                    </p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-red-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-users text-red-400 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Expert Team</h3>
+                    <p class="text-gray-400">
+                        Specialized team with deep expertise in behavioral analysis and competitive intelligence
+                    </p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-indigo-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-trophy text-indigo-400 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Proven Results</h3>
+                    <p class="text-gray-400">
+                        Track record of delivering actionable strategic insights through behavioral analysis
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="contact" class="py-20 bg-gradient-to-r from-purple-900/50 to-indigo-900/50">
+        <div class="container mx-auto px-6 text-center">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-4xl font-bold mb-6">
+                    <span class="gradient-text">Get Started Today</span>
+                </h2>
+                <p class="text-xl text-gray-300 max-w-2xl mx-auto">
+                    Ready to analyze AI behavior and gain competitive intelligence? Schedule a consultation to discuss your specific needs.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto mt-12">
+                <div class="contact-item text-center">
+                    <div class="text-3xl gradient-text mb-4">📧</div>
+                    <h3 class="text-xl font-semibold mb-2">Email</h3>
+                    <p class="text-gray-400">stellar.logic.ai@gmail.com</p>
+                </div>
+                
+                <div class="contact-item text-center">
+                    <div class="text-3xl gradient-text mb-4">📞</div>
+                    <h3 class="text-xl font-semibold mb-2">Phone</h3>
+                    <p class="text-gray-400">(913) 725-0718</p>
+                </div>
+                
+                <div class="contact-item text-center">
+                    <div class="text-3xl gradient-text mb-4">📅</div>
+                    <h3 class="text-xl font-semibold mb-2">Schedule</h3>
+                    <p class="text-gray-400">Book a free 30-minute consultation</p>
+                </div>
+            </div>
+            
+            <div class="text-center">
+                <p class="text-gray-300 mb-8">Ready to gain competitive intelligence? Contact us today for a free consultation!</p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="mailto:stellar.logic.ai@gmail.com" class="cta-button">
+                        <i class="fas fa-envelope mr-2"></i>Schedule Your Consultation
+                    </a>
+                    <a href="tel:+19137250718" class="cta-button secondary">
+                        <i class="fas fa-phone mr-2"></i>Call Us Now
+                    </a>
+                    <a href="pricing.html" class="cta-button secondary">
+                        <i class="fas fa-tag mr-2"></i>View Pricing
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 border-t border-gray-800 py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <img src="images/stellar_logic_ai_icon_1.png" alt="Stellar Logic AI Logo" class="w-8 h-8 mr-3">
+                        <span class="gradient-text font-bold">Stellar Logic AI</span>
+                    </div>
+                    <p class="text-gray-400">Expert AI behavioral analysis consulting using anti-cheat detection techniques for competitive intelligence.</p>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4 text-white">Services</h3>
+                    <ul class="space-y-2">
+                        <li><a href="consulting-services.html" class="text-gray-400 hover:text-white transition">AI Behavioral Analysis</a></li>
+                        <li><a href="consulting-services.html" class="text-gray-400 hover:text-white transition">Competitive Intelligence</a></li>
+                        <li><a href="consulting-services.html" class="text-gray-400 hover:text-white transition">Market Analysis</a></li>
+                        <li><a href="consulting-services.html" class="text-gray-400 hover:text-white transition">Strategic Insights</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4 text-white">Company</h3>
+                    <ul class="space-y-2">
+                        <li><a href="about-us.html" class="text-gray-400 hover:text-white transition">About Us</a></li>
+                        <li><a href="case-studies.html" class="text-gray-400 hover:text-white transition">Case Studies</a></li>
+                        <li><a href="pricing.html" class="text-gray-400 hover:text-white transition">Pricing</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white transition">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4 text-white">Connect</h3>
+                    <div class="flex space-x-4">
+                        <a href="mailto:stellar.logic.ai@gmail.com" class="text-gray-400 hover:text-white transition">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                        <a href="tel:+19137250718" class="text-gray-400 hover:text-white transition">
+                            <i class="fas fa-phone"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center">
+                <p class="text-gray-400">&copy; 2024 Stellar Logic AI. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.querySelector('.md\\:flex');
+            const button = document.querySelector('.md\\:hidden');
+            
+            if (menu && menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden');
+                menu.classList.add('flex');
+            } else if (menu) {
+                menu.classList.remove('flex');
+                menu.classList.add('hidden');
+            }
+        }
+    </script>
+</body>
+</html>
