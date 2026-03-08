@@ -192,3 +192,9 @@ temp/
 # Additional IDE and tool files
 .samurai/
 .testfox/
+
+# CRITICAL: Google Cloud Service Account Credentials
+*credentials.json
+*service-account.json
+stellar-logic-ai-credentials.json
+business/*credentials*.json
